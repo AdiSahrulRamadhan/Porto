@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth scroll-pt-[120px] motion-reduce:scroll-auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f4f8ff" />
+  <meta name="description" content="Experience — Adi Sahrul Ramadhan, Software Engineer" />
+  <title>Experience — Adi Sahrul Ramadhan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, .dark *));
+
+    @theme {
+      --font-sans: "Inter", Arial, sans-serif;
+      --color-page: #f4f8ff;
+      --color-ink: #121b2e;
+      --color-muted: #637188;
+      --color-accent: #00bdb6;
+      --color-line: #d9e5f5;
+    }
+
+    @layer base {
+      html { color-scheme: light; }
+      html.dark { color-scheme: dark; }
+      [hidden] { display: none !important; }
+
+      a, button, [tabindex] {
+        outline-offset: 5px;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      :focus-visible { outline: 2px solid var(--color-accent); }
+      svg { display: block; flex-shrink: 0; }
+      a[href], button:enabled, summary { cursor: pointer; }
+    }
+
+    /* Scroll Reveal Animation Styles (Replayable) */
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-item.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hover Move Animation for Experience Cards */
+    .experience-card {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 35px -10px rgba(0, 189, 182, 0.12), 0 10px 20px -5px rgba(30, 58, 100, 0.08);
+      border-color: #00bdb6;
+    }
+
+    /* Modal Animation Styles */
+    #detail-modal, #lightbox-modal {
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    #detail-modal[aria-hidden="true"], #lightbox-modal[aria-hidden="true"] {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    #detail-modal[aria-hidden="false"], #lightbox-modal[aria-hidden="false"] {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    #detail-modal .modal-content, #lightbox-modal .lightbox-content {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+      transform: scale(0.92) translateY(15px);
+      opacity: 0;
+    }
+
+    #detail-modal[aria-hidden="false"] .modal-content, #lightbox-modal[aria-hidden="false"] .lightbox-content {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+
+    #achievement-chevron {
+      transition: transform 260ms cubic-bezier(.2,.75,.2,1);
+    }
+
+    #achievement-menu[data-open="true"] #achievement-chevron {
+      transform: rotate(180deg);
+    }
+
+    .achievement-dropdown {
+      opacity: 0;
+      transform: translate3d(0,-8px,0) scale(.97);
+      pointer-events: none;
+      transform-origin: top left;
+      transition: opacity 200ms ease, transform 200ms cubic-bezier(.2,.75,.2,1);
+    }
+
+    #achievement-menu[data-open="true"] .achievement-dropdown {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      .reveal-item,
+      .experience-card,
+      #detail-modal,
+      #detail-modal .modal-content,
+      #lightbox-modal,
+      #lightbox-modal .lightbox-content,
+      #achievement-chevron,
+      .achievement-dropdown {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+      }
+    }
+  </style>
+
+  <script>
+    try {
+      const saved = localStorage.getItem("asr-theme");
+      document.documentElement.classList.toggle(
+        "dark",
+        saved === "dark" ||
+        (saved !== "light" && matchMedia("(prefers-color-scheme: dark)").matches)
+      );
+    } catch {
+      document.documentElement.classList.toggle(
+        "dark",
+        matchMedia("(prefers-color-scheme: dark)").matches
+      );
+    }
+  </script>
+</head>
+
+  <body class="relative m-0 bg-[radial-gradient(circle_at_top_left,_var(--color-accent),_transparent_60%),radial-gradient(circle_at_bottom_right,_var(--color-accent),_transparent_60%)] bg-white font-sans text-[#121b2e] antialiased dark:bg-[#101827] dark:text-[#eff5ff]" style="--color-accent: rgba(0, 189, 182, 0.3);">
+    <!-- BACKGROUND PATTERN (DIAGONAL ELEGANT LINES) -->
+    <div class="pointer-events-none fixed inset-0 z-0 bg-[repeating-linear-gradient(135deg,rgba(0,189,182,0.08)_0,rgba(0,189,182,0.08)_1px,transparent_1px,transparent_28px)] dark:bg-[repeating-linear-gradient(135deg,rgba(0,189,182,0.12)_0,rgba(0,189,182,0.12)_1px,transparent_1px,transparent_28px)]"></div>
+
+  <!-- NAVBAR -->
+  <header id="header" class="fixed inset-x-0 top-2.5 z-50 px-2.5 sm:px-4 lg:top-4 lg:px-6">
+    <nav
+      id="navbar"
+      aria-label="Main navigation"
+      data-scrolled="false"
+      class="
+        relative mx-auto flex min-h-[72px] max-w-[1360px]
+        items-center gap-[15px] rounded-[23px]
+        border border-transparent px-3 py-2.5
+        transition-[background-color,border-color,box-shadow] duration-300
+        lg:min-h-20 lg:px-[18px] xl:gap-7
+        hover:border-[#00bdb6]/70 hover:bg-gradient-to-r hover:from-[#00bdb6]/25 hover:via-[#f2fbfb]/90 hover:to-[#00bdb6]/25 hover:shadow-[0_10px_35px_rgba(0,189,182,0.22)] hover:backdrop-blur-xl
+        data-[scrolled=true]:border-[#00bdb6]/70
+        data-[scrolled=true]:bg-gradient-to-r data-[scrolled=true]:from-[#00bdb6]/25 data-[scrolled=true]:via-[#f2fbfb]/90 data-[scrolled=true]:to-[#00bdb6]/25
+        data-[scrolled=true]:shadow-[0_10px_35px_rgba(0,189,182,0.22)]
+        data-[scrolled=true]:backdrop-blur-xl
+        dark:hover:border-[#00bdb6]/70 dark:hover:bg-gradient-to-r dark:hover:from-[#00bdb6]/25 dark:hover:via-[#11222b]/95 dark:hover:to-[#00bdb6]/25 dark:hover:shadow-[0_0_40px_rgba(0,189,182,0.3)] dark:hover:backdrop-blur-xl
+        dark:data-[scrolled=true]:border-[#00bdb6]/70
+        dark:data-[scrolled=true]:bg-gradient-to-r dark:data-[scrolled=true]:from-[#00bdb6]/25 dark:data-[scrolled=true]:via-[#11222b]/95 dark:data-[scrolled=true]:to-[#00bdb6]/25
+        dark:data-[scrolled=true]:shadow-[0_0_40px_rgba(0,189,182,0.3)]
+        dark:data-[scrolled=true]:backdrop-blur-xl
+      "
+    >
+      <a href="index.html" class="group inline-flex shrink-0 items-center gap-[9px] sm:gap-[13px]">
+        <span class="grid h-[42px] w-[39px] place-items-center rounded-[14px] border border-[#a7efea] bg-white shadow-[0_8px_15px_rgba(0,191,183,.14)] transition-transform group-hover:-rotate-3 sm:size-12 sm:rounded-[17px] dark:border-[#00bdb6]/50 dark:bg-[#172837]">
+          <span class="bg-gradient-to-r from-[#10bdd7] via-[#e26683] to-[#f2b62b] bg-clip-text text-base font-extrabold tracking-[-1px] text-transparent">ASR</span>
+        </span>
+
+        <span class="grid gap-1">
+          <strong class="whitespace-nowrap text-[11px] font-semibold sm:text-sm lg:text-xs xl:text-sm">
+            Adi Sahrul Ramadhan
+          </strong>
+          <small class="text-[10px] text-muted sm:text-xs dark:text-[#a8b8cc]">Portfolio</small>
+        </span>
+      </a>
+
+      <div
+        id="navigation"
+        data-open="false"
+        class="
+          absolute inset-x-0 top-[calc(100%+10px)]
+          hidden flex-wrap items-center gap-[5px]
+          rounded-[20px] border border-line bg-[#f6fbff]/95 p-[15px]
+          shadow-lg backdrop-blur-xl data-[open=true]:flex
+          dark:border-[#2b3c54] dark:bg-[#121e30]/95
+          lg:static lg:flex lg:flex-1 lg:flex-nowrap lg:justify-center
+          lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0
+          lg:shadow-none lg:backdrop-blur-none dark:lg:bg-transparent
+          [&>a]:inline-flex [&>a]:items-center
+          [&>a]:whitespace-nowrap [&>a]:rounded-full
+          [&>a]:px-[14px] [&>a]:py-[11px] [&>a]:text-sm
+          [&>a]:transition-colors
+          lg:[&>a]:px-[9px] lg:[&>a]:text-xs
+          xl:[&>a]:px-[13px] xl:[&>a]:text-sm
+        "
+      >
+        <a href="index.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Home</a>
+        <a href="about.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">About</a>
+        <a href="experience.html" aria-current="page" class="bg-[#00bdb6]/20 font-bold text-[#008f8a] shadow-sm dark:bg-[#00bdb6]/30 dark:text-[#33d1cb]">Experience</a>
+        <a href="projects.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Projects</a>
+        <div id="achievement-menu" data-open="false" class="relative">
+          <button type="button" id="achievement-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="achievement-dropdown" class="flex items-center gap-2 rounded-full px-[14px] py-[11px] text-sm text-muted transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">
+            Achievements <svg id="achievement-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+          </button>
+          <div id="achievement-dropdown" role="menu" aria-hidden="true" class="achievement-dropdown absolute left-0 top-full z-20 mt-2 grid min-w-44 gap-1 rounded-2xl border border-line bg-white p-2 shadow-lg dark:border-[#34455d] dark:bg-[#172337]">
+            <a href="awards.html" role="menuitem" class="rounded-xl px-4 py-3 text-sm transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Awards</a>
+            <a href="certificates.html" role="menuitem" class="rounded-xl px-4 py-3 text-sm transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Certificates</a>
+          </div>
+        </div>
+        <a href="blog.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Blog</a>
+        <a href="skills.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Skills</a>
+        <a href="contact.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Contact</a>
+      </div>
+
+      <div class="ml-auto flex items-center gap-1.5 sm:gap-[9px]">
+        <button
+          id="menu-button"
+          type="button"
+          aria-label="Open menu"
+          aria-controls="navigation"
+          aria-expanded="false"
+          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] sm:size-[45px] lg:hidden dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+
+        <button
+          id="theme-button"
+          type="button"
+          aria-label="Switch to dark mode"
+          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-all hover:rotate-12 hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] active:scale-95 sm:size-[45px] dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+            <path d="M21 13A9 9 0 0 1 11 3a9 9 0 1 0 10 10Z"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- EXPERIENCE TIMELINE SECTION -->
+    <section class="pb-20 pt-[120px] sm:pt-[135px] lg:pt-[150px]">
+      <div class="mx-auto w-[calc(100%-36px)] max-w-[1320px] sm:w-[calc(100%-64px)]">
+
+        <span class="reveal-item inline-flex rounded-full border border-line bg-white/65 px-4 py-1 text-[11px] font-semibold tracking-[2px] text-[#556987] dark:border-[#2b3c54] dark:bg-[#19273c]/80 dark:text-[#a8b8cc]">
+          EXPERIENCE
+        </span>
+
+        <h1 class="reveal-item mt-6 text-[32px] font-bold tracking-[-1.2px] text-[#121b2e] sm:text-[42px] lg:text-[46px] dark:text-[#eff5ff]">
+          Professional journey across full-stack and community roles.
+        </h1>
+
+        <p class="reveal-item mt-4 text-[15px] leading-relaxed text-[#637188] sm:text-base dark:text-[#a8b8cc]">
+          A timeline of my professional work experience, technical leadership, and engineering achievements across different organizations.
+        </p>
+
+        <!-- TIMELINE CONTAINER -->
+        <div class="relative mt-12 space-y-8 pl-6 sm:pl-8 before:absolute before:bottom-3 before:left-2.5 before:top-3 before:w-[2px] before:bg-[#d9e5f5] dark:before:bg-[#2b3c54]">
+
+          <!-- CARD 1 -->
+          <div class="reveal-item relative">
+            <span class="absolute -left-5 top-7 size-3.5 rounded-full border-2 border-white bg-[#00bdb6] shadow-sm sm:-left-7 dark:border-[#101827]"></span>
+            
+            <div class="experience-card rounded-[24px] border border-[#e2ebf6] bg-white/90 p-6 shadow-[0_15px_30px_-10px_rgba(30,58,100,0.04)] sm:p-8 dark:border-[#2b3c54] dark:bg-[#172337]/90">
+              <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-2xl border border-[#e2ebf6] flex items-center justify-center p-2.5 shrink-0 bg-white dark:bg-[#1e2d42] dark:border-[#2b3c54]">
+                    <svg class="w-full h-full text-[#00bdb6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                  </div>
+                  <div>
+                    <h2 class="text-lg font-bold text-[#121b2e] sm:text-xl dark:text-[#eff5ff]">Full Stack Web Developer</h2>
+                    <p class="mt-0.5 text-xs text-[#637188] sm:text-sm dark:text-[#a8b8cc]">PT AKSAMEDIA MULIA DIGITAL</p>
+                  </div>
+                </div>
+                <span class="self-start px-3.5 py-1 rounded-full border border-[#e2ebf6] text-xs font-medium text-[#637188] bg-[#f8fbff] shrink-0 dark:border-[#2b3c54] dark:bg-[#1e2d42] dark:text-[#a8b8cc]">Feb 2025 - Jun 2025</span>
+              </div>
+
+              <p class="mt-4 text-xs leading-relaxed text-[#637188] sm:text-sm dark:text-[#a8b8cc]">Developed and maintained scalable web applications and admin dashboards for multiple client projects.</p>
+
+              <ul class="mt-3.5 space-y-2 text-xs sm:text-sm text-[#445369] dark:text-[#cbd7e6]">
+                <li class="flex items-start gap-2.5"><span class="w-2 h-2 rounded-full bg-[#00bdb6] mt-1.5 shrink-0"></span><span>Improved web application performance by 30% while increasing scalability and user satisfaction</span></li>
+                <li class="flex items-start gap-2.5"><span class="w-2 h-2 rounded-full bg-[#00bdb6] mt-1.5 shrink-0"></span><span>Built and refined admin dashboards that increased data accessibility and control efficiency by 30%</span></li>
+                <li class="flex items-start gap-2.5"><span class="w-2 h-2 rounded-full bg-[#00bdb6] mt-1.5 shrink-0"></span><span>Delivered more than five client projects through close collaboration with designers and stakeholders</span></li>
+              </ul>
+
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#e2ebf6] text-[11px] font-medium text-[#556987] bg-white dark:bg-[#1e2d42] dark:border-[#2b3c54] dark:text-[#a8b8cc]">Laravel</span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#e2ebf6] text-[11px] font-medium text-[#556987] bg-white dark:bg-[#1e2d42] dark:border-[#2b3c54] dark:text-[#a8b8cc]">Problem Solving</span>
+              </div>
+
+              <div class="mt-4">
+                <button type="button" class="btn-view-details inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#00bdb6] hover:underline cursor-pointer"
+                  data-company="PT AKSAMEDIA MULIA DIGITAL" data-role="Full Stack Web Developer" data-desc="Developed and maintained scalable web applications and admin dashboards for multiple client projects."
+                  data-bullets='["Improved web application performance by 30%","Built admin dashboards increasing efficiency by 30%","Delivered 5+ client projects"]'
+                  data-date="Feb 2025 - Jun 2025" data-skills='[{"name": "Laravel", "icon": "code"},{"name": "Problem Solving", "icon": "sun"}]'
+                  data-images='["https://picsum.photos/1200/800?random=10","https://picsum.photos/1200/800?random=11"]'>
+                  View details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+
+              <div class="mt-4 grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+                <div class="btn-direct-zoom cursor-pointer overflow-hidden rounded-xl border border-[#e2ebf6] aspect-[4/3] bg-gray-100 dark:border-[#2b3c54]" data-images='["https://picsum.photos/1200/800?random=10","https://picsum.photos/1200/800?random=11"]' data-index="0">
+                  <img src="https://picsum.photos/1200/800?random=10" alt="Work Preview" class="w-full h-full object-cover hover:scale-105 transition-transform duration-200" />
+                </div>
+                <div class="btn-direct-zoom cursor-pointer overflow-hidden rounded-xl border border-[#e2ebf6] aspect-[4/3] bg-gray-100 dark:border-[#2b3c54]" data-images='["https://picsum.photos/1200/800?random=10","https://picsum.photos/1200/800?random=11"]' data-index="1">
+                  <img src="https://picsum.photos/1200/800?random=11" alt="Work Preview" class="w-full h-full object-cover hover:scale-105 transition-transform duration-200" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 2 -->
+          <div class="reveal-item relative">
+            <span class="absolute -left-5 top-7 size-3.5 rounded-full border-2 border-white bg-[#00bdb6] shadow-sm sm:-left-7 dark:border-[#101827]"></span>
+            
+            <div class="experience-card rounded-[24px] border border-[#e2ebf6] bg-white/90 p-6 shadow-[0_15px_30px_-10px_rgba(30,58,100,0.04)] sm:p-8 dark:border-[#2b3c54] dark:bg-[#172337]/90">
+              <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-2xl border border-[#e2ebf6] flex items-center justify-center p-2.5 shrink-0 bg-white dark:bg-[#1e2d42] dark:border-[#2b3c54]">
+                    <svg class="w-full h-full text-[#00bdb6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+                  </div>
+                  <div>
+                    <h2 class="text-lg font-bold text-[#121b2e] sm:text-xl dark:text-[#eff5ff]">Head of Developer Team</h2>
+                    <p class="mt-0.5 text-xs text-[#637188] sm:text-sm dark:text-[#a8b8cc]">Google Developer Student Clubs</p>
+                  </div>
+                </div>
+                <span class="self-start px-3.5 py-1 rounded-full border border-[#e2ebf6] text-xs font-medium text-[#637188] bg-[#f8fbff] shrink-0 dark:border-[#2b3c54] dark:bg-[#1e2d42] dark:text-[#a8b8cc]">Oct 2023 - Jul 2024</span>
+              </div>
+
+              <p class="mt-4 text-xs leading-relaxed text-[#637188] sm:text-sm dark:text-[#a8b8cc]">Led a team of software developers and engineers to build community products and web apps.</p>
+
+              <ul class="mt-3.5 space-y-2 text-xs sm:text-sm text-[#445369] dark:text-[#cbd7e6]">
+                <li class="flex items-start gap-2.5"><span class="w-2 h-2 rounded-full bg-[#00bdb6] mt-1.5 shrink-0"></span><span>Led developers to build community products and web apps</span></li>
+                <li class="flex items-start gap-2.5"><span class="w-2 h-2 rounded-full bg-[#00bdb6] mt-1.5 shrink-0"></span><span>Organized technical workshops, code reviews, and mentorship sessions</span></li>
+              </ul>
+
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#e2ebf6] text-[11px] font-medium text-[#556987] bg-white dark:bg-[#1e2d42] dark:border-[#2b3c54] dark:text-[#a8b8cc]">Leadership</span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#e2ebf6] text-[11px] font-medium text-[#556987] bg-white dark:bg-[#1e2d42] dark:border-[#2b3c54] dark:text-[#a8b8cc]">Project Management</span>
+              </div>
+
+              <div class="mt-4">
+                <button type="button" class="btn-view-details inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#00bdb6] hover:underline cursor-pointer"
+                  data-company="GOOGLE DEVELOPER STUDENT CLUBS" data-role="Head of Developer Team" data-desc="Led technical teams and facilitated community engineering projects."
+                  data-bullets='["Led developers for community apps","Organized technical workshops and reviews"]'
+                  data-date="Oct 2023 - Jul 2024" data-skills='[{"name": "Leadership", "icon": "users"}]'
+                  data-images='["https://picsum.photos/1200/800?random=21","https://picsum.photos/1200/800?random=22"]'>
+                  View details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+              <div class="mt-4 grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+                <div class="btn-direct-zoom cursor-pointer overflow-hidden rounded-xl border border-[#e2ebf6] aspect-[4/3] bg-gray-100 dark:border-[#2b3c54]" data-images='["https://picsum.photos/1200/800?random=21","https://picsum.photos/1200/800?random=22"]' data-index="0">
+                  <img src="https://picsum.photos/1200/800?random=21" alt="Work Preview" class="w-full h-full object-cover hover:scale-105 transition-transform duration-200" />
+                </div>
+                <div class="btn-direct-zoom cursor-pointer overflow-hidden rounded-xl border border-[#e2ebf6] aspect-[4/3] bg-gray-100 dark:border-[#2b3c54]" data-images='["https://picsum.photos/1200/800?random=21","https://picsum.photos/1200/800?random=22"]' data-index="1">
+                  <img src="https://picsum.photos/1200/800?random=22" alt="Work Preview" class="w-full h-full object-cover hover:scale-105 transition-transform duration-200" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 3 -->
+          <div class="reveal-item relative">
+            <span class="absolute -left-5 top-7 size-3.5 rounded-full border-2 border-white bg-[#00bdb6] shadow-sm sm:-left-7 dark:border-[#101827]"></span>
+            
+            <div class="experience-card rounded-[24px] border border-[#e2ebf6] bg-white/90 p-6 shadow-[0_15px_30px_-10px_rgba(30,58,100,0.04)] sm:p-8 dark:border-[#2b3c54] dark:bg-[#172337]/90">
+              <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-2xl border border-[#e2ebf6] flex items-center justify-center p-2.5 shrink-0 bg-white dark:bg-[#1e2d42] dark:border-[#2b3c54]">
+                    <svg class="w-full h-full text-[#00bdb6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                  </div>
+                  <div>
+                    <h2 class="text-lg font-bold text-[#121b2e] sm:text-xl dark:text-[#eff5ff]">Frontend Engineer Intern</h2>
+                    <p class="mt-0.5 text-xs text-[#637188] sm:text-sm dark:text-[#a8b8cc]">TECHINDO STUDIO</p>
+                  </div>
+                </div>
+                <span class="self-start px-3.5 py-1 rounded-full border border-[#e2ebf6] text-xs font-medium text-[#637188] bg-[#f8fbff] shrink-0 dark:border-[#2b3c54] dark:bg-[#1e2d42] dark:text-[#a8b8cc]">Jan 2023 - Jun 2023</span>
+              </div>
+
+              <p class="mt-4 text-xs leading-relaxed text-[#637188] sm:text-sm dark:text-[#a8b8cc]">Sliced modern Figma UI/UX designs into responsive React.js and Tailwind CSS components.</p>
+
+              <ul class="mt-3.5 space-y-2 text-xs sm:text-sm text-[#445369] dark:text-[#cbd7e6]">
+                <li class="flex items-start gap-2.5"><span class="w-2 h-2 rounded-full bg-[#00bdb6] mt-1.5 shrink-0"></span><span>Converted Figma designs into pixel-perfect frontend layouts</span></li>
+                <li class="flex items-start gap-2.5"><span class="w-2 h-2 rounded-full bg-[#00bdb6] mt-1.5 shrink-0"></span><span>Optimized mobile responsiveness and overall frontend web performance</span></li>
+              </ul>
+
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#e2ebf6] text-[11px] font-medium text-[#556987] bg-white dark:bg-[#1e2d42] dark:border-[#2b3c54] dark:text-[#a8b8cc]">React.js</span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#e2ebf6] text-[11px] font-medium text-[#556987] bg-white dark:bg-[#1e2d42] dark:border-[#2b3c54] dark:text-[#a8b8cc]">Tailwind CSS</span>
+              </div>
+
+              <div class="mt-4">
+                <button type="button" class="btn-view-details inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#00bdb6] hover:underline cursor-pointer"
+                  data-company="TECHINDO STUDIO" data-role="Frontend Engineer Intern" data-desc="Sliced modern Figma UI/UX designs into responsive React.js components."
+                  data-bullets='["Converted Figma designs to React","Optimized mobile layout responsiveness"]'
+                  data-date="Jan 2023 - Jun 2023" data-skills='[{"name": "React.js", "icon": "code"}]'
+                  data-images='["https://picsum.photos/1200/800?random=31"]'>
+                  View details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+              <div class="mt-4 grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+                <div class="btn-direct-zoom cursor-pointer overflow-hidden rounded-xl border border-[#e2ebf6] aspect-[4/3] bg-gray-100 dark:border-[#2b3c54]" data-images='["https://picsum.photos/1200/800?random=31"]' data-index="0">
+                  <img src="https://picsum.photos/1200/800?random=31" alt="Work Preview" class="w-full h-full object-cover hover:scale-105 transition-transform duration-200" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 4 -->
+          <div class="reveal-item relative">
+            <span class="absolute -left-5 top-7 size-3.5 rounded-full border-2 border-white bg-[#00bdb6] shadow-sm sm:-left-7 dark:border-[#101827]"></span>
+            
+            <div class="experience-card rounded-[24px] border border-[#e2ebf6] bg-white/90 p-6 shadow-[0_15px_30px_-10px_rgba(30,58,100,0.04)] sm:p-8 dark:border-[#2b3c54] dark:bg-[#172337]/90">
+              <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-2xl border border-[#e2ebf6] flex items-center justify-center p-2.5 shrink-0 bg-white dark:bg-[#1e2d42] dark:border-[#2b3c54]">
+                    <svg class="w-full h-full text-[#00bdb6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1zM4 22v-7"/></svg>
+                  </div>
+                  <div>
+                    <h2 class="text-lg font-bold text-[#121b2e] sm:text-xl dark:text-[#eff5ff]">Freelance Web Developer</h2>
+                    <p class="mt-0.5 text-xs text-[#637188] sm:text-sm dark:text-[#a8b8cc]">SELF-EMPLOYED</p>
+                  </div>
+                </div>
+                <span class="self-start px-3.5 py-1 rounded-full border border-[#e2ebf6] text-xs font-medium text-[#637188] bg-[#f8fbff] shrink-0 dark:border-[#2b3c54] dark:bg-[#1e2d42] dark:text-[#a8b8cc]">Aug 2022 - Present</span>
+              </div>
+
+              <p class="mt-4 text-xs leading-relaxed text-[#637188] sm:text-sm dark:text-[#a8b8cc]">Delivered custom website solutions, landing pages, and web apps for SME clients.</p>
+
+              <ul class="mt-3.5 space-y-2 text-xs sm:text-sm text-[#445369] dark:text-[#cbd7e6]">
+                <li class="flex items-start gap-2.5"><span class="w-2 h-2 rounded-full bg-[#00bdb6] mt-1.5 shrink-0"></span><span>Designed and developed tailored websites for various local businesses</span></li>
+                <li class="flex items-start gap-2.5"><span class="w-2 h-2 rounded-full bg-[#00bdb6] mt-1.5 shrink-0"></span><span>Managed end-to-end client communications, deployment, and hosting setup</span></li>
+              </ul>
+
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#e2ebf6] text-[11px] font-medium text-[#556987] bg-white dark:bg-[#1e2d42] dark:border-[#2b3c54] dark:text-[#a8b8cc]">PHP / MySQL</span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#e2ebf6] text-[11px] font-medium text-[#556987] bg-white dark:bg-[#1e2d42] dark:border-[#2b3c54] dark:text-[#a8b8cc]">WordPress</span>
+              </div>
+
+              <div class="mt-4">
+                <button type="button" class="btn-view-details inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#00bdb6] hover:underline cursor-pointer"
+                  data-company="SELF-EMPLOYED" data-role="Freelance Web Developer" data-desc="Delivered custom website solutions and landing pages."
+                  data-bullets='["Designed websites for SMEs","Managed end-to-end deployment"]'
+                  data-date="Aug 2022 - Present" data-skills='[{"name": "PHP", "icon": "code"}]'
+                  data-images='["https://picsum.photos/1200/800?random=41"]'>
+                  View details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+              <div class="mt-4 grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+                <div class="btn-direct-zoom cursor-pointer overflow-hidden rounded-xl border border-[#e2ebf6] aspect-[4/3] bg-gray-100 dark:border-[#2b3c54]" data-images='["https://picsum.photos/1200/800?random=41"]' data-index="0">
+                  <img src="https://picsum.photos/1200/800?random=41" alt="Work Preview" class="w-full h-full object-cover hover:scale-105 transition-transform duration-200" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 5 -->
+          <div class="reveal-item relative">
+            <span class="absolute -left-5 top-7 size-3.5 rounded-full border-2 border-white bg-[#00bdb6] shadow-sm sm:-left-7 dark:border-[#101827]"></span>
+            
+            <div class="experience-card rounded-[24px] border border-[#e2ebf6] bg-white/90 p-6 shadow-[0_15px_30px_-10px_rgba(30,58,100,0.04)] sm:p-8 dark:border-[#2b3c54] dark:bg-[#172337]/90">
+              <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-2xl border border-[#e2ebf6] flex items-center justify-center p-2.5 shrink-0 bg-white dark:bg-[#1e2d42] dark:border-[#2b3c54]">
+                    <svg class="w-full h-full text-[#00bdb6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+                  </div>
+                  <div>
+                    <h2 class="text-lg font-bold text-[#121b2e] sm:text-xl dark:text-[#eff5ff]">Teaching Assistant - Web Programming</h2>
+                    <p class="mt-0.5 text-xs text-[#637188] sm:text-sm dark:text-[#a8b8cc]">UNIVERSITY FACULTY OF IT</p>
+                  </div>
+                </div>
+                <span class="self-start px-3.5 py-1 rounded-full border border-[#e2ebf6] text-xs font-medium text-[#637188] bg-[#f8fbff] shrink-0 dark:border-[#2b3c54] dark:bg-[#1e2d42] dark:text-[#a8b8cc]">Feb 2022 - Jan 2023</span>
+              </div>
+
+              <p class="mt-4 text-xs leading-relaxed text-[#637188] sm:text-sm dark:text-[#a8b8cc]">Assisted university lecturers in teaching core web development concepts and grading lab projects.</p>
+
+              <ul class="mt-3.5 space-y-2 text-xs sm:text-sm text-[#445369] dark:text-[#cbd7e6]">
+                <li class="flex items-start gap-2.5"><span class="w-2 h-2 rounded-full bg-[#00bdb6] mt-1.5 shrink-0"></span><span>Guided 80+ students through practical HTML, CSS, JavaScript, and PHP labs</span></li>
+                <li class="flex items-start gap-2.5"><span class="w-2 h-2 rounded-full bg-[#00bdb6] mt-1.5 shrink-0"></span><span>Evaluated code assignments and provided constructiveness on web security basics</span></li>
+              </ul>
+
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#e2ebf6] text-[11px] font-medium text-[#556987] bg-white dark:bg-[#1e2d42] dark:border-[#2b3c54] dark:text-[#a8b8cc]">Mentorship</span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#e2ebf6] text-[11px] font-medium text-[#556987] bg-white dark:bg-[#1e2d42] dark:border-[#2b3c54] dark:text-[#a8b8cc]">Public Speaking</span>
+              </div>
+
+              <div class="mt-4">
+                <button type="button" class="btn-view-details inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#00bdb6] hover:underline cursor-pointer"
+                  data-company="UNIVERSITY FACULTY OF IT" data-role="Teaching Assistant" data-desc="Guided students through practical web development labs."
+                  data-bullets='["Guided 80+ students in practical labs","Evaluated code assignments"]'
+                  data-date="Feb 2022 - Jan 2023" data-skills='[{"name": "Mentorship", "icon": "users"}]'
+                  data-images='["https://picsum.photos/1200/800?random=51"]'>
+                  View details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+              <div class="mt-4 grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+                <div class="btn-direct-zoom cursor-pointer overflow-hidden rounded-xl border border-[#e2ebf6] aspect-[4/3] bg-gray-100 dark:border-[#2b3c54]" data-images='["https://picsum.photos/1200/800?random=51"]' data-index="0">
+                  <img src="https://picsum.photos/1200/800?random=51" alt="Work Preview" class="w-full h-full object-cover hover:scale-105 transition-transform duration-200" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 6 -->
+          <div class="reveal-item relative">
+            <span class="absolute -left-5 top-7 size-3.5 rounded-full border-2 border-white bg-[#00bdb6] shadow-sm sm:-left-7 dark:border-[#101827]"></span>
+            
+            <div class="experience-card rounded-[24px] border border-[#e2ebf6] bg-white/90 p-6 shadow-[0_15px_30px_-10px_rgba(30,58,100,0.04)] sm:p-8 dark:border-[#2b3c54] dark:bg-[#172337]/90">
+              <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-2xl border border-[#e2ebf6] flex items-center justify-center p-2.5 shrink-0 bg-white dark:bg-[#1e2d42] dark:border-[#2b3c54]">
+                    <svg class="w-full h-full text-[#00bdb6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                  </div>
+                  <div>
+                    <h2 class="text-lg font-bold text-[#121b2e] sm:text-xl dark:text-[#eff5ff]">Open Source Contributor</h2>
+                    <p class="mt-0.5 text-xs text-[#637188] sm:text-sm dark:text-[#a8b8cc]">COMMUNITY INITIATIVES</p>
+                  </div>
+                </div>
+                <span class="self-start px-3.5 py-1 rounded-full border border-[#e2ebf6] text-xs font-medium text-[#637188] bg-[#f8fbff] shrink-0 dark:border-[#2b3c54] dark:bg-[#1e2d42] dark:text-[#a8b8cc]">Jan 2022 - Present</span>
+              </div>
+
+              <p class="mt-4 text-xs leading-relaxed text-[#637188] sm:text-sm dark:text-[#a8b8cc]">Actively contributing bug fixes and UI component enhancements to open source repositories.</p>
+
+              <ul class="mt-3.5 space-y-2 text-xs sm:text-sm text-[#445369] dark:text-[#cbd7e6]">
+                <li class="flex items-start gap-2.5"><span class="w-2 h-2 rounded-full bg-[#00bdb6] mt-1.5 shrink-0"></span><span>Submitted pull requests for developer tools and documentation improvements</span></li>
+                <li class="flex items-start gap-2.5"><span class="w-2 h-2 rounded-full bg-[#00bdb6] mt-1.5 shrink-0"></span><span>Engaged in community discussions on GitHub to resolve open issues</span></li>
+              </ul>
+
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#e2ebf6] text-[11px] font-medium text-[#556987] bg-white dark:bg-[#1e2d42] dark:border-[#2b3c54] dark:text-[#a8b8cc]">Git / GitHub</span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#e2ebf6] text-[11px] font-medium text-[#556987] bg-white dark:bg-[#1e2d42] dark:border-[#2b3c54] dark:text-[#a8b8cc]">Open Source</span>
+              </div>
+
+              <div class="mt-4">
+                <button type="button" class="btn-view-details inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#00bdb6] hover:underline cursor-pointer"
+                  data-company="COMMUNITY INITIATIVES" data-role="Open Source Contributor" data-desc="Contributed bug fixes and UI improvements to repositories."
+                  data-bullets='["Submitted PRs for dev tools","Engaged in community issue resolution"]'
+                  data-date="Jan 2022 - Present" data-skills='[{"name": "Git", "icon": "code"}]'
+                  data-images='["https://picsum.photos/1200/800?random=61"]'>
+                  View details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+              <div class="mt-4 grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+                <div class="btn-direct-zoom cursor-pointer overflow-hidden rounded-xl border border-[#e2ebf6] aspect-[4/3] bg-gray-100 dark:border-[#2b3c54]" data-images='["https://picsum.photos/1200/800?random=61"]' data-index="0">
+                  <img src="https://picsum.photos/1200/800?random=61" alt="Work Preview" class="w-full h-full object-cover hover:scale-105 transition-transform duration-200" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CARD 7 -->
+          <div class="reveal-item relative">
+            <span class="absolute -left-5 top-7 size-3.5 rounded-full border-2 border-white bg-[#00bdb6] shadow-sm sm:-left-7 dark:border-[#101827]"></span>
+            
+            <div class="experience-card rounded-[24px] border border-[#e2ebf6] bg-white/90 p-6 shadow-[0_15px_30px_-10px_rgba(30,58,100,0.04)] sm:p-8 dark:border-[#2b3c54] dark:bg-[#172337]/90">
+              <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                <div class="flex items-center gap-4">
+                  <div class="w-12 h-12 rounded-2xl border border-[#e2ebf6] flex items-center justify-center p-2.5 shrink-0 bg-white dark:bg-[#1e2d42] dark:border-[#2b3c54]">
+                    <svg class="w-full h-full text-[#00bdb6]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                  </div>
+                  <div>
+                    <h2 class="text-lg font-bold text-[#121b2e] sm:text-xl dark:text-[#eff5ff]">UI/UX & Web Dev Student Lead</h2>
+                    <p class="mt-0.5 text-xs text-[#637188] sm:text-sm dark:text-[#a8b8cc]">STUDENT IT CLUB</p>
+                  </div>
+                </div>
+                <span class="self-start px-3.5 py-1 rounded-full border border-[#e2ebf6] text-xs font-medium text-[#637188] bg-[#f8fbff] shrink-0 dark:border-[#2b3c54] dark:bg-[#1e2d42] dark:text-[#a8b8cc]">Sep 2021 - Aug 2022</span>
+              </div>
+
+              <p class="mt-4 text-xs leading-relaxed text-[#637188] sm:text-sm dark:text-[#a8b8cc]">Spearheaded student coding bootcamp initiatives and UI design fundamentals workshops.</p>
+
+              <ul class="mt-3.5 space-y-2 text-xs sm:text-sm text-[#445369] dark:text-[#cbd7e6]">
+                <li class="flex items-start gap-2.5"><span class="w-2 h-2 rounded-full bg-[#00bdb6] mt-1.5 shrink-0"></span><span>Managed internal campus hackathons and design challenges</span></li>
+                <li class="flex items-start gap-2.5"><span class="w-2 h-2 rounded-full bg-[#00bdb6] mt-1.5 shrink-0"></span><span>Coached junior students on modern frontend design frameworks</span></li>
+              </ul>
+
+              <div class="mt-4 flex flex-wrap gap-2">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#e2ebf6] text-[11px] font-medium text-[#556987] bg-white dark:bg-[#1e2d42] dark:border-[#2b3c54] dark:text-[#a8b8cc]">Figma</span>
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-[#e2ebf6] text-[11px] font-medium text-[#556987] bg-white dark:bg-[#1e2d42] dark:border-[#2b3c54] dark:text-[#a8b8cc]">UI/UX Design</span>
+              </div>
+
+              <div class="mt-4">
+                <button type="button" class="btn-view-details inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-[#00bdb6] hover:underline cursor-pointer"
+                  data-company="STUDENT IT CLUB" data-role="UI/UX & Web Dev Student Lead" data-desc="Spearheaded student coding bootcamps and workshops."
+                  data-bullets='["Managed internal campus hackathons","Coached students on frontend frameworks"]'
+                  data-date="Sep 2021 - Aug 2022" data-skills='[{"name": "Figma", "icon": "sun"}]'
+                  data-images='["https://picsum.photos/1200/800?random=71"]'>
+                  View details <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </button>
+              </div>
+              <div class="mt-4 grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+                <div class="btn-direct-zoom cursor-pointer overflow-hidden rounded-xl border border-[#e2ebf6] aspect-[4/3] bg-gray-100 dark:border-[#2b3c54]" data-images='["https://picsum.photos/1200/800?random=71"]' data-index="0">
+                  <img src="https://picsum.photos/1200/800?random=71" alt="Work Preview" class="w-full h-full object-cover hover:scale-105 transition-transform duration-200" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CALL TO ACTION BANNER -->
+        <div class="reveal-item mt-16 rounded-[28px] border border-[#e2ebf6] bg-white/90 p-8 text-center shadow-[0_20px_40px_-15px_rgba(30,58,100,0.05)] sm:p-10 dark:border-[#2b3c54] dark:bg-[#172337]/90">
+          <h3 class="text-xl font-bold text-[#121b2e] sm:text-2xl dark:text-[#eff5ff]">
+            Looking for someone to improve product delivery speed?
+          </h3>
+          <p class="mx-auto mt-3 max-w-[600px] text-xs text-[#637188] sm:text-sm dark:text-[#a8b8cc]">
+            Feel free to reach out — I am open to freelance projects and full-time engineering opportunities.
+          </p>
+          <div class="mt-6">
+            <a href="contact.html" class="inline-flex items-center justify-center rounded-full bg-[#00bdb6] px-7 py-3 text-sm font-semibold text-white shadow-[0_10px_20px_rgba(0,189,182,0.25)] transition-all hover:bg-[#00a8a2] hover:shadow-[0_12px_24px_rgba(0,189,182,0.35)] active:scale-95">
+              Work with me
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL VIEW DETAILS -->
+  <div
+    id="detail-modal"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm"
+  >
+    <div class="modal-content relative w-full max-w-[840px] max-h-[90vh] overflow-y-auto rounded-[28px] border border-line/60 bg-white p-6 sm:p-8 shadow-2xl dark:border-[#2b3c54] dark:bg-[#152033]">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <span id="modal-company" class="text-[11px] font-bold tracking-wider text-[#00bdb6] uppercase"></span>
+          <h2 id="modal-role" class="mt-1 text-xl font-extrabold text-[#121b2e] sm:text-2xl dark:text-[#eff5ff]"></h2>
+        </div>
+        <button type="button" id="modal-close" aria-label="Close modal" class="grid size-9 place-items-center rounded-full border border-line bg-gray-100 text-gray-500 transition-colors hover:bg-gray-200 hover:text-gray-800 dark:border-[#2b3c54] dark:bg-[#1e2d42] dark:text-[#a8b8cc]">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <div id="slider-wrapper" class="group relative mt-6 overflow-hidden rounded-[20px] border border-line bg-[#f8fbff] p-3 dark:border-[#2b3c54] dark:bg-[#0e1626]">
+        <div class="relative flex min-h-[260px] sm:min-h-[380px] w-full items-center justify-center overflow-hidden rounded-[14px]">
+          <div class="relative cursor-zoom-in" id="modal-img-clickable" title="Klik untuk perbesar gambar">
+            <img id="modal-main-img" src="" alt="Preview" class="max-h-[420px] w-auto object-contain rounded-lg shadow-md transition-opacity duration-300" />
+            <div class="absolute inset-0 flex items-center justify-center bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg pointer-events-none">
+              <span class="inline-flex items-center gap-1.5 rounded-full bg-black/70 px-3 py-1.5 text-xs text-white backdrop-blur-md">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v6M8 11h6"/></svg>
+                Klik untuk Zoom
+              </span>
+            </div>
+          </div>
+          <button type="button" id="modal-prev-btn" aria-label="Previous Image" class="absolute left-3 top-1/2 -translate-y-1/2 grid size-10 place-items-center rounded-full bg-white/80 text-gray-800 shadow-md backdrop-blur-md hover:bg-white hover:scale-105 active:scale-95 dark:bg-black/60 dark:text-white">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button type="button" id="modal-next-btn" aria-label="Next Image" class="absolute right-3 top-1/2 -translate-y-1/2 grid size-10 place-items-center rounded-full bg-white/80 text-gray-800 shadow-md backdrop-blur-md hover:bg-white hover:scale-105 active:scale-95 dark:bg-black/60 dark:text-white">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+        <div class="absolute bottom-6 right-6 rounded-full bg-white/80 px-3 py-1 text-xs font-semibold text-gray-700 shadow backdrop-blur-md dark:bg-black/60 dark:text-gray-200">
+          <span id="modal-counter">1/1</span>
+        </div>
+      </div>
+
+      <div id="modal-thumbnails" class="mt-4 flex gap-3 overflow-x-auto pb-2 scrollbar-none"></div>
+
+      <div class="mt-6 space-y-3">
+        <p id="modal-desc" class="text-xs sm:text-sm text-[#445369] leading-relaxed dark:text-[#cbd7e6]"></p>
+        <ul id="modal-bullets" class="space-y-2 text-xs sm:text-sm text-[#445369] dark:text-[#cbd7e6]"></ul>
+      </div>
+
+      <div id="modal-skills" class="mt-6 flex flex-wrap gap-2.5"></div>
+
+      <div class="mt-4 flex flex-wrap items-center gap-3 pt-1">
+        <span id="modal-date" class="inline-flex items-center rounded-full bg-[#f0f4f8] px-3.5 py-1.5 text-xs font-medium text-[#556987] dark:bg-[#1e2d42] dark:text-[#a8b8cc]"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX / ZOOM FULLSCREEN POP-UP MODAL -->
+  <div
+    id="lightbox-modal"
+    aria-hidden="true"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="lightbox-title"
+    class="fixed inset-0 z-[60] flex items-center justify-center p-2 sm:p-3 bg-black/70 backdrop-blur-sm"
+  >
+    <div class="lightbox-content relative flex w-full max-w-[1440px] max-h-[96dvh] flex-col overflow-hidden rounded-[24px] border border-line bg-white shadow-2xl dark:border-[#2b3c54] dark:bg-[#172337]">
+      <div class="flex shrink-0 items-start justify-between gap-4 border-b border-line px-5 py-4 sm:px-6 dark:border-[#2b3c54]">
+        <div class="min-w-0">
+          <p id="lightbox-company" class="text-[11px] font-semibold uppercase tracking-wider text-[#00bdb6]"></p>
+          <h2 id="lightbox-title" class="mt-1 text-base font-bold text-[#121b2e] sm:text-xl dark:text-[#eff5ff]">Experience</h2>
+        </div>
+        <button type="button" id="lightbox-close" aria-label="Close image viewer" class="grid size-10 shrink-0 place-items-center rounded-xl border border-line bg-[#f4f8ff] text-[#637188] transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:border-[#34455d] dark:bg-[#1e2d42] dark:text-[#a8b8cc]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="min-h-0 overflow-y-auto p-2 sm:p-3">
+        <div class="flex items-center justify-center overflow-hidden rounded-2xl border border-line bg-[#f4f8ff] dark:border-[#2b3c54] dark:bg-[#101827]">
+          <img id="lightbox-img" src="" alt="Experience preview" class="block h-[calc(96dvh-180px)] w-full object-contain transition-opacity duration-300" />
+        </div>
+      </div>
+      <div class="flex shrink-0 items-center justify-between gap-4 border-t border-line px-5 py-3 sm:px-6 dark:border-[#2b3c54]">
+        <button type="button" id="lightbox-prev-btn" aria-label="Previous Image" class="grid size-10 place-items-center rounded-xl border border-line text-[#637188] transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:border-[#34455d] dark:text-[#a8b8cc]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <span id="lightbox-counter" class="text-xs font-semibold text-[#637188] dark:text-[#a8b8cc]">1/1</span>
+        <button type="button" id="lightbox-next-btn" aria-label="Next Image" class="grid size-10 place-items-center rounded-xl border border-line text-[#637188] transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:border-[#34455d] dark:text-[#a8b8cc]">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-line/70 py-12 sm:py-16 dark:border-[#2b3c54]">
+    <div class="mx-auto w-[calc(100%-36px)] max-w-[1320px] sm:w-[calc(100%-64px)]">
+      <div class="grid gap-10 md:grid-cols-[1.8fr_.75fr_1fr]">
+        <div>
+          <a href="index.html" class="text-xl font-medium tracking-[-.5px]">Adi Sahrul Ramadhan</a>
+          <p class="mt-5 max-w-[530px] text-sm leading-relaxed text-muted dark:text-[#a8b8cc]">Full Stack Web Developer focused on delivering scalable products with clean architecture and measurable impact.</p>
+          <div id="footer-socials" class="mt-5 flex gap-2.5"></div>
+        </div>
+
+        <div>
+          <h3 class="text-[10px] tracking-[2px] text-muted dark:text-[#a8b8cc]">EXPLORE</h3>
+          <div class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 text-xs text-muted dark:text-[#a8b8cc] [&>a:hover]:text-accent">
+            <a href="index.html">Home</a>
+            <a href="certificates.html">Certificates</a>
+            <a href="about.html">About</a>
+            <span aria-disabled="true">Blog</span>
+            <a href="experience.html">Experience</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="awards.html">Awards</a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-[10px] tracking-[2px] text-muted dark:text-[#a8b8cc]">CONTACT</h3>
+          <p class="mt-4 text-xs leading-relaxed text-muted dark:text-[#a8b8cc]">Open to freelance and full-time collaboration.</p>
+          <a id="footer-email" href="contact.html" class="mt-3 inline-block break-all text-xs text-muted hover:text-accent dark:text-[#a8b8cc]">Connect through my social profiles</a>
+        </div>
+      </div>
+
+      <p class="mt-16 text-[11px] text-muted dark:text-[#a8b8cc]">
+        © <span id="year"></span> Adi Sahrul Ramadhan. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      "use strict";
+
+      // 1. REPLAYABLE SCROLL REVEAL ANIMATION (BOLAK-BALIK)
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+          } else {
+            entry.target.classList.remove("is-visible");
+          }
+        });
+      }, {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+      });
+
+      document.querySelectorAll(".reveal-item").forEach((el) => observer.observe(el));
+
+      // 2. MODAL & LIGHTBOX SYSTEM
+      const modal = document.getElementById("detail-modal");
+      const modalClose = document.getElementById("modal-close");
+      const modalCompany = document.getElementById("modal-company");
+      const modalRole = document.getElementById("modal-role");
+      const modalDesc = document.getElementById("modal-desc");
+      const modalBullets = document.getElementById("modal-bullets");
+      const modalSkills = document.getElementById("modal-skills");
+      const modalDate = document.getElementById("modal-date");
+      const modalMainImg = document.getElementById("modal-main-img");
+      const modalCounter = document.getElementById("modal-counter");
+      const modalThumbnails = document.getElementById("modal-thumbnails");
+      const prevBtn = document.getElementById("modal-prev-btn");
+      const nextBtn = document.getElementById("modal-next-btn");
+      const sliderWrapper = document.getElementById("slider-wrapper");
+
+      const lightbox = document.getElementById("lightbox-modal");
+      const lightboxClose = document.getElementById("lightbox-close");
+      const lightboxTitle = document.getElementById("lightbox-title");
+      const lightboxCompany = document.getElementById("lightbox-company");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxCounter = document.getElementById("lightbox-counter");
+      const lightboxPrevBtn = document.getElementById("lightbox-prev-btn");
+      const lightboxNextBtn = document.getElementById("lightbox-next-btn");
+      const imgClickable = document.getElementById("modal-img-clickable");
+
+      let currentImages = [];
+      let activeImageIndex = 0;
+      let autoplayTimer = null;
+
+      const SKILL_ICONS = {
+        code: '<path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/>',
+        sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2"/>',
+        users: '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>'
+      };
+
+      function updateActiveImage(index) {
+        if (!currentImages.length) return;
+        activeImageIndex = (index + currentImages.length) % currentImages.length;
+
+        modalMainImg.style.opacity = "0.3";
+        setTimeout(() => {
+          modalMainImg.src = currentImages[activeImageIndex];
+          modalMainImg.style.opacity = "1";
+        }, 150);
+
+        modalCounter.textContent = `${activeImageIndex + 1}/${currentImages.length}`;
+
+        if (lightbox.getAttribute("aria-hidden") === "false") {
+          lightboxImg.style.opacity = "0.3";
+          setTimeout(() => {
+            lightboxImg.src = currentImages[activeImageIndex];
+            lightboxImg.style.opacity = "1";
+          }, 150);
+          lightboxCounter.textContent = `${activeImageIndex + 1}/${currentImages.length}`;
+        }
+
+        const thumbs = modalThumbnails.querySelectorAll("button");
+        thumbs.forEach((tb, idx) => {
+          if (idx === activeImageIndex) {
+            tb.className = "h-16 w-24 shrink-0 overflow-hidden rounded-xl border-2 border-[#00bdb6] shadow-sm";
+            tb.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+          } else {
+            tb.className = "h-16 w-24 shrink-0 overflow-hidden rounded-xl border border-line opacity-60 transition-opacity hover:opacity-100 dark:border-[#34455d]";
+          }
+        });
+      }
+
+      function nextImage() { updateActiveImage(activeImageIndex + 1); }
+      function prevImage() { updateActiveImage(activeImageIndex - 1); }
+
+      function startAutoplay() {
+        stopAutoplay();
+        if (currentImages.length > 1 && lightbox.getAttribute("aria-hidden") === "true") {
+          autoplayTimer = setInterval(nextImage, 3200);
+        }
+      }
+
+      function stopAutoplay() {
+        if (autoplayTimer) {
+          clearInterval(autoplayTimer);
+          autoplayTimer = null;
+        }
+      }
+
+      nextBtn.addEventListener("click", () => { nextImage(); startAutoplay(); });
+      prevBtn.addEventListener("click", () => { prevImage(); startAutoplay(); });
+
+      sliderWrapper.addEventListener("mouseenter", stopAutoplay);
+      sliderWrapper.addEventListener("mouseleave", startAutoplay);
+
+      lightboxNextBtn.addEventListener("click", () => nextImage());
+      lightboxPrevBtn.addEventListener("click", () => prevImage());
+
+      imgClickable.addEventListener("click", () => {
+        openDirectZoom(currentImages, activeImageIndex, modalRole.textContent, modalCompany.textContent);
+      });
+
+      function openDirectZoom(imagesList, index = 0, role = "Experience", company = "") {
+        lightboxTitle.textContent = role;
+        lightboxCompany.textContent = company;
+        lightboxImg.alt = role + " — " + company;
+        stopAutoplay();
+        currentImages = imagesList;
+        activeImageIndex = index;
+        lightboxImg.src = currentImages[activeImageIndex];
+        lightboxCounter.textContent = `${activeImageIndex + 1}/${currentImages.length}`;
+        lightbox.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        lightbox.setAttribute("aria-hidden", "true");
+        if (modal.getAttribute("aria-hidden") === "true") {
+          document.body.style.overflow = "";
+        } else {
+          startAutoplay();
+        }
+      }
+
+      lightboxClose.addEventListener("click", closeLightbox);
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+
+      document.querySelectorAll(".btn-direct-zoom").forEach((el) => {
+        el.addEventListener("click", () => {
+          const images = JSON.parse(el.getAttribute("data-images") || "[]");
+          const idx = parseInt(el.getAttribute("data-index") || "0", 10);
+          const card = el.closest(".experience-card");
+          const details = card.querySelector(".btn-view-details");
+          const role = card.querySelector("h2").textContent.trim();
+          openDirectZoom(images, idx, role, details.getAttribute("data-company") || "");
+        });
+      });
+
+      let touchStartX = 0;
+      const handleTouchStart = (e) => { touchStartX = e.changedTouches[0].screenX; };
+      const handleTouchEnd = (e) => {
+        const touchEndX = e.changedTouches[0].screenX;
+        if (touchStartX - touchEndX > 40) { nextImage(); startAutoplay(); }
+        else if (touchEndX - touchStartX > 40) { prevImage(); startAutoplay(); }
+      };
+
+      sliderWrapper.addEventListener("touchstart", handleTouchStart, { passive: true });
+      sliderWrapper.addEventListener("touchend", handleTouchEnd, { passive: true });
+      lightbox.addEventListener("touchstart", handleTouchStart, { passive: true });
+      lightbox.addEventListener("touchend", handleTouchEnd, { passive: true });
+
+      function openModal(btn) {
+        const company = btn.getAttribute("data-company") || "";
+        const role = btn.getAttribute("data-role") || "";
+        const desc = btn.getAttribute("data-desc") || "";
+        const date = btn.getAttribute("data-date") || "";
+        const bullets = JSON.parse(btn.getAttribute("data-bullets") || "[]");
+        const skills = JSON.parse(btn.getAttribute("data-skills") || "[]");
+        currentImages = JSON.parse(btn.getAttribute("data-images") || "[]");
+
+        modalCompany.textContent = company;
+        modalRole.textContent = role;
+        modalDesc.textContent = desc;
+        modalDate.textContent = date;
+
+        modalBullets.innerHTML = bullets.map(b => `
+          <li class="flex items-start gap-2.5">
+            <span class="mt-1.5 size-2 shrink-0 rounded-full bg-[#00bdb6]"></span>
+            <span>${b}</span>
+          </li>
+        `).join("");
+
+        modalSkills.innerHTML = skills.map(s => `
+          <span class="inline-flex items-center gap-1.5 rounded-full bg-[#f0f4f8] px-3.5 py-1.5 text-xs font-medium text-[#556987] dark:bg-[#1e2d42] dark:text-[#cbd7e6]">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              ${SKILL_ICONS[s.icon] || SKILL_ICONS.code}
+            </svg>
+            ${s.name}
+          </span>
+        `).join("");
+
+        modalThumbnails.innerHTML = currentImages.map((imgUrl, idx) => `
+          <button type="button" class="thumb-btn" data-index="${idx}">
+            <img src="${imgUrl}" alt="Thumbnail ${idx + 1}" class="h-full w-full object-cover" />
+          </button>
+        `).join("");
+
+        modalThumbnails.querySelectorAll(".thumb-btn").forEach((thumbBtn) => {
+          thumbBtn.addEventListener("click", () => {
+            const idx = parseInt(thumbBtn.getAttribute("data-index"), 10);
+            updateActiveImage(idx);
+            startAutoplay();
+          });
+        });
+
+        if (currentImages.length > 0) {
+          updateActiveImage(0);
+          startAutoplay();
+        }
+
+        modal.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal() {
+        stopAutoplay();
+        closeLightbox();
+        modal.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+      }
+
+      document.querySelectorAll(".btn-view-details").forEach((btn) => {
+        btn.addEventListener("click", () => openModal(btn));
+      });
+
+      modalClose.addEventListener("click", closeModal);
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      // 3. NAVBAR & THEME ENGINE
+      const DATA = {
+        linkedin: "https://linkedin.com/in/adi-sahrul-ramadhan-8966a1286",
+        github: "https://github.com/AdiSahrulRamadhan",
+        instagram: "https://www.instagram.com/adishrlramadhannn_?stkn=MXEyeGs4cmoydGd0dA%3D%3D&utm_source=qr",
+        youtube: "https://www.youtube.com/@-AdiSahrulRamadhan",
+        email: "adisahrul383@gmail.com"
+      };
+      const SOCIALS = [["linkedin", "LinkedIn"], ["github", "GitHub"], ["instagram", "Instagram"], ["youtube", "YouTube"], ["email", "Email"]];
+
+      const ICONS = {
+        linkedin: '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7m4 0v-7m0 3c0-4 6-4 6 0v4"/><circle cx="7" cy="7" r=".8" fill="currentColor" stroke="none"/>',
+        github: '<path d="M9 19c-4 1-4-2-6-2m12 5v-4c0-1-.4-1.7-1-2 3-.4 6-1.5 6-6a5 5 0 0 0-1.4-3.5A5 5 0 0 0 18.5 3S17 2.5 14.8 4a11 11 0 0 0-5.6 0C7 2.5 5.5 3 5.5 3a5 5 0 0 0-.1 3.5A5 5 0 0 0 4 10c0 4.5 3 5.6 6 6-.6.3-1 1-1 2v4"/>',
+        instagram: '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>',
+        youtube: '<rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 6 3-6 3Z"/>',
+        email: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>',
+        moon: '<path d="M21 13A9 9 0 0 1 11 3a9 9 0 1 0 10 10Z"/>',
+        sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5M17.5 6.5 19 5"/>'
+      };
+
+      function esc(value) { return String(value).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]); }
+
+      function icon(name, size = 22) {
+        return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[name] || ""}</svg>`;
+      }
+
+      function socialHref(key) {
+        const value = DATA[key]?.trim();
+        if (!value) return "";
+        if (key === "email") return `mailto:${value}`;
+        return /^https?:\/\//i.test(value) ? value : "";
+      }
+
+      function socialAttrs(key) {
+        const href = socialHref(key);
+        return href ? `href="${esc(href)}" ${key !== "email" ? 'target="_blank" rel="noopener noreferrer"' : ""}` : 'aria-disabled="true"';
+      }
+
+      document.getElementById("footer-socials").innerHTML = SOCIALS.map(([key, name]) => `
+        <a ${socialAttrs(key)} aria-label="${name}" class="grid size-9 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:border-[#34455d] dark:bg-[#1c2b42]">
+          ${icon(key, 16)}
+        </a>
+      `).join("");
+
+      if (DATA.email.trim()) {
+        const href = socialHref("email");
+        const footerEmail = document.getElementById("footer-email");
+        footerEmail.href = href;
+        footerEmail.textContent = DATA.email.trim();
+      }
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      const header = document.getElementById("header");
+      const navbar = document.getElementById("navbar");
+      const navigation = document.getElementById("navigation");
+      const menuButton = document.getElementById("menu-button");
+      const achievementMenu = document.getElementById("achievement-menu");
+      const achievementTrigger = document.getElementById("achievement-trigger");
+      const achievementDropdown = document.getElementById("achievement-dropdown");
+
+      function updateNavbarBackground() { navbar.dataset.scrolled = String(window.scrollY > 24); }
+      addEventListener("scroll", updateNavbarBackground, { passive: true });
+      updateNavbarBackground();
+
+      function setAchievementMenu(open) {
+        achievementMenu.dataset.open = String(open);
+        achievementTrigger.setAttribute("aria-expanded", String(open));
+        achievementDropdown.setAttribute("aria-hidden", String(!open));
+        achievementDropdown.toggleAttribute("inert", !open);
+      }
+
+      function setMenu(open) {
+        navigation.dataset.open = String(open);
+        menuButton.setAttribute("aria-expanded", String(open));
+        menuButton.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+        if (!open) setAchievementMenu(false);
+      }
+
+      menuButton.addEventListener("click", () => { setMenu(navigation.dataset.open !== "true"); });
+      navigation.querySelectorAll("a").forEach(link => { link.addEventListener("click", () => setMenu(false)); });
+      achievementTrigger.addEventListener("click", () => { setAchievementMenu(achievementMenu.dataset.open !== "true"); });
+
+      document.addEventListener("click", event => {
+        if (!header.contains(event.target)) setMenu(false);
+        if (!achievementMenu.contains(event.target)) setAchievementMenu(false);
+      });
+
+      if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        let achievementCloseTimer = null;
+
+        achievementMenu.addEventListener("mouseenter", () => {
+          clearTimeout(achievementCloseTimer);
+          setAchievementMenu(true);
+        });
+
+        achievementMenu.addEventListener("mouseleave", () => {
+          achievementCloseTimer = setTimeout(() => {
+            setAchievementMenu(false);
+          }, 150);
+        });
+      }
+
+      document.addEventListener("keydown", event => {
+        const isModalOpen = modal.getAttribute("aria-hidden") === "false";
+        const isLightboxOpen = lightbox.getAttribute("aria-hidden") === "false";
+
+        if (event.key === "ArrowLeft" && (isModalOpen || isLightboxOpen)) { prevImage(); startAutoplay(); }
+        if (event.key === "ArrowRight" && (isModalOpen || isLightboxOpen)) { nextImage(); startAutoplay(); }
+
+        if (event.key !== "Escape") return;
+
+        if (isLightboxOpen) { closeLightbox(); return; }
+        if (isModalOpen) { closeModal(); return; }
+        if (achievementMenu.dataset.open === "true") { setAchievementMenu(false); achievementTrigger.focus(); }
+        if (navigation.dataset.open === "true") { setMenu(false); menuButton.focus(); }
+      });
+
+      matchMedia("(min-width:1024px)").addEventListener("change", event => {
+        if (event.matches) setMenu(false);
+      });
+
+      const themeButton = document.getElementById("theme-button");
+      const systemTheme = matchMedia("(prefers-color-scheme:dark)");
+      let selectedTheme = null;
+
+      try { selectedTheme = localStorage.getItem("asr-theme"); } catch {}
+
+      function applyTheme(dark) {
+        document.documentElement.classList.toggle("dark", dark);
+        themeButton.innerHTML = icon(dark ? "sun" : "moon");
+        themeButton.setAttribute("aria-pressed", String(dark));
+        themeButton.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+      }
+
+      applyTheme(document.documentElement.classList.contains("dark"));
+
+      themeButton.addEventListener("click", () => {
+        const dark = !document.documentElement.classList.contains("dark");
+        selectedTheme = dark ? "dark" : "light";
+        applyTheme(dark);
+        try { localStorage.setItem("asr-theme", selectedTheme); } catch {}
+      });
+
+      systemTheme.addEventListener("change", event => {
+        if (selectedTheme !== "dark" && selectedTheme !== "light") {
+          applyTheme(event.matches);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

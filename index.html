@@ -1,0 +1,3336 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth scroll-pt-[120px] motion-reduce:scroll-auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f4f8ff" />
+  <meta name="description" content="Adi Sahrul Ramadhan — Software Engineer Portfolio" />
+
+  <title>Adi Sahrul Ramadhan — Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, .dark *));
+
+    @theme {
+      --font-sans: "Inter", Arial, sans-serif;
+      --color-page: #f4f8ff;
+      --color-ink: #121b2e;
+      --color-muted: #637188;
+      --color-accent: #00bdb6;
+      --color-line: #d9e5f5;
+      --color-nav-light: rgba(240, 243, 248, 0.8);
+      --color-nav-dark: rgba(23, 35, 55, 0.9);
+    }
+
+    @layer base {
+      html {
+        color-scheme: light;
+      }
+
+      html.dark {
+        color-scheme: dark;
+      }
+
+      [hidden] {
+        display: none !important;
+      }
+
+      a,
+      button,
+      [tabindex] {
+        outline-offset: 5px;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--color-accent);
+      }
+
+      svg {
+        display: block;
+        flex-shrink: 0;
+      }
+
+      a[href],
+      button:enabled,
+      summary {
+        cursor: pointer;
+      }
+    }
+
+    @keyframes marquee {
+      to {
+        transform: translate3d(-50%, 0, 0);
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .type-cursor {
+      animation: blink 1s steps(1) infinite;
+    }
+
+    .tech-track {
+      animation: marquee 105s linear infinite;
+    }
+
+    .tech-strip:hover .tech-track,
+    .tech-strip:focus-within .tech-track {
+      animation-play-state: paused;
+    }
+
+    .tech-mask {
+      -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        #000 35px,
+        #000 calc(100% - 35px),
+        transparent
+      );
+
+      mask-image: linear-gradient(
+        to right,
+        transparent,
+        #000 35px,
+        #000 calc(100% - 35px),
+        transparent
+      );
+    }
+
+    .certificate-scroller {
+      scrollbar-width: none;
+    }
+
+    .certificate-scroller::-webkit-scrollbar {
+      display: none;
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translate3d(0, 35px, 0);
+      transition:
+        opacity 800ms ease,
+        transform 800ms cubic-bezier(.2, .75, .2, 1);
+    }
+
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    dialog::backdrop {
+      background: rgba(10, 22, 40, .6);
+      backdrop-filter: blur(7px);
+    }
+
+    #achievement-chevron {
+      transition: transform 260ms cubic-bezier(.2, .75, .2, 1);
+    }
+
+    #achievement-menu[data-open="true"] #achievement-chevron {
+      transform: rotate(180deg);
+    }
+
+    .achievement-dropdown {
+      opacity: 0;
+      transform: translate3d(0, -8px, 0) scale(.97);
+      pointer-events: none;
+      transform-origin: top left;
+
+      transition:
+        opacity 200ms ease,
+        transform 200ms cubic-bezier(.2, .75, .2, 1);
+    }
+
+    #achievement-menu[data-open="true"] .achievement-dropdown {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #achievement-chevron,
+      .achievement-dropdown {
+        transition: none;
+      }
+
+      .type-cursor {
+        animation: none;
+      }
+
+      .tech-track {
+        animation: none;
+        width: 100%;
+        will-change: auto;
+      }
+
+      .tech-group {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 15px;
+      }
+
+      .tech-group[aria-hidden="true"] {
+        display: none;
+      }
+
+      .tech-mask {
+        mask-image: none;
+        -webkit-mask-image: none;
+      }
+
+      .scroll-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+  </style>
+
+  <script>
+    try {
+      const saved = localStorage.getItem("asr-theme");
+
+      document.documentElement.classList.toggle(
+        "dark",
+        saved === "dark" ||
+        (
+          saved !== "light" &&
+          matchMedia("(prefers-color-scheme: dark)").matches
+        )
+      );
+    } catch {
+      document.documentElement.classList.toggle(
+        "dark",
+        matchMedia("(prefers-color-scheme: dark)").matches
+      );
+    }
+  </script>
+</head>
+
+<body
+  class="relative m-0 bg-[radial-gradient(circle_at_top_left,_var(--page-glow),_transparent_60%),radial-gradient(circle_at_bottom_right,_var(--page-glow),_transparent_60%)] bg-white font-sans text-ink antialiased dark:bg-[#101827] dark:text-[#eff5ff]"
+  style="--page-glow: rgba(0, 189, 182, 0.3);"
+>
+  <!-- BACKGROUND PATTERN -->
+  <div
+    class="pointer-events-none fixed inset-0 z-0 bg-[repeating-linear-gradient(135deg,rgba(0,189,182,0.08)_0,rgba(0,189,182,0.08)_1px,transparent_1px,transparent_28px)] dark:bg-[repeating-linear-gradient(135deg,rgba(0,189,182,0.12)_0,rgba(0,189,182,0.12)_1px,transparent_1px,transparent_28px)]"
+  ></div>
+
+  <div id="app"></div>
+
+  <noscript>
+    Please enable JavaScript to display this portfolio.
+  </noscript>
+
+  <script>
+    (() => {
+      "use strict";
+
+      // =====================================================
+      // DATA
+      // =====================================================
+
+      const DATA = {
+        name: "Adi Sahrul Ramadhan",
+        initials: "ASR",
+        photo: "assets/profile.png",
+        cv: "assets/Adi-Sahrul-Ramadhan-CV.pdf",
+
+        linkedin: "https://linkedin.com/in/adi-sahrul-ramadhan-8966a1286",
+        github: "https://github.com/AdiSahrulRamadhan",
+        instagram: "https://www.instagram.com/adishrlramadhannn_?stkn=MXEyeGs4cmoydGd0dA%3D%3D&utm_source=qr",
+        youtube: "https://www.youtube.com/@-AdiSahrulRamadhan",
+        email: "adisahrul383@gmail.com",
+
+        certificateInterval: 4500,
+
+        bio: "Passionate Software Engineer skilled in Laravel, TailwindCSS, React.js, Next.js, Vue.js, and Express.js. Specializes in building scalable, high-performance web applications that drive business efficiency. Experienced across various industries, focusing on improving operational performance and user satisfaction. Actively contributes to developer communities, promoting knowledge sharing and innovation.",
+
+        stats: [
+          ["YEARS OF EXPERIENCE", 2],
+          ["PROJECTS COMPLETED", 10],
+          ["CERTIFICATIONS", 50],
+          ["AWARDS", 5]
+        ],
+
+        principles: [
+          [
+            "FOCUS",
+            "Scalable web applications with Laravel, React.js, and Next.js."
+          ],
+          [
+            "STYLE",
+            "Clean code, strong testing habits, and practical design implementation."
+          ],
+          [
+            "COLLABORATION",
+            "Experienced working across product, engineering, and community learning teams."
+          ]
+        ],
+
+        projects: [
+          {
+            id: "nexapos",
+            title: "NexaPOS",
+            category: "FULL-STACK DEVELOPMENT",
+            image: "assets/projects/nexapos.png",
+            preview: "pos",
+
+            description: "A responsive Point of Sales application designed to manage product discovery, inventory-aware shopping carts, and digital checkout workflows.",
+
+            highlights: [
+              "Implemented responsive cashier workflows across desktop and mobile interfaces.",
+              "Improved transactional reliability through stock validation, error recovery, and duplicate checkout prevention.",
+              "Established automated unit, component, and end-to-end testing for critical application workflows."
+            ],
+
+            tags: [
+              ["Vue.js", "vuedotjs"],
+              ["Application Programming Interfaces (API)", "fastapi"]
+            ],
+
+            role: "Full-Stack Developer",
+            period: "Jul 2026 - Jul 2026",
+            status: "Completed",
+            liveUrl: ""
+          },
+          {
+            id: "thesis-search",
+            title: "Thesis Search Engine",
+            category: "ARTIFICIAL INTELLIGENCE",
+            image: "assets/projects/thesis-search.png",
+            preview: "search",
+
+            description: "A web application for searching academic thesis documents using lexical, semantic, and hybrid retrieval methods.",
+
+            highlights: [
+              "Integrated five retrieval methods into a unified search system.",
+              "Implemented fallback mechanisms for missing fine-tuned model artifacts.",
+              "Optimized AI resource usage for stable VPS deployment."
+            ],
+
+            tags: [
+              ["Python", "python"],
+              ["Artificial Intelligence", ""],
+              ["TailwindCSS", "tailwindcss"]
+            ],
+
+            role: "Full-Stack Developer",
+            period: "Apr 2026 - May 2026",
+            status: "Completed",
+            liveUrl: ""
+          },
+          {
+            id: "hospital-maintenance",
+            title: "Hospital Maintenance System",
+            category: "FULL-STACK DEVELOPMENT",
+            image: "assets/projects/hospital-maintenance.png",
+            preview: "hospital",
+
+            description: "A web-based hospital maintenance management system to track equipment and manage work orders.",
+
+            highlights: [
+              "Improved maintenance efficiency by 40% through structured work order and equipment tracking flows.",
+              "Reduced response time for equipment issues by 35% with centralized monitoring."
+            ],
+
+            tags: [
+              ["Laravel", "laravel"],
+              ["TailwindCSS", "tailwindcss"],
+              ["MySQL", "mysql"]
+            ],
+
+            role: "Full-Stack Developer",
+            period: "Feb 2026 - Mar 2026",
+            status: "Completed",
+            liveUrl: ""
+          }
+        ],
+
+        certificates: [
+          {
+            id: "aws-backend",
+            issuer: "AMAZON WEB SERVICES (AWS)",
+            title: "Back-End Developer (Intermediate Level) AWS Back-End Academy 2025",
+            image: "assets/certificates/aws-backend.png",
+            issued: "Nov 2025",
+            credential: "",
+            verifyUrl: "",
+
+            tags: [
+              ["Node.js", "nodedotjs"],
+              ["JavaScript", "javascript"],
+              ["Amazon Web Services (AWS)", ""]
+            ],
+
+            description: "Learning focused on backend development, API implementation, and cloud-based application delivery."
+          },
+          {
+            id: "javascript",
+            issuer: "DICODING",
+            title: "Belajar Dasar Pemrograman JavaScript",
+            image: "assets/certificates/javascript.png",
+            issued: "",
+            credential: "",
+            verifyUrl: "",
+
+            tags: [
+              ["JavaScript", "javascript"],
+              ["Programming", ""]
+            ],
+
+            description: "Learning focused on JavaScript fundamentals, functions, data structures, and asynchronous programming."
+          },
+          {
+            id: "frontend",
+            issuer: "PROFESSIONAL LEARNING",
+            title: "Front-End Web Development",
+            image: "assets/certificates/frontend.png",
+            issued: "",
+            credential: "",
+            verifyUrl: "",
+
+            tags: [
+              ["HTML5", "html5"],
+              ["CSS", "css"],
+              ["JavaScript", "javascript"]
+            ],
+
+            description: "Learning focused on responsive interfaces, semantic HTML, styling, and interactive web experiences."
+          }
+        ],
+
+        skills: [
+          {
+            name: "Laravel",
+            slug: "laravel",
+            category: "Backend Development",
+            level: "Expert"
+          },
+          {
+            name: "Next.js",
+            slug: "nextdotjs",
+            category: "Frontend Development",
+            level: "Expert"
+          },
+          {
+            name: "React.js",
+            slug: "react",
+            category: "Frontend Development",
+            level: "Expert"
+          },
+          {
+            name: "Vue.js",
+            slug: "vuedotjs",
+            category: "Frontend Development",
+            level: "Expert"
+          },
+          {
+            name: "TailwindCSS",
+            slug: "tailwindcss",
+            category: "Frontend Development",
+            level: "Expert"
+          },
+          {
+            name: "Git",
+            slug: "git",
+            category: "Cloud Computing & DevOps",
+            level: "Expert"
+          },
+          {
+            name: "Problem Solving",
+            icon: "bulb",
+            category: "Soft Skills",
+            level: "Expert"
+          },
+          {
+            name: "Teamwork",
+            icon: "users",
+            category: "Soft Skills",
+            level: "Expert"
+          }
+        ],
+
+        experiences: [
+          {
+            id: "sevima",
+            title: "Software Engineer",
+            company: "PT Sentra Vidya Utama (SEVIMA)",
+            location: "Surabaya, East Java, Indonesia",
+            period: "Aug 2026 - Present",
+            logo: "assets/companies/sevima.png",
+            initials: "S",
+            expanded: false,
+
+            description: "Contributing to the development and maintenance of web applications, collaborating with product and engineering teams.",
+
+            highlights: [
+              "Developed and maintained application features.",
+              "Collaborated on testing, code review, and product improvements."
+            ],
+
+            tags: [
+              ["Software Engineering", ""],
+              ["Web Development", ""]
+            ],
+
+            gallery: []
+          },
+          {
+            id: "surabaya-developer",
+            title: "Head of Developer Team",
+            company: "Surabaya Developer",
+            location: "Surabaya, East Java, Indonesia · Hybrid",
+            period: "Jan 2026 - Present",
+            logo: "assets/companies/surabaya-developer.png",
+            initials: "SD",
+            expanded: true,
+
+            description: "Leading developer team initiatives, technical outreach, and platform rebuilding projects to strengthen community impact and product delivery.",
+
+            highlights: [
+              "Led developer team initiatives that increased member participation in internal and external speaking opportunities by 25%.",
+              "Served as a speaker at the SurabayaDev x DANA webinar on building an AI-powered quiz platform with Gemini, increasing technical outreach by 20%.",
+              "Managed rebuilding the Surabaya Developer website with event ticketing and merchandise pre-order systems, improving delivery efficiency by 30%.",
+              "Coordinated internal skill-upgrading programs that reduced reliance on third-party solutions by 30%."
+            ],
+
+            tags: [
+              ["Agile Principles", ""],
+              ["Leadership", ""],
+              ["Communication", ""],
+              ["Cross-Functional Collaboration", ""]
+            ],
+
+            gallery: [
+              "assets/experience/community-1.png",
+              "assets/experience/community-2.png",
+              "assets/experience/community-3.png",
+              "assets/experience/community-4.png"
+            ]
+          }
+        ],
+
+        awards: [
+          {
+            id: "outstanding-student",
+            title: "Outstanding Student Award at Engineering Festival Award 2025",
+            issuer: "Faculty of Engineering, University of Trunojoyo Madura",
+            date: "Nov 2025",
+            image: "assets/awards/outstanding-student.png",
+
+            description: "Received the Outstanding Student Award as an individual recipient in recognition of exceptional achievements in academics, research, and community activities.",
+
+            details: [
+              "Recognition for academic and extracurricular achievements.",
+              "Contributions to research, innovation, and community engagement."
+            ]
+          },
+          {
+            id: "nisif",
+            title: "Gold Medal of National Science and Invention Fair (NISIF) 2024",
+            issuer: "Indonesian Young Scientist Association (IYSA)",
+            date: "Nov 2024",
+            image: "assets/awards/nisif.png",
+
+            description: "Served as the leader of a five-member team and secured a Gold Medal at the National Science and Invention Fair 2024, showcasing innovative problem-solving and collaborative research.",
+
+            details: [
+              "Led a multidisciplinary team through research and project development.",
+              "Presented the solution and its potential impact to the competition jury."
+            ]
+          },
+          {
+            id: "isif",
+            title: "Gold Medal of International Science and Invention Fair (ISIF) 2024",
+            issuer: "Indonesian Young Scientist Association (IYSA)",
+            date: "Nov 2024",
+            image: "assets/awards/isif.png",
+
+            description: "Served as the leader of a five-member team and secured a Gold Medal at the International Science and Invention Fair 2024, demonstrating leadership, innovation, and teamwork.",
+
+            details: [
+              "Coordinated the development and presentation of an innovative project.",
+              "Collaborated on research, experimentation, and competition preparation."
+            ]
+          }
+        ]
+      };
+
+      const TECH = [
+        ["Laravel", "laravel", "LARA"],
+        ["Node.js", "nodedotjs", "NODE"],
+        ["Express", "express", "EX"],
+        ["FastAPI", "fastapi", "API"],
+        ["NestJS", "nestjs", "NEST"],
+        ["PostgreSQL", "postgresql", "PG"],
+        ["MySQL", "mysql", "SQL"],
+        ["SQLite", "sqlite", "LITE"],
+        ["Prisma", "prisma", "PR"],
+        ["Next.js", "nextdotjs", "NEXT"],
+        ["React", "react", "RE"],
+        ["Vue.js", "vuedotjs", "VUE"],
+        ["Tailwind CSS", "tailwindcss", "TW"],
+        ["Bootstrap", "bootstrap", "BS"],
+        ["TypeScript", "typescript", "TS"],
+        ["HTML5", "html5", "HTML"],
+        ["CSS", "css", "CSS"],
+        ["JavaScript", "javascript", "JS"],
+        ["Python", "python", "PY"],
+        ["PHP", "php", "PHP"],
+        ["Go", "go", "GO"],
+        ["Rust", "rust", "RS"],
+        ["Kotlin", "kotlin", "KT"],
+        ["Dart", "dart", "DT"],
+        ["Flutter", "flutter", "FL"],
+        ["Angular", "angular", "NG"],
+        ["Svelte", "svelte", "SV"],
+        ["Nuxt", "nuxt", "NUXT"],
+        ["Astro", "astro", "AST"],
+        ["Sass", "sass", "SASS"],
+        ["Django", "django", "DJ"],
+        ["Flask", "flask", "FLK"],
+        ["Spring Boot", "springboot", "SPR"],
+        ["MongoDB", "mongodb", "MDB"],
+        ["Redis", "redis", "RED"],
+        ["Supabase", "supabase", "SUP"],
+        ["Firebase", "firebase", "FB"],
+        ["GraphQL", "graphql", "GQL"],
+        ["Docker", "docker", "DK"],
+        ["Kubernetes", "kubernetes", "K8S"],
+        ["Git", "git", "GIT"],
+        ["GitHub", "github", "GH"],
+        ["GitLab", "gitlab", "GL"],
+        ["Linux", "linux", "LX"],
+        ["NGINX", "nginx", "NGX"],
+        ["Vite", "vite", "VITE"],
+        ["Webpack", "webpack", "WP"],
+        ["npm", "npm", "NPM"],
+        ["Bun", "bun", "BUN"],
+        ["Jest", "jest", "JEST"],
+        ["Vitest", "vitest", "VT"],
+        ["Cypress", "cypress", "CY"],
+        ["Figma", "figma", "FIG"],
+        ["Postman", "postman", "POST"],
+        ["Vercel", "vercel", "VER"],
+        ["Cloudflare", "cloudflare", "CF"]
+      ];
+
+      const SOCIALS = [
+        [
+          "linkedin",
+          "LinkedIn",
+          "Professional profile",
+          "text-[#009bd6] bg-[#e4f5ff]"
+        ],
+        [
+          "github",
+          "GitHub",
+          "Code and open-source projects",
+          "text-[#64748b] bg-[#e8edf4]"
+        ],
+        [
+          "instagram",
+          "Instagram",
+          "Updates and activities",
+          "text-[#f03f77] bg-[#ffe6ef]"
+        ],
+        [
+          "youtube",
+          "YouTube",
+          "Videos and technical content",
+          "text-[#f03f68] bg-[#ffe6ec]"
+        ],
+        [
+          "email",
+          "Email",
+          "Get in touch",
+          "text-[#f04b65] bg-[#ffe7ec]"
+        ]
+      ];
+
+      // =====================================================
+      // REUSABLE UI CLASSES
+      // =====================================================
+
+      const UI = {
+        container:
+          "mx-auto w-[calc(100%-36px)] max-w-[1320px] sm:w-[calc(100%-64px)]",
+
+        section:
+          "py-20 sm:py-[110px] lg:py-[140px]",
+
+        heading:
+          "mt-5 text-[30px] leading-[1.25] font-semibold tracking-[-1.2px] sm:text-[40px] lg:text-[46px]",
+
+        muted:
+          "text-muted dark:text-[#a8b8cc]",
+
+        card:
+          "border border-line bg-white/85 shadow-[0_25px_40px_-23px_rgba(27,43,69,.32)] dark:border-[#2b3c54] dark:bg-[#172337]/90",
+
+        button:
+          "inline-flex min-h-[44px] items-center justify-center gap-2 rounded-full border px-5 py-2.5 text-xs font-medium transition-all duration-200 hover:-translate-y-0.5 active:scale-[.98] disabled:cursor-not-allowed disabled:opacity-45 disabled:hover:translate-y-0 sm:text-sm motion-reduce:transition-none",
+
+        primary:
+          "border-transparent bg-linear-to-r from-[#00b9ad] to-[#00b5d0] text-white shadow-[0_7px_15px_rgba(0,184,176,.24)] hover:from-[#009f98] hover:to-[#009ebd] hover:shadow-[0_11px_24px_rgba(0,184,176,.32)]",
+
+        outline:
+          "border-line bg-white/70 hover:border-accent hover:bg-accent/10 hover:text-[#009e98] hover:shadow-[0_8px_18px_rgba(0,184,176,.1)] dark:border-[#34455d] dark:bg-[#1c2b42]/70 dark:hover:border-accent dark:hover:bg-[#1e293b] dark:hover:text-white",
+
+        accent:
+          "border-[#78e0e7] bg-linear-to-r from-[#00bfb3]/20 to-[#1bbaf5]/22 hover:border-accent hover:from-[#00b9ad] hover:to-[#00b5d0] hover:text-white",
+
+        link:
+          "inline-flex items-center gap-2 rounded-md text-sm font-medium text-accent transition-colors hover:text-[#008f8a] dark:hover:text-[#73ebe0] [&_svg]:size-4",
+
+        tag:
+          "inline-flex max-w-full items-center gap-1.5 rounded-full border border-line bg-white/60 px-3 py-1 text-[11px] leading-tight text-[#52637b] dark:border-[#34455d] dark:bg-[#1c2b42] dark:text-[#b5c3d7]"
+      };
+
+      // =====================================================
+      // SVG ICONS
+      // =====================================================
+
+      const ICONS = {
+        linkedin:
+          '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7m4 0v-7m0 3c0-4 6-4 6 0v4"/><circle cx="7" cy="7" r=".8" fill="currentColor" stroke="none"/>',
+
+        github:
+          '<path d="M9 19c-4 1-4-2-6-2m12 5v-4c0-1-.4-1.7-1-2 3-.4 6-1.5 6-6a5 5 0 0 0-1.4-3.5A5 5 0 0 0 18.5 3S17 2.5 14.8 4a11 11 0 0 0-5.6 0C7 2.5 5.5 3 5.5 3a5 5 0 0 0-.1 3.5A5 5 0 0 0 4 10c0 4.5 3 5.6 6 6-.6.3-1 1-1 2v4"/>',
+
+        instagram:
+          '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>',
+
+        youtube:
+          '<rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 6 3-6 3Z"/>',
+
+        email:
+          '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>',
+
+        moon:
+          '<path d="M21 13A9 9 0 0 1 11 3a9 9 0 1 0 10 10Z"/>',
+
+        sun:
+          '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5M17.5 6.5 19 5"/>',
+
+        menu:
+          '<path d="M4 7h16M4 12h16M4 17h16"/>',
+
+        close:
+          '<path d="m6 6 12 12M6 18 18 6"/>',
+
+        chevron:
+          '<path d="m6 9 6 6 6-6"/>',
+
+        right:
+          '<path d="M4 12h16m-6-6 6 6-6 6"/>',
+
+        left:
+          '<path d="M20 12H4m6-6-6 6 6 6"/>',
+
+        code:
+          '<path d="m8 7-5 5 5 5m8-10 5 5-5 5M14 4l-4 16"/>',
+
+        certificate:
+          '<rect x="3" y="3" width="18" height="14" rx="2"/><path d="M7 7h10M7 11h4"/><circle cx="16" cy="15" r="3"/><path d="m14 18-1 4 3-2 3 2-1-4"/>',
+
+        bulb:
+          '<path d="M9 18h6m-5 3h4M8 14a6 6 0 1 1 8 0c-1 .8-1 1.6-1 2H9c0-.4 0-1.2-1-2ZM12 1v1"/>',
+
+        users:
+          '<circle cx="9" cy="7" r="3"/><path d="M3 21v-3a6 6 0 0 1 12 0v3M16 4a3 3 0 0 1 0 6m2 4a5 5 0 0 1 3 4v3"/>',
+
+        image:
+          '<rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8" cy="8" r="1.5"/><path d="m3 17 6-6 4 4 3-3 5 5"/>',
+
+        trophy:
+          '<path d="M8 3h8v5a4 4 0 0 1-8 0ZM8 5H4v2a4 4 0 0 0 4 4m8-6h4v2a4 4 0 0 1-4 4M12 12v6m-4 3h8m-6-3h4v3"/>',
+
+        pause:
+          '<path d="M8 5v14M16 5v14" stroke-width="3"/>',
+
+        play:
+          '<path d="m8 5 11 7-11 7Z"/>'
+      };
+
+      const motion = matchMedia("(prefers-reduced-motion: reduce)");
+
+      // =====================================================
+      // HELPERS
+      // =====================================================
+
+      function esc(value) {
+        return String(value).replace(/[&<>"']/g, character => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;"
+        })[character]);
+      }
+
+      function icon(name, size = 22) {
+        return `
+          <svg
+            width="${size}"
+            height="${size}"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            ${ICONS[name] || ICONS.code}
+          </svg>
+        `;
+      }
+
+      function validURL(url) {
+        return /^https?:\/\//i.test(url || "");
+      }
+
+      function socialHref(key) {
+        const value = DATA[key]?.trim();
+
+        if (!value) return "";
+
+        if (key === "email") {
+          return `mailto:${value}`;
+        }
+
+        return validURL(value) ? value : "";
+      }
+
+      function socialAttrs(key) {
+        const href = socialHref(key);
+
+        return href
+          ? `href="${esc(href)}" ${
+              key !== "email"
+                ? 'target="_blank" rel="noopener noreferrer"'
+                : ""
+            }`
+          : 'aria-disabled="true"';
+      }
+
+      function button(text, href, variant = "outline", extra = "") {
+        return `
+          <a
+            href="${esc(href)}"
+            class="${UI.button} ${UI[variant]}"
+            ${extra}
+          >
+            ${text}
+          </a>
+        `;
+      }
+
+      function action(text, name, id = "", variant = "outline") {
+        return `
+          <button
+            type="button"
+            data-action="${name}"
+            data-id="${esc(id)}"
+            class="${UI.button} ${UI[variant]}"
+          >
+            ${text}
+          </button>
+        `;
+      }
+
+      function textAction(text, name) {
+        return `
+          <button
+            type="button"
+            data-action="${name}"
+            class="${UI.link}"
+          >
+            ${text}
+            ${icon("right", 16)}
+          </button>
+        `;
+      }
+
+      function eyebrow(text) {
+        return `
+          <span class="inline-flex rounded-full border border-line bg-white/65 px-[14px] py-1 text-[10px] font-medium tracking-[2px] text-[#4c5f7b] dark:border-[#2b3c54] dark:bg-[#19273c]/80 dark:text-[#a8b8cc]">
+            ${text}
+          </span>
+        `;
+      }
+
+      function divider() {
+        return `
+          <div
+            aria-hidden="true"
+            class="relative h-px bg-linear-to-r from-transparent via-accent/30 to-transparent"
+          >
+            <span class="absolute -top-[5px] left-1/2 size-2.5 -translate-x-1/2 rounded-full border border-[#a5eeec] bg-page dark:bg-[#101827]"></span>
+          </div>
+        `;
+      }
+
+      function section(id, label, title, subtitle, content) {
+        return `
+          <section id="${id}" class="${UI.section}">
+            <div class="${UI.container}">
+              ${eyebrow(label)}
+
+              <h2 class="${UI.heading}">
+                ${title}
+              </h2>
+
+              ${
+                subtitle
+                  ? `
+                    <p class="mt-6 text-[15px] leading-relaxed sm:text-lg ${UI.muted}">
+                      ${subtitle}
+                    </p>
+                  `
+                  : ""
+              }
+
+              ${content}
+            </div>
+          </section>
+        `;
+      }
+
+      function bulletList(items) {
+        return `
+          <ul class="space-y-2.5 text-sm leading-[1.65] ${UI.muted}">
+            ${
+              items.map(text => `
+                <li class="flex items-start gap-2">
+                  <span class="mt-[8px] size-1.5 shrink-0 rounded-full bg-accent"></span>
+                  <span>${esc(text)}</span>
+                </li>
+              `).join("")
+            }
+          </ul>
+        `;
+      }
+
+      function tagHTML([name, slug]) {
+        return `
+          <span class="${UI.tag}">
+            ${
+              slug
+                ? `
+                  <img
+                    data-tag-icon
+                    src="https://cdn.simpleicons.org/${encodeURIComponent(slug)}/62728A"
+                    alt=""
+                    width="13"
+                    height="13"
+                    class="size-[13px] object-contain dark:brightness-0 dark:invert-[.85]"
+                  />
+                `
+                : ""
+            }
+
+            ${esc(name)}
+          </span>
+        `;
+      }
+
+      function imageBox(
+        src,
+        alt,
+        fallback,
+        imageClass = "h-full w-full object-contain"
+      ) {
+        return `
+          <div data-image-fallback class="h-full w-full">
+            ${fallback}
+          </div>
+
+          <img
+            data-fallback-image
+            hidden
+            src="${esc(src)}"
+            alt="${esc(alt)}"
+            loading="lazy"
+            class="${imageClass}"
+          />
+        `;
+      }
+
+      function wireImages(root = document) {
+        root.querySelectorAll("img[data-fallback-image]").forEach(img => {
+          if (img.dataset.wired) return;
+
+          img.dataset.wired = "true";
+
+          const fallback = img.parentElement.querySelector(
+            "[data-image-fallback]"
+          );
+
+          const update = success => {
+            img.hidden = !success;
+
+            if (fallback) {
+              fallback.hidden = success;
+            }
+          };
+
+          img.addEventListener("load", () => update(true), {
+            once: true
+          });
+
+          img.addEventListener("error", () => update(false), {
+            once: true
+          });
+
+          if (img.complete) {
+            update(img.naturalWidth > 0);
+          }
+        });
+      }
+
+      // =====================================================
+      // NAVBAR
+      // Home selalu aktif pada index.html.
+      // =====================================================
+
+      function navLink(label, href, active = false) {
+        const activeClass =
+          "bg-[#00bdb6]/20 font-bold text-[#008f8a] shadow-sm dark:bg-[#00bdb6]/30 dark:text-[#33d1cb]";
+
+        const defaultClass =
+          "text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white";
+
+        return `
+          <a
+            href="${href}"
+            ${active ? 'aria-current="page"' : ""}
+            class="inline-flex items-center whitespace-nowrap rounded-full px-[14px] py-[11px] text-sm transition-colors lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm ${active ? activeClass : defaultClass}"
+          >
+            ${label}
+          </a>
+        `;
+      }
+
+      function headerHTML() {
+        return `
+          <header
+            id="header"
+            class="fixed inset-x-0 top-2.5 z-50 px-2.5 sm:px-4 lg:top-4 lg:px-6"
+          >
+            <nav
+              id="navbar"
+              aria-label="Main navigation"
+              data-scrolled="false"
+              class="
+                relative mx-auto flex min-h-[72px] max-w-[1360px]
+                items-center gap-[15px] rounded-[23px]
+                border border-transparent px-3 py-2.5
+                transition-[background-color,border-color,box-shadow] duration-300
+                lg:min-h-20 lg:px-[18px] xl:gap-7
+
+                hover:border-[#00bdb6]/70
+                hover:bg-gradient-to-r
+                hover:from-[#00bdb6]/25
+                hover:via-[#f2fbfb]/90
+                hover:to-[#00bdb6]/25
+                hover:shadow-[0_10px_35px_rgba(0,189,182,0.22)]
+                hover:backdrop-blur-xl
+
+                data-[scrolled=true]:border-[#00bdb6]/70
+                data-[scrolled=true]:bg-gradient-to-r
+                data-[scrolled=true]:from-[#00bdb6]/25
+                data-[scrolled=true]:via-[#f2fbfb]/90
+                data-[scrolled=true]:to-[#00bdb6]/25
+                data-[scrolled=true]:shadow-[0_10px_35px_rgba(0,189,182,0.22)]
+                data-[scrolled=true]:backdrop-blur-xl
+
+                dark:hover:border-[#00bdb6]/70
+                dark:hover:bg-gradient-to-r
+                dark:hover:from-[#00bdb6]/25
+                dark:hover:via-[#11222b]/95
+                dark:hover:to-[#00bdb6]/25
+                dark:hover:shadow-[0_0_40px_rgba(0,189,182,0.3)]
+                dark:hover:backdrop-blur-xl
+
+                dark:data-[scrolled=true]:border-[#00bdb6]/70
+                dark:data-[scrolled=true]:bg-gradient-to-r
+                dark:data-[scrolled=true]:from-[#00bdb6]/25
+                dark:data-[scrolled=true]:via-[#11222b]/95
+                dark:data-[scrolled=true]:to-[#00bdb6]/25
+                dark:data-[scrolled=true]:shadow-[0_0_40px_rgba(0,189,182,0.3)]
+                dark:data-[scrolled=true]:backdrop-blur-xl
+              "
+            >
+              <!-- BRAND -->
+              <a
+                href="index.html"
+                class="group inline-flex shrink-0 items-center gap-[9px] sm:gap-[13px]"
+              >
+                <span class="grid h-[42px] w-[39px] place-items-center rounded-[14px] border border-[#a7efea] bg-white shadow-[0_8px_15px_rgba(0,191,183,.14)] transition-transform group-hover:-rotate-3 sm:size-12 sm:rounded-[17px] dark:border-[#00bdb6]/50 dark:bg-[#172837]">
+                  <span class="bg-linear-to-r from-[#10bdd7] via-[#e26683] to-[#f2b62b] bg-clip-text text-base font-extrabold tracking-[-1px] text-transparent">
+                    ${DATA.initials}
+                  </span>
+                </span>
+
+                <span class="grid gap-1">
+                  <strong class="whitespace-nowrap text-[11px] font-semibold sm:text-sm lg:text-xs xl:text-sm">
+                    ${esc(DATA.name)}
+                  </strong>
+
+                  <small class="text-[10px] text-muted sm:text-xs dark:text-[#a8b8cc]">
+                    Portfolio
+                  </small>
+                </span>
+              </a>
+
+              <!-- NAVIGATION -->
+              <div
+                id="navigation"
+                data-open="false"
+                class="
+                  absolute inset-x-0 top-[calc(100%+10px)]
+                  hidden flex-wrap items-center gap-[5px]
+                  rounded-[20px] border border-line bg-[#f6fbff]/95 p-[15px]
+                  shadow-lg backdrop-blur-xl data-[open=true]:flex
+                  dark:border-[#2b3c54] dark:bg-[#121e30]/95
+
+                  lg:static lg:flex lg:flex-1 lg:flex-nowrap lg:justify-center
+                  lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0
+                  lg:shadow-none lg:backdrop-blur-none dark:lg:bg-transparent
+
+                  [&>a]:inline-flex [&>a]:items-center
+                  [&>a]:whitespace-nowrap [&>a]:rounded-full
+                  [&>a]:px-[14px] [&>a]:py-[11px] [&>a]:text-sm
+                  [&>a]:transition-colors
+                  lg:[&>a]:px-[9px] lg:[&>a]:text-xs
+                  xl:[&>a]:px-[13px] xl:[&>a]:text-sm
+                "
+              >
+                ${navLink("Home", "index.html", true)}
+                ${navLink("About", "about.html")}
+                ${navLink("Experience", "experience.html")}
+                ${navLink("Projects", "projects.html")}
+
+                <!-- ACHIEVEMENTS DROPDOWN -->
+                <div
+                  id="achievement-menu"
+                  data-open="false"
+                  class="relative"
+                >
+                  <button
+                    type="button"
+                    id="achievement-trigger"
+                    aria-expanded="false"
+                    aria-controls="achievement-dropdown"
+                    class="flex items-center gap-2 rounded-full px-[14px] py-[11px] text-sm text-muted transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+                  >
+                    Achievements
+
+                    <svg
+                      id="achievement-chevron"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      aria-hidden="true"
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+
+                  <div
+                    id="achievement-dropdown"
+                    aria-hidden="true"
+                    inert
+                    class="achievement-dropdown absolute left-0 top-full z-20 mt-2 grid min-w-44 gap-1 rounded-2xl border border-line bg-white p-2 shadow-lg dark:border-[#34455d] dark:bg-[#172337]"
+                  >
+                    <a
+                      href="awards.html"
+                      class="rounded-xl px-4 py-3 text-sm transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+                    >
+                      Awards
+                    </a>
+
+                    <a
+                      href="certificates.html"
+                      class="rounded-xl px-4 py-3 text-sm transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+                    >
+                      Certificates
+                    </a>
+                  </div>
+                </div>
+
+                ${navLink("Blog", "blog.html")}
+                ${navLink("Skills", "skills.html")}
+                ${navLink("Contact", "contact.html")}
+              </div>
+
+              <!-- MOBILE MENU AND THEME -->
+              <div class="ml-auto flex items-center gap-1.5 sm:gap-[9px]">
+                <button
+                  id="menu-button"
+                  type="button"
+                  aria-label="Open menu"
+                  aria-controls="navigation"
+                  aria-expanded="false"
+                  class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] sm:size-[45px] lg:hidden dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+                >
+                  ${icon("menu")}
+                </button>
+
+                <button
+                  id="theme-button"
+                  type="button"
+                  aria-label="Switch to dark mode"
+                  class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-all hover:rotate-12 hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] active:scale-95 sm:size-[45px] dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+                >
+                  ${icon("moon")}
+                </button>
+              </div>
+            </nav>
+          </header>
+        `;
+      }
+
+      // =====================================================
+      // SOCIAL PILLS
+      // =====================================================
+
+      function socialPills() {
+        return SOCIALS.map(([key, name]) => `
+          <a
+            ${socialAttrs(key)}
+            class="inline-flex min-h-[43px] items-center gap-2 rounded-full border border-line bg-white/70 px-3.5 py-2 text-xs transition-all hover:-translate-y-0.5 hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] sm:text-sm dark:border-[#34455d] dark:bg-[#19273c]/80"
+          >
+            <span class="grid size-6 place-items-center rounded-full bg-accent/10 text-accent">
+              ${icon(key, 15)}
+            </span>
+
+            ${name}
+          </a>
+        `).join("");
+      }
+
+      // =====================================================
+      // HERO
+      // =====================================================
+
+      function heroHTML() {
+        return `
+          <section
+            id="home"
+            class="relative pb-[70px] pt-[145px] sm:pb-[100px] sm:pt-40 lg:pb-[140px] lg:pt-[clamp(170px,16vw,265px)]"
+          >
+            <div class="${UI.container}">
+              <div class="grid items-end gap-5 lg:grid-cols-[minmax(0,1.08fr)_minmax(0,.92fr)] xl:gap-[35px]">
+                <div class="relative z-10 min-w-0 max-w-[700px] pb-[38px]">
+                  <p class="mb-[29px] inline-flex max-w-full rounded-full border border-[#95e8eb] bg-linear-to-r from-accent/13 to-cyan-400/17 px-3 py-2 text-[9px] font-semibold tracking-[1px] text-accent sm:mb-[45px] sm:px-[18px] sm:text-[11px] xl:text-xs xl:tracking-[1.7px]">
+                    OPEN TO FREELANCE AND FULL-TIME COLLABORATION
+                  </p>
+
+                  <h1 class="text-[clamp(32px,8vw,43px)] leading-[1.19] font-semibold tracking-[-1.4px] sm:text-[clamp(42px,7vw,62px)] sm:tracking-[-2.3px] lg:text-[46px] xl:text-[clamp(38px,4.15vw,62px)]">
+                    <span class="block">
+                      ${esc(DATA.name)}
+                    </span>
+
+                    <span class="mt-3 block bg-linear-to-r from-[#11b9af] to-[#20c9eb] bg-clip-text text-transparent">
+                      Software Engineer
+                    </span>
+                  </h1>
+
+                  <div
+                    aria-label="Software Engineer"
+                    class="mt-[30px] mb-[23px] flex min-h-6 items-center text-sm tracking-[2.5px] text-accent"
+                  >
+                    <span id="typed-role" aria-hidden="true">
+                      SOFTWARE ENGINEER
+                    </span>
+
+                    <span
+                      class="type-cursor ml-2 h-[18px] w-px bg-accent"
+                      aria-hidden="true"
+                    ></span>
+                  </div>
+
+                  <p class="mb-[23px] max-w-[590px] text-base leading-[1.65] sm:text-lg ${UI.muted}">
+                    Focused on building scalable academic, community, and operational web systems with clean architecture and measurable impact.
+                  </p>
+
+                  <p class="max-w-[590px] text-sm leading-[1.7] sm:text-base ${UI.muted}">
+                    Experienced across product, startup, and community-driven development with a strong focus on operational performance and user satisfaction.
+                  </p>
+
+                  <div class="mt-9 flex flex-wrap gap-3">
+                    <a
+                      ${socialAttrs("linkedin")}
+                      class="${UI.button} ${UI.primary}"
+                    >
+                      Connect on LinkedIn
+                    </a>
+
+                    ${button("Download CV", DATA.cv, "outline", "download")}
+                    ${button("Explore Projects", "#projects", "accent")}
+                  </div>
+
+                  <div class="mt-9 flex max-w-[590px] flex-wrap gap-3">
+                    ${socialPills()}
+                  </div>
+                </div>
+
+                <figure class="relative mx-auto flex w-[95%] items-end justify-center self-stretch sm:w-full sm:max-w-[470px] lg:min-h-[580px] lg:max-w-none xl:min-h-[640px]">
+                  <div
+                    aria-hidden="true"
+                    class="pointer-events-none absolute -inset-x-[8%] top-[12%] bottom-0 bg-[radial-gradient(ellipse_at_50%_40%,rgba(30,58,89,.18),transparent_65%),radial-gradient(ellipse_at_60%_85%,rgba(16,187,174,.13),transparent_65%)] blur-[28px]"
+                  ></div>
+
+                  <div class="relative w-full max-w-[560px]">
+                    ${
+                      imageBox(
+                        DATA.photo,
+                        DATA.name,
+                        `
+                          <div class="mx-auto grid aspect-[4/5] w-[85%] place-items-center rounded-[120px_120px_25px_25px] border border-line bg-linear-to-br from-accent/10 to-cyan-300/10 text-[90px] font-bold tracking-[-3px] text-accent dark:border-[#34455d]">
+                            ${DATA.initials}
+                          </div>
+                        `,
+                        "relative mx-auto block max-h-[820px] w-full object-contain object-bottom"
+                      )
+                    }
+                  </div>
+                </figure>
+              </div>
+
+              <div
+                id="tech-strip"
+                class="tech-strip relative z-20 rounded-[21px] border border-line bg-white/70 dark:border-[#34455d] dark:bg-[#19273c]/80"
+                role="region"
+                aria-label="Technology stack"
+              >
+                <div class="tech-mask overflow-hidden rounded-[inherit]">
+                  <div
+                    id="tech-track"
+                    class="tech-track flex w-max gap-0 will-change-transform"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </section>
+        `;
+      }
+
+      // =====================================================
+      // PROJECT CARDS
+      // =====================================================
+
+      function projectPreview(type) {
+        if (type === "pos") {
+          return `
+            <div class="h-full bg-blue-50 p-4">
+              <div class="h-full rounded-lg bg-white p-3">
+                <div class="h-2 w-20 rounded bg-cyan-400"></div>
+
+                <div class="mt-3 grid grid-cols-3 gap-2">
+                  ${
+                    [
+                      "bg-orange-100",
+                      "bg-green-100",
+                      "bg-red-100",
+                      "bg-blue-100",
+                      "bg-yellow-100",
+                      "bg-teal-100"
+                    ].map(color => `
+                      <div class="rounded border border-slate-100 p-1">
+                        <div class="grid h-10 place-items-center rounded ${color}">
+                          <span class="size-6 rounded-full bg-white/70"></span>
+                        </div>
+
+                        <div class="mt-1 h-1 rounded bg-slate-200"></div>
+                      </div>
+                    `).join("")
+                  }
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        if (type === "search") {
+          return `
+            <div class="grid h-full place-items-center bg-indigo-50 p-4">
+              <div class="grid grid-cols-2 gap-3 rounded-lg bg-white p-4">
+                <p class="text-[10px] font-semibold text-slate-800">
+                  Temukan dokumen skripsi dengan presisi riset.
+                </p>
+
+                <div>
+                  <div class="h-5 rounded border border-slate-100"></div>
+                  <div class="mt-2 h-4 rounded bg-violet-600"></div>
+                </div>
+              </div>
+            </div>
+          `;
+        }
+
+        return `
+          <div class="grid h-full place-items-center bg-linear-to-br from-cyan-100 to-teal-100 p-4">
+            <div class="w-32 rounded bg-white p-4">
+              <p class="text-center text-[8px] font-medium text-slate-800">
+                Hospital Maintenance
+              </p>
+
+              <div class="mt-3 h-4 rounded border border-slate-100"></div>
+              <div class="mt-2 h-4 rounded border border-slate-100"></div>
+              <div class="mt-3 h-3 rounded bg-teal-400"></div>
+            </div>
+          </div>
+        `;
+      }
+
+      function projectCard(project) {
+        return `
+          <article class="${UI.card} group rounded-[27px] p-[22px] transition-all hover:-translate-y-1.5 hover:border-accent/45">
+            <div class="rounded-[19px] border border-line bg-white p-4 dark:border-[#34455d] dark:bg-[#101d30]">
+              <div class="relative aspect-[1.7/1] overflow-hidden rounded-md">
+                ${
+                  imageBox(
+                    project.image,
+                    `${project.title} screenshot`,
+                    projectPreview(project.preview)
+                  )
+                }
+              </div>
+            </div>
+
+            <div class="px-1 pt-7">
+              <p class="text-[10px] tracking-[1.7px] ${UI.muted}">
+                ${project.category}
+              </p>
+
+              <h3 class="mt-1.5 text-xl leading-tight font-medium">
+                ${esc(project.title)}
+              </h3>
+
+              <p class="mt-4 text-sm leading-[1.6] ${UI.muted}">
+                ${esc(project.description)}
+              </p>
+
+              <span class="mt-3 inline-flex rounded-full border border-accent/30 bg-accent/8 px-3 py-1 text-xs text-accent">
+                ${project.status}
+              </span>
+
+              <div class="mt-5">
+                ${bulletList(project.highlights)}
+              </div>
+
+              <div class="mt-6 flex flex-wrap gap-2">
+                ${project.tags.map(tagHTML).join("")}
+              </div>
+
+              <div class="mt-7 flex flex-wrap justify-between gap-2 text-[11px] ${UI.muted}">
+                <span>${project.role}</span>
+                <span>${project.period}</span>
+              </div>
+
+              <div class="mt-6 flex flex-wrap gap-2">
+                ${action("View Details", "project", project.id, "primary")}
+
+                ${
+                  validURL(project.liveUrl)
+                    ? button(
+                        "Live Site",
+                        project.liveUrl,
+                        "outline",
+                        'target="_blank" rel="noopener noreferrer"'
+                      )
+                    : `
+                      <button
+                        disabled
+                        class="${UI.button} ${UI.outline}"
+                        title="Add the live URL in DATA"
+                      >
+                        Live Site
+                      </button>
+                    `
+                }
+              </div>
+            </div>
+          </article>
+        `;
+      }
+
+      // =====================================================
+      // CERTIFICATE CARDS
+      // =====================================================
+
+      function certificateImage(certificate) {
+        return `
+          <div class="relative grid min-h-[240px] place-items-center overflow-hidden rounded-[18px] border border-line bg-white p-3 dark:border-[#34455d] dark:bg-[#101d30]">
+            ${
+              imageBox(
+                certificate.image,
+                certificate.title,
+                `
+                  <div class="flex min-h-[260px] flex-col items-center justify-center p-4 text-center">
+                    <span class="text-accent">
+                      ${icon("certificate", 48)}
+                    </span>
+
+                    <p class="mt-5 text-[10px] tracking-[2px] ${UI.muted}">
+                      CERTIFICATE PREVIEW
+                    </p>
+
+                    <p class="mt-3 text-sm">
+                      ${esc(certificate.title)}
+                    </p>
+                  </div>
+                `,
+                "max-h-[370px] w-full object-contain"
+              )
+            }
+          </div>
+        `;
+      }
+
+      function certificateCard(certificate, carousel = false) {
+        return `
+          <article class="shrink-0 rounded-[24px] border border-line bg-white/45 p-5 dark:border-[#34455d] dark:bg-[#132035]/40 ${carousel ? "w-full snap-start lg:w-[78%]" : "w-full"}">
+            <div class="grid items-center gap-6 md:grid-cols-[.85fr_1.15fr]">
+              ${certificateImage(certificate)}
+
+              <div>
+                <p class="text-[10px] tracking-[1.7px] text-accent">
+                  ${esc(certificate.issuer)}
+                </p>
+
+                <h3 class="mt-3 text-[21px] leading-[1.35] font-medium sm:text-[24px]">
+                  ${esc(certificate.title)}
+                </h3>
+
+                <div class="mt-5 flex flex-wrap gap-2">
+                  ${certificate.tags.map(tagHTML).join("")}
+                </div>
+
+                <div class="mt-6 space-y-2 text-sm ${UI.muted}">
+                  <p>
+                    Issued: ${esc(certificate.issued || "—")}
+                  </p>
+
+                  <p class="break-words">
+                    Credential: ${esc(certificate.credential || "—")}
+                  </p>
+                </div>
+
+                <div class="mt-6 flex flex-wrap gap-2">
+                  ${action("View Details", "certificate", certificate.id)}
+
+                  ${
+                    validURL(certificate.verifyUrl)
+                      ? button(
+                          "Verify Certificate",
+                          certificate.verifyUrl,
+                          "primary",
+                          'target="_blank" rel="noopener noreferrer"'
+                        )
+                      : `
+                        <button
+                          disabled
+                          title="Add your verification URL in DATA"
+                          class="${UI.button} ${UI.primary}"
+                        >
+                          Verify Certificate
+                        </button>
+                      `
+                  }
+                </div>
+              </div>
+            </div>
+          </article>
+        `;
+      }
+
+      // =====================================================
+      // SKILL CARDS
+      // =====================================================
+
+      function skillCard(skill) {
+        return `
+          <article class="${UI.card} flex items-start gap-3 rounded-[18px] p-5 transition-all hover:-translate-y-1 hover:border-accent/45">
+            <span class="grid size-10 shrink-0 place-items-center rounded-full bg-accent/10 text-accent">
+              ${
+                skill.slug
+                  ? `
+                    <img
+                      data-tag-icon
+                      src="https://cdn.simpleicons.org/${skill.slug}/00BDB6"
+                      alt=""
+                      width="19"
+                      height="19"
+                    />
+                  `
+                  : icon(skill.icon, 20)
+              }
+            </span>
+
+            <div class="min-w-0 flex-1">
+              <h3 class="text-[15px] font-medium">
+                ${esc(skill.name)}
+              </h3>
+
+              <p class="mt-1 text-xs leading-[1.4] ${UI.muted}">
+                ${esc(skill.category)}
+              </p>
+            </div>
+
+            ${
+              skill.level
+                ? `
+                  <span class="rounded-full border border-accent/30 bg-accent/8 px-2.5 py-1 text-[10px] leading-none text-accent">
+                    ${skill.level}
+                  </span>
+                `
+                : ""
+            }
+          </article>
+        `;
+      }
+
+      // =====================================================
+      // EXPERIENCE
+      // =====================================================
+
+      function timelineDot() {
+        return `
+          <span
+            aria-hidden="true"
+            class="absolute top-8 -left-[30px] grid size-5 place-items-center rounded-full bg-accent/20 sm:-left-[49px]"
+          >
+            <span class="size-3 rounded-full bg-accent"></span>
+          </span>
+        `;
+      }
+
+      function galleryHTML(experience) {
+        if (!experience.gallery.length) return "";
+
+        return `
+          <div class="mt-5 flex gap-2 overflow-x-auto pb-1">
+            ${
+              experience.gallery.map((src, index) => `
+                <div class="relative h-[70px] w-[112px] shrink-0 overflow-hidden rounded-lg border border-line bg-white dark:border-[#34455d] dark:bg-[#101d30]">
+                  ${
+                    imageBox(
+                      src,
+                      `${experience.company} activity ${index + 1}`,
+                      `
+                        <div class="grid h-full place-items-center text-accent/60">
+                          ${icon("image", 20)}
+                        </div>
+                      `,
+                      "h-full w-full object-cover"
+                    )
+                  }
+                </div>
+              `).join("")
+            }
+          </div>
+        `;
+      }
+
+      function experienceCard(
+        experience,
+        timeline = false,
+        full = false
+      ) {
+        const open = full || experience.expanded;
+
+        return `
+          <article
+            ${timeline ? "data-reveal" : ""}
+            class="${UI.card} relative rounded-[27px] p-6 sm:p-8"
+          >
+            ${timeline ? timelineDot() : ""}
+
+            <div class="flex flex-col justify-between gap-4 sm:flex-row">
+              <div class="flex items-start gap-4">
+                <div class="relative grid size-14 shrink-0 place-items-center overflow-hidden rounded-lg border border-line bg-white">
+                  ${
+                    imageBox(
+                      experience.logo,
+                      experience.company,
+                      `
+                        <span class="grid h-full place-items-center text-sm font-bold text-accent">
+                          ${experience.initials}
+                        </span>
+                      `,
+                      "h-full w-full object-contain p-1.5"
+                    )
+                  }
+                </div>
+
+                <div>
+                  <h3 class="text-lg font-medium sm:text-xl">
+                    ${esc(experience.title)}
+                  </h3>
+
+                  <p class="mt-2 text-sm leading-relaxed ${UI.muted}">
+                    ${esc(experience.company)} · ${esc(experience.location)}
+                  </p>
+                </div>
+              </div>
+
+              <span class="${UI.tag} h-fit w-fit shrink-0">
+                ${experience.period}
+              </span>
+            </div>
+
+            <div
+              ${!full ? `id="experience-${experience.id}"` : ""}
+              ${open ? "" : "hidden"}
+              class="mt-6"
+            >
+              <p class="text-[15px] leading-[1.8] ${UI.muted}">
+                ${esc(experience.description)}
+              </p>
+
+              <div class="mt-5">
+                ${bulletList(experience.highlights)}
+              </div>
+
+              <div class="mt-5 flex flex-wrap gap-2">
+                ${experience.tags.map(tagHTML).join("")}
+              </div>
+
+              ${galleryHTML(experience)}
+            </div>
+
+            ${
+              !full
+                ? `
+                  <button
+                    type="button"
+                    data-experience-toggle="${experience.id}"
+                    aria-controls="experience-${experience.id}"
+                    aria-expanded="${open}"
+                    class="${UI.link} mt-6"
+                  >
+                    ${open ? "Hide details" : "View details"}
+                  </button>
+                `
+                : ""
+            }
+          </article>
+        `;
+      }
+
+      // =====================================================
+      // AWARDS
+      // =====================================================
+
+      function awardImage(award) {
+        return `
+          <div class="relative grid aspect-[1.3] overflow-hidden rounded-[15px] border border-line bg-white dark:border-[#34455d] dark:bg-[#101d30]">
+            ${
+              imageBox(
+                award.image,
+                award.title,
+                `
+                  <div class="flex h-full flex-col items-center justify-center bg-linear-to-br from-amber-50 to-cyan-50 p-4 text-center dark:from-[#243044] dark:to-[#19323d]">
+                    <span class="text-[#c9a44b]">
+                      ${icon("trophy", 40)}
+                    </span>
+
+                    <p class="mt-3 text-[9px] tracking-[1.5px] ${UI.muted}">
+                      AWARD PREVIEW
+                    </p>
+                  </div>
+                `
+              )
+            }
+          </div>
+        `;
+      }
+
+      function awardCard(award, timeline = false) {
+        return `
+          <article
+            ${timeline ? "data-reveal" : ""}
+            class="${UI.card} relative rounded-[27px] p-6 sm:p-7"
+          >
+            ${timeline ? timelineDot() : ""}
+
+            <div class="grid items-start gap-6 sm:grid-cols-[220px_1fr]">
+              ${awardImage(award)}
+
+              <div>
+                <div class="flex flex-col items-start justify-between gap-3 lg:flex-row">
+                  <h3 class="text-[17px] leading-[1.45] font-medium">
+                    ${esc(award.title)}
+                  </h3>
+
+                  <span class="${UI.tag} shrink-0">
+                    ${award.date}
+                  </span>
+                </div>
+
+                <p class="mt-2 text-xs ${UI.muted}">
+                  ${esc(award.issuer)}
+                </p>
+
+                <p class="mt-4 line-clamp-2 text-sm leading-[1.75] ${UI.muted}">
+                  ${esc(award.description)}
+                </p>
+
+                <button
+                  type="button"
+                  data-action="award"
+                  data-id="${award.id}"
+                  class="${UI.link} mt-4 !text-xs"
+                >
+                  View details
+                </button>
+              </div>
+            </div>
+          </article>
+        `;
+      }
+
+      function timelineHTML(cards, actionName, label) {
+        return `
+          <div class="relative mt-10 pl-8 sm:pl-14">
+            <div
+              aria-hidden="true"
+              class="absolute top-9 bottom-4 left-[10px] w-px bg-linear-to-b from-accent/15 via-accent/25 to-transparent sm:left-[17px]"
+            ></div>
+
+            <div class="space-y-8">
+              ${cards}
+            </div>
+
+            <div data-reveal class="relative mt-8">
+              <span
+                aria-hidden="true"
+                class="absolute top-1 -left-[30px] grid size-5 place-items-center rounded-full bg-accent/20 sm:-left-[49px]"
+              >
+                <span class="size-3 rounded-full bg-accent"></span>
+              </span>
+
+              ${textAction(label, actionName)}
+            </div>
+          </div>
+        `;
+      }
+
+      // =====================================================
+      // FOOTER
+      // =====================================================
+
+      function footerHTML() {
+        return `
+          <footer class="border-t border-line/70 py-12 sm:py-16 dark:border-[#2b3c54]">
+            <div class="${UI.container}">
+              <div class="grid gap-10 md:grid-cols-[1.8fr_.75fr_1fr]">
+                <div>
+                  <a
+                    href="index.html"
+                    class="text-xl font-medium tracking-[-.5px]"
+                  >
+                    ${esc(DATA.name)}
+                  </a>
+
+                  <p class="mt-5 max-w-[530px] text-sm leading-relaxed ${UI.muted}">
+                    Full Stack Web Developer focused on delivering scalable products with clean architecture and measurable impact.
+                  </p>
+
+                  <div class="mt-5 flex gap-2.5">
+                    ${
+                      SOCIALS.map(([key, name]) => `
+                        <a
+                          ${socialAttrs(key)}
+                          aria-label="${name}"
+                          class="grid size-9 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:border-[#34455d] dark:bg-[#1c2b42]"
+                        >
+                          ${icon(key, 16)}
+                        </a>
+                      `).join("")
+                    }
+                  </div>
+                </div>
+
+                <div>
+                  <h3 class="text-[10px] tracking-[2px] ${UI.muted}">
+                    EXPLORE
+                  </h3>
+
+                  <div class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 text-xs ${UI.muted} [&>a:hover]:text-accent">
+                    <a href="index.html">Home</a>
+                    <a href="certificates.html">Certificates</a>
+                    <a href="about.html">About</a>
+                    <span aria-disabled="true">Blog</span>
+                    <a href="experience.html">Experience</a>
+                    <a href="skills.html">Skills</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="awards.html">Awards</a>
+                  </div>
+                </div>
+
+                <div>
+                  <h3 class="text-[10px] tracking-[2px] ${UI.muted}">
+                    CONTACT
+                  </h3>
+
+                  <p class="mt-4 text-xs leading-relaxed ${UI.muted}">
+                    Open to freelance and full-time collaboration.
+                  </p>
+
+                  <a
+                    href="${esc(socialHref("email") || "contact.html")}"
+                    class="mt-3 inline-block break-all text-xs hover:text-accent ${UI.muted}"
+                  >
+                    ${esc(DATA.email || "Connect through my social profiles")}
+                  </a>
+                </div>
+              </div>
+
+              <p class="mt-16 text-[11px] ${UI.muted}">
+                © ${new Date().getFullYear()} ${esc(DATA.name)}. All rights reserved.
+              </p>
+            </div>
+          </footer>
+        `;
+      }
+
+      // =====================================================
+      // RENDER FULL PAGE
+      // =====================================================
+
+      document.getElementById("app").innerHTML = `
+        ${headerHTML()}
+
+        <main>
+          ${heroHTML()}
+          ${divider()}
+
+          ${
+            section(
+              "stats",
+              "STATS",
+              "Career snapshot at a glance.",
+              "A quick overview of experience, project delivery, certifications, and awards.",
+              `
+                <div class="mt-9 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5">
+                  ${
+                    DATA.stats.map(([label, value]) => `
+                      <article class="${UI.card} rounded-[25px] p-6 transition-all hover:-translate-y-1 hover:border-accent/50 sm:p-7">
+                        <h3 class="text-[9px] font-medium tracking-[1.5px] sm:text-[11px] ${UI.muted}">
+                          ${label}
+                        </h3>
+
+                        <p class="mt-5 text-[40px] leading-none font-medium tracking-[-1.5px] sm:text-[54px]">
+                          <span data-count="${value}">${value}</span>+
+                        </p>
+                      </article>
+                    `).join("")
+                  }
+                </div>
+              `
+            )
+          }
+
+          ${divider()}
+
+          ${
+            section(
+              "intro",
+              "INTRODUCTION",
+              "I build polished web products<br class='hidden sm:block'/>from concept to production.",
+              "",
+              `
+                <article class="${UI.card} mt-10 rounded-[26px] p-6 sm:p-9">
+                  <p class="text-[11px] tracking-[1.8px] ${UI.muted}">
+                    ABOUT ME
+                  </p>
+
+                  <h3 class="mt-5 text-[25px] font-medium sm:text-[30px]">
+                    Software Engineer
+                  </h3>
+
+                  <p class="mt-6 text-[15px] leading-[1.8] sm:text-base ${UI.muted}">
+                    ${esc(DATA.bio)}
+                  </p>
+                </article>
+
+                <div class="mt-6 grid gap-4 md:grid-cols-3">
+                  ${
+                    DATA.principles.map(([title, text]) => `
+                      <article class="${UI.card} rounded-[17px] p-[22px] transition-all hover:-translate-y-1 hover:border-accent/50">
+                        <h3 class="text-[10px] tracking-[1.7px] ${UI.muted}">
+                          ${title}
+                        </h3>
+
+                        <p class="mt-3 text-sm leading-relaxed">
+                          ${text}
+                        </p>
+                      </article>
+                    `).join("")
+                  }
+                </div>
+              `
+            )
+          }
+
+          ${divider()}
+
+          ${
+            section(
+              "projects",
+              "FEATURED PROJECTS",
+              "Featured Projects",
+              "Selected work with measurable product impact.",
+              `
+                <div class="mt-10 grid items-start gap-6 md:grid-cols-2 xl:grid-cols-3">
+                  ${DATA.projects.slice(0, 3).map(projectCard).join("")}
+                </div>
+
+                <div class="mt-12 flex justify-center">
+                  ${
+                    action(
+                      `View all projects ${icon("right", 16)}`,
+                      "all-projects"
+                    )
+                  }
+                </div>
+              `
+            )
+          }
+
+          ${divider()}
+
+          ${
+            section(
+              "certificates",
+              "FEATURED CERTIFICATIONS",
+              "Featured Certificates",
+              "",
+              `
+                <div class="mt-6 flex flex-col items-start justify-between gap-5 sm:flex-row sm:items-center">
+                  <p class="text-[15px] sm:text-lg ${UI.muted}">
+                    Recent certifications supporting hands-on engineering delivery.
+                  </p>
+
+                  ${textAction("View all certificates", "all-certificates")}
+                </div>
+
+                <div
+                  id="certificate-carousel"
+                  class="${UI.card} mt-10 rounded-[28px] p-5 sm:p-9"
+                >
+                  <div class="flex items-start justify-between gap-4">
+                    <div>
+                      <p class="text-[11px] tracking-[1.8px] ${UI.muted}">
+                        FEATURED CERTIFICATIONS
+                      </p>
+
+                      <p class="mt-3 text-sm ${UI.muted}">
+                        Highlighted credentials from recent learning milestones.
+                      </p>
+                    </div>
+
+                    <button
+                      id="certificate-play"
+                      type="button"
+                      aria-label="Pause automatic slides"
+                      aria-pressed="false"
+                      class="grid size-9 shrink-0 place-items-center rounded-full border border-line text-accent hover:bg-accent/10 dark:border-[#34455d]"
+                    >
+                      ${icon("pause")}
+                    </button>
+                  </div>
+
+                  <div
+                    id="certificate-scroller"
+                    role="region"
+                    aria-roledescription="carousel"
+                    aria-label="Featured certificates"
+                    class="certificate-scroller mt-7 flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-2 motion-reduce:scroll-auto"
+                  >
+                    ${
+                      DATA.certificates.map(
+                        certificate => certificateCard(certificate, true)
+                      ).join("")
+                    }
+                  </div>
+
+                  <div class="mt-4 flex items-center justify-center gap-5">
+                    <button
+                      id="certificate-prev"
+                      type="button"
+                      aria-label="Previous certificate"
+                      class="grid size-8 place-items-center rounded-full hover:bg-white hover:scale-105 hover:text-[#1e293b]"
+                    >
+                      ${icon("left", 16)}
+                    </button>
+
+                    <div
+                      id="certificate-dots"
+                      class="flex items-center gap-2"
+                    >
+                      ${
+                        DATA.certificates.map((certificate, index) => `
+                          <button
+                            type="button"
+                            data-index="${index}"
+                            aria-label="Show certificate ${index + 1}"
+                            class="group grid size-6 place-items-center rounded-full"
+                          >
+                            <span class="size-1.5 rounded-full bg-slate-300 group-data-[current=true]:size-2 group-data-[current=true]:bg-cyan-500"></span>
+                          </button>
+                        `).join("")
+                      }
+                    </div>
+
+                    <button
+                      id="certificate-next"
+                      type="button"
+                      aria-label="Next certificate"
+                      class="grid size-8 place-items-center rounded-full hover:bg-white hover:scale-105 hover:text-[#1e293b]"
+                    >
+                      ${icon("right", 16)}
+                    </button>
+                  </div>
+                </div>
+              `
+            )
+          }
+
+          ${divider()}
+
+          ${
+            section(
+              "skills",
+              "SKILLS PREVIEW",
+              "Tools and technologies I currently use most.",
+              "",
+              `
+                <div class="mt-6 flex justify-end">
+                  ${textAction("Explore all skills", "all-skills")}
+                </div>
+
+                <div class="mt-9 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+                  ${DATA.skills.map(skillCard).join("")}
+                </div>
+              `
+            )
+          }
+
+          ${divider()}
+
+          ${
+            section(
+              "experience",
+              "EXPERIENCE",
+              "Roles and outcomes from recent years.",
+              "",
+              timelineHTML(
+                DATA.experiences.slice(0, 2).map(
+                  experience => experienceCard(experience, true)
+                ).join(""),
+                "all-experience",
+                "View full timeline"
+              )
+            )
+          }
+
+          ${divider()}
+
+          ${
+            section(
+              "awards",
+              "AWARDS",
+              "Recognitions from national and<br class='hidden lg:block'/>international competitions.",
+              "",
+              timelineHTML(
+                DATA.awards.slice(0, 3).map(
+                  award => awardCard(award, true)
+                ).join(""),
+                "all-awards",
+                "View all awards"
+              )
+            )
+          }
+
+          ${divider()}
+
+          ${
+            section(
+              "contact",
+              "SOCIAL LINKS",
+              "Find me across developer<br class='hidden sm:block'/>and community platforms.",
+              "Connect through portfolio channels for projects, collaborations, and technical discussions.",
+              `
+                <div class="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                  ${
+                    SOCIALS.map(([key, name, label, color]) => `
+                      <a
+                        ${socialAttrs(key)}
+                        data-reveal
+                        class="${UI.card} block rounded-[20px] p-6 hover:border-accent/50"
+                      >
+                        <span class="grid size-9 place-items-center rounded-full ${color}">
+                          ${icon(key, 16)}
+                        </span>
+
+                        <h3 class="mt-5 text-base font-medium">
+                          ${name}
+                        </h3>
+
+                        <p class="mt-2 break-all text-[11px] leading-relaxed ${UI.muted}">
+                          ${esc(DATA[key] || label)}
+                        </p>
+                      </a>
+                    `).join("")
+                  }
+                </div>
+              `
+            )
+          }
+
+          ${divider()}
+
+          <section class="${UI.section}">
+            <div class="${UI.container}">
+              <div
+                data-reveal
+                class="${UI.card} rounded-[27px] p-7 sm:p-10"
+              >
+                <h2 class="text-[25px] leading-tight font-medium tracking-[-.6px] sm:text-[31px]">
+                  Let’s build your next product together.
+                </h2>
+
+                <p class="mt-5 max-w-[950px] text-sm leading-[1.8] sm:text-base ${UI.muted}">
+                  Reach me directly through email, LinkedIn, or GitHub. I’m available for freelance and full-time collaboration.
+                </p>
+
+                <div class="mt-6 flex flex-wrap gap-3">
+                  ${
+                    button(
+                      "Contact Me",
+                      socialHref("email") || "contact.html",
+                      "primary"
+                    )
+                  }
+
+                  ${button("Download CV", DATA.cv, "outline", "download")}
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        ${footerHTML()}
+
+        <!-- TECHNOLOGY TOOLTIP -->
+        <div
+          id="tech-tooltip"
+          role="tooltip"
+          hidden
+          class="pointer-events-none fixed z-[200] max-w-[calc(100vw-24px)] rounded-lg bg-[#17243a] px-3 py-2 text-xs text-white shadow-lg dark:bg-[#263c57]"
+        ></div>
+
+        <!-- DETAILS MODAL -->
+        <dialog
+          id="detail-dialog"
+          aria-labelledby="dialog-title"
+          class="fixed inset-0 m-auto max-h-[88dvh] w-[calc(100%-28px)] max-w-[1100px] overflow-y-auto rounded-[26px] border border-line bg-page p-0 text-ink shadow-[0_30px_100px_rgba(10,20,40,.25)] dark:border-[#34455d] dark:bg-[#172337] dark:text-[#eff5ff]"
+        >
+          <div class="p-5 sm:p-9">
+            <div class="mb-7 flex items-start justify-between gap-5">
+              <h2
+                id="dialog-title"
+                class="text-[26px] leading-tight font-semibold sm:text-[34px]"
+              ></h2>
+
+              <button
+                id="dialog-close"
+                type="button"
+                aria-label="Close dialog"
+                class="grid size-10 shrink-0 place-items-center rounded-full border border-line hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:border-[#34455d]"
+              >
+                ${icon("close")}
+              </button>
+            </div>
+
+            <div id="dialog-content"></div>
+          </div>
+        </dialog>
+      `;
+
+      wireImages();
+
+      document.addEventListener("error", event => {
+        if (
+          event.target instanceof HTMLImageElement &&
+          event.target.hasAttribute("data-tag-icon")
+        ) {
+          event.target.hidden = true;
+        }
+      }, true);
+
+      // =====================================================
+      // NAVBAR INTERACTIONS
+      // Scroll hanya mengubah background.
+      // Menu Home tetap aktif.
+      // =====================================================
+
+      const header = document.getElementById("header");
+      const navbar = document.getElementById("navbar");
+      const navigation = document.getElementById("navigation");
+      const menuButton = document.getElementById("menu-button");
+
+      const achievementMenu = document.getElementById("achievement-menu");
+      const achievementTrigger = document.getElementById("achievement-trigger");
+      const achievementDropdown = document.getElementById("achievement-dropdown");
+
+      let achievementCloseTimer;
+
+      function updateNavbarBackground() {
+        navbar.dataset.scrolled = String(window.scrollY > 24);
+      }
+
+      addEventListener("scroll", updateNavbarBackground, {
+        passive: true
+      });
+
+      updateNavbarBackground();
+
+      function setAchievementMenu(open) {
+        clearTimeout(achievementCloseTimer);
+
+        achievementMenu.dataset.open = String(open);
+
+        achievementTrigger.setAttribute(
+          "aria-expanded",
+          String(open)
+        );
+
+        achievementDropdown.setAttribute(
+          "aria-hidden",
+          String(!open)
+        );
+
+        achievementDropdown.toggleAttribute("inert", !open);
+      }
+
+      function setMenu(open) {
+        navigation.dataset.open = String(open);
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          String(open)
+        );
+
+        menuButton.setAttribute(
+          "aria-label",
+          open ? "Close menu" : "Open menu"
+        );
+
+        menuButton.innerHTML = icon(open ? "close" : "menu");
+
+        if (!open) {
+          setAchievementMenu(false);
+        }
+      }
+
+      menuButton.addEventListener("click", () => {
+        setMenu(navigation.dataset.open !== "true");
+      });
+
+      navigation.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          setMenu(false);
+        });
+      });
+
+      achievementTrigger.addEventListener("click", () => {
+        setAchievementMenu(
+          achievementMenu.dataset.open !== "true"
+        );
+      });
+
+      // Hover untuk mouse, klik/tap untuk touch.
+      const hoverDevice = matchMedia(
+        "(hover: hover) and (pointer: fine)"
+      );
+
+      achievementMenu.addEventListener("mouseenter", () => {
+        if (hoverDevice.matches) {
+          setAchievementMenu(true);
+        }
+      });
+
+      achievementMenu.addEventListener("mouseleave", () => {
+        if (!hoverDevice.matches) return;
+
+        achievementCloseTimer = setTimeout(() => {
+          if (!achievementMenu.contains(document.activeElement)) {
+            setAchievementMenu(false);
+          }
+        }, 150);
+      });
+
+      achievementMenu.addEventListener("focusout", event => {
+        if (!achievementMenu.contains(event.relatedTarget)) {
+          setAchievementMenu(false);
+        }
+      });
+
+      achievementTrigger.addEventListener("keydown", event => {
+        if (event.key !== "ArrowDown") return;
+
+        event.preventDefault();
+
+        setAchievementMenu(true);
+        achievementDropdown.querySelector("a").focus();
+      });
+
+      document.addEventListener("click", event => {
+        if (!header.contains(event.target)) {
+          setMenu(false);
+        } else if (!achievementMenu.contains(event.target)) {
+          setAchievementMenu(false);
+        }
+      });
+
+      document.addEventListener("keydown", event => {
+        if (event.key !== "Escape") return;
+
+        if (achievementMenu.dataset.open === "true") {
+          setAchievementMenu(false);
+          achievementTrigger.focus();
+          return;
+        }
+
+        if (navigation.dataset.open === "true") {
+          setMenu(false);
+          menuButton.focus();
+        }
+      });
+
+      matchMedia("(min-width:1024px)").addEventListener(
+        "change",
+        () => {
+          setMenu(false);
+        }
+      );
+
+      setAchievementMenu(false);
+
+      // =====================================================
+      // DARK MODE
+      // =====================================================
+
+      const themeButton = document.getElementById("theme-button");
+      const systemTheme = matchMedia("(prefers-color-scheme:dark)");
+
+      let selectedTheme = null;
+
+      try {
+        selectedTheme = localStorage.getItem("asr-theme");
+      } catch {}
+
+      function applyTheme(dark) {
+        document.documentElement.classList.toggle("dark", dark);
+
+        document.querySelector(
+          'meta[name="theme-color"]'
+        ).content = dark ? "#101827" : "#f4f8ff";
+
+        themeButton.innerHTML = icon(dark ? "sun" : "moon");
+
+        themeButton.setAttribute(
+          "aria-pressed",
+          String(dark)
+        );
+
+        themeButton.setAttribute(
+          "aria-label",
+          dark ? "Switch to light mode" : "Switch to dark mode"
+        );
+      }
+
+      applyTheme(
+        document.documentElement.classList.contains("dark")
+      );
+
+      themeButton.addEventListener("click", () => {
+        const dark = !document.documentElement.classList.contains("dark");
+
+        selectedTheme = dark ? "dark" : "light";
+
+        applyTheme(dark);
+
+        try {
+          localStorage.setItem("asr-theme", selectedTheme);
+        } catch {}
+      });
+
+      systemTheme.addEventListener("change", event => {
+        if (
+          selectedTheme !== "dark" &&
+          selectedTheme !== "light"
+        ) {
+          applyTheme(event.matches);
+        }
+      });
+
+      // =====================================================
+      // EXPERIENCE DETAILS
+      // =====================================================
+
+      document.addEventListener("click", event => {
+        const trigger = event.target.closest(
+          "[data-experience-toggle]"
+        );
+
+        if (!trigger) return;
+
+        const open = trigger.getAttribute("aria-expanded") !== "true";
+
+        document.getElementById(
+          `experience-${trigger.dataset.experienceToggle}`
+        ).hidden = !open;
+
+        trigger.setAttribute("aria-expanded", String(open));
+        trigger.textContent = open ? "Hide details" : "View details";
+      });
+
+      // =====================================================
+      // REVEAL ANIMATION AND COUNTERS
+      // =====================================================
+
+      if (!motion.matches && "IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            entry.target.classList.toggle(
+              "is-visible",
+              entry.isIntersecting
+            );
+          });
+        }, {
+          threshold: 0,
+          rootMargin: "0px 0px -25px 0px"
+        });
+
+        document.querySelectorAll("[data-reveal]").forEach(element => {
+          element.classList.add("scroll-reveal");
+          revealObserver.observe(element);
+        });
+
+        const statsObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+
+            const element = entry.target;
+            const target = Number(element.dataset.count);
+            const start = performance.now();
+
+            function tick(now) {
+              const progress = Math.min((now - start) / 1100, 1);
+
+              element.textContent = Math.round(
+                target * (1 - Math.pow(1 - progress, 3))
+              );
+
+              if (progress < 1) {
+                requestAnimationFrame(tick);
+              }
+            }
+
+            requestAnimationFrame(tick);
+            statsObserver.unobserve(element);
+          });
+        }, {
+          threshold: .5
+        });
+
+        document.querySelectorAll("[data-count]").forEach(element => {
+          statsObserver.observe(element);
+        });
+      }
+
+      // =====================================================
+      // DETAILS MODAL
+      // =====================================================
+
+      const dialog = document.getElementById("detail-dialog");
+      const dialogTitle = document.getElementById("dialog-title");
+      const dialogContent = document.getElementById("dialog-content");
+      const closeDialog = document.getElementById("dialog-close");
+
+      let dialogTrigger = null;
+      let previousOverflow = "";
+      let refreshAutoplay = () => {};
+
+      function openDialog(title, content, trigger) {
+        if (!dialog.open) {
+          dialogTrigger = trigger;
+
+          previousOverflow = document.documentElement.style.overflow;
+          document.documentElement.style.overflow = "hidden";
+        }
+
+        dialogTitle.textContent = title;
+        dialogContent.innerHTML = content;
+
+        wireImages(dialogContent);
+
+        if (!dialog.open) {
+          dialog.showModal();
+        }
+
+        dialog.scrollTop = 0;
+        closeDialog.focus();
+
+        refreshAutoplay();
+      }
+
+      closeDialog.addEventListener("click", () => {
+        dialog.close();
+      });
+
+      dialog.addEventListener("click", event => {
+        if (event.target !== dialog) return;
+
+        const rect = dialog.getBoundingClientRect();
+
+        if (
+          event.clientX < rect.left ||
+          event.clientX > rect.right ||
+          event.clientY < rect.top ||
+          event.clientY > rect.bottom
+        ) {
+          dialog.close();
+        }
+      });
+
+      dialog.addEventListener("close", () => {
+        document.documentElement.style.overflow = previousOverflow;
+
+        if (dialogTrigger?.isConnected) {
+          dialogTrigger.focus({
+            preventScroll: true
+          });
+        }
+
+        refreshAutoplay();
+      });
+
+      document.addEventListener("click", event => {
+        const trigger = event.target.closest("[data-action]");
+
+        if (!trigger) return;
+
+        const actionName = trigger.dataset.action;
+        const id = trigger.dataset.id;
+
+        if (actionName === "all-projects") {
+          openDialog(
+            "All Projects",
+            `
+              <div class="grid items-start gap-5 md:grid-cols-2">
+                ${DATA.projects.map(projectCard).join("")}
+              </div>
+            `,
+            trigger
+          );
+        }
+
+        if (actionName === "project") {
+          const project = DATA.projects.find(item => item.id === id);
+
+          if (!project) return;
+
+          openDialog(
+            project.title,
+            `
+              <p class="text-xs tracking-[1.7px] text-accent">
+                ${project.category}
+              </p>
+
+              <p class="mt-5 leading-relaxed ${UI.muted}">
+                ${esc(project.description)}
+              </p>
+
+              <h3 class="mt-7 font-semibold">
+                Project highlights
+              </h3>
+
+              <div class="mt-4">
+                ${bulletList(project.highlights)}
+              </div>
+
+              <div class="mt-7 flex flex-wrap gap-2">
+                ${project.tags.map(tagHTML).join("")}
+              </div>
+
+              <p class="mt-7 text-xs ${UI.muted}">
+                ${project.role} · ${project.period}
+              </p>
+            `,
+            trigger
+          );
+        }
+
+        if (actionName === "all-certificates") {
+          openDialog(
+            "All Certificates",
+            `
+              <div class="space-y-5">
+                ${
+                  DATA.certificates.map(
+                    certificate => certificateCard(certificate)
+                  ).join("")
+                }
+              </div>
+            `,
+            trigger
+          );
+        }
+
+        if (actionName === "certificate") {
+          const certificate = DATA.certificates.find(
+            item => item.id === id
+          );
+
+          if (!certificate) return;
+
+          openDialog(
+            certificate.title,
+            `
+              <div class="grid gap-7 md:grid-cols-2">
+                ${certificateImage(certificate)}
+
+                <div>
+                  <p class="text-xs tracking-[1.7px] text-accent">
+                    ${esc(certificate.issuer)}
+                  </p>
+
+                  <p class="mt-5 leading-relaxed ${UI.muted}">
+                    ${esc(certificate.description)}
+                  </p>
+
+                  <p class="mt-6 text-sm ${UI.muted}">
+                    Issued: ${esc(certificate.issued || "—")}
+                  </p>
+
+                  <p class="mt-2 break-words text-sm ${UI.muted}">
+                    Credential: ${esc(certificate.credential || "—")}
+                  </p>
+
+                  <div class="mt-6 flex flex-wrap gap-2">
+                    ${certificate.tags.map(tagHTML).join("")}
+                  </div>
+
+                  ${
+                    validURL(certificate.verifyUrl)
+                      ? `
+                        <div class="mt-7">
+                          ${
+                            button(
+                              "Verify Certificate",
+                              certificate.verifyUrl,
+                              "primary",
+                              'target="_blank" rel="noopener noreferrer"'
+                            )
+                          }
+                        </div>
+                      `
+                      : ""
+                  }
+                </div>
+              </div>
+            `,
+            trigger
+          );
+        }
+
+        if (actionName === "all-skills") {
+          openDialog(
+            "Skills & Technologies",
+            `
+              <div class="grid gap-4 sm:grid-cols-2">
+                ${DATA.skills.map(skillCard).join("")}
+              </div>
+
+              <h3 class="mt-9 text-lg font-semibold">
+                Technology toolkit
+              </h3>
+
+              <div class="mt-5 flex flex-wrap gap-2">
+                ${
+                  TECH.map(([name, slug]) => {
+                    return tagHTML([name, slug]);
+                  }).join("")
+                }
+              </div>
+            `,
+            trigger
+          );
+        }
+
+        if (actionName === "all-experience") {
+          openDialog(
+            "Full Timeline",
+            `
+              <div class="space-y-6">
+                ${
+                  DATA.experiences.map(experience => {
+                    return experienceCard(experience, false, true);
+                  }).join("")
+                }
+              </div>
+            `,
+            trigger
+          );
+        }
+
+        if (actionName === "all-awards") {
+          openDialog(
+            "All Awards",
+            `
+              <div class="space-y-6">
+                ${DATA.awards.map(award => awardCard(award)).join("")}
+              </div>
+            `,
+            trigger
+          );
+        }
+
+        if (actionName === "award") {
+          const award = DATA.awards.find(item => item.id === id);
+
+          if (!award) return;
+
+          openDialog(
+            award.title,
+            `
+              <div class="grid gap-7 md:grid-cols-2">
+                ${awardImage(award)}
+
+                <div>
+                  <p class="text-xs text-accent">
+                    ${award.date}
+                  </p>
+
+                  <p class="mt-4 text-sm font-medium">
+                    ${esc(award.issuer)}
+                  </p>
+
+                  <p class="mt-5 text-sm leading-[1.8] ${UI.muted}">
+                    ${esc(award.description)}
+                  </p>
+
+                  <div class="mt-6">
+                    ${bulletList(award.details)}
+                  </div>
+                </div>
+              </div>
+            `,
+            trigger
+          );
+        }
+      });
+
+      // =====================================================
+      // CERTIFICATE CAROUSEL
+      // =====================================================
+
+      const carousel = document.getElementById("certificate-carousel");
+      const scroller = document.getElementById("certificate-scroller");
+      const dots = document.getElementById("certificate-dots");
+      const play = document.getElementById("certificate-play");
+
+      let certIndex = 0;
+      let certTimer;
+      let settleTimer;
+
+      let certVisible = false;
+      let certHovered = false;
+      let certFocused = false;
+      let certDragging = false;
+      let certPaused = motion.matches;
+
+      function certControls() {
+        [...dots.children].forEach((dot, index) => {
+          dot.dataset.current = String(index === certIndex);
+
+          if (index === certIndex) {
+            dot.setAttribute("aria-current", "true");
+          } else {
+            dot.removeAttribute("aria-current");
+          }
+        });
+
+        play.innerHTML = icon(certPaused ? "play" : "pause");
+
+        play.setAttribute(
+          "aria-pressed",
+          String(certPaused)
+        );
+
+        play.setAttribute(
+          "aria-label",
+          certPaused
+            ? "Start automatic slides"
+            : "Pause automatic slides"
+        );
+      }
+
+      function scheduleCertificates() {
+        clearTimeout(certTimer);
+
+        if (
+          DATA.certificates.length < 2 ||
+          certPaused ||
+          !certVisible ||
+          certHovered ||
+          certFocused ||
+          certDragging ||
+          document.hidden ||
+          dialog.open
+        ) {
+          return;
+        }
+
+        certTimer = setTimeout(() => {
+          goCertificate(certIndex + 1);
+        }, DATA.certificateInterval);
+      }
+
+      function goCertificate(next) {
+        certIndex = (
+          next + DATA.certificates.length
+        ) % DATA.certificates.length;
+
+        const slide = scroller.children[certIndex];
+
+        if (!slide) return;
+
+        const left =
+          slide.getBoundingClientRect().left -
+          scroller.getBoundingClientRect().left +
+          scroller.scrollLeft;
+
+        scroller.scrollTo({
+          left,
+          behavior: motion.matches ? "instant" : "smooth"
+        });
+
+        certControls();
+        scheduleCertificates();
+      }
+
+      refreshAutoplay = scheduleCertificates;
+
+      scroller.addEventListener("scroll", () => {
+        clearTimeout(certTimer);
+        clearTimeout(settleTimer);
+
+        settleTimer = setTimeout(() => {
+          const max = scroller.scrollWidth - scroller.clientWidth;
+
+          if (max > 0 && scroller.scrollLeft >= max - 3) {
+            certIndex = DATA.certificates.length - 1;
+          } else {
+            let nearest = Infinity;
+            const left = scroller.getBoundingClientRect().left;
+
+            [...scroller.children].forEach((slide, index) => {
+              const distance = Math.abs(
+                slide.getBoundingClientRect().left - left
+              );
+
+              if (distance < nearest) {
+                nearest = distance;
+                certIndex = index;
+              }
+            });
+          }
+
+          certControls();
+          scheduleCertificates();
+        }, 180);
+      }, {
+        passive: true
+      });
+
+      dots.addEventListener("click", event => {
+        const trigger = event.target.closest("[data-index]");
+
+        if (trigger) {
+          goCertificate(Number(trigger.dataset.index));
+        }
+      });
+
+      document.getElementById("certificate-prev").addEventListener(
+        "click",
+        () => {
+          goCertificate(certIndex - 1);
+        }
+      );
+
+      document.getElementById("certificate-next").addEventListener(
+        "click",
+        () => {
+          goCertificate(certIndex + 1);
+        }
+      );
+
+      play.addEventListener("click", () => {
+        certPaused = !certPaused;
+
+        certControls();
+        scheduleCertificates();
+      });
+
+      carousel.addEventListener("pointerenter", event => {
+        if (event.pointerType !== "touch") {
+          certHovered = true;
+        }
+
+        scheduleCertificates();
+      });
+
+      carousel.addEventListener("pointerleave", () => {
+        certHovered = false;
+        scheduleCertificates();
+      });
+
+      carousel.addEventListener("focusin", () => {
+        certFocused = true;
+        scheduleCertificates();
+      });
+
+      carousel.addEventListener("focusout", event => {
+        certFocused = carousel.contains(event.relatedTarget);
+        scheduleCertificates();
+      });
+
+      scroller.addEventListener("pointerdown", () => {
+        certDragging = true;
+        scheduleCertificates();
+      });
+
+      addEventListener("pointerup", () => {
+        if (certDragging) {
+          certDragging = false;
+          scheduleCertificates();
+        }
+      });
+
+      addEventListener("pointercancel", () => {
+        certDragging = false;
+        scheduleCertificates();
+      });
+
+      document.addEventListener(
+        "visibilitychange",
+        scheduleCertificates
+      );
+
+      if ("IntersectionObserver" in window) {
+        new IntersectionObserver(entries => {
+          certVisible = entries[0].isIntersecting;
+          scheduleCertificates();
+        }, {
+          threshold: .1
+        }).observe(carousel);
+      } else {
+        certVisible = true;
+      }
+
+      motion.addEventListener("change", event => {
+        if (event.matches) {
+          certPaused = true;
+        }
+
+        certControls();
+        scheduleCertificates();
+      });
+
+      certControls();
+      scheduleCertificates();
+
+      // =====================================================
+      // TYPEWRITER
+      // =====================================================
+
+      if (!motion.matches) {
+        const typed = document.getElementById("typed-role");
+
+        const roles = [
+          "SOFTWARE ENGINEER",
+          "FULL-STACK DEVELOPER",
+          "WEB DEVELOPER"
+        ];
+
+        let index = 0;
+        let length = roles[0].length;
+        let deleting = true;
+
+        function type() {
+          length += deleting ? -1 : 1;
+
+          typed.textContent = roles[index].slice(0, length);
+
+          let delay = deleting ? 40 : 85;
+
+          if (!deleting && length === roles[index].length) {
+            deleting = true;
+            delay = 1900;
+          } else if (deleting && length === 0) {
+            deleting = false;
+            index = (index + 1) % roles.length;
+            delay = 350;
+          }
+
+          setTimeout(type, delay);
+        }
+
+        setTimeout(type, 2000);
+      }
+
+      // =====================================================
+      // TECHNOLOGY MARQUEE
+      // =====================================================
+
+      function createTechGroup(duplicate = false) {
+        const group = document.createElement("ul");
+
+        group.className =
+          "tech-group m-0 flex w-max shrink-0 list-none items-center gap-3 py-2.5 pr-3 pl-0 sm:gap-[15px] sm:pr-[15px]";
+
+        if (duplicate) {
+          group.setAttribute("aria-hidden", "true");
+        }
+
+        TECH.forEach(([name, slug, short]) => {
+          const item = document.createElement("li");
+          const badge = document.createElement("span");
+          const fallback = document.createElement("span");
+          const img = document.createElement("img");
+
+          badge.className =
+            "tech-badge relative grid size-[43px] shrink-0 cursor-help place-items-center rounded-full border border-line bg-[#f5f9ff] text-muted transition-colors hover:border-accent hover:bg-accent/10 sm:size-12 dark:border-[#34455d] dark:bg-[#19263b] dark:text-[#a8b8cc]";
+
+          badge.dataset.name = name;
+
+          if (!duplicate) {
+            badge.tabIndex = 0;
+            badge.setAttribute("role", "img");
+            badge.setAttribute("aria-label", name);
+          }
+
+          fallback.className =
+            "text-[10px] font-bold tracking-[-.4px]";
+
+          fallback.textContent = short;
+          fallback.setAttribute("aria-hidden", "true");
+
+          img.className =
+            "size-[19px] object-contain dark:brightness-0 dark:invert-[.85]";
+
+          img.alt = "";
+          img.width = 19;
+          img.height = 19;
+          img.hidden = true;
+          img.decoding = "async";
+          img.draggable = false;
+
+          img.addEventListener("load", () => {
+            fallback.hidden = true;
+            img.hidden = false;
+          }, {
+            once: true
+          });
+
+          img.src = `https://cdn.simpleicons.org/${slug}/62728A`;
+
+          badge.append(fallback, img);
+          item.append(badge);
+          group.append(item);
+        });
+
+        return group;
+      }
+
+      document.getElementById("tech-track").append(
+        createTechGroup(),
+        createTechGroup(true)
+      );
+
+      // =====================================================
+      // TECHNOLOGY TOOLTIP
+      // =====================================================
+
+      const strip = document.getElementById("tech-strip");
+      const tooltip = document.getElementById("tech-tooltip");
+
+      let hovered = null;
+      let focused = null;
+      let current = null;
+      let dismissed = false;
+
+      function findBadge(target) {
+        if (!(target instanceof Element)) return null;
+
+        const badge = target.closest(".tech-badge");
+
+        return badge && strip.contains(badge) ? badge : null;
+      }
+
+      function positionTooltip() {
+        if (!current || tooltip.hidden) return;
+
+        const badgeRect = current.getBoundingClientRect();
+        const stripRect = strip.getBoundingClientRect();
+
+        const width = document.documentElement.clientWidth;
+        const height = document.documentElement.clientHeight;
+
+        const center = Math.max(
+          stripRect.left + 24,
+          Math.min(
+            badgeRect.left + badgeRect.width / 2,
+            stripRect.right - 24
+          )
+        );
+
+        const left = Math.max(
+          12,
+          Math.min(
+            center - tooltip.offsetWidth / 2,
+            width - tooltip.offsetWidth - 12
+          )
+        );
+
+        let top = stripRect.top - tooltip.offsetHeight - 10;
+
+        if (top < 12) {
+          top = stripRect.bottom + 10;
+        }
+
+        top = Math.max(
+          12,
+          Math.min(
+            top,
+            height - tooltip.offsetHeight - 12
+          )
+        );
+
+        tooltip.style.left = `${left}px`;
+        tooltip.style.top = `${top}px`;
+      }
+
+      function updateTooltip() {
+        current?.removeAttribute("aria-describedby");
+
+        current = hovered || focused;
+
+        if (!current || dismissed) {
+          tooltip.hidden = true;
+          return;
+        }
+
+        tooltip.textContent = current.dataset.name;
+        tooltip.hidden = false;
+
+        if (!current.closest('[aria-hidden="true"]')) {
+          current.setAttribute(
+            "aria-describedby",
+            tooltip.id
+          );
+        }
+
+        positionTooltip();
+      }
+
+      strip.addEventListener("pointerover", event => {
+        const badge = findBadge(event.target);
+
+        if (badge === hovered) return;
+
+        hovered = badge;
+        dismissed = false;
+
+        updateTooltip();
+      });
+
+      strip.addEventListener("pointerout", event => {
+        const badge = findBadge(event.target);
+
+        if (badge?.contains(event.relatedTarget)) return;
+
+        hovered = findBadge(event.relatedTarget);
+        dismissed = false;
+
+        updateTooltip();
+      });
+
+      strip.addEventListener("pointerleave", () => {
+        hovered = null;
+        dismissed = false;
+
+        updateTooltip();
+      });
+
+      strip.addEventListener("focusin", event => {
+        focused = findBadge(event.target);
+        dismissed = false;
+
+        updateTooltip();
+      });
+
+      strip.addEventListener("focusout", event => {
+        focused = findBadge(event.relatedTarget);
+        dismissed = false;
+
+        updateTooltip();
+      });
+
+      document.addEventListener("keydown", event => {
+        if (event.key === "Escape") {
+          dismissed = true;
+          updateTooltip();
+        }
+      });
+
+      addEventListener("resize", positionTooltip);
+
+      addEventListener("scroll", positionTooltip, {
+        passive: true
+      });
+    })();
+  </script>
+</body>
+</html>

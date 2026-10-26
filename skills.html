@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth scroll-pt-[120px] motion-reduce:scroll-auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f4f8ff" />
+  <meta name="description" content="Skills — Adi Sahrul Ramadhan, Software Engineer" />
+
+  <title>Skills — Adi Sahrul Ramadhan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, .dark *));
+
+    @theme {
+      --font-sans: "Inter", Arial, sans-serif;
+      --color-page: #f4f8ff;
+      --color-ink: #121b2e;
+      --color-muted: #637188;
+      --color-accent: #00bdb6;
+      --color-line: #d9e5f5;
+    }
+
+    @layer base {
+      html {
+        color-scheme: light;
+      }
+
+      html.dark {
+        color-scheme: dark;
+      }
+
+      [hidden] {
+        display: none !important;
+      }
+
+      a,
+      button,
+      [tabindex] {
+        outline-offset: 5px;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--color-accent);
+      }
+
+      svg {
+        display: block;
+        flex-shrink: 0;
+      }
+
+      a[href],
+      button:enabled,
+      summary {
+        cursor: pointer;
+      }
+    }
+
+    #achievement-chevron {
+      transition: transform 260ms cubic-bezier(.2, .75, .2, 1);
+    }
+
+    #achievement-menu[data-open="true"] #achievement-chevron {
+      transform: rotate(180deg);
+    }
+
+    .achievement-dropdown {
+      opacity: 0;
+      transform: translate3d(0, -8px, 0) scale(.97);
+      pointer-events: none;
+      transform-origin: top left;
+      transition:
+        opacity 200ms ease,
+        transform 200ms cubic-bezier(.2, .75, .2, 1);
+    }
+
+    #achievement-menu[data-open="true"] .achievement-dropdown {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+
+    .skill-card,
+    .skill-card-icon {
+      transition:
+        transform 280ms cubic-bezier(.2, .75, .2, 1),
+        background-color 280ms ease,
+        border-color 280ms ease,
+        color 280ms ease,
+        background-image 280ms ease;
+    }
+
+    .skill-card-glow {
+      transition: opacity 280ms ease;
+    }
+
+    .skill-card-icon {
+      color: var(--skill-color);
+      background-color: var(--skill-bg);
+    }
+
+    .dark .skill-card-icon {
+      color: var(--skill-dark-color);
+      background-color: var(--skill-dark-bg);
+    }
+
+    .skill-brand-logo {
+      width: 25px;
+      height: 25px;
+      object-fit: contain;
+    }
+
+    .dark .skill-logo-contrast {
+      filter: brightness(0) invert(1);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #achievement-chevron,
+      .achievement-dropdown,
+      .skill-card,
+      .skill-card-icon,
+      .skill-card-glow {
+        transition: none;
+      }
+
+      .group:hover .skill-card {
+        transform: none;
+      }
+    }
+  </style>
+
+  <script>
+    try {
+      const saved = localStorage.getItem("asr-theme");
+
+      document.documentElement.classList.toggle(
+        "dark",
+        saved === "dark" ||
+        (
+          saved !== "light" &&
+          matchMedia("(prefers-color-scheme: dark)").matches
+        )
+      );
+    } catch {
+      document.documentElement.classList.toggle(
+        "dark",
+        matchMedia("(prefers-color-scheme: dark)").matches
+      );
+    }
+  </script>
+</head>
+
+<body
+  class="relative m-0 bg-[radial-gradient(circle_at_top_left,_var(--color-accent),_transparent_60%),radial-gradient(circle_at_bottom_right,_var(--color-accent),_transparent_60%)] bg-white font-sans text-[#121b2e] antialiased dark:bg-[#101827] dark:text-[#eff5ff]"
+  style="--color-accent: rgba(0, 189, 182, 0.3);"
+>
+  <!-- BACKGROUND PATTERN -->
+  <div
+    class="pointer-events-none fixed inset-0 z-0 bg-[repeating-linear-gradient(135deg,rgba(0,189,182,0.08)_0,rgba(0,189,182,0.08)_1px,transparent_1px,transparent_28px)] dark:bg-[repeating-linear-gradient(135deg,rgba(0,189,182,0.12)_0,rgba(0,189,182,0.12)_1px,transparent_1px,transparent_28px)]"
+  ></div>
+
+  <!-- NAVBAR -->
+  <header
+    id="header"
+    class="fixed inset-x-0 top-2.5 z-50 px-2.5 sm:px-4 lg:top-4 lg:px-6"
+  >
+    <nav
+      id="navbar"
+      aria-label="Main navigation"
+      data-scrolled="false"
+      class="
+        relative mx-auto flex min-h-[72px] max-w-[1360px]
+        items-center gap-[15px] rounded-[23px]
+        border border-transparent px-3 py-2.5
+        transition-[background-color,border-color,box-shadow] duration-300
+        lg:min-h-20 lg:px-[18px] xl:gap-7
+
+        hover:border-[#00bdb6]/70
+        hover:bg-gradient-to-r
+        hover:from-[#00bdb6]/25
+        hover:via-[#f2fbfb]/90
+        hover:to-[#00bdb6]/25
+        hover:shadow-[0_10px_35px_rgba(0,189,182,0.22)]
+        hover:backdrop-blur-xl
+
+        data-[scrolled=true]:border-[#00bdb6]/70
+        data-[scrolled=true]:bg-gradient-to-r
+        data-[scrolled=true]:from-[#00bdb6]/25
+        data-[scrolled=true]:via-[#f2fbfb]/90
+        data-[scrolled=true]:to-[#00bdb6]/25
+        data-[scrolled=true]:shadow-[0_10px_35px_rgba(0,189,182,0.22)]
+        data-[scrolled=true]:backdrop-blur-xl
+
+        dark:hover:border-[#00bdb6]/70
+        dark:hover:bg-gradient-to-r
+        dark:hover:from-[#00bdb6]/25
+        dark:hover:via-[#11222b]/95
+        dark:hover:to-[#00bdb6]/25
+        dark:hover:shadow-[0_0_40px_rgba(0,189,182,0.3)]
+        dark:hover:backdrop-blur-xl
+
+        dark:data-[scrolled=true]:border-[#00bdb6]/70
+        dark:data-[scrolled=true]:bg-gradient-to-r
+        dark:data-[scrolled=true]:from-[#00bdb6]/25
+        dark:data-[scrolled=true]:via-[#11222b]/95
+        dark:data-[scrolled=true]:to-[#00bdb6]/25
+        dark:data-[scrolled=true]:shadow-[0_0_40px_rgba(0,189,182,0.3)]
+        dark:data-[scrolled=true]:backdrop-blur-xl
+      "
+    >
+      <a
+        href="index.html"
+        class="group inline-flex shrink-0 items-center gap-[9px] sm:gap-[13px]"
+      >
+        <span class="grid h-[42px] w-[39px] place-items-center rounded-[14px] border border-[#a7efea] bg-white shadow-[0_8px_15px_rgba(0,191,183,.14)] transition-transform group-hover:-rotate-3 sm:size-12 sm:rounded-[17px] dark:border-[#00bdb6]/50 dark:bg-[#172837]">
+          <span class="bg-gradient-to-r from-[#10bdd7] via-[#e26683] to-[#f2b62b] bg-clip-text text-base font-extrabold tracking-[-1px] text-transparent">
+            ASR
+          </span>
+        </span>
+
+        <span class="grid gap-1">
+          <strong class="whitespace-nowrap text-[11px] font-semibold sm:text-sm lg:text-xs xl:text-sm">
+            Adi Sahrul Ramadhan
+          </strong>
+
+          <small class="text-[10px] text-muted sm:text-xs dark:text-[#a8b8cc]">
+            Portfolio
+          </small>
+        </span>
+      </a>
+
+      <div
+        id="navigation"
+        data-open="false"
+        class="
+          absolute inset-x-0 top-[calc(100%+10px)]
+          hidden flex-wrap items-center gap-[5px]
+          rounded-[20px] border border-line bg-[#f6fbff]/95 p-[15px]
+          shadow-lg backdrop-blur-xl data-[open=true]:flex
+          dark:border-[#2b3c54] dark:bg-[#121e30]/95
+
+          lg:static lg:flex lg:flex-1 lg:flex-nowrap lg:justify-center
+          lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0
+          lg:shadow-none lg:backdrop-blur-none dark:lg:bg-transparent
+
+          [&>a]:inline-flex [&>a]:items-center
+          [&>a]:whitespace-nowrap [&>a]:rounded-full
+          [&>a]:px-[14px] [&>a]:py-[11px] [&>a]:text-sm
+          [&>a]:transition-colors
+          lg:[&>a]:px-[9px] lg:[&>a]:text-xs
+          xl:[&>a]:px-[13px] xl:[&>a]:text-sm
+        "
+      >
+        <a
+          href="index.html"
+          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+        >
+          Home
+        </a>
+
+        <a
+          href="about.html"
+          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+        >
+          About
+        </a>
+
+        <a
+          href="experience.html"
+          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+        >
+          Experience
+        </a>
+
+        <a
+          href="projects.html"
+          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+        >
+          Projects
+        </a>
+
+        <div
+          id="achievement-menu"
+          data-open="false"
+          class="relative"
+        >
+          <button
+            type="button"
+            id="achievement-trigger"
+            aria-haspopup="menu"
+            aria-expanded="false"
+            aria-controls="achievement-dropdown"
+            class="flex items-center gap-2 rounded-full px-[14px] py-[11px] text-sm text-muted transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          >
+            Achievements
+
+            <svg
+              id="achievement-chevron"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path d="m6 9 6 6 6-6"></path>
+            </svg>
+          </button>
+
+          <div
+            id="achievement-dropdown"
+            role="menu"
+            aria-hidden="true"
+            class="achievement-dropdown absolute left-0 top-full z-20 mt-2 grid min-w-44 gap-1 rounded-2xl border border-line bg-white p-2 shadow-lg dark:border-[#34455d] dark:bg-[#172337]"
+          >
+            <a
+              href="awards.html"
+              role="menuitem"
+              class="rounded-xl px-4 py-3 text-sm transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+            >
+              Awards
+            </a>
+
+            <a
+              href="certificates.html"
+              role="menuitem"
+              class="rounded-xl px-4 py-3 text-sm transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+            >
+              Certificates
+            </a>
+          </div>
+        </div>
+
+        <a
+          href="blog.html"
+          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+        >
+          Blog
+        </a>
+
+        <a
+          href="skills.html"
+          aria-current="page"
+          class="bg-[#00bdb6]/20 font-bold text-[#008f8a] shadow-sm dark:bg-[#00bdb6]/30 dark:text-[#33d1cb]"
+        >
+          Skills
+        </a>
+
+        <a
+          href="contact.html"
+          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+        >
+          Contact
+        </a>
+      </div>
+
+      <div class="ml-auto flex items-center gap-1.5 sm:gap-[9px]">
+        <button
+          id="menu-button"
+          type="button"
+          aria-label="Open menu"
+          aria-controls="navigation"
+          aria-expanded="false"
+          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] sm:size-[45px] lg:hidden dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+        >
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+
+        <button
+          id="theme-button"
+          type="button"
+          aria-label="Switch to dark mode"
+          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-all hover:rotate-12 hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] active:scale-95 sm:size-[45px] dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+        >
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            aria-hidden="true"
+          >
+            <path d="M21 13A9 9 0 0 1 11 3a9 9 0 1 0 10 10Z"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section
+      id="skills"
+      class="pb-16 pt-[115px] sm:pt-[125px] lg:pt-[140px]"
+    >
+      <div class="mx-auto w-[calc(100%-36px)] max-w-[1320px] sm:w-[calc(100%-64px)]">
+        <span class="inline-flex rounded-full border border-line bg-white/65 px-[14px] py-1 text-[10px] font-medium tracking-[2px] text-[#4c5f7b] dark:border-[#2b3c54] dark:bg-[#19273c]/80 dark:text-[#a8b8cc]">
+          SKILLS
+        </span>
+
+        <h1 class="mt-5 max-w-[1100px] text-[32px] leading-[1.25] font-semibold tracking-[-1.3px] text-[#121b2e] sm:text-[42px] lg:text-[50px] dark:text-[#eff5ff]">
+          Technology stack and areas of expertise.
+        </h1>
+
+        <p class="mt-6 max-w-[760px] text-[15px] leading-[1.7] text-[#637188] sm:text-lg dark:text-[#a8b8cc]">
+          Grouped by practical domains from my CV, covering frontend, backend, cloud, mobile, and professional delivery skills.
+        </p>
+
+        <div
+          id="skills-groups"
+          class="mt-10 grid gap-6"
+        ></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-line/70 py-12 sm:py-16 dark:border-[#2b3c54]">
+    <div class="mx-auto w-[calc(100%-36px)] max-w-[1320px] sm:w-[calc(100%-64px)]">
+      <div class="grid gap-10 md:grid-cols-[1.8fr_.75fr_1fr]">
+        <div>
+          <a
+            href="index.html"
+            class="text-xl font-medium tracking-[-.5px]"
+          >
+            Adi Sahrul Ramadhan
+          </a>
+
+          <p class="mt-5 max-w-[530px] text-sm leading-relaxed text-muted dark:text-[#a8b8cc]">
+            Full Stack Web Developer focused on delivering scalable products with clean architecture and measurable impact.
+          </p>
+
+          <div
+            id="footer-socials"
+            class="mt-5 flex gap-2.5"
+          ></div>
+        </div>
+
+        <div>
+          <h3 class="text-[10px] tracking-[2px] text-muted dark:text-[#a8b8cc]">
+            EXPLORE
+          </h3>
+
+          <div class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 text-xs text-muted dark:text-[#a8b8cc] [&>a:hover]:text-accent">
+            <a href="index.html">Home</a>
+            <a href="certificates.html">Certificates</a>
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="experience.html">Experience</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="awards.html">Awards</a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-[10px] tracking-[2px] text-muted dark:text-[#a8b8cc]">
+            CONTACT
+          </h3>
+
+          <p class="mt-4 text-xs leading-relaxed text-muted dark:text-[#a8b8cc]">
+            Open to freelance and full-time collaboration.
+          </p>
+
+          <a
+            id="footer-email"
+            href="contact.html"
+            class="mt-3 inline-block break-all text-xs text-muted hover:text-accent dark:text-[#a8b8cc]"
+          >
+            Connect through my social profiles
+          </a>
+        </div>
+      </div>
+
+      <p class="mt-16 text-[11px] text-muted dark:text-[#a8b8cc]">
+        © <span id="year"></span> Adi Sahrul Ramadhan. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      "use strict";
+
+      // =====================================================
+      // SOCIAL DATA
+      // =====================================================
+
+      const DATA = {
+        linkedin: "https://linkedin.com/in/adi-sahrul-ramadhan-8966a1286",
+        github: "https://github.com/AdiSahrulRamadhan",
+        instagram: "https://www.instagram.com/adishrlramadhannn_?stkn=MXEyeGs4cmoydGd0dA%3D%3D&utm_source=qr",
+        youtube: "https://www.youtube.com/@-AdiSahrulRamadhan",
+        email: "adisahrul383@gmail.com"
+      };
+
+      const SOCIALS = [
+        ["linkedin", "LinkedIn"],
+        ["github", "GitHub"],
+        ["instagram", "Instagram"],
+        ["youtube", "YouTube"],
+        ["email", "Email"]
+      ];
+
+      const ICONS = {
+        linkedin:
+          '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7m4 0v-7m0 3c0-4 6-4 6 0v4"/><circle cx="7" cy="7" r=".8" fill="currentColor" stroke="none"/>',
+
+        github:
+          '<path d="M9 19c-4 1-4-2-6-2m12 5v-4c0-1-.4-1.7-1-2 3-.4 6-1.5 6-6a5 5 0 0 0-1.4-3.5A5 5 0 0 0 18.5 3S17 2.5 14.8 4a11 11 0 0 0-5.6 0C7 2.5 5.5 3 5.5 3a5 5 0 0 0-.1 3.5A5 5 0 0 0 4 10c0 4.5 3 5.6 6 6-.6.3-1 1-1 2v4"/>',
+
+        instagram:
+          '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>',
+
+        youtube:
+          '<rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 6 3-6 3Z"/>',
+
+        email:
+          '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>',
+
+        moon:
+          '<path d="M21 13A9 9 0 0 1 11 3a9 9 0 1 0 10 10Z"/>',
+
+        sun:
+          '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5M17.5 6.5 19 5"/>'
+      };
+
+      // =====================================================
+      // SKILLS
+      // =====================================================
+
+      const SKILL_GROUPS = [
+        {
+          name: "Backend Development",
+          skills: [
+            ["Laravel", "Expert"],
+            ["Express.js", "Advanced"],
+            ["Node.js", "Expert"],
+            ["Application Programming Interfaces (API)", "Expert"],
+            ["Authentication & Authorization (JWT)", "Advanced"],
+            ["Database Management System (DBMS)", "Expert"],
+            ["MySQL", "Expert"],
+            ["PostgreSQL", "Advanced"],
+            ["Testing", "Expert"]
+          ]
+        },
+        {
+          name: "Frontend Development",
+          skills: [
+            ["Next.js", "Expert"],
+            ["React.js", "Expert"],
+            ["Vue.js", "Expert"],
+            ["TailwindCSS", "Expert"],
+            ["Bootstrap", "Expert"],
+            ["TypeScript", "Expert"],
+            ["HTML5", "Expert"],
+            ["CSS3", "Expert"],
+            ["JavaScript", "Expert"],
+            ["Web Components", "Expert"],
+            ["Webpack", "Expert"],
+            ["AJAX", "Expert"],
+            ["UI/UX Fundamentals", "Advanced"],
+            ["Responsive Design", "Expert"],
+            ["Prototyping", "Advanced"]
+          ]
+        },
+        {
+          name: "Cloud Computing & DevOps",
+          skills: [
+            ["Git", "Expert"],
+            ["Amazon Web Services (AWS)", "Advanced"],
+            ["Alibaba Cloud", "Intermediate"],
+            ["Virtualization", "Intermediate"],
+            ["GitHub", "Expert"]
+          ]
+        },
+        {
+          name: "Artificial Intelligence",
+          skills: [
+            ["Artificial Intelligence", "Advanced"],
+            ["Generative AI", "Advanced"],
+            ["Microsoft Azure", "Intermediate"],
+            ["Prompt Engineering", "Expert"]
+          ]
+        },
+        {
+          name: "Programming Concepts & Paradigms",
+          skills: [
+            ["Object-Oriented Programming (OOP)", "Expert"],
+            ["Model-View-Controller (MVC)", "Expert"],
+            ["SOLID Design Principles", "Advanced"],
+            ["Swift Programming", "Intermediate"]
+          ]
+        },
+        {
+          name: "Data Science & Machine Learning",
+          skills: [
+            ["Data Science", "Intermediate"],
+            ["Python", "Expert"],
+            ["Data Visualization", "Advanced"],
+            ["Google Sheets", "Expert"],
+            ["Classification", "Advanced"],
+            ["Supervised Learning", "Intermediate"],
+            ["Neural Network", "Intermediate"],
+            ["Deep Learning", "Intermediate"]
+          ]
+        },
+        {
+          name: "Project Management",
+          skills: [
+            ["Jira", "Advanced"],
+            ["Trello", "Advanced"],
+            ["Agile Principles", "Advanced"]
+          ]
+        },
+        {
+          name: "Mobile Development",
+          skills: [
+            ["React Native", "Intermediate"],
+            ["Dart", "Advanced"],
+            ["Flutter", "Intermediate"],
+            ["SwiftUI", "Intermediate"]
+          ]
+        },
+        {
+          name: "Soft Skills",
+          skills: [
+            ["Problem Solving", "Expert"],
+            ["Teamwork", "Expert"],
+            ["Leadership", "Advanced"],
+            ["Communication", "Expert"],
+            ["Critical Thinking", "Advanced"],
+            ["Time Management", "Advanced"],
+            ["Cross-Functional Collaboration", "Advanced"]
+          ]
+        }
+      ];
+
+      const LEVEL_CLASSES = {
+        Expert:
+          "border border-[#00bdb6]/40 bg-[#00bdb6]/10 text-[#008f89] dark:border-[#00bdb6]/60 dark:bg-[#00bdb6]/20 dark:text-[#5fe6df]",
+
+        Advanced:
+          "border border-[#00bdb6]/40 bg-[#00bdb6]/10 text-[#008f89] dark:border-[#00bdb6]/60 dark:bg-[#00bdb6]/20 dark:text-[#5fe6df]",
+
+        Intermediate:
+          "border border-[#3b82f6]/40 bg-[#3b82f6]/10 text-[#2563eb] dark:border-[#3b82f6]/60 dark:bg-[#3b82f6]/20 dark:text-[#60a5fa]"
+      };
+
+      // =====================================================
+      // SVG ICONS UNTUK SKILL KONSEPTUAL
+      // =====================================================
+
+      const SYMBOLS = {
+        code:
+          '<path d="m8 7-5 5 5 5m8-10 5 5-5 5M14 4l-4 16"/>',
+
+        api:
+          '<rect x="2" y="8" width="6" height="8" rx="2"/><rect x="16" y="8" width="6" height="8" rx="2"/><path d="M8 10h8m-3-3 3 3-3 3M16 14H8m3-3-3 3 3 3"/>',
+
+        jwt:
+          '<path d="M12 3 4 6v6c0 5 8 9 8 9s8-4 8-9V6Z"/><rect x="9" y="10" width="6" height="5" rx="1"/><path d="M10 10V8a2 2 0 0 1 4 0v2"/>',
+
+        database:
+          '<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 4 16 4 16 0V5M4 12c0 4 16 4 16 0"/>',
+
+        testing:
+          '<path d="M9 3h6m-5 0v6l-6 9a2 2 0 0 0 2 3h12a2 2 0 0 0 2-3l-6-9V3M8 13h8m-7 4 2 2 4-4"/>',
+
+        components:
+          '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="m17.5 13 4.5 4.5-4.5 4.5-4.5-4.5Z"/>',
+
+        ajax:
+          '<path d="M20 7H5m4-4L5 7l4 4M4 17h15m-4-4 4 4-4 4"/><path d="M3 7v6m18-2v6"/>',
+
+        uiux:
+          '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 9v11"/><circle cx="6" cy="6.5" r=".5" fill="currentColor" stroke="none"/><path d="m12 12 6 3-3 1-1 3Z"/>',
+
+        responsive:
+          '<rect x="2" y="3" width="14" height="12" rx="2"/><path d="M6 21h7m-4-6v6"/><rect x="16" y="9" width="6" height="12" rx="1.5"/><path d="M18 18h2"/>',
+
+        prototype:
+          '<rect x="3" y="3" width="7" height="5" rx="1"/><rect x="14" y="16" width="7" height="5" rx="1"/><path d="M10 5h7a2 2 0 0 1 2 2v5m-3-3 3 3 3-3M3 12h7v9H3zM6 15h1m-1 3h1"/>',
+
+        alibaba:
+          '<path d="M8 5H4v14h4m8-14h4v14h-4M8 12h8" stroke-width="2.6"/>',
+
+        virtual:
+          '<rect x="3" y="3" width="18" height="7" rx="2"/><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 6h.01M7 17h.01M11 6h6m-6 11h6M8 10v4m8-4v4"/>',
+
+        ai:
+          '<path d="M9 4a3 3 0 0 0-5 3 4 4 0 0 0-1 7 4 4 0 0 0 6 5M15 4a3 3 0 0 1 5 3 4 4 0 0 1 1 7 4 4 0 0 1-6 5M9 4v16m6-16v16M5 9h4m6 0h4M5 15h4m6 0h4"/><path d="M9 12h6"/>',
+
+        generative:
+          '<path d="m12 3 2.4 6.6L21 12l-6.6 2.4L12 21l-2.4-6.6L3 12l6.6-2.4ZM20 2v4m-2-2h4M3 18v4m-2-2h4"/>',
+
+        prompt:
+          '<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m6 9 3 3-3 3m6 0h5M2 7h20"/>',
+
+        oop:
+          '<path d="m12 2 7 4-7 4-7-4ZM5 6v8l7 4 7-4V6M12 10v8"/><path d="M3 16v4h5m13-4v4h-5"/>',
+
+        mvc:
+          '<rect x="8" y="2" width="8" height="5" rx="1"/><rect x="2" y="17" width="8" height="5" rx="1"/><rect x="14" y="17" width="8" height="5" rx="1"/><path d="M12 7v5M6 17v-5h12v5"/>',
+
+        solid:
+          '<path d="M3 21h18M4 7h16M12 2 3 7h18ZM6 10v8m6-8v8m6-8v8M4 18h16"/>',
+
+        science:
+          '<path d="M12 3v18M3 12h18"/><ellipse cx="12" cy="12" rx="5" ry="9" transform="rotate(45 12 12)"/><ellipse cx="12" cy="12" rx="5" ry="9" transform="rotate(-45 12 12)"/><circle cx="12" cy="12" r="1" fill="currentColor"/>',
+
+        chart:
+          '<path d="M3 3v18h18M7 16v-4m5 4V8m5 8V5"/><path d="m6 8 5-4 5 1 5-3"/>',
+
+        sheets:
+          '<path d="M5 2h10l4 4v16H5ZM15 2v5h4"/><path d="M8 10h8v9H8zM8 13h8M8 16h8M12 10v9"/>',
+
+        classification:
+          '<path d="M12 7v5M5 12h14M5 12v5m14-5v5"/><rect x="9" y="2" width="6" height="5" rx="1"/><circle cx="5" cy="20" r="3"/><path d="m19 17 3 5h-6Z"/>',
+
+        supervised:
+          '<rect x="3" y="3" width="11" height="16" rx="2"/><path d="M6 7h5m-5 4h3m-3 4h3"/><circle cx="17" cy="16" r="5"/><path d="m14.5 16 1.5 1.5 3-3"/>',
+
+        neural:
+          '<path d="m5 5 7 7-7 7m7-7 7-7m-7 7 7 7"/><circle cx="5" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="12" cy="12" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="19" cy="19" r="2"/>',
+
+        deep:
+          '<path d="m3 6 9-4 9 4-9 4ZM3 12l9 4 9-4M3 18l9 4 9-4M6 9v3m6-2v6m6-7v3M6 15v3m12-3v3"/>',
+
+        agile:
+          '<path d="M20 8a8 8 0 0 0-14-3L3 8m0-5v5h5M4 16a8 8 0 0 0 14 3l3-3m0 5v-5h-5"/><path d="m9 12 2 2 4-4"/>',
+
+        swiftui:
+          '<rect x="5" y="2" width="14" height="20" rx="3"/><path d="m8 8 4-2 4 2-4 2Zm0 4 4 2 4-2m-8 4 4 2 4-2"/>',
+
+        problem:
+          '<path d="M8 14a6 6 0 1 1 8 0c-1 1-1 2-1 3H9c0-1 0-2-1-3M9 20h6m-5 2h4"/><path d="m10 10 1.5 1.5L15 8"/>',
+
+        teamwork:
+          '<circle cx="12" cy="6" r="3"/><path d="M7 21v-4a5 5 0 0 1 10 0v4M3 9a2 2 0 1 0 0-4m18 4a2 2 0 1 1 0-4M2 20v-4a4 4 0 0 1 3-4m17 8v-4a4 4 0 0 0-3-4"/>',
+
+        leadership:
+          '<path d="M5 22V3m0 1c5-4 9 4 15 0v10c-6 4-10-4-15 0"/><path d="m11 8 1 2 2 .3-1.5 1.4.4 2-1.9-1-1.9 1 .4-2L8 10.3l2-.3Z"/>',
+
+        communication:
+          '<path d="M14 3H5a3 3 0 0 0-3 3v6a3 3 0 0 0 3 3v4l5-4h4a3 3 0 0 0 3-3V6a3 3 0 0 0-3-3Z"/><path d="M20 8a3 3 0 0 1 2 3v5a3 3 0 0 1-3 3v3l-4-3h-4M6 7h7M6 11h4"/>',
+
+        critical:
+          '<circle cx="10" cy="10" r="7"/><path d="m15 15 6 6M8 8a2 2 0 0 1 4 0c0 2-2 1-2 3m0 3h.01"/>',
+
+        time:
+          '<circle cx="12" cy="13" r="8"/><path d="M12 8v5l3 2M9 2h6m-3 0v3m6 1 2-2"/>',
+
+        collaboration:
+          '<rect x="2" y="3" width="7" height="6" rx="1"/><rect x="15" y="15" width="7" height="6" rx="1"/><path d="M9 6h6a4 4 0 0 1 4 4v2m-3-3 3 3 3-3M15 18H9a4 4 0 0 1-4-4v-2m-3 3 3-3 3 3"/>'
+      };
+
+      // =====================================================
+      // LOGO DAN WARNA SETIAP SKILL
+      // =====================================================
+
+      const DEVICON =
+        "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/";
+
+      const SKILL_ICON_CONFIG = {
+        "laravel": {
+          logo: "laravel/laravel-original.svg",
+          mark: "L",
+          color: "#FF2D20",
+          symbol: "oop"
+        },
+
+        "express.js": {
+          logo: "express/express-original.svg",
+          mark: "ex",
+          color: "#334155",
+          dark: "#E2E8F0",
+          contrast: true
+        },
+
+        "node.js": {
+          logo: "nodejs/nodejs-original.svg",
+          mark: "JS",
+          color: "#339933"
+        },
+
+        "application programming interfaces (api)": {
+          symbol: "api",
+          color: "#7C3AED"
+        },
+
+        "authentication & authorization (jwt)": {
+          symbol: "jwt",
+          color: "#D97706"
+        },
+
+        "database management system (dbms)": {
+          symbol: "database",
+          color: "#2563EB"
+        },
+
+        "mysql": {
+          logo: "mysql/mysql-original.svg",
+          mark: "SQL",
+          color: "#00758F",
+          dark: "#38BDF8"
+        },
+
+        "postgresql": {
+          logo: "postgresql/postgresql-original.svg",
+          mark: "PG",
+          color: "#336791",
+          dark: "#7AB5E8"
+        },
+
+        "testing": {
+          symbol: "testing",
+          color: "#16A34A"
+        },
+
+        "next.js": {
+          logo: "nextjs/nextjs-original.svg",
+          mark: "N",
+          color: "#171717",
+          dark: "#F8FAFC",
+          contrast: true
+        },
+
+        "react.js": {
+          logo: "react/react-original.svg",
+          mark: "RE",
+          color: "#087EA4",
+          dark: "#61DAFB"
+        },
+
+        "vue.js": {
+          logo: "vuejs/vuejs-original.svg",
+          mark: "V",
+          color: "#279B6B",
+          dark: "#42D392"
+        },
+
+        "tailwindcss": {
+          logo: "tailwindcss/tailwindcss-original.svg",
+          mark: "TW",
+          color: "#0891B2",
+          dark: "#38BDF8"
+        },
+
+        "bootstrap": {
+          logo: "bootstrap/bootstrap-original.svg",
+          mark: "B",
+          color: "#7952B3",
+          dark: "#B69AEE"
+        },
+
+        "typescript": {
+          logo: "typescript/typescript-original.svg",
+          mark: "TS",
+          color: "#3178C6",
+          dark: "#60A5FA"
+        },
+
+        "html5": {
+          logo: "html5/html5-original.svg",
+          mark: "5",
+          color: "#E34F26",
+          dark: "#FB923C"
+        },
+
+        "css3": {
+          logo: "css3/css3-original.svg",
+          mark: "3",
+          color: "#1572B6",
+          dark: "#38BDF8"
+        },
+
+        "javascript": {
+          logo: "javascript/javascript-original.svg",
+          mark: "JS",
+          color: "#A16207",
+          dark: "#F7DF1E"
+        },
+
+        "web components": {
+          symbol: "components",
+          color: "#EA580C"
+        },
+
+        "webpack": {
+          logo: "webpack/webpack-original.svg",
+          mark: "W",
+          color: "#1C78C0",
+          dark: "#8DD6F9"
+        },
+
+        "ajax": {
+          symbol: "ajax",
+          color: "#0891B2"
+        },
+
+        "ui/ux fundamentals": {
+          symbol: "uiux",
+          color: "#DB2777"
+        },
+
+        "responsive design": {
+          symbol: "responsive",
+          color: "#7C3AED"
+        },
+
+        "prototyping": {
+          symbol: "prototype",
+          color: "#C026D3"
+        },
+
+        "git": {
+          logo: "git/git-original.svg",
+          mark: "G",
+          color: "#F05032"
+        },
+
+        "amazon web services (aws)": {
+          logo: "amazonwebservices/amazonwebservices-original-wordmark.svg",
+          mark: "AWS",
+          color: "#D97706",
+          symbol: "virtual",
+          contrast: true
+        },
+
+        "alibaba cloud": {
+          symbol: "alibaba",
+          color: "#FF6A00"
+        },
+
+        "virtualization": {
+          symbol: "virtual",
+          color: "#0284C7"
+        },
+
+        "github": {
+          logo: "github/github-original.svg",
+          mark: "GH",
+          color: "#24292F",
+          dark: "#F8FAFC",
+          contrast: true
+        },
+
+        "artificial intelligence": {
+          symbol: "ai",
+          color: "#7C3AED"
+        },
+
+        "generative ai": {
+          symbol: "generative",
+          color: "#A855F7"
+        },
+
+        "microsoft azure": {
+          logo: "azure/azure-original.svg",
+          mark: "AZ",
+          color: "#0078D4",
+          dark: "#38BDF8"
+        },
+
+        "prompt engineering": {
+          symbol: "prompt",
+          color: "#0D9488"
+        },
+
+        "object-oriented programming (oop)": {
+          symbol: "oop",
+          color: "#2563EB"
+        },
+
+        "model-view-controller (mvc)": {
+          symbol: "mvc",
+          color: "#0D9488"
+        },
+
+        "solid design principles": {
+          symbol: "solid",
+          color: "#4F46E5"
+        },
+
+        "swift programming": {
+          logo: "swift/swift-original.svg",
+          mark: "S",
+          color: "#F05138"
+        },
+
+        "data science": {
+          symbol: "science",
+          color: "#0891B2"
+        },
+
+        "python": {
+          logo: "python/python-original.svg",
+          mark: "PY",
+          color: "#3776AB",
+          dark: "#FFD343"
+        },
+
+        "data visualization": {
+          symbol: "chart",
+          color: "#059669"
+        },
+
+        "google sheets": {
+          symbol: "sheets",
+          color: "#0F9D58"
+        },
+
+        "classification": {
+          symbol: "classification",
+          color: "#D97706"
+        },
+
+        "supervised learning": {
+          symbol: "supervised",
+          color: "#2563EB"
+        },
+
+        "neural network": {
+          symbol: "neural",
+          color: "#9333EA"
+        },
+
+        "deep learning": {
+          symbol: "deep",
+          color: "#4F46E5"
+        },
+
+        "jira": {
+          logo: "jira/jira-original.svg",
+          mark: "J",
+          color: "#0052CC",
+          dark: "#60A5FA"
+        },
+
+        "trello": {
+          logo: "trello/trello-plain.svg",
+          mark: "T",
+          color: "#0079BF",
+          dark: "#38BDF8"
+        },
+
+        "agile principles": {
+          symbol: "agile",
+          color: "#0D9488"
+        },
+
+        "react native": {
+          logo: "react/react-original.svg",
+          mark: "RN",
+          color: "#087EA4",
+          dark: "#61DAFB"
+        },
+
+        "dart": {
+          logo: "dart/dart-original.svg",
+          mark: "D",
+          color: "#0175C2",
+          dark: "#38BDF8"
+        },
+
+        "flutter": {
+          logo: "flutter/flutter-original.svg",
+          mark: "FL",
+          color: "#027DFD",
+          dark: "#54C5F8"
+        },
+
+        "swiftui": {
+          symbol: "swiftui",
+          color: "#0A84FF"
+        },
+
+        "problem solving": {
+          symbol: "problem",
+          color: "#CA8A04"
+        },
+
+        "teamwork": {
+          symbol: "teamwork",
+          color: "#0D9488"
+        },
+
+        "leadership": {
+          symbol: "leadership",
+          color: "#EA580C"
+        },
+
+        "communication": {
+          symbol: "communication",
+          color: "#0284C7"
+        },
+
+        "critical thinking": {
+          symbol: "critical",
+          color: "#7C3AED"
+        },
+
+        "time management": {
+          symbol: "time",
+          color: "#DB2777"
+        },
+
+        "cross-functional collaboration": {
+          symbol: "collaboration",
+          color: "#059669"
+        }
+      };
+
+      // =====================================================
+      // HELPERS
+      // =====================================================
+
+      function esc(value) {
+        return String(value).replace(/[&<>"']/g, character => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;"
+        })[character]);
+      }
+
+      function icon(name, size = 22) {
+        return `
+          <svg
+            width="${size}"
+            height="${size}"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            ${ICONS[name] || ""}
+          </svg>
+        `;
+      }
+
+      function getSkillDefinition(name) {
+        return SKILL_ICON_CONFIG[name.toLowerCase().trim()] || {
+          symbol: "code",
+          color: "#0D9488"
+        };
+      }
+
+      function skillSvg(symbol) {
+        return `
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            ${SYMBOLS[symbol] || SYMBOLS.code}
+          </svg>
+        `;
+      }
+
+      function getSkillIconHtml(name) {
+        const entry = getSkillDefinition(name);
+
+        if (!entry.logo) {
+          return skillSvg(entry.symbol);
+        }
+
+        const fallback = `
+          <svg
+            width="25"
+            height="25"
+            viewBox="0 0 28 28"
+            aria-hidden="true"
+          >
+            <rect
+              x="2"
+              y="2"
+              width="24"
+              height="24"
+              rx="7"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            />
+
+            <text
+              x="14"
+              y="14.5"
+              dy=".35em"
+              fill="currentColor"
+              font-family="Inter,Arial,sans-serif"
+              font-size="${entry.mark.length > 2 ? 8 : 11}"
+              font-weight="800"
+              text-anchor="middle"
+            >
+              ${esc(entry.mark)}
+            </text>
+          </svg>
+        `;
+
+        return `
+          <span
+            data-logo-fallback
+            class="grid place-items-center"
+          >
+            ${fallback}
+          </span>
+
+          <img
+            data-skill-logo
+            hidden
+            src="${DEVICON + entry.logo}"
+            alt=""
+            width="25"
+            height="25"
+            decoding="async"
+            class="skill-brand-logo ${entry.contrast ? "skill-logo-contrast" : ""}"
+          />
+        `;
+      }
+
+      function wireSkillIcons() {
+        document.querySelectorAll("img[data-skill-logo]").forEach(image => {
+          const fallback = image.parentElement.querySelector(
+            "[data-logo-fallback]"
+          );
+
+          const update = loaded => {
+            image.hidden = !loaded;
+            fallback.hidden = loaded;
+          };
+
+          image.addEventListener("load", () => {
+            update(true);
+          });
+
+          image.addEventListener("error", () => {
+            update(false);
+          });
+
+          if (image.complete) {
+            update(image.naturalWidth > 0);
+          }
+        });
+      }
+
+      function socialHref(key) {
+        const value = DATA[key]?.trim();
+
+        if (!value) return "";
+
+        if (key === "email") {
+          return `mailto:${value}`;
+        }
+
+        return /^https?:\/\//i.test(value) ? value : "";
+      }
+
+      function socialAttrs(key) {
+        const href = socialHref(key);
+
+        return href
+          ? `href="${esc(href)}" ${
+              key !== "email"
+                ? 'target="_blank" rel="noopener noreferrer"'
+                : ""
+            }`
+          : 'aria-disabled="true"';
+      }
+
+      // =====================================================
+      // FOOTER
+      // =====================================================
+
+      document.getElementById("footer-socials").innerHTML =
+        SOCIALS.map(([key, name]) => `
+          <a
+            ${socialAttrs(key)}
+            aria-label="${name}"
+            class="grid size-9 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:border-[#34455d] dark:bg-[#1c2b42]"
+          >
+            ${icon(key, 16)}
+          </a>
+        `).join("");
+
+      if (DATA.email.trim()) {
+        const href = socialHref("email");
+        const footerEmail = document.getElementById("footer-email");
+
+        footerEmail.href = href;
+        footerEmail.textContent = DATA.email.trim();
+      }
+
+      document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+      // =====================================================
+      // RENDER SKILLS
+      // =====================================================
+
+      function renderSkillItem(group, [name, level]) {
+        const badgeClass =
+          LEVEL_CLASSES[level] || LEVEL_CLASSES.Intermediate;
+
+        const definition = getSkillDefinition(name);
+        const iconContent = getSkillIconHtml(name);
+        const darkColor = definition.dark || definition.color;
+
+        return `
+          <div class="group relative">
+            <div class="skill-card-glow absolute -inset-0.5 -z-10 rounded-2xl bg-[#00bdb6]/20 opacity-0 blur-md transition-opacity duration-300 group-hover:opacity-100 dark:bg-[#00bdb6]/30"></div>
+
+            <div class="skill-card relative flex items-center justify-between gap-3 rounded-[22px] border border-[#d2e8e6] bg-white/80 p-4 backdrop-blur-sm transition-all duration-300 hover:border-[#00bdb6] hover:bg-[#eaf6f8] dark:border-[#203348] dark:bg-[#172337]/60 dark:hover:border-[#00bdb6] dark:hover:bg-[#1e2f47]">
+              <div class="flex min-w-0 items-center gap-3.5">
+                <span
+                  class="skill-card-icon grid size-11 shrink-0 place-items-center rounded-full transition-transform duration-300 group-hover:scale-105"
+                  style="
+                    --skill-color: ${definition.color};
+                    --skill-dark-color: ${darkColor};
+                    --skill-bg: ${definition.color}14;
+                    --skill-dark-bg: ${darkColor}24;
+                  "
+                >
+                  ${iconContent}
+                </span>
+
+                <div class="min-w-0">
+                  <h3 class="text-[15px] font-semibold leading-snug text-[#1b2b45] dark:text-[#eff5ff]">
+                    ${esc(name)}
+                  </h3>
+
+                  <p class="mt-0.5 text-xs text-[#637188] dark:text-[#a8b8cc]">
+                    ${esc(group.name)}
+                  </p>
+                </div>
+              </div>
+
+              <span class="shrink-0 rounded-full px-3 py-1 text-[12px] font-medium tracking-wide ${badgeClass}">
+                ${esc(level)}
+              </span>
+            </div>
+          </div>
+        `;
+      }
+
+      document.getElementById("skills-groups").innerHTML =
+        SKILL_GROUPS.map(group => `
+          <section class="rounded-[27px] border border-line bg-white/85 p-6 shadow-[0_25px_40px_-23px_rgba(27,43,69,.32)] sm:p-7 dark:border-[#2b3c54] dark:bg-[#172337]/90">
+            <h2 class="text-lg font-medium tracking-[-.3px] sm:text-xl">
+              ${esc(group.name)}
+            </h2>
+
+            <div class="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
+              ${
+                group.skills.map(skill => {
+                  return renderSkillItem(group, skill);
+                }).join("")
+              }
+            </div>
+          </section>
+        `).join("");
+
+      wireSkillIcons();
+
+      // =====================================================
+      // NAVBAR
+      // =====================================================
+
+      const header = document.getElementById("header");
+      const navbar = document.getElementById("navbar");
+      const navigation = document.getElementById("navigation");
+      const menuButton = document.getElementById("menu-button");
+      const achievementMenu = document.getElementById("achievement-menu");
+      const achievementTrigger = document.getElementById("achievement-trigger");
+      const achievementDropdown = document.getElementById("achievement-dropdown");
+
+      function updateNavbarBackground() {
+        navbar.dataset.scrolled = String(window.scrollY > 24);
+      }
+
+      addEventListener("scroll", updateNavbarBackground, {
+        passive: true
+      });
+
+      updateNavbarBackground();
+
+      function setAchievementMenu(open) {
+        achievementMenu.dataset.open = String(open);
+
+        achievementTrigger.setAttribute(
+          "aria-expanded",
+          String(open)
+        );
+
+        achievementDropdown.setAttribute(
+          "aria-hidden",
+          String(!open)
+        );
+
+        achievementDropdown.toggleAttribute("inert", !open);
+      }
+
+      function setMenu(open) {
+        navigation.dataset.open = String(open);
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          String(open)
+        );
+
+        menuButton.setAttribute(
+          "aria-label",
+          open ? "Close menu" : "Open menu"
+        );
+
+        if (!open) {
+          setAchievementMenu(false);
+        }
+      }
+
+      menuButton.addEventListener("click", () => {
+        setMenu(navigation.dataset.open !== "true");
+      });
+
+      navigation.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          setMenu(false);
+        });
+      });
+
+      achievementTrigger.addEventListener("click", () => {
+        setAchievementMenu(
+          achievementMenu.dataset.open !== "true"
+        );
+      });
+
+      document.addEventListener("click", event => {
+        if (!header.contains(event.target)) {
+          setMenu(false);
+        }
+
+        if (!achievementMenu.contains(event.target)) {
+          setAchievementMenu(false);
+        }
+      });
+
+      if (
+        matchMedia("(hover: hover) and (pointer: fine)").matches
+      ) {
+        let achievementCloseTimer = null;
+
+        achievementMenu.addEventListener("mouseenter", () => {
+          clearTimeout(achievementCloseTimer);
+          setAchievementMenu(true);
+        });
+
+        achievementMenu.addEventListener("mouseleave", () => {
+          achievementCloseTimer = setTimeout(() => {
+            setAchievementMenu(false);
+          }, 150);
+        });
+      }
+
+      document.addEventListener("keydown", event => {
+        if (event.key !== "Escape") return;
+
+        if (achievementMenu.dataset.open === "true") {
+          setAchievementMenu(false);
+          achievementTrigger.focus();
+        }
+
+        if (navigation.dataset.open === "true") {
+          setMenu(false);
+          menuButton.focus();
+        }
+      });
+
+      matchMedia("(min-width:1024px)").addEventListener(
+        "change",
+        event => {
+          if (event.matches) {
+            setMenu(false);
+          }
+        }
+      );
+
+      // =====================================================
+      // DARK MODE
+      // =====================================================
+
+      const themeButton = document.getElementById("theme-button");
+      const systemTheme = matchMedia("(prefers-color-scheme:dark)");
+
+      let selectedTheme = null;
+
+      try {
+        selectedTheme = localStorage.getItem("asr-theme");
+      } catch {}
+
+      function applyTheme(dark) {
+        document.documentElement.classList.toggle("dark", dark);
+
+        themeButton.innerHTML = icon(dark ? "sun" : "moon");
+
+        themeButton.setAttribute(
+          "aria-pressed",
+          String(dark)
+        );
+
+        themeButton.setAttribute(
+          "aria-label",
+          dark
+            ? "Switch to light mode"
+            : "Switch to dark mode"
+        );
+      }
+
+      applyTheme(
+        document.documentElement.classList.contains("dark")
+      );
+
+      themeButton.addEventListener("click", () => {
+        const dark =
+          !document.documentElement.classList.contains("dark");
+
+        selectedTheme = dark ? "dark" : "light";
+
+        applyTheme(dark);
+
+        try {
+          localStorage.setItem("asr-theme", selectedTheme);
+        } catch {}
+      });
+
+      systemTheme.addEventListener("change", event => {
+        if (
+          selectedTheme !== "dark" &&
+          selectedTheme !== "light"
+        ) {
+          applyTheme(event.matches);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

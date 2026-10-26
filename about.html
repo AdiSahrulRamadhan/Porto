@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth scroll-pt-[120px] motion-reduce:scroll-auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f4f8ff" />
+  <meta name="description" content="About Adi Sahrul Ramadhan — Software Engineer" />
+  <title>About — Adi Sahrul Ramadhan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, .dark *));
+
+    @theme {
+      --font-sans: "Inter", Arial, sans-serif;
+      --color-page: #f4f8ff;
+      --color-ink: #121b2e;
+      --color-muted: #637188;
+      --color-accent: #00bdb6;
+      --color-line: #d9e5f5;
+    }
+
+    @layer base {
+      html { color-scheme: light; }
+      html.dark { color-scheme: dark; }
+      [hidden] { display: none !important; }
+
+      a, button, [tabindex] {
+        outline-offset: 5px;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      :focus-visible { outline: 2px solid var(--color-accent); }
+      svg { display: block; flex-shrink: 0; }
+      a[href], button:enabled, summary { cursor: pointer; }
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translate3d(0,30px,0);
+      transition: opacity 800ms ease, transform 800ms cubic-bezier(.2,.75,.2,1);
+    }
+
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      .scroll-reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
+
+    .modal-panel {
+      opacity: 0;
+      transform: translate3d(0,16px,0) scale(.98);
+      transition: opacity 220ms ease, transform 220ms cubic-bezier(.2,.75,.2,1);
+    }
+
+    [data-open="true"] .modal-panel {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      .modal-panel {
+        transition: none;
+      }
+    }
+
+    #achievement-chevron {
+      transition: transform 260ms cubic-bezier(.2,.75,.2,1);
+    }
+
+    #achievement-menu[data-open="true"] #achievement-chevron {
+      transform: rotate(180deg);
+    }
+
+    .achievement-dropdown {
+      opacity: 0;
+      transform: translate3d(0,-8px,0) scale(.97);
+      pointer-events: none;
+      transform-origin: top left;
+      transition: opacity 200ms ease, transform 200ms cubic-bezier(.2,.75,.2,1);
+    }
+
+    #achievement-menu[data-open="true"] .achievement-dropdown {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      #achievement-chevron,
+      .achievement-dropdown {
+        transition: none;
+      }
+    }
+  </style>
+
+  <script>
+    try {
+      const saved = localStorage.getItem("asr-theme");
+      document.documentElement.classList.toggle(
+        "dark",
+        saved === "dark" ||
+        (saved !== "light" && matchMedia("(prefers-color-scheme: dark)").matches)
+      );
+    } catch {
+      document.documentElement.classList.toggle(
+        "dark",
+        matchMedia("(prefers-color-scheme: dark)").matches
+      );
+    }
+  </script>
+</head>
+
+  <body class="relative m-0 bg-[radial-gradient(circle_at_top_left,_var(--color-accent),_transparent_60%),radial-gradient(circle_at_bottom_right,_var(--color-accent),_transparent_60%)] bg-white font-sans text-ink antialiased dark:bg-[#101827] dark:text-[#eff5ff]" style="--color-accent: rgba(0, 189, 182, 0.3);">
+    <!-- BACKGROUND PATTERN (DIAGONAL ELEGANT LINES) -->
+    <div class="pointer-events-none fixed inset-0 z-0 bg-[repeating-linear-gradient(135deg,rgba(0,189,182,0.08)_0,rgba(0,189,182,0.08)_1px,transparent_1px,transparent_28px)] dark:bg-[repeating-linear-gradient(135deg,rgba(0,189,182,0.12)_0,rgba(0,189,182,0.12)_1px,transparent_1px,transparent_28px)]"></div>
+
+  <!-- NAVBAR -->
+  <header id="header" class="fixed inset-x-0 top-2.5 z-50 px-2.5 sm:px-4 lg:top-4 lg:px-6">
+    <nav
+      id="navbar"
+      aria-label="Main navigation"
+      data-scrolled="false"
+      class="
+        relative mx-auto flex min-h-[72px] max-w-[1360px]
+        items-center gap-[15px] rounded-[23px]
+        border border-transparent px-3 py-2.5
+        transition-[background-color,border-color,box-shadow] duration-300
+        lg:min-h-20 lg:px-[18px] xl:gap-7
+        hover:border-[#00bdb6]/70 hover:bg-gradient-to-r hover:from-[#00bdb6]/25 hover:via-[#f2fbfb]/90 hover:to-[#00bdb6]/25 hover:shadow-[0_10px_35px_rgba(0,189,182,0.22)] hover:backdrop-blur-xl
+        data-[scrolled=true]:border-[#00bdb6]/70
+        data-[scrolled=true]:bg-gradient-to-r data-[scrolled=true]:from-[#00bdb6]/25 data-[scrolled=true]:via-[#f2fbfb]/90 data-[scrolled=true]:to-[#00bdb6]/25
+        data-[scrolled=true]:shadow-[0_10px_35px_rgba(0,189,182,0.22)]
+        data-[scrolled=true]:backdrop-blur-xl
+        dark:hover:border-[#00bdb6]/70 dark:hover:bg-gradient-to-r dark:hover:from-[#00bdb6]/25 dark:hover:via-[#11222b]/95 dark:hover:to-[#00bdb6]/25 dark:hover:shadow-[0_0_40px_rgba(0,189,182,0.3)] dark:hover:backdrop-blur-xl
+        dark:data-[scrolled=true]:border-[#00bdb6]/70
+        dark:data-[scrolled=true]:bg-gradient-to-r dark:data-[scrolled=true]:from-[#00bdb6]/25 dark:data-[scrolled=true]:via-[#11222b]/95 dark:data-[scrolled=true]:to-[#00bdb6]/25
+        dark:data-[scrolled=true]:shadow-[0_0_40px_rgba(0,189,182,0.3)]
+        dark:data-[scrolled=true]:backdrop-blur-xl
+      "
+    >
+      <a href="index.html" class="group inline-flex shrink-0 items-center gap-[9px] sm:gap-[13px]">
+        <span class="grid h-[42px] w-[39px] place-items-center rounded-[14px] border border-[#a7efea] bg-white shadow-[0_8px_15px_rgba(0,191,183,.14)] transition-transform group-hover:-rotate-3 sm:size-12 sm:rounded-[17px] dark:border-[#00bdb6]/50 dark:bg-[#172837]">
+          <span class="bg-linear-to-r from-[#10bdd7] via-[#e26683] to-[#f2b62b] bg-clip-text text-base font-extrabold tracking-[-1px] text-transparent">ASR</span>
+        </span>
+
+        <span class="grid gap-1">
+          <strong class="whitespace-nowrap text-[11px] font-semibold sm:text-sm lg:text-xs xl:text-sm">
+            Adi Sahrul Ramadhan
+          </strong>
+          <small class="text-[10px] text-muted sm:text-xs dark:text-[#a8b8cc]">Portfolio</small>
+        </span>
+      </a>
+
+        <div
+          id="navigation"
+          data-open="false"
+          class="
+            absolute inset-x-0 top-[calc(100%+10px)]
+            hidden flex-wrap items-center gap-[5px]
+            rounded-[20px] border border-line bg-[#f6fbff]/95 p-[15px]
+            shadow-lg backdrop-blur-xl data-[open=true]:flex
+            dark:border-[#2b3c54] dark:bg-[#121e30]/95
+            lg:static lg:flex lg:flex-1 lg:flex-nowrap lg:justify-center
+            lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0
+            lg:shadow-none lg:backdrop-blur-none dark:lg:bg-transparent
+            [&>a]:inline-flex [&>a]:items-center
+            [&>a]:whitespace-nowrap [&>a]:rounded-full
+            [&>a]:px-[14px] [&>a]:py-[11px] [&>a]:text-sm
+            [&>a]:transition-colors
+            lg:[&>a]:px-[9px] lg:[&>a]:text-xs
+            xl:[&>a]:px-[13px] xl:[&>a]:text-sm
+          "
+        >
+          <a href="index.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Home</a>
+          <a href="about.html" aria-current="page" class="bg-[#00bdb6]/20 font-bold text-[#008f8a] shadow-sm dark:bg-[#00bdb6]/30 dark:text-[#33d1cb]">About</a>
+          <a href="experience.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Experience</a>
+          <a href="projects.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Projects</a>
+          <div id="achievement-menu" data-open="false" class="relative">
+            <button type="button" id="achievement-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="achievement-dropdown" class="flex items-center gap-2 rounded-full px-[14px] py-[11px] text-sm text-muted transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">
+              Achievements <svg id="achievement-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+            </button>
+            <div id="achievement-dropdown" role="menu" aria-hidden="true" class="achievement-dropdown absolute left-0 top-full z-20 mt-2 grid min-w-44 gap-1 rounded-2xl border border-line bg-white p-2 shadow-lg dark:border-[#34455d] dark:bg-[#172337]">
+              <a href="awards.html" role="menuitem" class="rounded-xl px-4 py-3 text-sm transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Awards</a>
+              <a href="certificates.html" role="menuitem" class="rounded-xl px-4 py-3 text-sm transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Certificates</a>
+            </div>
+          </div>
+          <a href="blog.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Blog</a>
+          <a href="skills.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Skills</a>
+          <a href="contact.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Contact</a>
+        </div>
+
+      <div class="ml-auto flex items-center gap-1.5 sm:gap-[9px]">
+        <button
+          id="menu-button"
+          type="button"
+          aria-label="Open menu"
+          aria-controls="navigation"
+          aria-expanded="false"
+          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] sm:size-[45px] lg:hidden dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+
+        <button
+          id="theme-button"
+          type="button"
+          aria-label="Switch to dark mode"
+          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-all hover:rotate-12 hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] active:scale-95 sm:size-[45px] dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+            <path d="M21 13A9 9 0 0 1 11 3a9 9 0 1 0 10 10Z"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ABOUT CONTENT -->
+    <section id="about" class="pb-10 pt-[115px] sm:pt-[125px] lg:pt-[140px]">
+      <div class="mx-auto w-[calc(100%-36px)] max-w-[1320px] sm:w-[calc(100%-64px)]">
+
+        <span class="inline-flex rounded-full border border-line bg-white/65 px-[14px] py-1 text-[10px] font-medium tracking-[2px] text-[#4c5f7b] dark:border-[#2b3c54] dark:bg-[#19273c]/80 dark:text-[#a8b8cc]">
+          ABOUT
+        </span>
+
+        <h1 class="mt-5 max-w-[1100px] text-[32px] leading-[1.25] font-semibold tracking-[-1.3px] sm:text-[42px] lg:text-[50px]">
+          Developer focused on thoughtful<br class="hidden lg:block" />
+          products and solid architecture.
+        </h1>
+
+        <p class="mt-6 text-[15px] leading-[1.7] text-muted sm:text-lg dark:text-[#a8b8cc]">
+          I combine modern interface craftsmanship with practical engineering foundations so products stay maintainable as they grow.
+        </p>
+
+        <!-- ABOUT ME -->
+        <article class="mt-10 rounded-[28px] border border-line bg-white/85 p-6 shadow-[0_25px_40px_-23px_rgba(27,43,69,.32)] sm:p-9 dark:border-[#2b3c54] dark:bg-[#172337]/90">
+          <p class="text-[11px] tracking-[1.8px] text-muted dark:text-[#a8b8cc]">ABOUT ME</p>
+
+          <h2 class="mt-5 text-[27px] font-medium tracking-[-.6px] sm:text-[33px]">
+            Software Engineer
+          </h2>
+
+          <div class="mt-7 grid items-center gap-8 md:grid-cols-[1.5fr_.85fr] lg:gap-16">
+            <p id="about-bio" class="max-w-[760px] text-[15px] leading-[1.8] text-muted sm:text-base dark:text-[#a8b8cc]">
+              Passionate Software Engineer skilled in Laravel, TailwindCSS, React.js, Next.js, Vue.js, and Express.js.
+              Specializes in building scalable, high-performance web applications that drive business efficiency.
+              Experienced across various industries, focusing on improving operational performance and user satisfaction.
+              Actively contributes to developer communities, promoting knowledge sharing and innovation.
+            </p>
+
+            <div class="mx-auto w-full max-w-[260px]">
+              <img
+                id="profile-image"
+                src="assets/profile.png"
+                alt="Adi Sahrul Ramadhan"
+                class="mx-auto block h-[290px] w-full object-contain object-bottom sm:h-[310px]"
+              />
+
+              <div
+                id="profile-fallback"
+                role="img"
+                aria-label="Adi Sahrul Ramadhan"
+                hidden
+                class="mx-auto grid h-[270px] w-[190px] place-items-center rounded-[100px_100px_25px_25px] border border-line bg-linear-to-br from-accent/10 to-cyan-300/10 text-5xl font-bold tracking-[-3px] text-accent dark:border-[#34455d]"
+              >ASR</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- PRINCIPLES -->
+        <div class="mt-6 grid gap-4 md:grid-cols-3">
+          <article class="rounded-[17px] border border-line bg-white/85 p-[22px] shadow-[0_25px_40px_-23px_rgba(27,43,69,.32)] transition-all hover:-translate-y-1 hover:border-accent/50 dark:border-[#2b3c54] dark:bg-[#172337]/90">
+            <h3 class="text-[10px] tracking-[1.7px] text-muted dark:text-[#a8b8cc]">FOCUS</h3>
+            <p class="mt-3 text-sm leading-relaxed">
+              Scalable web applications with Laravel, React.js, and Next.js.
+            </p>
+          </article>
+
+          <article class="rounded-[17px] border border-line bg-white/85 p-[22px] shadow-[0_25px_40px_-23px_rgba(27,43,69,.32)] transition-all hover:-translate-y-1 hover:border-accent/50 dark:border-[#2b3c54] dark:bg-[#172337]/90">
+            <h3 class="text-[10px] tracking-[1.7px] text-muted dark:text-[#a8b8cc]">STYLE</h3>
+            <p class="mt-3 text-sm leading-relaxed">
+              Clean code, strong testing habits, and practical design implementation.
+            </p>
+          </article>
+
+          <article class="rounded-[17px] border border-line bg-white/85 p-[22px] shadow-[0_25px_40px_-23px_rgba(27,43,69,.32)] transition-all hover:-translate-y-1 hover:border-accent/50 dark:border-[#2b3c54] dark:bg-[#172337]/90">
+            <h3 class="text-[10px] tracking-[1.7px] text-muted dark:text-[#a8b8cc]">COLLABORATION</h3>
+            <p class="mt-3 text-sm leading-relaxed">
+              Experienced working across product, engineering, and community learning teams.
+            </p>
+          </article>
+        </div>
+
+        <!-- EDUCATION + LANGUAGES -->
+        <div class="mt-8 grid items-start gap-6 lg:grid-cols-[1.85fr_1fr]">
+
+          <section class="rounded-[27px] border border-line bg-white/85 p-6 shadow-[0_25px_40px_-23px_rgba(27,43,69,.32)] sm:p-7 dark:border-[#2b3c54] dark:bg-[#172337]/90" aria-labelledby="education-heading">
+            <h2 id="education-heading" class="text-[11px] tracking-[1.8px] text-muted dark:text-[#a8b8cc]">EDUCATION</h2>
+
+            <article class="mt-5 rounded-[18px] border border-line p-5 dark:border-[#34455d]">
+              <div class="flex flex-col justify-between gap-3 sm:flex-row">
+                <div class="flex items-start gap-4">
+                  <div class="relative grid size-12 shrink-0 place-items-center overflow-hidden rounded-lg border border-line bg-white">
+                    <img
+                      id="university-logo"
+                      src="assets/education/university.png"
+                      alt="University logo"
+                      class="size-full object-contain p-1.5"
+                    />
+                    <span id="university-fallback" hidden class="text-accent">
+                      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true">
+                        <path d="m2 8 10-5 10 5-10 5ZM6 10v7c4 3 8 3 12 0v-7M22 8v8"></path>
+                      </svg>
+                    </span>
+                  </div>
+
+                  <div>
+                    <button
+                      type="button"
+                      id="education-degree-trigger"
+                      aria-haspopup="dialog"
+                      aria-controls="education-modal"
+                      class="-mx-1 -my-0.5 rounded-md px-1 py-0.5 text-left transition-colors hover:text-accent focus-visible:text-accent"
+                    >
+                      <h3 id="education-degree" class="text-[17px] leading-relaxed font-medium">
+                        Bachelor of Informatics Engineering
+                      </h3>
+                    </button>
+                    <p id="education-university" class="mt-1 text-sm leading-relaxed text-muted dark:text-[#a8b8cc]">
+                      University of Trunojoyo Madura
+                    </p>
+                  </div>
+                </div>
+
+                <span id="education-gpa" class="h-fit w-fit shrink-0 rounded-full border border-line bg-white/60 px-3 py-1 text-[11px] text-[#52637b] dark:border-[#34455d] dark:bg-[#1c2b42] dark:text-[#b5c3d7]">
+                  GPA 3.81
+                </span>
+              </div>
+
+              <p id="education-period" class="mt-3 text-sm text-muted dark:text-[#a8b8cc]">
+                Aug 2022 - Jun 2026
+              </p>
+
+              <button
+                id="education-toggle"
+                type="button"
+                aria-haspopup="dialog"
+                aria-controls="education-modal"
+                class="mt-5 inline-flex items-center gap-2 rounded-md text-sm font-medium text-accent transition-colors hover:text-[#008f8a] dark:hover:text-[#73ebe0]"
+              >
+                View details
+              </button>
+            </article>
+          </section>
+
+          <div class="grid gap-6">
+            <section class="rounded-[27px] border border-line bg-white/85 p-6 shadow-[0_25px_40px_-23px_rgba(27,43,69,.32)] sm:p-7 dark:border-[#2b3c54] dark:bg-[#172337]/90" aria-labelledby="languages-heading">
+              <h2 id="languages-heading" class="text-[11px] tracking-[1.8px] text-muted dark:text-[#a8b8cc]">LANGUAGES</h2>
+              <div id="languages-list" class="mt-5 grid gap-3"></div>
+            </section>
+
+            <section class="rounded-[27px] border border-line bg-white/85 p-6 shadow-[0_25px_40px_-23px_rgba(27,43,69,.32)] sm:p-7 dark:border-[#2b3c54] dark:bg-[#172337]/90" aria-labelledby="availability-heading">
+              <h2 id="availability-heading" class="text-[11px] tracking-[1.8px] text-muted dark:text-[#a8b8cc]">AVAILABILITY</h2>
+              <p class="mt-4 text-sm leading-relaxed text-accent">
+                Open to freelance and full-time collaboration
+              </p>
+            </section>
+          </div>
+        </div>
+
+        <!-- CONTACT CHANNELS -->
+        <section id="contact-channels" class="mt-8 rounded-[27px] border border-line bg-white/65 p-6 sm:p-7 dark:border-[#34455d] dark:bg-[#172337]/70">
+          <h2 class="text-[11px] tracking-[1.8px] text-muted dark:text-[#a8b8cc]">CONTACT CHANNELS</h2>
+          <div id="contact-socials" class="mt-6 flex flex-wrap gap-3"></div>
+        </section>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="pt-4 pb-10 sm:pt-6 sm:pb-12 lg:pt-8 lg:pb-14">
+      <div class="mx-auto w-[calc(100%-36px)] max-w-[1320px] sm:w-[calc(100%-64px)]">
+        <div data-reveal class="rounded-[27px] border border-line bg-white/85 p-7 shadow-[0_25px_40px_-23px_rgba(27,43,69,.32)] sm:p-10 dark:border-[#2b3c54] dark:bg-[#172337]/90">
+          <h2 class="text-[25px] leading-tight font-medium tracking-[-.6px] sm:text-[31px]">
+            Need a frontend partner with a product mindset?
+          </h2>
+
+          <p class="mt-5 max-w-[950px] text-sm leading-[1.8] text-muted sm:text-base dark:text-[#a8b8cc]">
+            I can join as an individual contributor or collaborate with your existing team to ship high-quality web experience.
+          </p>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a
+              id="contact-cta"
+              href="contact.html"
+              class="inline-flex min-h-[44px] items-center justify-center rounded-full border border-transparent bg-linear-to-r from-[#00b9ad] to-[#00b5d0] px-5 py-2.5 text-xs font-medium text-white shadow-[0_7px_15px_rgba(0,184,176,.24)] transition-all hover:-translate-y-0.5 hover:from-[#009f98] hover:to-[#009ebd] hover:shadow-[0_11px_24px_rgba(0,184,176,.32)] active:scale-[.98] sm:text-sm"
+            >Contact Me</a>
+
+            <a
+              href="awards.html"
+              class="inline-flex min-h-[44px] items-center justify-center rounded-full border border-line bg-white/70 px-5 py-2.5 text-xs font-medium transition-all hover:-translate-y-0.5 hover:border-accent hover:bg-accent/10 hover:text-[#009e98] active:scale-[.98] sm:text-sm dark:border-[#34455d] dark:bg-[#1c2b42]/70 dark:hover:border-accent dark:hover:text-accent"
+            >Browse Awards</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-line/70 py-12 sm:py-16 dark:border-[#2b3c54]">
+    <div class="mx-auto w-[calc(100%-36px)] max-w-[1320px] sm:w-[calc(100%-64px)]">
+      <div class="grid gap-10 md:grid-cols-[1.8fr_.75fr_1fr]">
+        <div>
+          <a href="index.html" class="text-xl font-medium tracking-[-.5px]">
+            Adi Sahrul Ramadhan
+          </a>
+
+          <p class="mt-5 max-w-[530px] text-sm leading-relaxed text-muted dark:text-[#a8b8cc]">
+            Full Stack Web Developer focused on delivering scalable products with clean architecture and measurable impact.
+          </p>
+
+          <div id="footer-socials" class="mt-5 flex gap-2.5"></div>
+        </div>
+
+        <div>
+          <h3 class="text-[10px] tracking-[2px] text-muted dark:text-[#a8b8cc]">EXPLORE</h3>
+
+          <div class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 text-xs text-muted dark:text-[#a8b8cc] [&>a:hover]:text-accent">
+            <a href="index.html">Home</a>
+            <a href="certificates.html">Certificates</a>
+            <a href="about.html">About</a>
+            <span aria-disabled="true">Blog</span>
+            <a href="experience.html">Experience</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="awards.html">Awards</a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-[10px] tracking-[2px] text-muted dark:text-[#a8b8cc]">CONTACT</h3>
+
+          <p class="mt-4 text-xs leading-relaxed text-muted dark:text-[#a8b8cc]">
+            Open to freelance and full-time collaboration.
+          </p>
+
+          <a id="footer-email" href="#contact-channels" class="mt-3 inline-block break-all text-xs text-muted hover:text-accent dark:text-[#a8b8cc]">
+            Connect through my social profiles
+          </a>
+        </div>
+      </div>
+
+      <p class="mt-16 text-[11px] text-muted dark:text-[#a8b8cc]">
+        © <span id="year"></span> Adi Sahrul Ramadhan. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- EDUCATION DETAILS MODAL -->
+  <div
+    id="education-modal"
+    data-open="false"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="education-modal-degree"
+    class="fixed inset-0 z-[70] hidden items-center justify-center bg-[#0b1220]/55 p-4 backdrop-blur-sm data-[open=true]:flex"
+  >
+    <div class="modal-panel relative w-full max-w-[700px] rounded-[24px] bg-white p-6 shadow-[0_35px_60px_-15px_rgba(11,18,32,.35)] sm:p-8 dark:bg-[#172337]">
+      <button
+        id="education-modal-close"
+        type="button"
+        aria-label="Close"
+        class="absolute right-5 top-5 grid size-9 shrink-0 place-items-center rounded-full border border-line transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:border-[#34455d]"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <path d="M6 6l12 12M18 6 6 18"></path>
+        </svg>
+      </button>
+
+      <div class="flex items-start gap-4 pr-14">
+        <div class="relative grid size-14 shrink-0 place-items-center overflow-hidden rounded-lg border border-line bg-white">
+          <img
+            id="education-modal-logo"
+            src="assets/education/university.png"
+            alt="University logo"
+            class="size-full object-contain p-1.5"
+          />
+          <span id="education-modal-logo-fallback" hidden class="text-accent">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true">
+              <path d="m2 8 10-5 10 5-10 5ZM6 10v7c4 3 8 3 12 0v-7M22 8v8"></path>
+            </svg>
+          </span>
+        </div>
+
+        <div>
+          <p id="education-modal-university" class="text-[11px] font-semibold tracking-[1.8px] text-accent uppercase"></p>
+          <h3 id="education-modal-degree" class="mt-1.5 text-[22px] leading-tight font-semibold tracking-[-.5px] sm:text-[26px]"></h3>
+        </div>
+      </div>
+
+      <ul id="education-modal-list" class="mt-6 space-y-2.5 text-sm leading-[1.65] text-muted dark:text-[#a8b8cc]"></ul>
+
+      <div class="mt-6 flex flex-wrap gap-2.5">
+        <span id="education-modal-period" class="rounded-full border border-line px-4 py-1.5 text-xs text-[#52637b] dark:border-[#34455d] dark:bg-[#1c2b42] dark:text-[#b5c3d7]"></span>
+        <span id="education-modal-gpa" class="rounded-full border border-line px-4 py-1.5 text-xs text-[#52637b] dark:border-[#34455d] dark:bg-[#1c2b42] dark:text-[#b5c3d7]"></span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      "use strict";
+
+      // =====================================================
+      // DATA CONTOH — SESUAIKAN DENGAN DATA ASLI ANDA
+      // =====================================================
+
+      const DATA = {
+        linkedin: "https://linkedin.com/in/adi-sahrul-ramadhan-8966a1286",
+        github: "https://github.com/AdiSahrulRamadhan",
+        instagram: "https://www.instagram.com/adishrlramadhannn_?stkn=MXEyeGs4cmoydGd0dA%3D%3D&utm_source=qr",
+        youtube: "https://www.youtube.com/@-AdiSahrulRamadhan",
+        email: "adisahrul383@gmail.com",
+
+        photo: "assets/profile.png",
+
+        education: {
+          degree: "Bachelor of Informatics Engineering",
+          university: "University of Trunojoyo Madura",
+          period: "Aug 2022 - Jun 2026",
+          gpa: "3.81",
+          logo: "assets/education/university.png",
+          details: [
+            "Assisted course delivery for Introduction to Information Technology, Basic Algorithms and Programming, Basic Web Programming, and Web Application Development.",
+            "Presented ITAdventure Web Design Development Workshop and Training for around 30 students.",
+            'Delivered the "Python Primer: Entering the Programming World with Python" session for over thirty students.'
+          ]
+        },
+
+        languages: [
+          ["Indonesian", "Professional Working Proficiency"],
+          ["English", "Limited Working Proficiency"]
+        ]
+      };
+
+      const SOCIALS = [
+        ["linkedin","LinkedIn"],
+        ["github","GitHub"],
+        ["instagram","Instagram"],
+        ["youtube","YouTube"],
+        ["email","Email"]
+      ];
+
+      const ICONS = {
+        linkedin:'<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7m4 0v-7m0 3c0-4 6-4 6 0v4"/><circle cx="7" cy="7" r=".8" fill="currentColor" stroke="none"/>',
+        github:'<path d="M9 19c-4 1-4-2-6-2m12 5v-4c0-1-.4-1.7-1-2 3-.4 6-1.5 6-6a5 5 0 0 0-1.4-3.5A5 5 0 0 0 18.5 3S17 2.5 14.8 4a11 11 0 0 0-5.6 0C7 2.5 5.5 3 5.5 3a5 5 0 0 0-.1 3.5A5 5 0 0 0 4 10c0 4.5 3 5.6 6 6-.6.3-1 1-1 2v4"/>',
+        instagram:'<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>',
+        youtube:'<rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 6 3-6 3Z"/>',
+        email:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>',
+        moon:'<path d="M21 13A9 9 0 0 1 11 3a9 9 0 1 0 10 10Z"/>',
+        sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5M17.5 6.5 19 5"/>'
+      };
+
+      function esc(value) {
+        return String(value).replace(/[&<>"']/g,c=>({
+          "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+        })[c]);
+      }
+
+      function icon(name,size=22) {
+        return `<svg width="${size}" height="${size}" viewBox="0 0 24 24"
+          fill="none" stroke="currentColor" stroke-width="1.7"
+          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          ${ICONS[name]||""}</svg>`;
+      }
+
+      function socialHref(key) {
+        const value=DATA[key]?.trim();
+        if(!value) return "";
+        if(key==="email") return `mailto:${value}`;
+        return /^https?:\/\//i.test(value)?value:"";
+      }
+
+      function socialAttrs(key) {
+        const href=socialHref(key);
+        return href
+          ?`href="${esc(href)}" ${key!=="email"?'target="_blank" rel="noopener noreferrer"':""}`
+          :'aria-disabled="true"';
+      }
+
+      document.getElementById("contact-socials").innerHTML=SOCIALS.map(([key,name])=>`
+        <a ${socialAttrs(key)}
+          class="inline-flex min-h-[43px] items-center gap-2 rounded-full border border-line bg-white/70 px-3.5 py-2 text-xs transition-all hover:-translate-y-0.5 hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] sm:text-sm dark:border-[#34455d] dark:bg-[#19273c]/80">
+          <span class="grid size-6 place-items-center rounded-full bg-accent/10 text-accent">${icon(key,15)}</span>
+          ${name}
+        </a>
+      `).join("");
+
+      document.getElementById("footer-socials").innerHTML=SOCIALS.map(([key,name])=>`
+        <a ${socialAttrs(key)} aria-label="${name}"
+          class="grid size-9 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:border-[#34455d] dark:bg-[#1c2b42]">
+          ${icon(key,16)}
+        </a>
+      `).join("");
+
+      if(DATA.email.trim()) {
+        const href=socialHref("email");
+        document.getElementById("contact-cta").href=href;
+        const footerEmail=document.getElementById("footer-email");
+        footerEmail.href=href;
+        footerEmail.textContent=DATA.email.trim();
+      }
+
+      document.getElementById("year").textContent=new Date().getFullYear();
+
+      // EDUCATION DATA
+
+      const education=DATA.education;
+
+      document.getElementById("education-degree").textContent=education.degree;
+      document.getElementById("education-university").textContent=education.university;
+      document.getElementById("education-period").textContent=education.period;
+
+      const gpa=document.getElementById("education-gpa");
+      gpa.hidden=!education.gpa;
+      gpa.textContent=`GPA ${education.gpa}`;
+
+      document.getElementById("languages-list").innerHTML=DATA.languages.map(([language,level])=>`
+        <article class="rounded-[17px] border border-line p-4 dark:border-[#34455d]">
+          <h3 class="text-base font-medium">${esc(language)}</h3>
+          <p class="mt-2 text-xs leading-relaxed text-muted dark:text-[#a8b8cc]">${esc(level)}</p>
+        </article>
+      `).join("");
+
+      // EDUCATION DETAILS MODAL
+
+      document.getElementById("education-modal-university").textContent=education.university;
+      document.getElementById("education-modal-degree").textContent=education.degree;
+      document.getElementById("education-modal-period").textContent=education.period;
+
+      const modalGpa=document.getElementById("education-modal-gpa");
+      modalGpa.hidden=!education.gpa;
+      modalGpa.textContent=`GPA ${education.gpa}`;
+
+      document.getElementById("education-modal-list").innerHTML=education.details.map(text=>`
+        <li class="flex items-start gap-2">
+          <span class="mt-[8px] size-1.5 shrink-0 rounded-full bg-accent"></span>
+          <span>${esc(text)}</span>
+        </li>
+      `).join("");
+
+      const educationModal=document.getElementById("education-modal");
+      const educationModalClose=document.getElementById("education-modal-close");
+      const educationDegreeTrigger=document.getElementById("education-degree-trigger");
+      const educationToggle=document.getElementById("education-toggle");
+
+      let educationModalTrigger=null;
+
+      function openEducationModal(trigger) {
+        educationModalTrigger=trigger||null;
+        educationModal.hidden=false;
+        // force reflow so the open transition runs
+        void educationModal.offsetWidth;
+        educationModal.dataset.open="true";
+        document.documentElement.style.overflow="hidden";
+        educationModalClose.focus();
+      }
+
+      function closeEducationModal() {
+        educationModal.dataset.open="false";
+        document.documentElement.style.overflow="";
+        const returnFocusTo=educationModalTrigger;
+        educationModalTrigger=null;
+
+        const done=()=>{
+          educationModal.hidden=true;
+          returnFocusTo?.focus?.();
+        };
+
+        if(matchMedia("(prefers-reduced-motion:reduce)").matches) {
+          done();
+        } else {
+          educationModal.addEventListener("transitionend",done,{once:true});
+          setTimeout(done,260);
+        }
+      }
+
+      educationDegreeTrigger.addEventListener("click",()=>openEducationModal(educationDegreeTrigger));
+      educationToggle.addEventListener("click",()=>openEducationModal(educationToggle));
+      educationModalClose.addEventListener("click",closeEducationModal);
+
+      educationModal.addEventListener("click",event=>{
+        if(event.target===educationModal) closeEducationModal();
+      });
+
+      // IMAGE FALLBACKS
+
+      function setupImage(imageId,fallbackId,src,alt) {
+        const image=document.getElementById(imageId);
+        const fallback=document.getElementById(fallbackId);
+
+        const failed=()=>{
+          image.hidden=true;
+          fallback.hidden=false;
+        };
+
+        const loaded=()=>{
+          image.hidden=false;
+          fallback.hidden=true;
+        };
+
+        image.addEventListener("error",failed);
+        image.addEventListener("load",loaded);
+        image.alt=alt;
+        image.src=src;
+
+        if(image.complete) {
+          image.naturalWidth>0?loaded():failed();
+        }
+      }
+
+      setupImage("profile-image","profile-fallback",DATA.photo,"Adi Sahrul Ramadhan");
+      setupImage("university-logo","university-fallback",education.logo,education.university);
+      setupImage("education-modal-logo","education-modal-logo-fallback",education.logo,education.university);
+
+      // =====================================================
+      // NAVBAR
+      // Scroll hanya mengubah background.
+      // About tetap aktif.
+      // =====================================================
+
+      const header=document.getElementById("header");
+      const navbar=document.getElementById("navbar");
+      const navigation=document.getElementById("navigation");
+      const menuButton=document.getElementById("menu-button");
+      const achievementMenu=document.getElementById("achievement-menu");
+      const achievementTrigger=document.getElementById("achievement-trigger");
+      const achievementDropdown=document.getElementById("achievement-dropdown");
+
+      function updateNavbarBackground() {
+        navbar.dataset.scrolled=String(window.scrollY>24);
+      }
+
+      addEventListener("scroll",updateNavbarBackground,{passive:true});
+      updateNavbarBackground();
+
+      function setAchievementMenu(open) {
+        achievementMenu.dataset.open=String(open);
+        achievementTrigger.setAttribute("aria-expanded",String(open));
+        achievementDropdown.setAttribute("aria-hidden",String(!open));
+        achievementDropdown.toggleAttribute("inert",!open);
+      }
+
+      function setMenu(open) {
+        navigation.dataset.open=String(open);
+        menuButton.setAttribute("aria-expanded",String(open));
+        menuButton.setAttribute("aria-label",open?"Close menu":"Open menu");
+        if(!open) setAchievementMenu(false);
+      }
+
+      menuButton.addEventListener("click",()=>{
+        setMenu(navigation.dataset.open!=="true");
+      });
+
+      navigation.querySelectorAll("a").forEach(link=>{
+        link.addEventListener("click",()=>setMenu(false));
+      });
+
+      achievementTrigger.addEventListener("click",()=>{
+        setAchievementMenu(achievementMenu.dataset.open!=="true");
+      });
+
+      document.addEventListener("click",event=>{
+        if(!header.contains(event.target)) setMenu(false);
+        if(!achievementMenu.contains(event.target)) setAchievementMenu(false);
+      });
+
+      // Achievements: buka juga saat hover (perangkat dengan mouse),
+      // tanpa mengubah perilaku tap/klik untuk perangkat sentuh.
+      if(matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        let achievementCloseTimer=null;
+
+        achievementMenu.addEventListener("mouseenter",()=>{
+          clearTimeout(achievementCloseTimer);
+          setAchievementMenu(true);
+        });
+
+        achievementMenu.addEventListener("mouseleave",()=>{
+          achievementCloseTimer=setTimeout(()=>{
+            setAchievementMenu(false);
+          },150);
+        });
+      }
+
+      document.addEventListener("keydown",event=>{
+        if(event.key!=="Escape") return;
+
+        if(achievementMenu.dataset.open==="true") {
+          setAchievementMenu(false);
+          achievementTrigger.focus();
+        }
+
+        if(educationModal.dataset.open==="true") {
+          closeEducationModal();
+          return;
+        }
+
+        if(navigation.dataset.open==="true") {
+          setMenu(false);
+          menuButton.focus();
+        }
+      });
+
+      matchMedia("(min-width:1024px)").addEventListener("change",event=>{
+        if(event.matches) setMenu(false);
+      });
+
+      // DARK MODE
+
+      const themeButton=document.getElementById("theme-button");
+      const systemTheme=matchMedia("(prefers-color-scheme:dark)");
+      let selectedTheme=null;
+
+      try {
+        selectedTheme=localStorage.getItem("asr-theme");
+      } catch {}
+
+      function applyTheme(dark) {
+        document.documentElement.classList.toggle("dark",dark);
+        themeButton.innerHTML=icon(dark?"sun":"moon");
+        themeButton.setAttribute("aria-pressed",String(dark));
+        themeButton.setAttribute("aria-label",dark?"Switch to light mode":"Switch to dark mode");
+      }
+
+      applyTheme(document.documentElement.classList.contains("dark"));
+
+      themeButton.addEventListener("click",()=>{
+        const dark=!document.documentElement.classList.contains("dark");
+        selectedTheme=dark?"dark":"light";
+        applyTheme(dark);
+
+        try {
+          localStorage.setItem("asr-theme",selectedTheme);
+        } catch {}
+      });
+
+      systemTheme.addEventListener("change",event=>{
+        if(selectedTheme!=="dark"&&selectedTheme!=="light") {
+          applyTheme(event.matches);
+        }
+      });
+
+      // REPEATABLE CTA REVEAL
+
+      const reducedMotion=matchMedia("(prefers-reduced-motion:reduce)").matches;
+
+      if(!reducedMotion&&"IntersectionObserver" in window) {
+        const observer=new IntersectionObserver(entries=>{
+          entries.forEach(entry=>{
+            entry.target.classList.toggle("is-visible",entry.isIntersecting);
+          });
+        },{threshold:0,rootMargin:"0px 0px -25px 0px"});
+
+        document.querySelectorAll("[data-reveal]").forEach(element=>{
+          element.classList.add("scroll-reveal");
+          observer.observe(element);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

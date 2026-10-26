@@ -1,0 +1,2213 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth scroll-pt-[120px] motion-reduce:scroll-auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f4f8ff" />
+  <meta name="description" content="Certificates — Adi Sahrul Ramadhan, Software Engineer" />
+
+  <title>Certificates — Adi Sahrul Ramadhan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, .dark *));
+
+    @theme {
+      --font-sans: "Inter", Arial, sans-serif;
+      --color-page: #f4f8ff;
+      --color-ink: #121b2e;
+      --color-muted: #637188;
+      --color-accent: #00bdb6;
+      --color-line: #d9e5f5;
+    }
+
+    @layer base {
+      html {
+        color-scheme: light;
+      }
+
+      html.dark {
+        color-scheme: dark;
+      }
+
+      [hidden] {
+        display: none !important;
+      }
+
+      a,
+      button,
+      [tabindex] {
+        outline-offset: 5px;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--color-accent);
+      }
+
+      svg {
+        display: block;
+        flex-shrink: 0;
+      }
+
+      a[href],
+      button:enabled,
+      summary {
+        cursor: pointer;
+      }
+    }
+
+    /* Scroll Reveal Animation Styles (Replayable) */
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(35px);
+      transition:
+        opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-item.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Hover Move Animation for Experience Cards */
+    .experience-card {
+      transition:
+        transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+    }
+
+    .experience-card:hover {
+      transform: translateY(-6px);
+      box-shadow:
+        0 20px 35px -10px rgba(0, 189, 182, 0.12),
+        0 10px 20px -5px rgba(30, 58, 100, 0.08);
+      border-color: #00bdb6;
+    }
+
+    /* Modal Animation Styles */
+    #detail-modal,
+    #lightbox-modal {
+      transition:
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+    }
+
+    #detail-modal[aria-hidden="true"],
+    #lightbox-modal[aria-hidden="true"] {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    #detail-modal[aria-hidden="false"],
+    #lightbox-modal[aria-hidden="false"] {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
+
+    #detail-modal .modal-content,
+    #lightbox-modal .lightbox-content {
+      transition:
+        transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+        opacity 0.3s ease;
+      transform: scale(0.92) translateY(15px);
+      opacity: 0;
+    }
+
+    #detail-modal[aria-hidden="false"] .modal-content,
+    #lightbox-modal[aria-hidden="false"] .lightbox-content {
+      transform: scale(1) translateY(0);
+      opacity: 1;
+    }
+
+    #achievement-chevron {
+      transition: transform 260ms cubic-bezier(.2, .75, .2, 1);
+    }
+
+    #achievement-menu[data-open="true"] #achievement-chevron {
+      transform: rotate(180deg);
+    }
+
+    .achievement-dropdown {
+      opacity: 0;
+      transform: translate3d(0, -8px, 0) scale(.97);
+      pointer-events: none;
+      transform-origin: top left;
+      transition:
+        opacity 200ms ease,
+        transform 200ms cubic-bezier(.2, .75, .2, 1);
+    }
+
+    #achievement-menu[data-open="true"] .achievement-dropdown {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal-item,
+      .experience-card,
+      #detail-modal,
+      #detail-modal .modal-content,
+      #lightbox-modal,
+      #lightbox-modal .lightbox-content,
+      #achievement-chevron,
+      .achievement-dropdown {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+      }
+    }
+  </style>
+
+  <script>
+    try {
+      const saved = localStorage.getItem("asr-theme");
+
+      document.documentElement.classList.toggle(
+        "dark",
+        saved === "dark" ||
+        (
+          saved !== "light" &&
+          matchMedia("(prefers-color-scheme: dark)").matches
+        )
+      );
+    } catch {
+      document.documentElement.classList.toggle(
+        "dark",
+        matchMedia("(prefers-color-scheme: dark)").matches
+      );
+    }
+  </script>
+
+  <style>
+    .awards-main{max-width:1080px;width:calc(100% - 48px);margin:auto;padding:140px 0 64px}
+    .eyebrow{display:inline-block;border:1px solid #d9e5f5;border-radius:99px;background:#ffffff99;padding:4px 12px;font-size:11px;font-weight:600;letter-spacing:2px;color:#556987}
+    .awards-main h1{margin:18px 0 18px;font-size:clamp(28px,3.5vw,44px);font-weight:600;letter-spacing:-1.2px;line-height:1.22}
+    .awards-intro{font-size:16px;line-height:1.7;color:#637188}
+    .awards-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:32px}
+
+    .award-card{overflow:hidden;border:1px solid #d9e5f5;border-radius:24px;background:#ffffffd9;box-shadow:0 22px 35px -23px #24385566;transition:transform .2s,box-shadow .2s}
+    .award-card:hover{transform:translateY(-5px);box-shadow:0 26px 40px -24px #00a8a270}
+    .award-image{display:block;width:100%;aspect-ratio:277/194;overflow:hidden;background:#eaf0f7;border:0;padding:0}
+    .award-image img{width:100%;height:100%;object-fit:cover;transition:transform .25s}
+    .award-image:hover img{transform:scale(1.035)}
+    .award-body{padding:24px;display:flex;flex-direction:column;align-items:flex-start}
+    .award-org{color:#00aaa5;text-transform:uppercase;font-size:11px;letter-spacing:1.3px;line-height:1.5;font-weight:600;margin:0 0 12px}
+    .award-body h2{font-size:18px;line-height:1.4;font-weight:600;letter-spacing:-.3px;margin:0 0 12px}
+    .award-description{color:#637188;font-size:14px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;margin:0 0 16px}
+    .award-date{font-size:12px;color:#637188;margin:0 0 12px}
+
+    .outline-button,.primary-button{display:inline-flex;align-items:center;justify-content:center;border-radius:99px;font-size:12px;line-height:1.4;padding:10px 18px;border:1px solid #d9e5f5;text-decoration:none;transition:background .2s,color .2s}
+    .outline-button:hover{background:#00bdb615;color:#009e99;border-color:#00bdb6}
+    .primary-button{background:#00bdb6;color:white;border-color:#00bdb6;box-shadow:0 6px 12px #00bdb633}
+    .primary-button:hover{background:#009e99}
+
+    .awards-cta{margin-top:64px;padding:38px;border:1px solid #d9e5f5;border-radius:24px;background:#ffffffd9;box-shadow:0 24px 38px -25px #24385566}
+    .awards-cta h2{font-size:26px;font-weight:600;line-height:1.35;letter-spacing:-.5px}
+    .awards-cta p{max-width:700px;font-size:16px;color:#637188;line-height:1.6;margin-top:18px}
+    .cta-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+
+    #award-dialog,#award-zoom{margin:auto;padding:0;border:1px solid #d9e5f5;border-radius:30px;width:min(1120px,calc(100% - 32px));max-height:94dvh;background:#f4f8ff;color:#121b2e;overflow:auto;box-shadow:0 30px 100px #0005}
+    #award-zoom{width:min(1440px,calc(100% - 20px))}
+    dialog::backdrop{background:#101827b8;backdrop-filter:blur(5px)}
+    .award-dialog-header{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;padding:32px 36px 26px;border-bottom:0}
+    .award-dialog-header h2{font-size:28px;line-height:1.35;font-weight:600;letter-spacing:-.6px}
+    .close-award{display:grid;place-items:center;width:44px;height:44px;flex-shrink:0;border:1px solid #d9e5f5;border-radius:50%;background:#f4f8ff;color:#637188}
+    .close-award:hover{color:#00aaa5;border-color:#00bdb6}
+    .award-dialog-body{padding:0 36px 34px}
+    .award-dialog-body>p{margin-top:26px;line-height:1.85}
+    #zoom-award{position:relative;display:block;width:100%;border-radius:24px;overflow:hidden;background:#f4f8ff;cursor:zoom-in}
+    #award-detail-image{display:block;width:100%;height:420px;max-height:52dvh;object-fit:cover}
+    .zoom-image-wrap{padding:12px;background:#f4f8ff}
+    #zoom-image{width:100%;height:calc(94dvh - 150px);object-fit:contain}
+
+    .dark .award-card,.dark .awards-cta,.dark #award-dialog,.dark #award-zoom{background:#172337;color:#eff5ff;border-color:#2b3c54}
+    .dark .eyebrow,.dark .close-award,.dark .zoom-image-wrap,.dark #zoom-award{background:#1e2d42;border-color:#34455d;color:#a8b8cc}
+    .dark .awards-intro,.dark .award-description,.dark .award-date,.dark .awards-cta p{color:#a8b8cc}
+    .dark .award-dialog-header,.dark .outline-button{border-color:#34455d}
+
+    @media(max-width:900px){
+      .awards-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .awards-main{padding-top:130px}
+      .awards-cta{margin-top:48px}
+    }
+
+    @media(max-width:580px){
+      .awards-main{width:calc(100% - 32px);padding-top:120px;padding-bottom:40px}
+      .awards-grid{grid-template-columns:1fr}
+      .awards-cta{margin-top:40px;padding:24px}
+      .awards-cta h2{font-size:23px}
+      .award-dialog-header{padding:18px;gap:12px}
+      .award-dialog-header h2{font-size:17px}
+      .award-dialog-body{padding:16px}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      .award-card,.award-image img{transition:none;transform:none}
+    }
+
+    #award-dialog .award-org{font-size:14px;letter-spacing:1.6px;margin-bottom:12px}
+    #award-dialog .award-dialog-header{align-items:center}
+    #award-dialog #award-description{font-size:19px;color:#556176}
+    #award-dialog #award-date{display:inline-block;margin-top:24px;margin-bottom:0;padding:4px 15px;border:1px solid #d0dfef;border-radius:99px;font-size:14px;line-height:1.6}
+    .award-image-counter{position:absolute;right:16px;bottom:16px;padding:5px 14px;border-radius:99px;background:#f4f8ffdb;font-size:14px;line-height:1.5;color:#556176;backdrop-filter:blur(6px)}
+    .dark #award-dialog #award-description{color:#a8b8cc}
+    .dark #award-dialog #award-date{border-color:#34455d}
+
+    @media(max-width:580px){
+      #award-dialog .award-dialog-header{padding:22px 20px 18px;align-items:flex-start}
+      #award-dialog .award-org{font-size:11px;letter-spacing:1px}
+      #award-dialog .award-dialog-header h2{font-size:20px;letter-spacing:-.3px}
+      #award-dialog .award-dialog-body{padding:0 20px 24px}
+      #award-detail-image{height:240px;max-height:40dvh}
+      #award-dialog #award-description{font-size:15px;line-height:1.75}
+      #zoom-award{border-radius:16px}
+      .close-award{width:38px;height:38px}
+    }
+  </style>
+
+  <style>
+    .certificates-main{max-width:1000px;padding-top:140px;padding-bottom:64px}
+    .certificates-main h1{font-size:clamp(30px,3.5vw,44px);max-width:650px}
+    .featured-certificate{margin-top:24px;padding:28px;border:1px solid #d9e5f5;border-radius:22px;background:#ffffffdb;box-shadow:0 15px 30px -22px #24385555}
+    .featured-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:24px}
+    .demo-label{font-size:12px;color:#637188}
+    .featured-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:32px;align-items:center}
+    .featured-image{width:100%;overflow:hidden;border:1px solid #d9e5f5;border-radius:12px;background:white;cursor:zoom-in}
+    .featured-image img{display:block;width:100%;height:auto}
+    .featured-copy h2{font-size:25px;font-weight:600;letter-spacing:-.5px;line-height:1.3}
+    .featured-copy>p:not(.award-org){font-size:14px;line-height:1.6;color:#637188;margin-top:12px}
+    .featured-copy dl{margin:18px 0;font-size:12px;color:#637188;display:grid;gap:8px}
+    .featured-copy dl>div{display:flex;gap:16px}
+    .featured-copy dt{width:74px;flex-shrink:0}
+    .featured-copy dd{color:#121b2e}
+    .certificates-grid{gap:20px;margin-top:28px;align-items:stretch}
+    .certificate-card{border-radius:16px}
+    .certificate-card .award-image{aspect-ratio:3/2;padding:8px 8px 0;background:#fff}
+    .certificate-card .award-image img{object-fit:contain}
+    .certificate-card .award-body{padding:18px;flex:1}
+    .certificate-card{display:flex;flex-direction:column}
+    .certificate-card .award-org{font-size:10px;margin-bottom:8px}
+    .certificate-card h2{font-size:17px;line-height:1.45;margin-bottom:10px}
+    .certificate-provider{font-size:13px;color:#637188;line-height:1.5}
+    .certificate-meta{font-size:12px;color:#637188;line-height:1.8;margin:12px 0 16px}
+    .certificate-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:auto;width:100%}
+    .certificate-actions button{font-size:11px;padding:8px 12px;gap:6px}
+    #award-detail-image{object-fit:contain;background:white}
+    #verify-certificate{margin-top:20px}
+    .dark .featured-certificate{background:#172337;border-color:#2b3c54}
+    .dark .featured-copy dd{color:#eff5ff}
+    .dark .certificate-provider,.dark .certificate-meta,.dark .featured-copy>p:not(.award-org),.dark .featured-copy dl,.dark .demo-label{color:#a8b8cc}
+
+    @media(max-width:760px){
+      .featured-grid{grid-template-columns:1fr;gap:22px}
+      .featured-certificate{padding:22px}
+      .featured-image{max-width:460px;margin:auto}
+      .certificates-main{padding-top:130px}
+    }
+
+    @media(max-width:580px){
+      .certificates-main{padding-top:120px;padding-bottom:40px}
+      .featured-heading{align-items:flex-start}
+      .featured-certificate{padding:18px}
+      .certificate-card h2{font-size:18px}
+      .certificate-actions button{font-size:12px}
+      .featured-copy h2{font-size:23px}
+    }
+  </style>
+
+  <style>
+    .certificate-card{border-radius:28px;border-color:#d4e1f1;background:#fcfdff;box-shadow:0 18px 32px -24px #24385555}
+    .certificate-card .award-image{padding:0;aspect-ratio:1.42;background:#2d4052}
+    .certificate-card .award-image img{width:100%;height:100%;object-fit:contain}
+    .certificate-card .award-body{padding:25px 23px 26px}
+    .certificate-card .award-org{color:#50617b;font-size:12px;letter-spacing:1.7px;font-weight:600;margin-bottom:16px}
+    .certificate-card h2{font-size:21px;font-weight:500;line-height:1.4;letter-spacing:-.45px;margin:0 0 22px}
+    .certificate-tags{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:25px}
+    .skill-tag{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border:1px solid #d0dded;border-radius:99px;color:#5c6d87;font-size:12px;line-height:1.3}
+    .certificate-meta{font-size:13px;line-height:1.8;margin:0 0 23px;color:#5c6d87}
+    .certificate-actions{gap:9px;flex-wrap:wrap;margin-top:auto}
+    .certificate-actions button{font-size:12px;padding:11px 14px;gap:7px;white-space:nowrap}
+    .certificate-actions .primary-button{background:linear-gradient(110deg,#00bda9,#00b4d0);border:0;font-weight:600;box-shadow:0 8px 16px #00bdb62e}
+    .verify-card:disabled{cursor:not-allowed}
+    .featured-viewport{overflow:hidden;touch-action:pan-y}
+    .featured-track{display:flex;transition:transform .55s cubic-bezier(.2,.7,.2,1)}
+    .featured-slide{flex:0 0 100%;min-width:0;padding:2px}
+    .slider-footer{display:flex;align-items:center;justify-content:center;gap:20px;margin-top:22px}
+    .slider-control{border:1px solid #d0dded;border-radius:99px;padding:7px 13px;font-size:12px;color:#50617b;background:transparent;line-height:1.4}
+    .slider-control:hover{border-color:#00bdb6;color:#00aaa5}
+    .slider-dots{display:flex;gap:9px}
+    .slider-dot{width:10px;height:10px;border-radius:99px;background:#ccdae9;transition:width .2s,background .2s}
+    .slider-dot[aria-pressed="true"]{width:26px;background:#00bdb6}
+    .dark .certificate-card .award-org,.dark .skill-tag,.dark .certificate-meta,.dark .slider-control{color:#a8b8cc}
+    .dark .skill-tag,.dark .slider-control{border-color:#34455d}
+
+    @media(max-width:580px){
+      .certificate-card .award-body{padding:26px}
+      .certificate-card h2{font-size:24px}
+      .skill-tag{font-size:13px}
+      .certificate-meta{font-size:14px}
+      .certificate-actions button{font-size:13px}
+      .featured-slide .featured-image{max-width:100%}
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      .featured-track,.slider-dot{transition:none}
+    }
+  </style>
+
+  <style>
+    .featured-certificate{padding:32px;border-radius:30px;overflow:hidden}
+    .featured-heading{align-items:flex-start;margin-bottom:28px}
+    .featured-heading h2{font-size:13px;letter-spacing:1.7px;font-weight:600;color:#50617b}
+    .featured-heading p{font-size:15px;color:#637188;margin-top:10px;line-height:1.5}
+    .featured-track{gap:20px;align-items:stretch;will-change:transform}
+    .featured-slide{flex:0 0 72%;border:1px solid #d0dded;border-radius:26px;padding:24px;background:#ffffffb3}
+    .featured-grid{grid-template-columns:40% minmax(0,1fr);gap:24px;height:100%;align-items:stretch}
+    .featured-image{display:flex;align-items:center;justify-content:center;border-radius:20px;min-height:300px;height:100%;background:#fcfdff}
+    .featured-image img{width:100%;height:auto;object-fit:contain}
+    .featured-copy{display:flex;flex-direction:column;align-items:flex-start;min-width:0;padding:0}
+    .featured-copy .award-org{font-size:12px;letter-spacing:1.5px;margin-bottom:14px}
+    .featured-copy h2{font-size:25px;line-height:1.35;margin-bottom:24px}
+    .certificate-title-button{display:block;text-align:left;font:inherit;letter-spacing:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+    .certificate-title-button:hover{color:#00aaa5}
+    .featured-copy .certificate-tags{margin-bottom:24px;gap:8px}
+    .featured-copy .featured-meta{font-size:14px;line-height:1.8;margin:0 0 24px;color:#637188}
+    .featured-copy .certificate-actions{margin-top:auto}
+    .slider-footer{margin-top:20px}
+    .slider-dot,.slider-dot[aria-pressed="true"]{width:7px;height:7px}
+    .slider-dot[aria-pressed="true"]{background:#00a7d0;transform:scale(1.3)}
+    .dark .featured-slide{background:#172337;border-color:#34455d}
+    .dark .featured-image{background:#101827;border-color:#34455d}
+    .dark .featured-heading h2,.dark .featured-heading p,.dark .featured-copy .featured-meta{color:#a8b8cc}
+
+    @media(max-width:1000px){
+      .featured-slide{flex-basis:86%}
+      .featured-grid{gap:18px}
+      .featured-copy h2{font-size:22px}
+    }
+
+    @media(max-width:700px){
+      .featured-certificate{padding:22px}
+      .featured-slide{flex-basis:93%;padding:18px}
+      .featured-grid{grid-template-columns:1fr}
+      .featured-image{min-height:0;aspect-ratio:3/2;max-width:none}
+      .featured-heading{gap:12px}
+      .featured-heading h2{font-size:11px}
+      .featured-heading p{font-size:13px}
+      .featured-copy h2{font-size:23px;margin-top:0}
+      .featured-copy .award-org{margin-top:4px}
+      .featured-track{gap:14px}
+    }
+  </style>
+
+  <style>
+    .certificate-gallery{position:relative}
+    .gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:42px;height:42px;display:grid;place-items:center;border:1px solid #d0dded;border-radius:50%;background:#ffffffeb;color:#172337;font-size:29px;line-height:1;box-shadow:0 3px 12px #17233722;cursor:pointer}
+    .gallery-arrow:hover{background:#00bdb6;color:#fff;border-color:#00bdb6}
+    .gallery-prev{left:12px}
+    .gallery-next{right:12px}
+    .certificate-thumbnails{display:flex;gap:10px;overflow-x:auto;margin-top:14px;padding:3px 0 7px}
+    .certificate-thumbnails button{flex:0 0 94px;padding:3px;border:2px solid transparent;border-radius:10px;background:#e6edf6;overflow:hidden}
+    .certificate-thumbnails img{width:100%;height:58px;object-fit:contain;background:#fff}
+    .certificate-thumbnails button[aria-pressed="true"]{border-color:#00bdb6;background:#d7f7f3}
+    .dark .gallery-arrow{background:#1e2d42e8;color:#eff5ff;border-color:#34455d}
+    .dark .certificate-thumbnails button{background:#1e2d42}
+
+    @media(max-width:580px){
+      .gallery-arrow{width:36px;height:36px}
+      .gallery-prev{left:7px}
+      .gallery-next{right:7px}
+    }
+  </style>
+
+  <style>
+    .awards-main.certificates-main{
+      width:calc(100% - 36px);
+      max-width:1320px;
+      margin-inline:auto;
+    }
+
+    @media(min-width:640px){
+      .awards-main.certificates-main{
+        width:calc(100% - 64px);
+      }
+    }
+  </style>
+
+  <style>
+    .certificate-card,
+    .featured-certificate,
+    .featured-slide{
+      position:relative;
+      isolation:isolate;
+      transition:
+        transform .25s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+    }
+
+    .certificate-card::before,
+    .featured-certificate::before,
+    .featured-slide::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      z-index:-1;
+      border-radius:inherit;
+      background:linear-gradient(
+        115deg,
+        #b3e9e6 0%,
+        #cdf3fc 56%,
+        #d8eff8 100%
+      );
+      opacity:0;
+      pointer-events:none;
+      transition:opacity .3s ease;
+    }
+
+    .certificate-card:hover,
+    .featured-certificate:hover,
+    .featured-slide:hover{
+      border-color:#b5dfe5;
+      box-shadow:
+        0 12px 32px -10px rgba(0,160,170,.25),
+        0 3px 14px rgba(0,160,170,.09);
+    }
+
+    .certificate-card:hover::before,
+    .featured-certificate:hover::before,
+    .featured-slide:hover::before{
+      opacity:1;
+    }
+
+    .dark .certificate-card::before,
+    .dark .featured-certificate::before,
+    .dark .featured-slide::before{
+      background:linear-gradient(
+        115deg,
+        #174449 0%,
+        #193d50 56%,
+        #20384c 100%
+      );
+    }
+
+    .dark .certificate-card:hover,
+    .dark .featured-certificate:hover,
+    .dark .featured-slide:hover{
+      border-color:#327780;
+    }
+
+    @media(prefers-reduced-motion:reduce){
+      .certificate-card,
+      .featured-certificate,
+      .featured-slide,
+      .certificate-card::before,
+      .featured-certificate::before,
+      .featured-slide::before{
+        transition:none;
+      }
+    }
+  </style>
+</head>
+
+<body
+  class="relative m-0 bg-[radial-gradient(circle_at_top_left,_var(--color-accent),_transparent_60%),radial-gradient(circle_at_bottom_right,_var(--color-accent),_transparent_60%)] bg-white font-sans text-[#121b2e] antialiased dark:bg-[#101827] dark:text-[#eff5ff]"
+  style="--color-accent: rgba(0, 189, 182, 0.3);"
+>
+  <!-- BACKGROUND PATTERN -->
+  <div
+    class="pointer-events-none fixed inset-0 z-0 bg-[repeating-linear-gradient(135deg,rgba(0,189,182,0.08)_0,rgba(0,189,182,0.08)_1px,transparent_1px,transparent_28px)] dark:bg-[repeating-linear-gradient(135deg,rgba(0,189,182,0.12)_0,rgba(0,189,182,0.12)_1px,transparent_1px,transparent_28px)]"
+  ></div>
+
+  <!-- NAVBAR -->
+  <header
+    id="header"
+    class="fixed inset-x-0 top-2.5 z-50 px-2.5 sm:px-4 lg:top-4 lg:px-6"
+  >
+    <nav
+      id="navbar"
+      aria-label="Main navigation"
+      data-scrolled="false"
+      class="
+        relative mx-auto flex min-h-[72px] max-w-[1360px]
+        items-center gap-[15px] rounded-[23px]
+        border border-transparent px-3 py-2.5
+        transition-[background-color,border-color,box-shadow] duration-300
+        lg:min-h-20 lg:px-[18px] xl:gap-7
+
+        hover:border-[#00bdb6]/70
+        hover:bg-gradient-to-r
+        hover:from-[#00bdb6]/25
+        hover:via-[#f2fbfb]/90
+        hover:to-[#00bdb6]/25
+        hover:shadow-[0_10px_35px_rgba(0,189,182,0.22)]
+        hover:backdrop-blur-xl
+
+        data-[scrolled=true]:border-[#00bdb6]/70
+        data-[scrolled=true]:bg-gradient-to-r
+        data-[scrolled=true]:from-[#00bdb6]/25
+        data-[scrolled=true]:via-[#f2fbfb]/90
+        data-[scrolled=true]:to-[#00bdb6]/25
+        data-[scrolled=true]:shadow-[0_10px_35px_rgba(0,189,182,0.22)]
+        data-[scrolled=true]:backdrop-blur-xl
+
+        dark:hover:border-[#00bdb6]/70
+        dark:hover:bg-gradient-to-r
+        dark:hover:from-[#00bdb6]/25
+        dark:hover:via-[#11222b]/95
+        dark:hover:to-[#00bdb6]/25
+        dark:hover:shadow-[0_0_40px_rgba(0,189,182,0.3)]
+        dark:hover:backdrop-blur-xl
+
+        dark:data-[scrolled=true]:border-[#00bdb6]/70
+        dark:data-[scrolled=true]:bg-gradient-to-r
+        dark:data-[scrolled=true]:from-[#00bdb6]/25
+        dark:data-[scrolled=true]:via-[#11222b]/95
+        dark:data-[scrolled=true]:to-[#00bdb6]/25
+        dark:data-[scrolled=true]:shadow-[0_0_40px_rgba(0,189,182,0.3)]
+        dark:data-[scrolled=true]:backdrop-blur-xl
+      "
+    >
+      <a
+        href="index.html"
+        class="group inline-flex shrink-0 items-center gap-[9px] sm:gap-[13px]"
+      >
+        <span class="grid h-[42px] w-[39px] place-items-center rounded-[14px] border border-[#a7efea] bg-white shadow-[0_8px_15px_rgba(0,191,183,.14)] transition-transform group-hover:-rotate-3 sm:size-12 sm:rounded-[17px] dark:border-[#00bdb6]/50 dark:bg-[#172837]">
+          <span class="bg-gradient-to-r from-[#10bdd7] via-[#e26683] to-[#f2b62b] bg-clip-text text-base font-extrabold tracking-[-1px] text-transparent">
+            ASR
+          </span>
+        </span>
+
+        <span class="grid gap-1">
+          <strong class="whitespace-nowrap text-[11px] font-semibold sm:text-sm lg:text-xs xl:text-sm">
+            Adi Sahrul Ramadhan
+          </strong>
+
+          <small class="text-[10px] text-muted sm:text-xs dark:text-[#a8b8cc]">
+            Portfolio
+          </small>
+        </span>
+      </a>
+
+      <div
+        id="navigation"
+        data-open="false"
+        class="
+          absolute inset-x-0 top-[calc(100%+10px)]
+          hidden flex-wrap items-center gap-[5px]
+          rounded-[20px] border border-line bg-[#f6fbff]/95 p-[15px]
+          shadow-lg backdrop-blur-xl data-[open=true]:flex
+          dark:border-[#2b3c54] dark:bg-[#121e30]/95
+
+          lg:static lg:flex lg:flex-1 lg:flex-nowrap lg:justify-center
+          lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0
+          lg:shadow-none lg:backdrop-blur-none dark:lg:bg-transparent
+
+          [&>a]:inline-flex [&>a]:items-center
+          [&>a]:whitespace-nowrap [&>a]:rounded-full
+          [&>a]:px-[14px] [&>a]:py-[11px] [&>a]:text-sm
+          [&>a]:transition-colors
+          lg:[&>a]:px-[9px] lg:[&>a]:text-xs
+          xl:[&>a]:px-[13px] xl:[&>a]:text-sm
+        "
+      >
+        <a
+          href="index.html"
+          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+        >
+          Home
+        </a>
+
+        <a
+          href="about.html"
+          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+        >
+          About
+        </a>
+
+        <a
+          href="experience.html"
+          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+        >
+          Experience
+        </a>
+
+        <a
+          href="projects.html"
+          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+        >
+          Projects
+        </a>
+
+        <div
+          id="achievement-menu"
+          data-open="false"
+          class="relative"
+        >
+          <button
+            type="button"
+            id="achievement-trigger"
+            aria-haspopup="menu"
+            aria-expanded="false"
+            aria-controls="achievement-dropdown"
+            class="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#00bdb6]/20 px-[14px] py-[11px] text-sm font-bold text-[#008f8a] shadow-sm transition-colors lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm dark:bg-[#00bdb6]/30 dark:text-[#33d1cb]"
+          >
+            Achievements
+
+            <svg
+              id="achievement-chevron"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path d="m6 9 6 6 6-6"></path>
+            </svg>
+          </button>
+
+          <div
+            id="achievement-dropdown"
+            role="menu"
+            aria-hidden="true"
+            class="achievement-dropdown absolute left-0 top-full z-20 mt-2 grid min-w-44 gap-1 rounded-2xl border border-line bg-white p-2 shadow-lg dark:border-[#34455d] dark:bg-[#172337]"
+          >
+            <a
+              href="awards.html"
+              role="menuitem"
+              class="rounded-xl px-4 py-3 text-sm transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+            >
+              Awards
+            </a>
+
+            <a
+              href="certificates.html"
+              role="menuitem"
+              aria-current="page"
+              class="rounded-xl bg-[#00bdb6]/20 px-4 py-3 text-sm font-bold text-[#008f8a] shadow-sm transition-colors dark:bg-[#00bdb6]/30 dark:text-[#33d1cb]"
+            >
+              Certificates
+            </a>
+          </div>
+        </div>
+
+        <a
+          href="blog.html"
+          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+        >
+          Blog
+        </a>
+
+        <a
+          href="skills.html"
+          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+        >
+          Skills
+        </a>
+
+        <a
+          href="contact.html"
+          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+        >
+          Contact
+        </a>
+      </div>
+
+      <div class="ml-auto flex items-center gap-1.5 sm:gap-[9px]">
+        <button
+          id="menu-button"
+          type="button"
+          aria-label="Open menu"
+          aria-controls="navigation"
+          aria-expanded="false"
+          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] sm:size-[45px] lg:hidden dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+        >
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+
+        <button
+          id="theme-button"
+          type="button"
+          aria-label="Switch to dark mode"
+          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-all hover:rotate-12 hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] active:scale-95 sm:size-[45px] dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+        >
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            aria-hidden="true"
+          >
+            <path d="M21 13A9 9 0 0 1 11 3a9 9 0 1 0 10 10Z"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- CERTIFICATES CONTENT -->
+  <main class="awards-main certificates-main"></main>
+
+  <!-- CERTIFICATE DETAILS -->
+  <dialog id="award-dialog" aria-labelledby="award-title">
+    <div class="award-dialog-panel">
+      <header class="award-dialog-header">
+        <div>
+          <p class="award-org" id="award-org"></p>
+          <h2 id="award-title"></h2>
+        </div>
+
+        <button
+          type="button"
+          class="close-award"
+          id="close-award"
+          aria-label="Close award details"
+        >
+          ✕
+        </button>
+      </header>
+
+      <div class="award-dialog-body">
+        <div class="certificate-gallery">
+          <button
+            type="button"
+            id="zoom-award"
+            aria-label="Enlarge certificate"
+          >
+            <img id="award-detail-image" alt="" />
+
+            <span
+              id="detail-image-counter"
+              class="award-image-counter"
+              aria-live="polite"
+            >
+              1 / 1
+            </span>
+          </button>
+
+          <button
+            type="button"
+            id="detail-image-prev"
+            class="gallery-arrow gallery-prev"
+            aria-label="Previous certificate image"
+          >
+            ‹
+          </button>
+
+          <button
+            type="button"
+            id="detail-image-next"
+            class="gallery-arrow gallery-next"
+            aria-label="Next certificate image"
+          >
+            ›
+          </button>
+        </div>
+
+        <div
+          id="certificate-thumbnails"
+          class="certificate-thumbnails"
+          aria-label="Certificate images"
+        ></div>
+
+        <p id="award-description"></p>
+        <p class="award-date" id="award-date"></p>
+
+        <a
+          id="verify-certificate"
+          class="primary-button"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          hidden
+        >
+          Verify Credential ↗
+        </a>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- CERTIFICATE ZOOM -->
+  <dialog id="award-zoom" aria-labelledby="zoom-title">
+    <div class="award-dialog-panel">
+      <header class="award-dialog-header">
+        <h2 id="zoom-title"></h2>
+
+        <button
+          type="button"
+          class="close-award"
+          id="close-zoom"
+          aria-label="Close image zoom"
+        >
+          ✕
+        </button>
+      </header>
+
+      <div class="zoom-image-wrap certificate-gallery">
+        <img id="zoom-image" alt="" />
+
+        <button
+          type="button"
+          id="zoom-image-prev"
+          class="gallery-arrow gallery-prev"
+          aria-label="Previous certificate image"
+        >
+          ‹
+        </button>
+
+        <button
+          type="button"
+          id="zoom-image-next"
+          class="gallery-arrow gallery-next"
+          aria-label="Next certificate image"
+        >
+          ›
+        </button>
+
+        <span
+          id="zoom-image-counter"
+          class="award-image-counter"
+          aria-live="polite"
+        >
+          1 / 1
+        </span>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-line/70 py-12 sm:py-16 dark:border-[#2b3c54]">
+    <div class="mx-auto w-[calc(100%-36px)] max-w-[1320px] sm:w-[calc(100%-64px)]">
+      <div class="grid gap-10 md:grid-cols-[1.8fr_.75fr_1fr]">
+        <div>
+          <a
+            href="index.html"
+            class="text-xl font-medium tracking-[-.5px]"
+          >
+            Adi Sahrul Ramadhan
+          </a>
+
+          <p class="mt-5 max-w-[530px] text-sm leading-relaxed text-muted dark:text-[#a8b8cc]">
+            Full Stack Web Developer focused on delivering scalable products with clean architecture and measurable impact.
+          </p>
+
+          <div
+            id="footer-socials"
+            class="mt-5 flex gap-2.5"
+          ></div>
+        </div>
+
+        <div>
+          <h3 class="text-[10px] tracking-[2px] text-muted dark:text-[#a8b8cc]">
+            EXPLORE
+          </h3>
+
+          <div class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 text-xs text-muted dark:text-[#a8b8cc] [&>a:hover]:text-accent">
+            <a href="index.html">Home</a>
+            <a href="certificates.html">Certificates</a>
+            <a href="about.html">About</a>
+            <span aria-disabled="true">Blog</span>
+            <a href="experience.html">Experience</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="awards.html">Awards</a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-[10px] tracking-[2px] text-muted dark:text-[#a8b8cc]">
+            CONTACT
+          </h3>
+
+          <p class="mt-4 text-xs leading-relaxed text-muted dark:text-[#a8b8cc]">
+            Open to freelance and full-time collaboration.
+          </p>
+
+          <a
+            id="footer-email"
+            href="contact.html"
+            class="mt-3 inline-block break-all text-xs text-muted hover:text-accent dark:text-[#a8b8cc]"
+          >
+            Connect through my social profiles
+          </a>
+        </div>
+      </div>
+
+      <p class="mt-16 text-[11px] text-muted dark:text-[#a8b8cc]">
+        © <span id="year"></span> Adi Sahrul Ramadhan. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const DATA = {
+        linkedin: "https://linkedin.com/in/adi-sahrul-ramadhan-8966a1286",
+        github: "https://github.com/AdiSahrulRamadhan",
+        instagram: "https://www.instagram.com/adishrlramadhannn_?stkn=MXEyeGs4cmoydGd0dA%3D%3D&utm_source=qr",
+        youtube: "https://www.youtube.com/@-AdiSahrulRamadhan",
+        email: "adisahrul383@gmail.com"
+      };
+
+      const SOCIALS = [
+        ["linkedin", "LinkedIn"],
+        ["github", "GitHub"],
+        ["instagram", "Instagram"],
+        ["youtube", "YouTube"],
+        ["email", "Email"]
+      ];
+
+      const ICONS = {
+        linkedin:
+          '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7m4 0v-7m0 3c0-4 6-4 6 0v4"/><circle cx="7" cy="7" r=".8" fill="currentColor" stroke="none"/>',
+
+        github:
+          '<path d="M9 19c-4 1-4-2-6-2m12 5v-4c0-1-.4-1.7-1-2 3-.4 6-1.5 6-6a5 5 0 0 0-1.4-3.5A5 5 0 0 0 18.5 3S17 2.5 14.8 4a11 11 0 0 0-5.6 0C7 2.5 5.5 3 5.5 3a5 5 0 0 0-.1 3.5A5 5 0 0 0 4 10c0 4.5 3 5.6 6 6-.6.3-1 1-1 2v4"/>',
+
+        instagram:
+          '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>',
+
+        youtube:
+          '<rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 6 3-6 3Z"/>',
+
+        email:
+          '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>',
+
+        moon:
+          '<path d="M21 13A9 9 0 0 1 11 3a9 9 0 1 0 10 10Z"/>',
+
+        sun:
+          '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5M17.5 6.5 19 5"/>'
+      };
+
+      function esc(value) {
+        return String(value).replace(/[&<>"']/g, character => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;"
+        })[character]);
+      }
+
+      function icon(name, size = 22) {
+        return `
+          <svg
+            width="${size}"
+            height="${size}"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            ${ICONS[name] || ""}
+          </svg>
+        `;
+      }
+
+      function socialHref(key) {
+        const value = DATA[key]?.trim();
+
+        if (!value) return "";
+
+        if (key === "email") {
+          return `mailto:${value}`;
+        }
+
+        return /^https?:\/\//i.test(value) ? value : "";
+      }
+
+      function socialAttrs(key) {
+        const href = socialHref(key);
+
+        return href
+          ? `href="${esc(href)}" ${
+              key !== "email"
+                ? 'target="_blank" rel="noopener noreferrer"'
+                : ""
+            }`
+          : 'aria-disabled="true"';
+      }
+
+      document.getElementById("footer-socials").innerHTML =
+        SOCIALS.map(([key, name]) => `
+          <a
+            ${socialAttrs(key)}
+            aria-label="${name}"
+            class="grid size-9 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:border-[#34455d] dark:bg-[#1c2b42]"
+          >
+            ${icon(key, 16)}
+          </a>
+        `).join("");
+
+      if (DATA.email.trim()) {
+        const href = socialHref("email");
+        const footerEmail = document.getElementById("footer-email");
+
+        footerEmail.href = href;
+        footerEmail.textContent = DATA.email.trim();
+      }
+
+      document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+      const header = document.getElementById("header");
+      const navbar = document.getElementById("navbar");
+      const navigation = document.getElementById("navigation");
+      const menuButton = document.getElementById("menu-button");
+      const achievementMenu = document.getElementById("achievement-menu");
+      const achievementTrigger = document.getElementById("achievement-trigger");
+      const achievementDropdown = document.getElementById("achievement-dropdown");
+
+      function updateNavbarBackground() {
+        navbar.dataset.scrolled = String(window.scrollY > 24);
+      }
+
+      addEventListener("scroll", updateNavbarBackground, {
+        passive: true
+      });
+
+      updateNavbarBackground();
+
+      function setAchievementMenu(open) {
+        achievementMenu.dataset.open = String(open);
+
+        achievementTrigger.setAttribute(
+          "aria-expanded",
+          String(open)
+        );
+
+        achievementDropdown.setAttribute(
+          "aria-hidden",
+          String(!open)
+        );
+
+        achievementDropdown.toggleAttribute("inert", !open);
+      }
+
+      function setMenu(open) {
+        navigation.dataset.open = String(open);
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          String(open)
+        );
+
+        menuButton.setAttribute(
+          "aria-label",
+          open ? "Close menu" : "Open menu"
+        );
+
+        if (!open) {
+          setAchievementMenu(false);
+        }
+      }
+
+      menuButton.addEventListener("click", () => {
+        setMenu(navigation.dataset.open !== "true");
+      });
+
+      navigation.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          setMenu(false);
+        });
+      });
+
+      achievementTrigger.addEventListener("click", () => {
+        setAchievementMenu(
+          achievementMenu.dataset.open !== "true"
+        );
+      });
+
+      document.addEventListener("click", event => {
+        if (!header.contains(event.target)) {
+          setMenu(false);
+        }
+
+        if (!achievementMenu.contains(event.target)) {
+          setAchievementMenu(false);
+        }
+      });
+
+      if (
+        matchMedia("(hover: hover) and (pointer: fine)").matches
+      ) {
+        let achievementCloseTimer = null;
+
+        achievementMenu.addEventListener("mouseenter", () => {
+          clearTimeout(achievementCloseTimer);
+          setAchievementMenu(true);
+        });
+
+        achievementMenu.addEventListener("mouseleave", () => {
+          achievementCloseTimer = setTimeout(() => {
+            setAchievementMenu(false);
+          }, 150);
+        });
+      }
+
+      document.addEventListener("keydown", event => {
+        if (event.key !== "Escape") return;
+
+        if (achievementMenu.dataset.open === "true") {
+          setAchievementMenu(false);
+          achievementTrigger.focus();
+        }
+
+        if (navigation.dataset.open === "true") {
+          setMenu(false);
+          menuButton.focus();
+        }
+      });
+
+      matchMedia("(min-width:1024px)").addEventListener(
+        "change",
+        event => {
+          if (event.matches) {
+            setMenu(false);
+          }
+        }
+      );
+
+      const themeButton = document.getElementById("theme-button");
+      const systemTheme = matchMedia("(prefers-color-scheme:dark)");
+
+      let selectedTheme = null;
+
+      try {
+        selectedTheme = localStorage.getItem("asr-theme");
+      } catch {}
+
+      function applyTheme(dark) {
+        document.documentElement.classList.toggle("dark", dark);
+
+        themeButton.innerHTML = icon(dark ? "sun" : "moon");
+
+        themeButton.setAttribute(
+          "aria-pressed",
+          String(dark)
+        );
+
+        themeButton.setAttribute(
+          "aria-label",
+          dark
+            ? "Switch to light mode"
+            : "Switch to dark mode"
+        );
+      }
+
+      applyTheme(
+        document.documentElement.classList.contains("dark")
+      );
+
+      themeButton.addEventListener("click", () => {
+        const dark =
+          !document.documentElement.classList.contains("dark");
+
+        selectedTheme = dark ? "dark" : "light";
+
+        applyTheme(dark);
+
+        try {
+          localStorage.setItem("asr-theme", selectedTheme);
+        } catch {}
+      });
+
+      systemTheme.addEventListener("change", event => {
+        if (
+          selectedTheme !== "dark" &&
+          selectedTheme !== "light"
+        ) {
+          applyTheme(event.matches);
+        }
+      });
+    })();
+  </script>
+
+  <script>
+    (() => {
+      "use strict";
+
+      const certificates = [
+        {
+          title: "Introduction to Data Science with R",
+          org: "Sample training provider",
+          desc: "Sample certificate entry for Introduction to Data Science with R. Replace this description with your completed course, skills learned, issuing organization, and credential information.",
+          date: "Not specified",
+          credential: "DEMO-001",
+          verifyUrl: "https://academy.dqlab.id/Certificate_check/result/DQLABBGINRWLONSS",
+          skills: ["Cloud Computing", "Architecture", "Security"],
+          extraImages: [],
+          image: "assets/certificates/Sertifikat Introduction to Data Science with R.png"
+        },
+        {
+          title: "Guide to Learn R with AI at DQLab",
+          org: "Sample training provider",
+          desc: "Sample certificate entry for Guide to Learn R with AI at DQLab. Replace this description with your completed course, skills learned, issuing organization, and credential information.",
+          date: "Not specified",
+          credential: "DEMO-002",
+          verifyUrl: "https://academy.dqlab.id/Certificate_check/result/DQLABAI002FUJDVU",
+          skills: ["Web", "Problem Solving", "Development"],
+          extraImages: [],
+          image: "assets/certificates/Sertifikat Guide to Learn R with AI at DQLab.png"
+        },
+        {
+          title: "Fundamental SQL Using SELECT Statement",
+          org: "Sample training provider",
+          desc: "Sample certificate entry for Fundamental SQL Using SELECT Statement. Replace this description with your completed course, skills learned, issuing organization, and credential information.",
+          date: "Not specified",
+          credential: "DEMO-003",
+          verifyUrl: "https://academy.dqlab.id/Certificate_check/result/DQLABSQLT1FWCFBD",
+          skills: ["Front-End", "Problem Solving", "Development"],
+          extraImages: [],
+          image: "assets/certificates/Sertifikat Fundamental SQL Using SELECT Statement.png"
+        },
+        {
+          title: "FREECLASS : DATA SCIENCE FUNDAMENTALS",
+          org: "Sample training provider",
+          desc: "Sample certificate entry for FREECLASS : DATA SCIENCE FUNDAMENTALS. Replace this description with your completed course, skills learned, issuing organization, and credential information.",
+          date: "Not specified",
+          credential: "DEMO-004",
+          verifyUrl: "https://academy.dqlab.id/Certificate_check/result/DQLABFREECLASS01MBWDLH",
+          skills: ["JavaScript", "Problem Solving", "Development"],
+          extraImages: [],
+          image: "assets/certificates/Sertifikat FREECLASS  DATA SCIENCE FUNDAMENTALS.png"
+        },
+        {
+          title: "Python Fundamental for Data Science",
+          org: "Sample training provider",
+          desc: "Sample certificate entry for Python Fundamental for Data Science. Replace this description with your completed course, skills learned, issuing organization, and credential information.",
+          date: "Not specified",
+          credential: "DEMO-005",
+          verifyUrl: "https://academy.dqlab.id/Certificate_check/result/DQLABINTP1ODNKKP",
+          skills: ["Back-End", "Problem Solving", "Development"],
+          extraImages: [],
+          image: "assets/certificates/Sertifikat Python Fundamental for Data Science.png"
+        },
+        {
+          title: "R Fundamental for Data Science",
+          org: "Sample training provider",
+          desc: "Sample certificate entry for R Fundamental for Data Science. Replace this description with your completed course, skills learned, issuing organization, and credential information.",
+          date: "Not specified",
+          credential: "DEMO-006",
+          verifyUrl: "https://academy.dqlab.id/Certificate_check/result/DQLABINTR1HRFGCJ",
+          skills: ["React.js", "UI/UX Fundamentals", "Responsive Design"],
+          extraImages: [],
+          image: "assets/certificates/Sertifikat R Fundamental for Data Science.png"
+        },
+        {
+          title: "Sertifikat Memulai Pemograman Dengan Java",
+          org: "Sample training provider",
+          desc: "Sample certificate entry for Sertifikat Memulai Pemograman Dengan Java. Replace this description with your completed course, skills learned, issuing organization, and credential information.",
+          date: "Not specified",
+          credential: "DEMO-007",
+          verifyUrl: "https://www.dicoding.com/certificates/4EXGJ935EXRL",
+          skills: ["HTML", "Problem Solving", "Development"],
+          extraImages: [
+            "assets/certificates/Sertifikat Memulai Pemograman Dengan Java-2.png",
+            "assets/certificates/Sertifikat Memulai Pemograman Dengan Java-3.png"
+          ],
+          image: "assets/certificates/Sertifikat Memulai Pemograman Dengan Java-1 (1).png"
+        },
+        {
+          title: "Sertifikat Memulai Pemrograman Dengan C",
+          org: "Sample training provider",
+          desc: "Sample certificate entry for Sertifikat Memulai Pemrograman Dengan C. Replace this description with your completed course, skills learned, issuing organization, and credential information.",
+          date: "Not specified",
+          credential: "DEMO-008",
+          verifyUrl: "https://www.dicoding.com/certificates/ERZR7020NZYV",
+          skills: ["UI/UX Fundamentals", "Figma", "Responsive Design"],
+          extraImages: [
+            "assets/certificates/Sertifikat Memulai Pemrograman Dengan C-2.png",
+            "assets/certificates/Sertifikat Memulai Pemrograman Dengan C-3.png"
+          ],
+          image: "assets/certificates/Sertifikat Memulai Pemrograman Dengan C-1.png"
+        },
+        {
+          title: "Sertifikat Memulai Pemrograman dengan Haskell",
+          org: "Sample training provider",
+          desc: "Sample certificate entry for Sertifikat Memulai Pemrograman dengan Haskell. Replace this description with your completed course, skills learned, issuing organization, and credential information.",
+          date: "Not specified",
+          credential: "DEMO-009",
+          verifyUrl: "https://www.dicoding.com/certificates/2VX3VY574PYQ",
+          skills: ["TypeScript", "Problem Solving", "Development"],
+          extraImages: [
+            "assets/certificates/Sertifikat Memulai Pemrograman dengan Haskell-2.png"
+          ],
+          image: "assets/certificates/Sertifikat Memulai Pemrograman dengan Haskell-1.png"
+        },
+        {
+          title: "Sertifikat Belajar Prinsip Pemrograman SOLID",
+          org: "Sample training provider",
+          desc: "Sample certificate entry for Sertifikat Belajar Prinsip Pemrograman SOLID. Replace this description with your completed course, skills learned, issuing organization, and credential information.",
+          date: "Not specified",
+          credential: "DEMO-010",
+          verifyUrl: "https://www.dicoding.com/certificates/MRZMV46ELZYQ",
+          skills: ["REST", "Problem Solving", "Development"],
+          extraImages: [
+            "assets/certificates/Sertifikat Belajar Prinsip Pemrograman SOLID-2.png"
+          ],
+          image: "assets/certificates/Sertifikat Belajar Prinsip Pemrograman SOLID-1.png"
+        },
+        {
+          title: "Sertifikat Belajar Dasar Manajemen Proyek",
+          org: "Sample training provider",
+          desc: "Sample certificate entry for Sertifikat Belajar Dasar Manajemen Proyek. Replace this description with your completed course, skills learned, issuing organization, and credential information.",
+          date: "Not specified",
+          credential: "DEMO-011",
+          verifyUrl: "https://www.dicoding.com/certificates/N9ZO042K8XG5",
+          skills: ["UI/UX Fundamentals", "Figma", "Responsive Design"],
+          extraImages: [
+            "assets/certificates/Sertifikat Belajar Dasar Manajemen Proyek-2.png",
+            "assets/certificates/Sertifikat Belajar Dasar Manajemen Proyek-3.png"
+          ],
+          image: "assets/certificates/Sertifikat Belajar Dasar Manajemen Proyek-1.png"
+        },
+        {
+          title: "Sertifikat Introduction to Cybersecurity",
+          org: "Sample training provider",
+          desc: "Sample certificate entry for Sertifikat Introduction to Cybersecurity. Replace this description with your completed course, skills learned, issuing organization, and credential information.",
+          date: "Not specified",
+          credential: "DEMO-012",
+          verifyUrl: "https://www.credly.com/earner/earned/badge/bce5bd5b-25dc-4ee7-9238-4f24fa2b72cb",
+          skills: ["Git", "Problem Solving", "Development"],
+          extraImages: [],
+          image: "assets/certificates/Sertifikat Introduction to Cybersecurity.png"
+        }
+      ];
+
+      function esc(value) {
+        return String(value).replace(/[&<>"']/g, character => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;"
+        })[character]);
+      }
+
+      function featuredSlide(item, index) {
+        return `
+          <div
+            class="featured-slide"
+            role="group"
+            aria-roledescription="slide"
+            aria-label="${index + 1} of 5"
+          >
+            <div class="featured-grid">
+              <button
+                type="button"
+                class="featured-image"
+                data-certificate="${index}"
+                aria-label="View ${esc(item.title)} details"
+              >
+                <img
+                  src="${esc(item.image)}"
+                  alt="${esc(item.title)}"
+                  width="1200"
+                  height="800"
+                />
+              </button>
+
+              <div class="featured-copy">
+                <p class="award-org">
+                  ${esc(item.org)}
+                </p>
+
+                <h2>
+                  <button
+                    type="button"
+                    class="certificate-title-button"
+                    data-certificate="${index}"
+                  >
+                    ${esc(item.title)}
+                  </button>
+                </h2>
+
+                <div class="certificate-tags">
+                  <span class="skill-tag">${esc(item.skills[0])}</span>
+                  <span class="skill-tag">${esc(item.skills[1])}</span>
+                  <span class="skill-tag">${esc(item.skills[2])}</span>
+                </div>
+
+                <p class="featured-meta">
+                  Issued: ${esc(item.date)}<br>
+                  Credential: ${esc(item.credential)}
+                </p>
+
+                <div class="certificate-actions">
+                  <button
+                    type="button"
+                    class="outline-button"
+                    data-certificate="${index}"
+                  >
+                    View Details
+                  </button>
+
+                  <button
+                    type="button"
+                    class="primary-button verify-card"
+                    data-verify="${index}"
+                    disabled
+                    title="Add the original issuer verification URL to enable this button"
+                  >
+                    Verify Certificate
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      function certificateCard(item, index) {
+        return `
+          <article class="award-card certificate-card">
+            <button
+              type="button"
+              class="award-image"
+              data-certificate="${index}"
+              aria-label="View ${esc(item.title)}"
+            >
+              <img
+                id="certificate-image-${index}"
+                src="${esc(item.image)}"
+                alt="Sample certificate — ${esc(item.title)}"
+                width="1200"
+                height="800"
+                loading="lazy"
+              />
+            </button>
+
+            <div class="award-body">
+              <p class="award-org">
+                ${esc(item.org)}
+              </p>
+
+              <h2>
+                <button
+                  type="button"
+                  class="certificate-title-button"
+                  data-certificate="${index}"
+                >
+                  ${esc(item.title)}
+                </button>
+              </h2>
+
+              <div class="certificate-tags">
+                <span class="skill-tag">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="m8 6-6 6 6 6m8-12 6 6-6 6m-3-15-2 18"/>
+                  </svg>
+                  ${esc(item.skills[0])}
+                </span>
+
+                <span class="skill-tag">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect x="3" y="3" width="6" height="6" rx="1"/>
+                    <rect x="15" y="3" width="6" height="6" rx="1"/>
+                    <rect x="3" y="15" width="6" height="6" rx="1"/>
+                    <rect x="15" y="15" width="6" height="6" rx="1"/>
+                  </svg>
+                  ${esc(item.skills[1])}
+                </span>
+
+                <span class="skill-tag">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect x="2" y="3" width="14" height="14" rx="2"/>
+                    <rect x="13" y="9" width="9" height="12" rx="1"/>
+                  </svg>
+                  ${esc(item.skills[2])}
+                </span>
+              </div>
+
+              <p class="certificate-meta">
+                Issued: ${esc(item.date)}<br>
+                Credential ID: ${esc(item.credential)}
+              </p>
+
+              <div class="certificate-actions">
+                <button
+                  type="button"
+                  class="outline-button"
+                  data-certificate="${index}"
+                >
+                  View Details
+                </button>
+
+                <button
+                  type="button"
+                  class="primary-button verify-card"
+                  data-verify="${index}"
+                  disabled
+                  title="Add the original issuer verification URL to enable this button"
+                >
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <rect x="3" y="3" width="18" height="13" rx="2"/>
+                    <path d="M7 7h10M7 11h4m2 4v7l3-2 3 2v-7"/>
+                    <circle cx="16" cy="12" r="3"/>
+                  </svg>
+
+                  Verify Certificate
+                </button>
+              </div>
+            </div>
+          </article>
+        `;
+      }
+
+      document.querySelector(".certificates-main").innerHTML = `
+        <section aria-labelledby="certificates-heading">
+          <span class="eyebrow">CERTIFICATES</span>
+
+          <h1 id="certificates-heading">
+            Certifications supporting<br>
+            my engineering practice.
+          </h1>
+
+          <p class="awards-intro">
+            A collection of learning milestones across software development, cloud technologies, and professional skills.
+          </p>
+
+          <article
+            class="featured-certificate"
+            aria-label="Featured certifications"
+            aria-roledescription="carousel"
+          >
+            <div class="featured-heading">
+              <div>
+                <h2>FEATURED CERTIFICATIONS</h2>
+                <p>Highlighted credentials from recent learning milestones.</p>
+              </div>
+
+              <button
+                type="button"
+                id="slider-pause"
+                class="slider-control"
+                aria-label="Pause automatic slides"
+              >
+                Pause
+              </button>
+            </div>
+
+            <div class="featured-viewport">
+              <div class="featured-track">
+                ${
+                  [0, 1, 2, 3, 4, 0, 1].map(index => {
+                    return featuredSlide(certificates[index], index);
+                  }).join("")
+                }
+              </div>
+            </div>
+
+            <div class="slider-footer">
+              <button
+                type="button"
+                id="slider-prev"
+                class="slider-control"
+                aria-label="Previous certificate"
+              >
+                ‹
+              </button>
+
+              <div class="slider-dots">
+                <button
+                  type="button"
+                  class="slider-dot"
+                  data-slide="0"
+                  aria-label="Show certificate 1"
+                  aria-pressed="true"
+                ></button>
+
+                <button
+                  type="button"
+                  class="slider-dot"
+                  data-slide="1"
+                  aria-label="Show certificate 2"
+                  aria-pressed="false"
+                ></button>
+
+                <button
+                  type="button"
+                  class="slider-dot"
+                  data-slide="2"
+                  aria-label="Show certificate 3"
+                  aria-pressed="false"
+                ></button>
+
+                <button
+                  type="button"
+                  class="slider-dot"
+                  data-slide="3"
+                  aria-label="Show certificate 4"
+                  aria-pressed="false"
+                ></button>
+
+                <button
+                  type="button"
+                  class="slider-dot"
+                  data-slide="4"
+                  aria-label="Show certificate 5"
+                  aria-pressed="false"
+                ></button>
+              </div>
+
+              <button
+                type="button"
+                id="slider-next"
+                class="slider-control"
+                aria-label="Next certificate"
+              >
+                ›
+              </button>
+            </div>
+          </article>
+
+          <div class="awards-grid certificates-grid">
+            ${
+              certificates
+                .map((item, index) => ({ item, index }))
+                .reverse()
+                .map(({ item, index }) => {
+                  return certificateCard(item, index);
+                })
+                .join("")
+            }
+          </div>
+        </section>
+      `;
+
+      const dialog = document.getElementById("award-dialog");
+      const zoom = document.getElementById("award-zoom");
+
+      document.querySelectorAll("[data-verify]").forEach(button => {
+        const entry = certificates[Number(button.dataset.verify)];
+
+        if (/^https?:\/\//i.test(entry.verifyUrl || "")) {
+          button.disabled = false;
+          button.title = "Verify with the issuing organization";
+
+          button.addEventListener("click", () => {
+            window.open(
+              entry.verifyUrl,
+              "_blank",
+              "noopener,noreferrer"
+            );
+          });
+        }
+      });
+
+      let selected = 0;
+      let activeImage = 0;
+      let galleryImages = [];
+      let trigger = null;
+
+      function imageFor(index) {
+        return document.getElementById(
+          "certificate-image-" + index
+        ).src;
+      }
+
+      function setGallery(index) {
+        selected = index;
+        activeImage = 0;
+
+        galleryImages = [
+          imageFor(index),
+          ...(certificates[index].extraImages || [])
+        ];
+
+        const thumbnails = document.getElementById(
+          "certificate-thumbnails"
+        );
+
+        thumbnails.replaceChildren();
+
+        galleryImages.forEach((src, imageIndex) => {
+          const button = document.createElement("button");
+
+          button.type = "button";
+
+          button.setAttribute(
+            "aria-label",
+            "Show image " + (imageIndex + 1)
+          );
+
+          const img = document.createElement("img");
+
+          img.src = src;
+          img.alt = "Page " + (imageIndex + 1);
+
+          button.append(img);
+
+          button.addEventListener("click", () => {
+            renderImage(imageIndex);
+          });
+
+          thumbnails.append(button);
+        });
+
+        thumbnails.hidden = galleryImages.length < 2;
+
+        renderImage(0);
+      }
+
+      function renderImage(index) {
+        if (!galleryImages.length) return;
+
+        activeImage = (
+          index + galleryImages.length
+        ) % galleryImages.length;
+
+        const caption =
+          (activeImage + 1) + " / " + galleryImages.length;
+
+        ["award-detail-image", "zoom-image"].forEach(id => {
+          const img = document.getElementById(id);
+
+          img.src = galleryImages[activeImage];
+
+          img.alt =
+            certificates[selected].title +
+            " — Page " +
+            (activeImage + 1);
+        });
+
+        ["detail-image-counter", "zoom-image-counter"].forEach(id => {
+          document.getElementById(id).textContent = caption;
+        });
+
+        [
+          "detail-image-prev",
+          "detail-image-next",
+          "zoom-image-prev",
+          "zoom-image-next"
+        ].forEach(id => {
+          document.getElementById(id).hidden =
+            galleryImages.length < 2;
+        });
+
+        document.querySelectorAll(
+          "#certificate-thumbnails button"
+        ).forEach((button, imageIndex) => {
+          button.setAttribute(
+            "aria-pressed",
+            String(imageIndex === activeImage)
+          );
+        });
+      }
+
+      ["detail-image-prev", "zoom-image-prev"].forEach(id => {
+        document.getElementById(id).addEventListener("click", () => {
+          renderImage(activeImage - 1);
+        });
+      });
+
+      ["detail-image-next", "zoom-image-next"].forEach(id => {
+        document.getElementById(id).addEventListener("click", () => {
+          renderImage(activeImage + 1);
+        });
+      });
+
+      document.addEventListener("keydown", event => {
+        if (!dialog.open && !zoom.open) return;
+
+        if (event.key === "ArrowLeft") {
+          event.preventDefault();
+          renderImage(activeImage - 1);
+        }
+
+        if (event.key === "ArrowRight") {
+          event.preventDefault();
+          renderImage(activeImage + 1);
+        }
+      });
+
+      function showPreview(index) {
+        if (
+          !dialog.open ||
+          selected !== index ||
+          !galleryImages.length
+        ) {
+          setGallery(index);
+        }
+
+        document.getElementById("zoom-title").textContent =
+          certificates[index].title;
+
+        zoom.showModal();
+        document.body.style.overflow = "hidden";
+      }
+
+      document.querySelectorAll("[data-certificate]").forEach(button => {
+        button.addEventListener("click", () => {
+          setGallery(Number(button.dataset.certificate));
+
+          trigger = button;
+
+          const certificate = certificates[selected];
+
+          document.getElementById("award-title").textContent =
+            certificate.title;
+
+          document.getElementById("award-org").textContent =
+            certificate.org;
+
+          document.getElementById("award-description").textContent =
+            certificate.desc;
+
+          document.getElementById("award-date").textContent =
+            "Issued: " +
+            certificate.date +
+            " · Credential: " +
+            certificate.credential;
+
+          const verify = document.getElementById("verify-certificate");
+
+          const validUrl = /^https?:\/\//i.test(
+            certificate.verifyUrl || ""
+          );
+
+          verify.hidden = !validUrl;
+          verify.href = validUrl ? certificate.verifyUrl : "#";
+
+          dialog.showModal();
+          document.body.style.overflow = "hidden";
+        });
+      });
+
+      document.querySelectorAll("[data-preview]").forEach(button => {
+        button.addEventListener("click", () => {
+          trigger = button;
+          showPreview(Number(button.dataset.preview));
+        });
+      });
+
+      document.getElementById("close-award").addEventListener(
+        "click",
+        () => {
+          dialog.close();
+        }
+      );
+
+      dialog.addEventListener("close", () => {
+        if (!zoom.open) {
+          document.body.style.overflow = "";
+        }
+
+        trigger?.focus();
+      });
+
+      document.getElementById("zoom-award").addEventListener(
+        "click",
+        () => {
+          showPreview(selected);
+        }
+      );
+
+      document.getElementById("close-zoom").addEventListener(
+        "click",
+        () => {
+          zoom.close();
+        }
+      );
+
+      zoom.addEventListener("close", () => {
+        if (!dialog.open) {
+          document.body.style.overflow = "";
+          trigger?.focus();
+        }
+      });
+
+      [dialog, zoom].forEach(panel => {
+        panel.addEventListener("click", event => {
+          if (event.target !== panel) return;
+
+          const rect = panel.getBoundingClientRect();
+
+          if (
+            event.clientX < rect.left ||
+            event.clientX > rect.right ||
+            event.clientY < rect.top ||
+            event.clientY > rect.bottom
+          ) {
+            panel.close();
+          }
+        });
+      });
+    })();
+  </script>
+
+  <script>
+    (() => {
+      const carousel = document.querySelector(".featured-certificate");
+      const viewport = carousel.querySelector(".featured-viewport");
+      const track = carousel.querySelector(".featured-track");
+      const slides = [...carousel.querySelectorAll(".featured-slide")];
+      const dots = [...carousel.querySelectorAll("[data-slide]")];
+      const count = dots.length;
+      const pause = document.getElementById("slider-pause");
+      const reduced = matchMedia("(prefers-reduced-motion: reduce)");
+
+      let position = 0;
+      let timer = null;
+      let paused = reduced.matches;
+
+      const duration = 4000;
+
+      function show(next, animate = true) {
+        position = next;
+
+        track.style.transition =
+          animate && !reduced.matches ? "" : "none";
+
+        const offset =
+          slides[position].offsetLeft -
+          slides[0].offsetLeft;
+
+        track.style.transform =
+          "translate3d(-" + offset + "px,0,0)";
+
+        const logical = position % count;
+
+        slides.forEach((slide, index) => {
+          const visible =
+            index === position ||
+            index === position + 1;
+
+          slide.inert = !visible;
+          slide.setAttribute("aria-hidden", String(!visible));
+        });
+
+        dots.forEach((dot, index) => {
+          dot.setAttribute(
+            "aria-pressed",
+            String(index === logical)
+          );
+        });
+      }
+
+      function settle() {
+        if (position >= count) {
+          show(position % count, false);
+        }
+      }
+
+      track.addEventListener("transitionend", event => {
+        if (
+          event.target === track &&
+          event.propertyName === "transform"
+        ) {
+          settle();
+        }
+      });
+
+      function advance() {
+        settle();
+
+        void track.offsetWidth;
+
+        show(position + 1);
+
+        if (reduced.matches) {
+          settle();
+        }
+      }
+
+      function schedule() {
+        clearInterval(timer);
+
+        pause.textContent = paused ? "Play" : "Pause";
+
+        pause.setAttribute(
+          "aria-label",
+          paused
+            ? "Play automatic slides"
+            : "Pause automatic slides"
+        );
+
+        if (
+          paused ||
+          document.hidden ||
+          carousel.contains(document.activeElement) ||
+          document.querySelector("dialog[open]")
+        ) {
+          return;
+        }
+
+        timer = setInterval(advance, duration);
+      }
+
+      document.getElementById("slider-next").addEventListener(
+        "click",
+        () => {
+          advance();
+          schedule();
+        }
+      );
+
+      document.getElementById("slider-prev").addEventListener(
+        "click",
+        () => {
+          show((position % count - 1 + count) % count);
+          schedule();
+        }
+      );
+
+      dots.forEach(dot => {
+        dot.addEventListener("click", () => {
+          show(Number(dot.dataset.slide));
+          schedule();
+        });
+      });
+
+      pause.addEventListener("click", () => {
+        paused = !paused;
+        schedule();
+      });
+
+      carousel.addEventListener("focusin", schedule);
+
+      carousel.addEventListener("focusout", () => {
+        setTimeout(schedule, 0);
+      });
+
+      document.addEventListener("visibilitychange", schedule);
+
+      reduced.addEventListener("change", event => {
+        paused = event.matches;
+        settle();
+        schedule();
+      });
+
+      new ResizeObserver(() => {
+        show(position, false);
+      }).observe(viewport);
+
+      const observer = new MutationObserver(schedule);
+
+      document.querySelectorAll("dialog").forEach(dialog => {
+        observer.observe(dialog, {
+          attributes: true,
+          attributeFilter: ["open"]
+        });
+      });
+
+      let start = null;
+
+      viewport.addEventListener("touchstart", event => {
+        start = event.touches[0].clientX;
+        clearInterval(timer);
+      }, {
+        passive: true
+      });
+
+      viewport.addEventListener("touchend", event => {
+        if (start !== null) {
+          const distance =
+            event.changedTouches[0].clientX - start;
+
+          if (Math.abs(distance) > 45) {
+            if (distance < 0) {
+              advance();
+            } else {
+              show((position % count - 1 + count) % count);
+            }
+          }
+        }
+
+        start = null;
+        schedule();
+      }, {
+        passive: true
+      });
+
+      viewport.addEventListener("touchcancel", () => {
+        start = null;
+        schedule();
+      }, {
+        passive: true
+      });
+
+      show(0, false);
+      schedule();
+    })();
+  </script>
+</body>
+</html>

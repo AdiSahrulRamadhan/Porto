@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth scroll-pt-[120px] motion-reduce:scroll-auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f4f8ff" />
+  <meta name="description" content="Projects — Adi Sahrul Ramadhan, Software Engineer" />
+  <title>Projects — Adi Sahrul Ramadhan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, .dark *));
+
+    @theme {
+      --font-sans: "Inter", Arial, sans-serif;
+      --color-page: #f4f8ff;
+      --color-ink: #121b2e;
+      --color-muted: #637188;
+      --color-accent: #00bdb6;
+      --color-line: #d9e5f5;
+    }
+
+    @layer base {
+      html { color-scheme: light; }
+      html.dark { color-scheme: dark; }
+      [hidden] { display: none !important; }
+
+      a, button, [tabindex] {
+        outline-offset: 5px;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      :focus-visible { outline: 2px solid var(--color-accent); }
+      svg { display: block; flex-shrink: 0; }
+      a[href], button:enabled, summary { cursor: pointer; }
+    }
+
+    /* Scroll Reveal */
+    .reveal-item {
+      opacity: 0;
+      transform: translateY(35px);
+      transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+
+    .reveal-item.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Achievement Dropdown */
+    #achievement-chevron {
+      transition: transform 260ms cubic-bezier(.2,.75,.2,1);
+    }
+
+    #achievement-menu[data-open="true"] #achievement-chevron {
+      transform: rotate(180deg);
+    }
+
+    .achievement-dropdown {
+      opacity: 0;
+      transform: translate3d(0,-8px,0) scale(.97);
+      pointer-events: none;
+      transform-origin: top left;
+      transition: opacity 200ms ease, transform 200ms cubic-bezier(.2,.75,.2,1);
+    }
+
+    #achievement-menu[data-open="true"] .achievement-dropdown {
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+
+    @media(prefers-reduced-motion:reduce) {
+      .reveal-item,
+      #achievement-chevron,
+      .achievement-dropdown {
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+      }
+    }
+  </style>
+
+  <style>
+/* ─── Layout ─────────────────────────────────────────────────────────── */
+.projects-main{max-width:1360px;width:calc(100% - 20px);margin:auto;padding:140px 10px 64px}
+.eyebrow{display:inline-block;border:1px solid #d9e5f5;border-radius:99px;background:#ffffff99;padding:4px 12px;font-size:11px;font-weight:600;letter-spacing:2px;color:#556987}
+.projects-main h1{margin:18px 0 18px;font-size:clamp(28px,3.5vw,44px);font-weight:600;letter-spacing:-1.2px;line-height:1.22}
+.projects-intro{font-size:16px;line-height:1.7;color:#637188}
+.projects-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:32px}
+
+/* ─── Filter Tabs ────────────────────────────────────────────────────── */
+.filter-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.filter-tab{display:inline-flex;align-items:center;justify-content:center;border-radius:99px;font-size:12px;font-weight:500;padding:8px 16px;border:1px solid #d9e5f5;background:#ffffff99;color:#637188;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.filter-tab:hover{background:#e8fffe;color:#00bdb6;border-color:#00bdb6}
+.filter-tab.active{background:#00bdb6;color:white;border-color:#00bdb6;box-shadow:0 4px 12px rgba(0,189,182,.25)}
+
+/* ─── Project Card ────────────────────────────────────────────────────── */
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #d9e5f5;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #ffffff, #f0f7ff);
+  box-shadow: 0 10px 25px -15px rgba(36, 56, 85, 0.1);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.4s ease;
+  will-change: transform;
+  z-index: 1;
+}
+
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 189, 182, 0.12) 0%, rgba(16, 189, 215, 0.05) 50%, rgba(226, 102, 131, 0.08) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 40px -15px rgba(0, 189, 182, 0.22), 0 12px 20px -10px rgba(36, 56, 85, 0.1);
+  border-color: #00bdb6;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+/* ─── Project Image ───────────────────────────────────────────────────── */
+.project-image{display:block;width:100%;aspect-ratio:16/10;overflow:hidden;background:#eaf0f7;position:relative}
+.project-image img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(0.16,1,0.3,1)}
+.project-card:hover .project-image img{transform:scale(1.07)}
+
+/* ─── Project Body ────────────────────────────────────────────────────── */
+.project-body{padding:24px;display:flex;flex-direction:column;align-items:flex-start}
+.project-category{color:#00aaa5;text-transform:uppercase;font-size:11px;letter-spacing:1.3px;line-height:1.5;font-weight:600;margin:0 0 10px}
+.project-body h2{font-size:18px;line-height:1.4;font-weight:600;letter-spacing:-.3px;margin:0 0 10px;transition:color .3s ease}
+.project-card:hover .project-body h2{color:#008c87}
+.project-description{color:#637188;font-size:14px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;margin:0 0 14px}
+.project-highlights{margin:0 0 14px;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.project-highlights li{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:#637188;line-height:1.5}
+.project-highlights li::before{content:"";display:block;width:6px;height:6px;border-radius:50%;background:#00bdb6;margin-top:6px;flex-shrink:0}
+.project-tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.project-tag{display:inline-flex;align-items:center;gap:5px;border-radius:99px;border:1px solid #d9e5f5;background:#ffffff60;padding:4px 10px;font-size:11px;color:#52637b}
+.project-tag img{width:13px;height:13px;object-fit:contain}
+.project-meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px;width:100%;font-size:12px;color:#637188;margin-bottom:16px}
+.project-status{display:inline-flex;align-items:center;border-radius:99px;border:1px solid rgba(0,189,182,.3);background:rgba(0,189,182,.08);padding:3px 10px;font-size:11px;color:#00bdb6}
+.project-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+
+/* ─── Buttons ─────────────────────────────────────────────────────────── */
+.outline-button,.primary-button{display:inline-flex;align-items:center;justify-content:center;border-radius:99px;font-size:12px;line-height:1.4;padding:10px 18px;border:1px solid #d9e5f5;text-decoration:none;transition:background .25s ease,color .25s ease,border-color .25s ease,box-shadow .25s ease;cursor:pointer;background:transparent;color:#637188}
+.outline-button:hover{background:#009e99;color:white;border-color:#009e99;box-shadow:0 6px 15px #00bdb644}
+.primary-button{background:#00bdb6;color:white;border-color:#00bdb6;box-shadow:0 6px 12px #00bdb633}
+.primary-button:hover{background:#009e99}
+.project-card:hover .outline-button{background:#00bdb6;color:white;border-color:#00bdb6;box-shadow:0 6px 15px rgba(0,189,182,.3)}
+.disabled-button{display:inline-flex;align-items:center;justify-content:center;border-radius:99px;font-size:12px;line-height:1.4;padding:10px 18px;border:1px solid #d9e5f5;color:#aab8cc;cursor:not-allowed;opacity:.55}
+
+/* ─── CTA ────────────────────────────────────────────────────────────── */
+.projects-cta{margin-top:64px;padding:38px;border:1px solid #d9e5f5;border-radius:24px;background:#ffffffd9;box-shadow:0 24px 38px -25px #24385566}
+.projects-cta h2{font-size:26px;font-weight:600;line-height:1.35;letter-spacing:-.5px}
+.projects-cta p{max-width:700px;font-size:16px;color:#637188;line-height:1.6;margin-top:18px}
+.cta-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:24px}
+
+/* ─── Detail Modal ────────────────────────────────────────────────────── */
+#project-dialog{margin:auto;padding:0;border:1px solid #d9e5f5;border-radius:30px;width:min(1120px,calc(100% - 32px));max-height:94dvh;background:#f4f8ff;color:#121b2e;overflow:auto;box-shadow:0 30px 100px #0005}
+dialog::backdrop{background:#101827b8;backdrop-filter:blur(5px)}
+.dialog-header{display:flex;align-items:flex-start;justify-content:space-between;gap:24px;padding:32px 36px 26px}
+.dialog-header h2{font-size:24px;line-height:1.35;font-weight:600;letter-spacing:-.5px}
+.close-dialog{display:grid;place-items:center;width:44px;height:44px;flex-shrink:0;border:1px solid #d9e5f5;border-radius:50%;background:#f4f8ff;color:#637188;cursor:pointer;transition:color .2s,border-color .2s}
+.close-dialog:hover{color:#00aaa5;border-color:#00bdb6}
+.dialog-body{padding:0 36px 36px}
+.dialog-image{width:100%;border-radius:18px;overflow:hidden;background:#eaf0f7;aspect-ratio:16/9;margin-bottom:24px}
+.dialog-image img{width:100%;height:100%;object-fit:cover}
+
+/* ─── Dark Mode ───────────────────────────────────────────────────────── */
+.dark .project-card {
+  background: linear-gradient(145deg, #172337, #131c2c);
+  border-color: #2b3c54;
+}
+.dark .project-card::before {
+  background: linear-gradient(135deg, rgba(0,189,182,.15) 0%, rgba(16,189,215,.08) 50%, rgba(226,102,131,.1) 100%);
+}
+.dark .project-card:hover .project-body h2{color:#33d1cb}
+.dark .eyebrow,.dark .close-dialog{background:#1e2d42;border-color:#34455d;color:#a8b8cc}
+.dark .projects-intro,.dark .project-description,.dark .project-meta,.dark .projects-cta p{color:#a8b8cc}
+.dark .project-tag{border-color:#34455d;background:#1c2b42;color:#b5c3d7}
+.dark .project-highlights li{color:#a8b8cc}
+.dark .outline-button{border-color:#34455d;color:#a8b8cc}
+.dark .projects-cta,.dark #project-dialog{background:#172337;color:#eff5ff;border-color:#2b3c54}
+.dark .filter-tab{border-color:#34455d;background:#1c2b42;color:#a8b8cc}
+.dark .filter-tab:hover{background:rgba(0,189,182,.15);color:#00bdb6;border-color:#00bdb6}
+.dark .filter-tab.active{background:#00bdb6;color:white;border-color:#00bdb6}
+.dark .dialog-image{background:#101d30}
+.dark .dialog-header{border-color:#2b3c54}
+
+/* ─── Responsive ─────────────────────────────────────────────────────── */
+@media(min-width:640px){.projects-main{width:calc(100% - 32px);padding-left:16px;padding-right:16px}}
+@media(min-width:1024px){.projects-main{width:calc(100% - 48px);padding-left:24px;padding-right:24px}}
+@media(max-width:900px){.projects-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.projects-main{padding-top:130px}.projects-cta{margin-top:48px}}
+@media(max-width:580px){.projects-main{width:calc(100% - 32px);padding-top:120px;padding-bottom:40px;padding-left:16px;padding-right:16px}.projects-grid{grid-template-columns:1fr}.projects-cta{margin-top:40px;padding:24px}.projects-cta h2{font-size:23px}.dialog-header{padding:20px 20px 16px;gap:12px}.dialog-header h2{font-size:18px;letter-spacing:-.3px}.dialog-body{padding:0 20px 24px}}
+@media(prefers-reduced-motion:reduce){.project-card,.project-image img,.project-card::before{transition:none;transform:none}}
+  </style>
+
+  <script>
+    try {
+      const saved = localStorage.getItem("asr-theme");
+      document.documentElement.classList.toggle(
+        "dark",
+        saved === "dark" ||
+        (saved !== "light" && matchMedia("(prefers-color-scheme: dark)").matches)
+      );
+    } catch {
+      document.documentElement.classList.toggle(
+        "dark",
+        matchMedia("(prefers-color-scheme: dark)").matches
+      );
+    }
+  </script>
+
+</head>
+
+  <body class="relative m-0 bg-[radial-gradient(circle_at_top_left,_var(--color-accent),_transparent_60%),radial-gradient(circle_at_bottom_right,_var(--color-accent),_transparent_60%)] bg-white font-sans text-[#121b2e] antialiased dark:bg-[#101827] dark:text-[#eff5ff]" style="--color-accent: rgba(0, 189, 182, 0.3);">
+    <!-- BACKGROUND PATTERN (DIAGONAL ELEGANT LINES) -->
+    <div class="pointer-events-none fixed inset-0 z-0 bg-[repeating-linear-gradient(135deg,rgba(0,189,182,0.08)_0,rgba(0,189,182,0.08)_1px,transparent_1px,transparent_28px)] dark:bg-[repeating-linear-gradient(135deg,rgba(0,189,182,0.12)_0,rgba(0,189,182,0.12)_1px,transparent_1px,transparent_28px)]"></div>
+
+  <!-- NAVBAR -->
+  <header id="header" class="fixed inset-x-0 top-2.5 z-50 px-2.5 sm:px-4 lg:top-4 lg:px-6">
+    <nav
+      id="navbar"
+      aria-label="Main navigation"
+      data-scrolled="false"
+      class="
+        relative mx-auto flex min-h-[72px] max-w-[1360px]
+        items-center gap-[15px] rounded-[23px]
+        border border-transparent px-3 py-2.5
+        transition-[background-color,border-color,box-shadow] duration-300
+        lg:min-h-20 lg:px-[18px] xl:gap-7
+        hover:border-[#00bdb6]/70 hover:bg-gradient-to-r hover:from-[#00bdb6]/25 hover:via-[#f2fbfb]/90 hover:to-[#00bdb6]/25 hover:shadow-[0_10px_35px_rgba(0,189,182,0.22)] hover:backdrop-blur-xl
+        data-[scrolled=true]:border-[#00bdb6]/70
+        data-[scrolled=true]:bg-gradient-to-r data-[scrolled=true]:from-[#00bdb6]/25 data-[scrolled=true]:via-[#f2fbfb]/90 data-[scrolled=true]:to-[#00bdb6]/25
+        data-[scrolled=true]:shadow-[0_10px_35px_rgba(0,189,182,0.22)]
+        data-[scrolled=true]:backdrop-blur-xl
+        dark:hover:border-[#00bdb6]/70 dark:hover:bg-gradient-to-r dark:hover:from-[#00bdb6]/25 dark:hover:via-[#11222b]/95 dark:hover:to-[#00bdb6]/25 dark:hover:shadow-[0_0_40px_rgba(0,189,182,0.3)] dark:hover:backdrop-blur-xl
+        dark:data-[scrolled=true]:border-[#00bdb6]/70
+        dark:data-[scrolled=true]:bg-gradient-to-r dark:data-[scrolled=true]:from-[#00bdb6]/25 dark:data-[scrolled=true]:via-[#11222b]/95 dark:data-[scrolled=true]:to-[#00bdb6]/25
+        dark:data-[scrolled=true]:shadow-[0_0_40px_rgba(0,189,182,0.3)]
+        dark:data-[scrolled=true]:backdrop-blur-xl
+      "
+    >
+      <a href="index.html" class="group inline-flex shrink-0 items-center gap-[9px] sm:gap-[13px]">
+        <span class="grid h-[42px] w-[39px] place-items-center rounded-[14px] border border-[#a7efea] bg-white shadow-[0_8px_15px_rgba(0,191,183,.14)] transition-transform group-hover:-rotate-3 sm:size-12 sm:rounded-[17px] dark:border-[#00bdb6]/50 dark:bg-[#172837]">
+          <span class="bg-gradient-to-r from-[#10bdd7] via-[#e26683] to-[#f2b62b] bg-clip-text text-base font-extrabold tracking-[-1px] text-transparent">ASR</span>
+        </span>
+        <span class="grid gap-1">
+          <strong class="whitespace-nowrap text-[11px] font-semibold sm:text-sm lg:text-xs xl:text-sm">Adi Sahrul Ramadhan</strong>
+          <small class="text-[10px] text-muted sm:text-xs dark:text-[#a8b8cc]">Portfolio</small>
+        </span>
+      </a>
+
+        <div
+          id="navigation"
+          data-open="false"
+          class="
+            absolute inset-x-0 top-[calc(100%+10px)]
+            hidden flex-wrap items-center gap-[5px]
+            rounded-[20px] border border-line bg-[#f6fbff]/95 p-[15px]
+            shadow-lg backdrop-blur-xl data-[open=true]:flex
+            dark:border-[#2b3c54] dark:bg-[#121e30]/95
+            lg:static lg:flex lg:flex-1 lg:flex-nowrap lg:justify-center
+            lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0
+            lg:shadow-none lg:backdrop-blur-none dark:lg:bg-transparent
+            [&>a]:inline-flex [&>a]:items-center
+            [&>a]:whitespace-nowrap [&>a]:rounded-full
+            [&>a]:px-[14px] [&>a]:py-[11px] [&>a]:text-sm
+            [&>a]:transition-colors
+            lg:[&>a]:px-[9px] lg:[&>a]:text-xs
+            xl:[&>a]:px-[13px] xl:[&>a]:text-sm
+          "
+        >
+          <a href="index.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Home</a>
+          <a href="about.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">About</a>
+          <a href="experience.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Experience</a>
+          <a href="projects.html" aria-current="page" class="bg-[#00bdb6]/20 font-bold text-[#008f8a] shadow-sm dark:bg-[#00bdb6]/30 dark:text-[#33d1cb]">Projects</a>
+          <div id="achievement-menu" data-open="false" class="relative">
+            <button type="button" id="achievement-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="achievement-dropdown" class="flex items-center gap-2 rounded-full px-[14px] py-[11px] text-sm text-muted transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">
+              Achievements <svg id="achievement-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
+            </button>
+            <div id="achievement-dropdown" role="menu" aria-hidden="true" class="achievement-dropdown absolute left-0 top-full z-20 mt-2 grid min-w-44 gap-1 rounded-2xl border border-line bg-white p-2 shadow-lg dark:border-[#34455d] dark:bg-[#172337]">
+              <a href="awards.html" role="menuitem" class="rounded-xl px-4 py-3 text-sm transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Awards</a>
+              <a href="certificates.html" role="menuitem" class="rounded-xl px-4 py-3 text-sm transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Certificates</a>
+            </div>
+          </div>
+          <a href="blog.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Blog</a>
+          <a href="skills.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Skills</a>
+          <a href="contact.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Contact</a>
+        </div>
+
+      <div class="ml-auto flex items-center gap-1.5 sm:gap-[9px]">
+        <button
+          id="menu-button"
+          type="button"
+          aria-label="Open menu"
+          aria-controls="navigation"
+          aria-expanded="false"
+          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] sm:size-[45px] lg:hidden dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+
+        <button
+          id="theme-button"
+          type="button"
+          aria-label="Switch to dark mode"
+          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-all hover:rotate-12 hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] active:scale-95 sm:size-[45px] dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+            <path d="M21 13A9 9 0 0 1 11 3a9 9 0 1 0 10 10Z"></path>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="projects-main">
+    <section aria-labelledby="projects-heading">
+      <span class="eyebrow">PROJECTS</span>
+      <h1 id="projects-heading">Building scalable systems with clean architecture.</h1>
+      <p class="projects-intro">A collection of full-stack, AI, and web development projects focused on real-world impact, operational performance, and solid engineering practices.</p>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs" role="group" aria-label="Filter projects by category">
+        <button type="button" class="filter-tab active" data-filter="all">All Projects</button>
+        <button type="button" class="filter-tab" data-filter="FULL-STACK DEVELOPMENT">Full-Stack</button>
+        <button type="button" class="filter-tab" data-filter="ARTIFICIAL INTELLIGENCE">AI / ML</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid" id="projects-grid"></div>
+    </section>
+
+    <!-- CTA -->
+    <section class="projects-cta reveal-item">
+      <h2>Interested in collaborating on a project?</h2>
+      <p>I'm open to freelance work, full-time positions, and community-driven development. Let's build something great together.</p>
+      <div class="cta-actions">
+        <a class="primary-button" href="contact.html">Contact Me</a>
+        <a class="outline-button" href="mailto:adisahrul383@gmail.com">Send an Email</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Project Detail Dialog -->
+  <dialog id="project-dialog" aria-labelledby="dialog-title">
+    <div>
+      <header class="dialog-header">
+        <div>
+          <p class="project-category" id="dialog-category"></p>
+          <h2 id="dialog-title"></h2>
+        </div>
+        <button type="button" class="close-dialog" id="close-dialog" aria-label="Close project details">✕</button>
+      </header>
+      <div class="dialog-body">
+        <div class="dialog-image" id="dialog-image-wrap">
+          <img id="dialog-image" src="" alt="" />
+        </div>
+        <p id="dialog-description" style="font-size:15px;line-height:1.8;color:#556176;margin:0 0 18px"></p>
+        <ul id="dialog-highlights" style="margin:0 0 18px;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px"></ul>
+        <div id="dialog-tags" style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:18px"></div>
+        <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:13px;color:#637188;margin-bottom:20px">
+          <span id="dialog-role"></span><span id="dialog-period"></span>
+        </div>
+        <div id="dialog-actions" style="display:flex;flex-wrap:wrap;gap:10px"></div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-line/70 py-12 sm:py-16 dark:border-[#2b3c54]">
+    <div class="mx-auto w-[calc(100%-36px)] max-w-[1360px] sm:w-[calc(100%-64px)]">
+      <div class="grid gap-10 md:grid-cols-[1.8fr_.75fr_1fr]">
+        <div>
+          <a href="index.html" class="text-xl font-medium tracking-[-.5px]">Adi Sahrul Ramadhan</a>
+          <p class="mt-5 max-w-[530px] text-sm leading-relaxed text-muted dark:text-[#a8b8cc]">Full Stack Web Developer focused on delivering scalable products with clean architecture and measurable impact.</p>
+          <div id="footer-socials" class="mt-5 flex gap-2.5"></div>
+        </div>
+
+        <div>
+          <h3 class="text-[10px] tracking-[2px] text-muted dark:text-[#a8b8cc]">EXPLORE</h3>
+          <div class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 text-xs text-muted dark:text-[#a8b8cc] [&>a:hover]:text-accent">
+            <a href="index.html">Home</a>
+            <a href="certificates.html">Certificates</a>
+            <a href="about.html">About</a>
+            <a href="blog.html">Blog</a>
+            <a href="experience.html">Experience</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="awards.html">Awards</a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-[10px] tracking-[2px] text-muted dark:text-[#a8b8cc]">CONTACT</h3>
+          <p class="mt-4 text-xs leading-relaxed text-muted dark:text-[#a8b8cc]">Open to freelance and full-time collaboration.</p>
+          <a id="footer-email" href="contact.html" class="mt-3 inline-block break-all text-xs text-muted hover:text-accent dark:text-[#a8b8cc]">Connect through my social profiles</a>
+        </div>
+      </div>
+
+      <p class="mt-16 text-[11px] text-muted dark:text-[#a8b8cc]">
+        © <span id="year"></span> Adi Sahrul Ramadhan. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script>
+  (() => {
+    "use strict";
+
+    // ── Data ──────────────────────────────────────────────────────────────
+    const DATA = {
+      linkedin: "https://linkedin.com/in/adi-sahrul-ramadhan-8966a1286",
+      github: "https://github.com/AdiSahrulRamadhan",
+      instagram: "https://www.instagram.com/adishrlramadhannn_?stkn=MXEyeGs4cmoydGd0dA%3D%3D&utm_source=qr",
+      youtube: "https://www.youtube.com/@-AdiSahrulRamadhan",
+      email: "adisahrul383@gmail.com"
+    };
+
+    const PROJECTS = [
+      {
+        id: "nexapos",
+        title: "NexaPOS",
+        category: "FULL-STACK DEVELOPMENT",
+        image: "assets/projects/nexapos.png",
+        description: "A responsive Point of Sales application designed to manage product discovery, inventory-aware shopping carts, and digital checkout workflows.",
+        highlights: [
+          "Implemented responsive cashier workflows across desktop and mobile interfaces.",
+          "Improved transactional reliability through stock validation, error recovery, and duplicate checkout prevention.",
+          "Established automated unit, component, and end-to-end testing for critical application workflows."
+        ],
+        tags: [["Vue.js", "vuedotjs"], ["FastAPI", "fastapi"]],
+        role: "Full-Stack Developer",
+        period: "Jul 2026 – Jul 2026",
+        status: "Completed",
+        liveUrl: ""
+      },
+      {
+        id: "thesis-search",
+        title: "Thesis Search Engine",
+        category: "ARTIFICIAL INTELLIGENCE",
+        image: "assets/projects/thesis-search.png",
+        description: "A web application for searching academic thesis documents using lexical, semantic, and hybrid retrieval methods.",
+        highlights: [
+          "Integrated five retrieval methods into a unified search system.",
+          "Implemented fallback mechanisms for missing fine-tuned model artifacts.",
+          "Optimized AI resource usage for stable VPS deployment."
+        ],
+        tags: [["Python", "python"], ["Artificial Intelligence", ""], ["TailwindCSS", "tailwindcss"]],
+        role: "Full-Stack Developer",
+        period: "Apr 2026 – May 2026",
+        status: "Completed",
+        liveUrl: ""
+      },
+      {
+        id: "hospital-maintenance",
+        title: "Hospital Maintenance System",
+        category: "FULL-STACK DEVELOPMENT",
+        image: "assets/projects/hospital-maintenance.png",
+        description: "A web-based hospital maintenance management system to track equipment and manage work orders.",
+        highlights: [
+          "Improved maintenance efficiency by 40% through structured work order and equipment tracking flows.",
+          "Reduced response time for equipment issues by 35% with centralized monitoring."
+        ],
+        tags: [["Laravel", "laravel"], ["TailwindCSS", "tailwindcss"], ["MySQL", "mysql"]],
+        role: "Full-Stack Developer",
+        period: "Feb 2026 – Mar 2026",
+        status: "Completed",
+        liveUrl: ""
+      }
+    ];
+
+    const SOCIALS = [["linkedin","LinkedIn"],["github","GitHub"],["instagram","Instagram"],["youtube","YouTube"],["email","Email"]];
+
+    const ICONS = {
+      linkedin: '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7m4 0v-7m0 3c0-4 6-4 6 0v4"/><circle cx="7" cy="7" r=".8" fill="currentColor" stroke="none"/>',
+      github: '<path d="M9 19c-4 1-4-2-6-2m12 5v-4c0-1-.4-1.7-1-2 3-.4 6-1.5 6-6a5 5 0 0 0-1.4-3.5A5 5 0 0 0 18.5 3S17 2.5 14.8 4a11 11 0 0 0-5.6 0C7 2.5 5.5 3 5.5 3a5 5 0 0 0-.1 3.5A5 5 0 0 0 4 10c0 4.5 3 5.6 6 6-.6.3-1 1-1 2v4"/>',
+      instagram: '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>',
+      youtube: '<rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 6 3-6 3Z"/>',
+      email: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>',
+      moon: '<path d="M21 13A9 9 0 0 1 11 3a9 9 0 1 0 10 10Z"/>',
+      sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5M17.5 6.5 19 5"/>',
+      external: '<path d="M15 3h6v6M10 14 21 3m-3 10v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h7"/>'
+    };
+
+    function esc(v) { return String(v).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]); }
+    function icon(name, size=22) { return `<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICONS[name]||""}</svg>`; }
+    function socialHref(key) { const v=DATA[key]?.trim(); if(!v) return ""; return key==="email"?`mailto:${v}`:/^https?:\/\//i.test(v)?v:""; }
+    function socialAttrs(key) { const h=socialHref(key); return h?`href="${esc(h)}" ${key!=="email"?'target="_blank" rel="noopener noreferrer"':""}`:'aria-disabled="true"'; }
+    function validURL(url) { return /^https?:\/\//i.test(url||""); }
+
+    // ── Footer & Socials ────────────────────────────────────────────────
+    document.getElementById("footer-socials").innerHTML = SOCIALS.map(([key, name]) => `
+      <a ${socialAttrs(key)} aria-label="${name}" class="grid size-9 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:border-[#34455d] dark:bg-[#1c2b42]">
+        ${icon(key, 16)}
+      </a>
+    `).join("");
+
+    if (DATA.email.trim()) {
+      const h = socialHref("email");
+      const el = document.getElementById("footer-email");
+      el.href = h;
+      el.textContent = DATA.email.trim();
+    }
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // ── Tag HTML ────────────────────────────────────────────────────────
+    function tagHTML([name, slug]) {
+      return `<span class="project-tag">${slug ? `<img src="https://cdn.simpleicons.org/${encodeURIComponent(slug)}/62728A" alt="" width="13" height="13" class="dark:brightness-0 dark:invert-[.85]"/>` : ""}${esc(name)}</span>`;
+    }
+
+    // ── Image fallback ──────────────────────────────────────────────────
+    function setupImageFallback(img, fallbackHTML) {
+      const wrap = img.parentElement;
+      const fail = () => { img.hidden = true; wrap.insertAdjacentHTML("beforeend", fallbackHTML); };
+      img.addEventListener("error", fail, {once:true});
+      if (img.complete && img.naturalWidth === 0) fail();
+    }
+
+    // ── Render Cards ────────────────────────────────────────────────────
+    let currentFilter = "all";
+
+    function renderCards() {
+      const grid = document.getElementById("projects-grid");
+      const filtered = currentFilter === "all" ? PROJECTS : PROJECTS.filter(p => p.category === currentFilter);
+
+      grid.innerHTML = filtered.map((p, i) => `
+        <article class="project-card reveal-item" style="transition-delay:${i * 80}ms">
+          <div class="project-image">
+            <img id="proj-img-${p.id}" src="${esc(p.image)}" alt="${esc(p.title)} screenshot" loading="lazy" />
+          </div>
+          <div class="project-body">
+            <p class="project-category">${esc(p.category)}</p>
+            <h2>${esc(p.title)}</h2>
+            <p class="project-description">${esc(p.description)}</p>
+            <ul class="project-highlights">
+              ${p.highlights.map(h => `<li>${esc(h)}</li>`).join("")}
+            </ul>
+            <div class="project-tags">${p.tags.map(tagHTML).join("")}</div>
+            <div class="project-meta">
+              <span>${esc(p.role)}</span>
+              <span>${esc(p.period)}</span>
+            </div>
+            <span class="project-status">${esc(p.status)}</span>
+            <div class="project-actions" style="margin-top:16px">
+              <button type="button" class="primary-button" data-open="${p.id}">View Details</button>
+              ${validURL(p.liveUrl)
+                ? `<a href="${esc(p.liveUrl)}" target="_blank" rel="noopener noreferrer" class="outline-button" style="display:inline-flex;align-items:center;gap:6px">Live Site ${icon("external", 14)}</a>`
+                : `<button type="button" disabled class="disabled-button" title="Live URL not available">Live Site</button>`}
+            </div>
+          </div>
+        </article>
+      `).join("");
+
+      // Wire fallback images
+      filtered.forEach(p => {
+        const img = document.getElementById(`proj-img-${p.id}`);
+        if (img) {
+          const fallback = `<div style="width:100%;height:100%;display:grid;place-items:center;background:linear-gradient(135deg,#e8f4ff,#e0fafa);font-size:13px;color:#637188;font-weight:500;padding:16px;text-align:center">${esc(p.title)}</div>`;
+          setupImageFallback(img, fallback);
+        }
+      });
+
+      // Re-observe new cards
+      observeReveal();
+
+      // Wire open-dialog buttons
+      document.querySelectorAll("[data-open]").forEach(btn => {
+        btn.addEventListener("click", () => openDialog(btn.dataset.open));
+      });
+    }
+
+    // ── Filters ─────────────────────────────────────────────────────────
+    document.querySelectorAll(".filter-tab").forEach(tab => {
+      tab.addEventListener("click", () => {
+        document.querySelectorAll(".filter-tab").forEach(t => t.classList.remove("active"));
+        tab.classList.add("active");
+        currentFilter = tab.dataset.filter;
+        renderCards();
+      });
+    });
+
+    renderCards();
+
+    // ── Dialog ──────────────────────────────────────────────────────────
+    const dialog = document.getElementById("project-dialog");
+    let dialogTrigger = null;
+
+    function openDialog(id) {
+      const p = PROJECTS.find(x => x.id === id);
+      if (!p) return;
+      dialogTrigger = document.querySelector(`[data-open="${id}"]`);
+
+      document.getElementById("dialog-category").textContent = p.category;
+      document.getElementById("dialog-title").textContent = p.title;
+      document.getElementById("dialog-description").textContent = p.description;
+      document.getElementById("dialog-role").textContent = p.role;
+      document.getElementById("dialog-period").textContent = p.period;
+
+      const img = document.getElementById("dialog-image");
+      img.src = p.image;
+      img.alt = `${p.title} screenshot`;
+
+      document.getElementById("dialog-highlights").innerHTML = p.highlights.map(h => `
+        <li style="display:flex;align-items:flex-start;gap:8px;font-size:14px;color:#637188;line-height:1.6">
+          <span style="width:6px;height:6px;border-radius:50%;background:#00bdb6;display:block;margin-top:7px;flex-shrink:0"></span>
+          <span>${esc(h)}</span>
+        </li>
+      `).join("");
+
+      document.getElementById("dialog-tags").innerHTML = p.tags.map(tagHTML).join("");
+
+      document.getElementById("dialog-actions").innerHTML = validURL(p.liveUrl)
+        ? `<a href="${esc(p.liveUrl)}" target="_blank" rel="noopener noreferrer" class="primary-button" style="display:inline-flex;align-items:center;gap:6px">Live Site ${icon("external",14)}</a>`
+        : `<button type="button" disabled class="disabled-button">Live Site Not Available</button>`;
+
+      dialog.showModal();
+      document.body.style.overflow = "hidden";
+    }
+
+    document.getElementById("close-dialog").addEventListener("click", () => dialog.close());
+    dialog.addEventListener("close", () => {
+      document.body.style.overflow = "";
+      dialogTrigger?.focus();
+    });
+    dialog.addEventListener("click", e => {
+      const r = dialog.getBoundingClientRect();
+      if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) dialog.close();
+    });
+
+    // ── Scroll Reveal ───────────────────────────────────────────────────
+    function observeReveal() {
+      if (!("IntersectionObserver" in window)) {
+        document.querySelectorAll(".reveal-item").forEach(el => el.classList.add("is-visible"));
+        return;
+      }
+      const obs = new IntersectionObserver(entries => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("is-visible"); obs.unobserve(e.target); } });
+      }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
+      document.querySelectorAll(".reveal-item:not(.is-visible)").forEach(el => obs.observe(el));
+    }
+    observeReveal();
+
+    // ── Navbar ──────────────────────────────────────────────────────────
+    const header = document.getElementById("header");
+    const navbar = document.getElementById("navbar");
+    const navigation = document.getElementById("navigation");
+    const menuButton = document.getElementById("menu-button");
+    const achievementMenu = document.getElementById("achievement-menu");
+    const achievementTrigger = document.getElementById("achievement-trigger");
+    const achievementDropdown = document.getElementById("achievement-dropdown");
+
+    function updateNavbarBackground() { navbar.dataset.scrolled = String(window.scrollY > 24); }
+    addEventListener("scroll", updateNavbarBackground, { passive: true });
+    updateNavbarBackground();
+
+    function setAchievementMenu(open) {
+      achievementMenu.dataset.open = String(open);
+      achievementTrigger.setAttribute("aria-expanded", String(open));
+      achievementDropdown.setAttribute("aria-hidden", String(!open));
+      achievementDropdown.toggleAttribute("inert", !open);
+    }
+
+    function setMenu(open) {
+      navigation.dataset.open = String(open);
+      menuButton.setAttribute("aria-expanded", String(open));
+      menuButton.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      if (!open) setAchievementMenu(false);
+    }
+
+    menuButton.addEventListener("click", () => setMenu(navigation.dataset.open !== "true"));
+    navigation.querySelectorAll("a").forEach(link => link.addEventListener("click", () => setMenu(false)));
+    achievementTrigger.addEventListener("click", () => setAchievementMenu(achievementMenu.dataset.open !== "true"));
+
+    document.addEventListener("click", e => {
+      if (!header.contains(e.target)) setMenu(false);
+      if (!achievementMenu.contains(e.target)) setAchievementMenu(false);
+    });
+
+    if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      let closeTimer = null;
+      achievementMenu.addEventListener("mouseenter", () => { clearTimeout(closeTimer); setAchievementMenu(true); });
+      achievementMenu.addEventListener("mouseleave", () => { closeTimer = setTimeout(() => setAchievementMenu(false), 150); });
+    }
+
+    document.addEventListener("keydown", e => {
+      if (e.key !== "Escape") return;
+      if (achievementMenu.dataset.open === "true") { setAchievementMenu(false); achievementTrigger.focus(); }
+      if (navigation.dataset.open === "true") { setMenu(false); menuButton.focus(); }
+    });
+
+    matchMedia("(min-width:1024px)").addEventListener("change", e => { if (e.matches) setMenu(false); });
+
+    // ── Theme Toggle ────────────────────────────────────────────────────
+    const themeButton = document.getElementById("theme-button");
+    const systemTheme = matchMedia("(prefers-color-scheme:dark)");
+    let selectedTheme = null;
+    try { selectedTheme = localStorage.getItem("asr-theme"); } catch {}
+
+    function applyTheme(dark) {
+      document.documentElement.classList.toggle("dark", dark);
+      themeButton.innerHTML = icon(dark ? "sun" : "moon");
+      themeButton.setAttribute("aria-pressed", String(dark));
+      themeButton.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+    }
+
+    applyTheme(document.documentElement.classList.contains("dark"));
+
+    themeButton.addEventListener("click", () => {
+      const dark = !document.documentElement.classList.contains("dark");
+      selectedTheme = dark ? "dark" : "light";
+      applyTheme(dark);
+      try { localStorage.setItem("asr-theme", selectedTheme); } catch {}
+    });
+
+    systemTheme.addEventListener("change", e => {
+      if (selectedTheme !== "dark" && selectedTheme !== "light") applyTheme(e.matches);
+    });
+
+  })();
+  </script>
+
+</body>
+</html>
+
