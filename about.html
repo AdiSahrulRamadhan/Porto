@@ -5,11 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#f4f8ff" />
   <meta name="description" content="About Adi Sahrul Ramadhan — Software Engineer" />
+
   <title>About — Adi Sahrul Ramadhan</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+    rel="stylesheet"
+  />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
 
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
@@ -24,99 +29,19 @@
       --color-accent: #00bdb6;
       --color-line: #d9e5f5;
     }
-
-    @layer base {
-      html { color-scheme: light; }
-      html.dark { color-scheme: dark; }
-      [hidden] { display: none !important; }
-
-      a, button, [tabindex] {
-        outline-offset: 5px;
-        -webkit-tap-highlight-color: transparent;
-      }
-
-      :focus-visible { outline: 2px solid var(--color-accent); }
-      svg { display: block; flex-shrink: 0; }
-      a[href], button:enabled, summary { cursor: pointer; }
-    }
-
-    .scroll-reveal {
-      opacity: 0;
-      transform: translate3d(0,30px,0);
-      transition: opacity 800ms ease, transform 800ms cubic-bezier(.2,.75,.2,1);
-    }
-
-    .scroll-reveal.is-visible {
-      opacity: 1;
-      transform: none;
-    }
-
-    @media(prefers-reduced-motion:reduce) {
-      .scroll-reveal {
-        opacity: 1;
-        transform: none;
-        transition: none;
-      }
-    }
-
-    .modal-panel {
-      opacity: 0;
-      transform: translate3d(0,16px,0) scale(.98);
-      transition: opacity 220ms ease, transform 220ms cubic-bezier(.2,.75,.2,1);
-    }
-
-    [data-open="true"] .modal-panel {
-      opacity: 1;
-      transform: none;
-    }
-
-    @media(prefers-reduced-motion:reduce) {
-      .modal-panel {
-        transition: none;
-      }
-    }
-
-    #achievement-chevron {
-      transition: transform 260ms cubic-bezier(.2,.75,.2,1);
-    }
-
-    #achievement-menu[data-open="true"] #achievement-chevron {
-      transform: rotate(180deg);
-    }
-
-    .achievement-dropdown {
-      opacity: 0;
-      transform: translate3d(0,-8px,0) scale(.97);
-      pointer-events: none;
-      transform-origin: top left;
-      transition: opacity 200ms ease, transform 200ms cubic-bezier(.2,.75,.2,1);
-    }
-
-    #achievement-menu[data-open="true"] .achievement-dropdown {
-      opacity: 1;
-      transform: none;
-      pointer-events: auto;
-    }
-
-    @media(prefers-reduced-motion:reduce) {
-      #achievement-chevron,
-      .achievement-dropdown {
-        transition: none;
-      }
-    }
-    .dark #theme-button:hover {
-      color: #ffffff;
-      background: color-mix(in oklab, #19273c 80%, transparent);
-    }
   </style>
 
   <script>
     try {
       const saved = localStorage.getItem("asr-theme");
+
       document.documentElement.classList.toggle(
         "dark",
         saved === "dark" ||
-        (saved !== "light" && matchMedia("(prefers-color-scheme: dark)").matches)
+        (
+          saved !== "light" &&
+          matchMedia("(prefers-color-scheme: dark)").matches
+        )
       );
     } catch {
       document.documentElement.classList.toggle(
@@ -125,14 +50,768 @@
       );
     }
   </script>
+
+  <style>
+    /* =====================================================
+       THEME
+       ===================================================== */
+
+    :root {
+      color-scheme: light;
+
+      --color-page: #f4f8ff;
+      --page-background: #ffffff;
+      --page-glow: rgba(0, 189, 182, .3);
+
+      --color-ink: #121b2e;
+      --color-muted: #637188;
+      --color-accent: #00bdb6;
+      --color-line: #d9e5f5;
+
+      --surface: #ffffff;
+      --surface-control: #ffffff;
+
+      --accent-text: #007b76;
+      --accent-title: #007b76;
+      --accent-fill: #00827d;
+      --accent-fill-hover: #006d69;
+      --accent-soft: #e0f5f3;
+
+      --card-background:
+        linear-gradient(145deg, #ffffff, #f0f7ff);
+
+      --card-overlay:
+        linear-gradient(
+          135deg,
+          rgba(0, 189, 182, .12),
+          rgba(16, 189, 215, .05) 50%,
+          rgba(226, 102, 131, .08)
+        );
+
+      --card-shadow:
+        0 10px 25px -15px rgba(36, 56, 85, .10);
+
+      --card-shadow-hover:
+        0 22px 40px -15px rgba(0, 189, 182, .22),
+        0 12px 20px -10px rgba(36, 56, 85, .10);
+
+      --ease-out: cubic-bezier(.16, 1, .3, 1);
+    }
+
+    html.dark {
+      color-scheme: dark;
+
+      --color-page: #101827;
+      --page-background: #101827;
+
+      --color-ink: #eff5ff;
+      --color-muted: #a8b8cc;
+      --color-line: #2b3c54;
+
+      --surface: #172337;
+      --surface-control: #1c2b42;
+
+      --accent-text: #33d1cb;
+      --accent-title: #33d1cb;
+      --accent-soft: #153c42;
+
+      --card-background:
+        linear-gradient(145deg, #172337, #131c2c);
+
+      --card-overlay:
+        linear-gradient(
+          135deg,
+          rgba(0, 189, 182, .15),
+          rgba(16, 189, 215, .08) 50%,
+          rgba(226, 102, 131, .10)
+        );
+
+      --card-shadow:
+        0 10px 25px -15px rgba(0, 0, 0, .4);
+
+      --card-shadow-hover:
+        0 22px 40px -15px rgba(0, 189, 182, .25),
+        0 12px 20px -10px rgba(0, 0, 0, .4);
+    }
+
+    /* =====================================================
+       BASE + BACKGROUND SEPERTI EXPERIENCE
+       ===================================================== */
+
+    [hidden] {
+      display: none !important;
+    }
+
+    html {
+      scrollbar-gutter: stable;
+    }
+
+    body.about-page {
+      margin: 0;
+      min-width: 0;
+      text-align: justify;
+      text-align-last: left;
+      text-justify: inter-word;
+      color: var(--color-ink);
+      background-color: var(--page-background);
+      background-image:
+        radial-gradient(
+          circle at top left,
+          var(--page-glow),
+          transparent 60%
+        ),
+        radial-gradient(
+          circle at bottom right,
+          var(--page-glow),
+          transparent 60%
+        );
+    }
+
+    main,
+    footer {
+      position: relative;
+      z-index: 1;
+    }
+
+    .page-pattern {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        repeating-linear-gradient(
+          135deg,
+          rgba(0, 189, 182, .08) 0 1px,
+          transparent 1px 28px
+        );
+    }
+
+    html.dark .page-pattern {
+      background:
+        repeating-linear-gradient(
+          135deg,
+          rgba(0, 189, 182, .12) 0 1px,
+          transparent 1px 28px
+        );
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    a[href],
+    button:enabled {
+      cursor: pointer;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent-text);
+      outline-offset: 5px;
+    }
+
+    svg {
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .about-page .text-muted {
+      color: var(--color-muted);
+    }
+
+    .about-page .text-accent {
+      color: var(--accent-text);
+    }
+
+    .about-page .border-line {
+      border-color: var(--color-line);
+    }
+
+    .about-page .bg-accent {
+      background-color: var(--accent-text);
+    }
+
+    /* =====================================================
+       NAVBAR MENU HOVER
+       ===================================================== */
+
+    .dark #achievement-dropdown {
+      border-color: #34455d;
+    }
+
+    #navigation > a:hover,
+    #navigation > a:focus-visible,
+    #achievement-trigger:hover,
+    #achievement-trigger:focus-visible,
+    #achievement-dropdown > a:hover,
+    #achievement-dropdown > a:focus-visible {
+      background-color: #caefed;
+      color: #087f7c;
+    }
+
+    #navigation > a[aria-current="page"]:hover,
+    #navigation > a[aria-current="page"]:focus-visible {
+      background-color: #b7e6e3;
+      color: #066c69;
+    }
+
+    .dark #navigation > a:hover,
+    .dark #navigation > a:focus-visible,
+    .dark #achievement-trigger:hover,
+    .dark #achievement-trigger:focus-visible,
+    .dark #achievement-dropdown > a:hover,
+    .dark #achievement-dropdown > a:focus-visible {
+      background-color: #24374d;
+      color: #ffffff;
+    }
+
+    #theme-button:hover {
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+    .dark #theme-button:hover {
+      color: #ffffff;
+      background: color-mix(
+        in oklab,
+        #19273c 80%,
+        transparent
+      );
+    }
+
+    .dark #menu-button:hover {
+      color: #ffffff;
+    }
+
+    @media (hover: hover) {
+      #menu-button:hover {
+        color: #1e293b;
+        border-color: #00bdb6;
+      }
+
+      .dark #menu-button:hover {
+        color: #ffffff;
+      }
+    }
+
+    #achievement-chevron {
+      transition: transform .26s var(--ease-out);
+    }
+
+    #achievement-menu[data-open="true"] #achievement-chevron {
+      transform: rotate(180deg);
+    }
+
+    .achievement-dropdown {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-8px) scale(.97);
+      pointer-events: none;
+      transform-origin: top left;
+      transition:
+        opacity .2s ease,
+        transform .2s var(--ease-out),
+        visibility .2s;
+    }
+
+    #achievement-menu[data-open="true"] .achievement-dropdown {
+      visibility: visible;
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+
+    /* =====================================================
+       BADGES
+       ===================================================== */
+
+    .eyebrow,
+    .info-badge {
+      border: 1px solid var(--color-line);
+      background: var(--surface-control);
+      color: var(--color-muted);
+    }
+
+    /* =====================================================
+       CARDS
+       ===================================================== */
+
+    .about-card {
+      position: relative;
+      isolation: isolate;
+      min-width: 0;
+      border: 1px solid var(--color-line);
+      border-radius: 24px;
+      background: var(--card-background);
+      color: var(--color-ink);
+      box-shadow: var(--card-shadow);
+      transition:
+        transform .4s var(--ease-out),
+        box-shadow .4s var(--ease-out),
+        border-color .4s ease;
+    }
+
+    .about-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      border-radius: inherit;
+      pointer-events: none;
+      background: var(--card-overlay);
+      opacity: 0;
+      transition: opacity .4s ease;
+    }
+
+    .card-title,
+    .section-label {
+      transition: color .3s ease;
+    }
+
+    .card-title {
+      color: var(--color-ink);
+    }
+
+    .section-label {
+      color: var(--color-muted);
+    }
+
+    .about-card:focus-within {
+      border-color: var(--color-accent);
+      box-shadow: var(--card-shadow-hover);
+    }
+
+    .about-card:focus-within::before {
+      opacity: 1;
+    }
+
+    .about-card:focus-within > .card-title,
+    .about-card:focus-within > .section-label {
+      color: var(--accent-title);
+    }
+
+    .about-card.card-inset {
+      border-radius: 18px;
+      box-shadow: none;
+    }
+
+    /* =====================================================
+       COMPACT PROFILE CARD
+       ===================================================== */
+
+    .bio-layout {
+      display: grid;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .bio-copy {
+      min-width: 0;
+    }
+
+    .profile-visual {
+      width: 190px;
+      max-width: 100%;
+      margin-inline: auto;
+      overflow: hidden;
+      border-radius: 18px;
+    }
+
+    #profile-image {
+      display: block;
+      width: 100%;
+      height: auto;
+      aspect-ratio: 2 / 3;
+      object-fit: contain;
+    }
+
+    #profile-fallback {
+      display: grid;
+      width: 100%;
+      aspect-ratio: 2 / 3;
+      place-items: center;
+      border: 1px solid var(--color-line);
+      border-radius: inherit;
+      background:
+        linear-gradient(
+          145deg,
+          var(--accent-soft),
+          var(--surface)
+        );
+      color: var(--accent-text);
+      font-size: 48px;
+      font-weight: 700;
+      letter-spacing: -3px;
+    }
+
+    .profile-visual img {
+      transition: transform .8s cubic-bezier(.22, 1, .36, 1);
+    }
+
+    @media (min-width: 768px) {
+      .bio-layout {
+        grid-template-columns: minmax(0, 1fr) 200px;
+        gap: 32px;
+      }
+
+      .profile-visual {
+        width: 200px;
+      }
+    }
+
+    .about-page p,
+    .about-page h1,
+    .about-page h2,
+    .about-page h3,
+    #education-modal-list li > span:last-child {
+      text-align: justify;
+      text-align-last: left;
+      text-justify: inter-word;
+      overflow-wrap: break-word;
+    }
+
+    /* =====================================================
+       BUTTONS
+       ===================================================== */
+
+    .outline-button,
+    .primary-button,
+    .social-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 42px;
+      padding: 10px 18px;
+      border: 1px solid var(--color-line);
+      border-radius: 999px;
+      background: var(--surface-control);
+      color: var(--color-ink);
+      font-size: 12px;
+      line-height: 1.4;
+      font-weight: 500;
+      text-decoration: none;
+      transition:
+        background-color .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s var(--ease-out);
+    }
+
+    .primary-button {
+      border-color: var(--accent-fill);
+      background: var(--accent-fill);
+      color: #ffffff;
+      box-shadow: 0 6px 12px rgba(0, 189, 182, .20);
+    }
+
+    .button-arrow {
+      transition: transform .25s var(--ease-out);
+    }
+
+    .outline-button:focus-visible,
+    .social-button:focus-visible {
+      border-color: var(--accent-fill);
+      background: var(--accent-fill);
+      color: #ffffff;
+    }
+
+    .icon-button {
+      display: grid;
+      flex-shrink: 0;
+      place-items: center;
+      width: 37px;
+      height: 37px;
+      padding: 0;
+      border: 1px solid var(--color-line);
+      border-radius: 50%;
+      background: var(--surface-control);
+      color: var(--color-ink);
+      transition:
+        background-color .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        transform .25s var(--ease-out);
+    }
+
+    .social-mark {
+      display: grid;
+      width: 24px;
+      height: 24px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent-text);
+      transition:
+        color .25s ease,
+        background-color .25s ease;
+    }
+
+    .degree-trigger {
+      text-align: justify;
+      text-align-last: left;
+      border-radius: 6px;
+    }
+
+    .degree-trigger:focus-visible .card-title {
+      color: var(--accent-title);
+    }
+
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+
+    footer a {
+      transition: color .25s ease;
+    }
+
+    #footer-socials a {
+      transition:
+        scale .3s ease-out,
+        border-color .3s ease-out,
+        color .3s ease-out,
+        background-color .3s ease-out;
+    }
+
+    #footer-socials a:focus-visible {
+      scale: 1.1;
+    }
+
+    #footer-navigation a:hover,
+    #footer-navigation a:focus-visible,
+    #footer-email:hover,
+    #footer-email:focus-visible {
+      color: #000000;
+    }
+
+    .dark #footer-navigation a:hover,
+    .dark #footer-navigation a:focus-visible,
+    .dark #footer-email:hover,
+    .dark #footer-email:focus-visible {
+      color: #ffffff;
+    }
+
+    .dark #footer-socials a {
+      border-color: #34455d;
+    }
+
+    #footer-socials a:hover,
+    #footer-socials a:focus-visible {
+      border-color: #00bdb6;
+      color: #008f8a;
+    }
+
+    [aria-disabled="true"] {
+      opacity: .5;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    /* =====================================================
+       EDUCATION MODAL
+       ===================================================== */
+
+    #education-modal {
+      width: min(700px, calc(100% - 32px));
+      max-height: calc(100dvh - 32px);
+      margin: auto;
+      padding: 0;
+      overflow: auto;
+      overscroll-behavior: contain;
+      border: 1px solid var(--color-line);
+      border-radius: 24px;
+      background: var(--surface);
+      color: var(--color-ink);
+      box-shadow: 0 35px 60px -15px rgba(11, 18, 32, .35);
+      opacity: 0;
+      transform: scale(.92) translateY(15px);
+      transition:
+        opacity .3s ease,
+        transform .3s var(--ease-out);
+    }
+
+    #education-modal[data-open="true"] {
+      opacity: 1;
+      transform: none;
+    }
+
+    #education-modal::backdrop {
+      background: rgba(11, 18, 32, .62);
+      backdrop-filter: blur(5px);
+    }
+
+    .modal-panel {
+      position: relative;
+    }
+
+    #education-modal-close {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      width: 38px;
+      height: 38px;
+    }
+
+    /* =====================================================
+       SCROLL REVEAL
+       ===================================================== */
+
+    .scroll-reveal {
+      opacity: 0;
+      translate: 0 30px;
+      transition:
+        opacity .6s var(--ease-out),
+        translate .6s var(--ease-out);
+    }
+
+    .scroll-reveal.is-visible {
+      opacity: 1;
+      translate: none;
+    }
+
+    .about-card.scroll-reveal {
+      transition:
+        opacity .6s var(--ease-out),
+        translate .6s var(--ease-out),
+        transform .4s var(--ease-out),
+        box-shadow .4s var(--ease-out),
+        border-color .4s ease;
+    }
+
+    /* =====================================================
+       HOVER
+       ===================================================== */
+
+    @media (hover: hover) and (pointer: fine) {
+      .about-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--color-accent);
+        box-shadow: var(--card-shadow-hover);
+      }
+
+      .about-card:hover::before {
+        opacity: 1;
+      }
+
+      .bio-card:hover .bio-copy > .card-title {
+        color: var(--accent-title);
+      }
+
+      .about-card:hover > .card-title,
+      .about-card:hover > .section-label,
+      .card-inset:hover .card-title {
+        color: var(--accent-title);
+      }
+
+      .about-card.card-inset:hover {
+        transform: translateY(-4px);
+      }
+
+      .about-card:hover .profile-visual img {
+        transform: scale(1.04);
+      }
+
+      .degree-trigger:hover .card-title {
+        color: var(--accent-title);
+      }
+
+      .outline-button:hover,
+      .social-button:hover {
+        background: var(--accent-fill);
+        color: #ffffff;
+        border-color: var(--accent-fill);
+        box-shadow: 0 6px 15px rgba(0, 189, 182, .27);
+        transform: translateY(-2px);
+      }
+
+      .outline-button:hover .button-arrow {
+        transform: translateX(3px);
+      }
+
+      .social-button:hover .social-mark {
+        background: rgba(255, 255, 255, .17);
+        color: #ffffff;
+      }
+
+      .primary-button:hover {
+        background: var(--accent-fill-hover);
+        border-color: var(--accent-fill-hover);
+        color: #ffffff;
+        box-shadow: 0 6px 15px rgba(0, 189, 182, .27);
+        transform: translateY(-2px);
+      }
+
+      .icon-button:hover {
+        background: var(--accent-fill);
+        color: #ffffff;
+        border-color: var(--accent-fill);
+        transform: scale(1.05);
+        box-shadow: 0 4px 12px rgba(0, 189, 182, .25);
+      }
+    }
+
+    .outline-button:active,
+    .primary-button:active,
+    .social-button:active,
+    .icon-button:active {
+      transform: scale(.97);
+    }
+
+    @media (max-width: 639px) {
+      #education-modal {
+        width: calc(100% - 24px);
+        max-height: calc(100dvh - 24px);
+      }
+
+      #education-modal-close {
+        right: 16px;
+        top: 16px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto !important;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation: none !important;
+        transition: none !important;
+      }
+
+      .about-card,
+      .about-card.card-inset,
+      .icon-button,
+      #theme-button,
+      #menu-button,
+      .outline-button,
+      .primary-button,
+      .social-button,
+      .profile-visual img,
+      #education-modal {
+        transform: none !important;
+      }
+
+      .scroll-reveal {
+        opacity: 1;
+        translate: none;
+      }
+    }
+  </style>
 </head>
 
-  <body class="relative m-0 bg-[radial-gradient(circle_at_top_left,_var(--color-accent),_transparent_60%),radial-gradient(circle_at_bottom_right,_var(--color-accent),_transparent_60%)] bg-white font-sans text-ink antialiased dark:bg-[#101827] dark:text-[#eff5ff]" style="--color-accent: rgba(0, 189, 182, 0.3);">
-    <!-- BACKGROUND PATTERN (DIAGONAL ELEGANT LINES) -->
-    <div class="pointer-events-none fixed inset-0 z-0 bg-[repeating-linear-gradient(135deg,rgba(0,189,182,0.08)_0,rgba(0,189,182,0.08)_1px,transparent_1px,transparent_28px)] dark:bg-[repeating-linear-gradient(135deg,rgba(0,189,182,0.12)_0,rgba(0,189,182,0.12)_1px,transparent_1px,transparent_28px)]"></div>
+<body class="about-page relative font-sans antialiased">
+  <div class="page-pattern" aria-hidden="true"></div>
 
   <!-- NAVBAR -->
-  <header id="header" class="fixed inset-x-0 top-2.5 z-50 px-2.5 sm:px-4 lg:top-4 lg:px-6">
+  <header
+    id="header"
+    class="fixed inset-x-0 top-2.5 z-50 px-2.5 sm:px-4 lg:top-4 lg:px-6"
+  >
     <nav
       id="navbar"
       aria-label="Main navigation"
@@ -143,68 +822,266 @@
         border border-transparent px-3 py-2.5
         transition-[background-color,border-color,box-shadow] duration-300
         lg:min-h-20 lg:px-[18px] xl:gap-7
-        hover:border-[#00bdb6]/70 hover:bg-gradient-to-r hover:from-[#00bdb6]/25 hover:via-[#f2fbfb]/90 hover:to-[#00bdb6]/25 hover:shadow-[0_10px_35px_rgba(0,189,182,0.22)] hover:backdrop-blur-xl
+
+        hover:border-[#00bdb6]/70
+        hover:bg-gradient-to-r
+        hover:from-[#00bdb6]/25
+        hover:via-[#f2fbfb]/90
+        hover:to-[#00bdb6]/25
+        hover:shadow-[0_10px_35px_rgba(0,189,182,0.22)]
+        hover:backdrop-blur-xl
+
         data-[scrolled=true]:border-[#00bdb6]/70
-        data-[scrolled=true]:bg-gradient-to-r data-[scrolled=true]:from-[#00bdb6]/25 data-[scrolled=true]:via-[#f2fbfb]/90 data-[scrolled=true]:to-[#00bdb6]/25
+        data-[scrolled=true]:bg-gradient-to-r
+        data-[scrolled=true]:from-[#00bdb6]/25
+        data-[scrolled=true]:via-[#f2fbfb]/90
+        data-[scrolled=true]:to-[#00bdb6]/25
         data-[scrolled=true]:shadow-[0_10px_35px_rgba(0,189,182,0.22)]
         data-[scrolled=true]:backdrop-blur-xl
-        dark:hover:border-[#00bdb6]/70 dark:hover:bg-gradient-to-r dark:hover:from-[#00bdb6]/25 dark:hover:via-[#11222b]/95 dark:hover:to-[#00bdb6]/25 dark:hover:shadow-[0_0_40px_rgba(0,189,182,0.3)] dark:hover:backdrop-blur-xl
+
+        dark:hover:border-[#00bdb6]/70
+        dark:hover:bg-gradient-to-r
+        dark:hover:from-[#00bdb6]/25
+        dark:hover:via-[#11222b]/95
+        dark:hover:to-[#00bdb6]/25
+        dark:hover:shadow-[0_0_40px_rgba(0,189,182,0.3)]
+        dark:hover:backdrop-blur-xl
+
         dark:data-[scrolled=true]:border-[#00bdb6]/70
-        dark:data-[scrolled=true]:bg-gradient-to-r dark:data-[scrolled=true]:from-[#00bdb6]/25 dark:data-[scrolled=true]:via-[#11222b]/95 dark:data-[scrolled=true]:to-[#00bdb6]/25
+        dark:data-[scrolled=true]:bg-gradient-to-r
+        dark:data-[scrolled=true]:from-[#00bdb6]/25
+        dark:data-[scrolled=true]:via-[#11222b]/95
+        dark:data-[scrolled=true]:to-[#00bdb6]/25
         dark:data-[scrolled=true]:shadow-[0_0_40px_rgba(0,189,182,0.3)]
         dark:data-[scrolled=true]:backdrop-blur-xl
       "
     >
-      <a href="index.html" class="group inline-flex shrink-0 items-center gap-[9px] sm:gap-[13px]">
-        <span class="grid h-[42px] w-[39px] place-items-center rounded-[14px] border border-[#a7efea] bg-white shadow-[0_8px_15px_rgba(0,191,183,.14)] transition-transform group-hover:-rotate-3 sm:size-12 sm:rounded-[17px] dark:border-[#00bdb6]/50 dark:bg-[#172837]">
-          <span class="bg-linear-to-r from-[#10bdd7] via-[#e26683] to-[#f2b62b] bg-clip-text text-base font-extrabold tracking-[-1px] text-transparent">ASR</span>
+      <a
+        href="index.html"
+        class="group inline-flex shrink-0 items-center gap-[9px] sm:gap-[13px]"
+      >
+        <span
+          class="
+            grid h-[42px] w-[39px] place-items-center rounded-[14px]
+            border border-[#a7efea] bg-white
+            shadow-[0_8px_15px_rgba(0,191,183,.14)]
+            transition-transform group-hover:-rotate-3
+            sm:size-12 sm:rounded-[17px]
+            dark:border-[#00bdb6]/50 dark:bg-[#172837]
+          "
+        >
+          <span
+            class="
+              bg-gradient-to-r from-[#10bdd7] via-[#e26683] to-[#f2b62b]
+              bg-clip-text text-base font-extrabold tracking-[-1px]
+              text-transparent
+            "
+          >
+            ASR
+          </span>
         </span>
 
         <span class="grid gap-1">
-          <strong class="whitespace-nowrap text-[11px] font-semibold sm:text-sm lg:text-xs xl:text-sm">
+          <strong
+            class="
+              whitespace-nowrap text-[11px] font-semibold
+              sm:text-sm lg:text-xs xl:text-sm
+            "
+          >
             Adi Sahrul Ramadhan
           </strong>
-          <small class="text-[10px] text-muted sm:text-xs dark:text-[#a8b8cc]">Portfolio</small>
+
+          <small class="text-[10px] text-muted sm:text-xs dark:text-[#a8b8cc]">
+            Portfolio
+          </small>
         </span>
       </a>
 
-        <div
-          id="navigation"
-          data-open="false"
+      <div
+        id="navigation"
+        data-open="false"
+        class="
+          absolute inset-x-0 top-[calc(100%+10px)]
+          hidden flex-wrap items-center gap-[5px]
+          rounded-[20px] border border-line bg-[#f6fbff]/95 p-[15px]
+          shadow-lg backdrop-blur-xl data-[open=true]:flex
+          dark:border-[#2b3c54] dark:bg-[#121e30]/95
+
+          lg:static lg:flex lg:flex-1 lg:flex-nowrap lg:justify-center
+          lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0
+          lg:shadow-none lg:backdrop-blur-none dark:lg:bg-transparent
+
+          [&>a]:inline-flex [&>a]:items-center
+          [&>a]:whitespace-nowrap [&>a]:rounded-full
+          [&>a]:px-[14px] [&>a]:py-[11px] [&>a]:text-sm
+          [&>a]:transition-colors
+          lg:[&>a]:px-[9px] lg:[&>a]:text-xs
+          xl:[&>a]:px-[13px] xl:[&>a]:text-sm
+        "
+      >
+        <a
+          href="index.html"
           class="
-            absolute inset-x-0 top-[calc(100%+10px)]
-            hidden flex-wrap items-center gap-[5px]
-            rounded-[20px] border border-line bg-[#f6fbff]/95 p-[15px]
-            shadow-lg backdrop-blur-xl data-[open=true]:flex
-            dark:border-[#2b3c54] dark:bg-[#121e30]/95
-            lg:static lg:flex lg:flex-1 lg:flex-nowrap lg:justify-center
-            lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0
-            lg:shadow-none lg:backdrop-blur-none dark:lg:bg-transparent
-            [&>a]:inline-flex [&>a]:items-center
-            [&>a]:whitespace-nowrap [&>a]:rounded-full
-            [&>a]:px-[14px] [&>a]:py-[11px] [&>a]:text-sm
-            [&>a]:transition-colors
-            lg:[&>a]:px-[9px] lg:[&>a]:text-xs
-            xl:[&>a]:px-[13px] xl:[&>a]:text-sm
+            text-muted hover:text-[#1e293b]
+            dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white
           "
         >
-          <a href="index.html" class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Home</a>
-          <a href="about.html" aria-current="page" class="bg-[#00bdb6]/20 font-bold text-[#008f8a] shadow-sm dark:bg-[#00bdb6]/30 dark:text-[#33d1cb]">About</a>
-          <a href="experience.html" class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Experience</a>
-          <a href="projects.html" class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Projects</a>
-          <div id="achievement-menu" data-open="false" class="relative">
-            <button type="button" id="achievement-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="achievement-dropdown" class="flex items-center gap-2 rounded-full px-[14px] py-[11px] text-sm text-muted transition-colors  hover:text-[#1e293b] lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">
-              Achievements <svg id="achievement-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
-            </button>
-            <div id="achievement-dropdown" role="menu" aria-hidden="true" class="achievement-dropdown absolute left-0 top-full z-20 mt-2 grid min-w-44 gap-1 rounded-2xl border border-line bg-white p-2 shadow-lg dark:border-[#34455d] dark:bg-[#172337]">
-              <a href="awards.html" role="menuitem" class="rounded-xl px-4 py-3 text-sm transition-colors  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Awards</a>
-              <a href="certificates.html" role="menuitem" class="rounded-xl px-4 py-3 text-sm transition-colors  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Certificates</a>
-            </div>
+          Home
+        </a>
+
+        <a
+          href="about.html"
+          aria-current="page"
+          class="
+            bg-[#00bdb6]/20 font-bold text-[#008f8a] shadow-sm
+            dark:bg-[#00bdb6]/30 dark:text-[#33d1cb]
+          "
+        >
+          About
+        </a>
+
+        <a
+          href="experience.html"
+          class="
+            text-muted hover:text-[#1e293b]
+            dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white
+          "
+        >
+          Experience
+        </a>
+
+        <a
+          href="projects.html"
+          class="
+            text-muted hover:text-[#1e293b]
+            dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white
+          "
+        >
+          Projects
+        </a>
+
+        <div id="achievement-menu" data-open="false" class="relative">
+          <button
+            type="button"
+            id="achievement-trigger"
+            aria-haspopup="menu"
+            aria-expanded="false"
+            aria-controls="achievement-dropdown"
+            class="
+              inline-flex items-center gap-2 whitespace-nowrap rounded-full
+              px-[14px] py-[11px] text-sm text-muted transition-colors
+              hover:text-[#1e293b]
+              lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm
+              dark:text-[#a8b8cc]
+              dark:hover:bg-[#1e293b] dark:hover:text-white
+            "
+          >
+            Achievements
+
+            <svg
+              id="achievement-chevron"
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              aria-hidden="true"
+            >
+              <path d="m6 9 6 6 6-6"></path>
+            </svg>
+          </button>
+
+          <div
+            id="achievement-dropdown"
+            role="menu"
+            aria-hidden="true"
+            inert
+            class="
+              achievement-dropdown absolute left-0 top-full z-20 mt-2
+              grid min-w-44 gap-1 rounded-2xl border border-line
+              bg-white p-2 shadow-lg
+              dark:border-[#34455d] dark:bg-[#172337]
+            "
+          >
+            <a
+              href="awards.html"
+              role="menuitem"
+              class="
+                flex items-center justify-between gap-3 rounded-xl
+                px-4 py-3 text-sm transition-colors hover:text-[#1e293b]
+                dark:text-[#a8b8cc]
+                dark:hover:bg-[#1e293b] dark:hover:text-white
+              "
+            >
+              <span>Awards</span>
+
+              <span
+                class="
+                  inline-flex size-[22px] shrink-0 items-center justify-center
+                  rounded-full bg-[#dc2626]
+                  text-[10px] font-bold leading-none text-white
+                "
+              >
+                2
+              </span>
+            </a>
+
+            <a
+              href="certificates.html"
+              role="menuitem"
+              class="
+                flex items-center justify-between gap-3 rounded-xl
+                px-4 py-3 text-sm transition-colors hover:text-[#1e293b]
+                dark:text-[#a8b8cc]
+                dark:hover:bg-[#1e293b] dark:hover:text-white
+              "
+            >
+              <span>Certificates</span>
+
+              <span
+                class="
+                  inline-flex size-[22px] shrink-0 items-center justify-center
+                  rounded-full bg-[#dc2626]
+                  text-[10px] font-bold leading-none text-white
+                "
+              >
+                28
+              </span>
+            </a>
           </div>
-          <a href="blog.html" class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Blog</a>
-          <a href="skills.html" class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Skills</a>
-          <a href="contact.html" class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Contact</a>
         </div>
+
+        <a
+          href="blog.html"
+          class="
+            text-muted hover:text-[#1e293b]
+            dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white
+          "
+        >
+          Blog
+        </a>
+
+        <a
+          href="skills.html"
+          class="
+            text-muted hover:text-[#1e293b]
+            dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white
+          "
+        >
+          Skills
+        </a>
+
+        <a
+          href="contact.html"
+          class="
+            text-muted hover:text-[#1e293b]
+            dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white
+          "
+        >
+          Contact
+        </a>
+      </div>
 
       <div class="ml-auto flex items-center gap-1.5 sm:gap-[9px]">
         <button
@@ -213,9 +1090,24 @@
           aria-label="Open menu"
           aria-controls="navigation"
           aria-expanded="false"
-          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:scale-105  hover:text-[#1e293b] sm:size-[45px] lg:hidden dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+          class="
+            grid size-[37px] shrink-0 place-items-center rounded-full
+            border border-line bg-white/70 transition-colors
+            hover:border-accent hover:scale-105 hover:text-[#1e293b]
+            sm:size-[45px] lg:hidden
+            dark:border-[#2b3c54] dark:bg-[#19273c]/80
+          "
         >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
             <path d="M4 7h16M4 12h16M4 17h16"></path>
           </svg>
         </button>
@@ -224,9 +1116,23 @@
           id="theme-button"
           type="button"
           aria-label="Switch to dark mode"
-          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-all hover:rotate-12 hover:border-accent hover:scale-105  hover:text-[#1e293b] active:scale-95 sm:size-[45px] dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+          class="
+            grid size-[37px] shrink-0 place-items-center rounded-full
+            border border-line bg-white/70 transition-all
+            hover:rotate-12 hover:scale-105 hover:text-[#1e293b]
+            active:scale-95 sm:size-[45px]
+            dark:border-[#2b3c54] dark:bg-[#19273c]/80
+          "
         >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            aria-hidden="true"
+          >
             <path d="M21 13A9 9 0 0 1 11 3a9 9 0 1 0 10 10Z"></path>
           </svg>
         </button>
@@ -235,45 +1141,71 @@
   </header>
 
   <main>
-    <!-- ABOUT CONTENT -->
+    <!-- ABOUT -->
     <section id="about" class="pb-10 pt-[115px] sm:pt-[125px] lg:pt-[140px]">
       <div class="mx-auto w-[calc(100%-36px)] max-w-[1320px] sm:w-[calc(100%-64px)]">
-
-        <span class="inline-flex rounded-full border border-line bg-white/65 px-[14px] py-1 text-[10px] font-medium tracking-[2px] text-[#4c5f7b] dark:border-[#2b3c54] dark:bg-[#19273c]/80 dark:text-[#a8b8cc]">
+        <span
+          class="
+            eyebrow inline-flex rounded-full px-[14px] py-1
+            text-[10px] font-medium tracking-[2px] text-[#4c5f7b]
+          "
+        >
           ABOUT
         </span>
 
-        <h1 class="mt-5 max-w-[1100px] text-[32px] leading-[1.25] font-semibold tracking-[-1.3px] sm:text-[42px] lg:text-[50px]">
+        <h1
+          class="
+            mt-5 max-w-[1100px] text-[32px] leading-[1.25]
+            font-semibold tracking-[-1.3px] sm:text-[42px] lg:text-[50px]
+          "
+        >
           Developer focused on thoughtful<br class="hidden lg:block" />
           products and solid architecture.
         </h1>
 
-        <p class="mt-6 text-[15px] leading-[1.7] text-muted sm:text-lg dark:text-[#a8b8cc]">
-          I combine modern interface craftsmanship with practical engineering foundations so products stay maintainable as they grow.
+        <p class="mt-6 text-[15px] leading-[1.7] text-muted sm:text-lg">
+          I combine modern interface craftsmanship with practical engineering
+          foundations so products stay maintainable as they grow.
         </p>
 
-        <!-- ABOUT ME -->
-        <article class="mt-10 rounded-[28px] border border-line bg-white/85 p-6 shadow-[0_25px_40px_-23px_rgba(27,43,69,.32)] sm:p-9 dark:border-[#2b3c54] dark:bg-[#172337]/90">
-          <p class="text-[11px] tracking-[1.8px] text-muted dark:text-[#a8b8cc]">ABOUT ME</p>
+        <!-- COMPACT ABOUT ME CARD -->
+        <article class="about-card bio-card mt-10 p-6 sm:p-8" data-reveal>
+          <div class="bio-layout">
+            <div class="bio-copy">
+              <p class="text-[11px] tracking-[1.8px] text-muted">
+                ABOUT ME
+              </p>
 
-          <h2 class="mt-5 text-[27px] font-medium tracking-[-.6px] sm:text-[33px]">
-            Software Engineer
-          </h2>
+              <h2
+                class="
+                  card-title mt-3 text-[27px] font-medium
+                  tracking-[-.6px] sm:text-[33px]
+                "
+              >
+                Software Engineer
+              </h2>
 
-          <div class="mt-7 grid items-center gap-8 md:grid-cols-[1.5fr_.85fr] lg:gap-16">
-            <p id="about-bio" class="max-w-[760px] text-[15px] leading-[1.8] text-muted sm:text-base dark:text-[#a8b8cc]">
-              Passionate Software Engineer skilled in Laravel, TailwindCSS, React.js, Next.js, Vue.js, and Express.js.
-              Specializes in building scalable, high-performance web applications that drive business efficiency.
-              Experienced across various industries, focusing on improving operational performance and user satisfaction.
-              Actively contributes to developer communities, promoting knowledge sharing and innovation.
-            </p>
+              <p
+                id="about-bio"
+                class="mt-4 text-[15px] leading-[1.8] text-muted sm:text-base"
+              >
+                Passionate Software Engineer skilled in Laravel, TailwindCSS,
+                React.js, Next.js, Vue.js, and Express.js.
+                Specializes in building scalable, high-performance web applications
+                that drive business efficiency.
+                Experienced across various industries, focusing on improving
+                operational performance and user satisfaction.
+                Actively contributes to developer communities, promoting
+                knowledge sharing and innovation.
+              </p>
+            </div>
 
-            <div class="mx-auto w-full max-w-[260px]">
+            <div class="profile-visual">
               <img
                 id="profile-image"
                 src="assets/profile.png"
                 alt="Adi Sahrul Ramadhan"
-                class="mx-auto block h-[290px] w-full object-contain object-bottom sm:h-[310px]"
+                decoding="async"
               />
 
               <div
@@ -281,30 +1213,40 @@
                 role="img"
                 aria-label="Adi Sahrul Ramadhan"
                 hidden
-                class="mx-auto grid h-[270px] w-[190px] place-items-center rounded-[100px_100px_25px_25px] border border-line bg-linear-to-br from-accent/10 to-cyan-300/10 text-5xl font-bold tracking-[-3px] text-accent dark:border-[#34455d]"
-              >ASR</div>
+              >
+                ASR
+              </div>
             </div>
           </div>
         </article>
 
         <!-- PRINCIPLES -->
         <div class="mt-6 grid gap-4 md:grid-cols-3">
-          <article class="rounded-[17px] border border-line bg-white/85 p-[22px] shadow-[0_25px_40px_-23px_rgba(27,43,69,.32)] transition-all hover:-translate-y-1 hover:border-accent  dark:border-[#2b3c54] dark:bg-[#172337]/90">
-            <h3 class="text-[10px] tracking-[1.7px] text-muted dark:text-[#a8b8cc]">FOCUS</h3>
+          <article class="about-card rounded-[17px] p-[22px]" data-reveal>
+            <h3 class="card-title text-[10px] tracking-[1.7px] text-muted">
+              FOCUS
+            </h3>
+
             <p class="mt-3 text-sm leading-relaxed">
               Scalable web applications with Laravel, React.js, and Next.js.
             </p>
           </article>
 
-          <article class="rounded-[17px] border border-line bg-white/85 p-[22px] shadow-[0_25px_40px_-23px_rgba(27,43,69,.32)] transition-all hover:-translate-y-1 hover:border-accent  dark:border-[#2b3c54] dark:bg-[#172337]/90">
-            <h3 class="text-[10px] tracking-[1.7px] text-muted dark:text-[#a8b8cc]">STYLE</h3>
+          <article class="about-card rounded-[17px] p-[22px]" data-reveal>
+            <h3 class="card-title text-[10px] tracking-[1.7px] text-muted">
+              STYLE
+            </h3>
+
             <p class="mt-3 text-sm leading-relaxed">
               Clean code, strong testing habits, and practical design implementation.
             </p>
           </article>
 
-          <article class="rounded-[17px] border border-line bg-white/85 p-[22px] shadow-[0_25px_40px_-23px_rgba(27,43,69,.32)] transition-all hover:-translate-y-1 hover:border-accent  dark:border-[#2b3c54] dark:bg-[#172337]/90">
-            <h3 class="text-[10px] tracking-[1.7px] text-muted dark:text-[#a8b8cc]">COLLABORATION</h3>
+          <article class="about-card rounded-[17px] p-[22px]" data-reveal>
+            <h3 class="card-title text-[10px] tracking-[1.7px] text-muted">
+              COLLABORATION
+            </h3>
+
             <p class="mt-3 text-sm leading-relaxed">
               Experienced working across product, engineering, and community learning teams.
             </p>
@@ -313,51 +1255,86 @@
 
         <!-- EDUCATION + LANGUAGES -->
         <div class="mt-8 grid items-start gap-6 lg:grid-cols-[1.85fr_1fr]">
+          <section
+            class="about-card rounded-[27px] p-6 sm:p-7"
+            aria-labelledby="education-heading"
+            data-reveal
+          >
+            <h2
+              id="education-heading"
+              class="section-label text-[11px] tracking-[1.8px] text-muted"
+            >
+              EDUCATION
+            </h2>
 
-          <section class="rounded-[27px] border border-line bg-white/85 p-6 shadow-[0_25px_40px_-23px_rgba(27,43,69,.32)] sm:p-7 dark:border-[#2b3c54] dark:bg-[#172337]/90" aria-labelledby="education-heading">
-            <h2 id="education-heading" class="text-[11px] tracking-[1.8px] text-muted dark:text-[#a8b8cc]">EDUCATION</h2>
-
-            <article class="mt-5 rounded-[18px] border border-line p-5 dark:border-[#34455d]">
+            <article class="about-card card-inset mt-5 rounded-[18px] p-5" data-reveal>
               <div class="flex flex-col justify-between gap-3 sm:flex-row">
                 <div class="flex items-start gap-4">
-                  <div class="relative grid size-12 shrink-0 place-items-center overflow-hidden rounded-lg border border-line bg-white">
+                  <div
+                    class="
+                      relative grid size-12 shrink-0 place-items-center
+                      overflow-hidden rounded-lg border border-line bg-white
+                    "
+                  >
                     <img
                       id="university-logo"
                       src="assets/education/university.png"
                       alt="University logo"
                       class="size-full object-contain p-1.5"
                     />
+
                     <span id="university-fallback" hidden class="text-accent">
-                      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true">
+                      <svg
+                        width="26"
+                        height="26"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                      >
                         <path d="m2 8 10-5 10 5-10 5ZM6 10v7c4 3 8 3 12 0v-7M22 8v8"></path>
                       </svg>
                     </span>
                   </div>
 
                   <div>
-                    <button
-                      type="button"
-                      id="education-degree-trigger"
-                      aria-haspopup="dialog"
-                      aria-controls="education-modal"
-                      class="-mx-1 -my-0.5 rounded-md px-1 py-0.5 text-left transition-colors hover:text-accent focus-visible:text-accent"
+                    <h3 class="text-[17px] leading-relaxed font-medium">
+                      <button
+                        type="button"
+                        id="education-degree-trigger"
+                        aria-haspopup="dialog"
+                        aria-controls="education-modal"
+                        class="degree-trigger"
+                      >
+                        <span id="education-degree" class="card-title">
+                          Bachelor of Informatics Engineering
+                        </span>
+                      </button>
+                    </h3>
+
+                    <p
+                      id="education-university"
+                      class="mt-1 text-sm leading-relaxed text-muted"
                     >
-                      <h3 id="education-degree" class="text-[17px] leading-relaxed font-medium">
-                        Bachelor of Informatics Engineering
-                      </h3>
-                    </button>
-                    <p id="education-university" class="mt-1 text-sm leading-relaxed text-muted dark:text-[#a8b8cc]">
                       University of Trunojoyo Madura
                     </p>
                   </div>
                 </div>
 
-                <span id="education-gpa" class="h-fit w-fit shrink-0 rounded-full border border-line bg-white/60 px-3 py-1 text-[11px] text-[#52637b] dark:border-[#34455d] dark:bg-[#1c2b42] dark:text-[#b5c3d7]">
+                <span
+                  id="education-gpa"
+                  class="
+                    info-badge h-fit w-fit shrink-0 rounded-full
+                    px-3 py-1 text-[11px] text-[#52637b]
+                  "
+                >
                   GPA 3.81
                 </span>
               </div>
 
-              <p id="education-period" class="mt-3 text-sm text-muted dark:text-[#a8b8cc]">
+              <p id="education-period" class="mt-3 text-sm text-muted">
                 Aug 2022 - Jun 2026
               </p>
 
@@ -366,59 +1343,108 @@
                 type="button"
                 aria-haspopup="dialog"
                 aria-controls="education-modal"
-                class="mt-5 inline-flex items-center gap-2 rounded-md text-sm font-medium text-accent transition-colors hover:text-[#008f8a] dark:hover:text-[#73ebe0]"
+                aria-label="View education details"
+                class="outline-button mt-5"
               >
                 View details
+
+                <svg
+                  class="button-arrow"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  aria-hidden="true"
+                >
+                  <path d="M5 12h14m-6-6 6 6-6 6"></path>
+                </svg>
               </button>
             </article>
           </section>
 
           <div class="grid gap-6">
-            <section class="rounded-[27px] border border-line bg-white/85 p-6 shadow-[0_25px_40px_-23px_rgba(27,43,69,.32)] sm:p-7 dark:border-[#2b3c54] dark:bg-[#172337]/90" aria-labelledby="languages-heading">
-              <h2 id="languages-heading" class="text-[11px] tracking-[1.8px] text-muted dark:text-[#a8b8cc]">LANGUAGES</h2>
-              <div id="languages-list" class="mt-5 grid gap-3"></div>
-            </section>
+            <section
+              class="about-card rounded-[27px] p-6 sm:p-7"
+              aria-labelledby="languages-heading"
+              data-reveal
+            >
+              <h2
+                id="languages-heading"
+                class="section-label text-[11px] tracking-[1.8px] text-muted"
+              >
+                LANGUAGES
+              </h2>
 
-            <section class="rounded-[27px] border border-line bg-white/85 p-6 shadow-[0_25px_40px_-23px_rgba(27,43,69,.32)] sm:p-7 dark:border-[#2b3c54] dark:bg-[#172337]/90" aria-labelledby="availability-heading">
-              <h2 id="availability-heading" class="text-[11px] tracking-[1.8px] text-muted dark:text-[#a8b8cc]">AVAILABILITY</h2>
-              <p class="mt-4 text-sm leading-relaxed text-accent">
-                Open to freelance and full-time collaboration
-              </p>
+              <div id="languages-list" class="mt-5 grid gap-3"></div>
             </section>
           </div>
         </div>
 
-        <!-- CONTACT CHANNELS -->
-        <section id="contact-channels" class="mt-8 rounded-[27px] border border-line bg-white/65 p-6 sm:p-7 dark:border-[#34455d] dark:bg-[#172337]/70">
-          <h2 class="text-[11px] tracking-[1.8px] text-muted dark:text-[#a8b8cc]">CONTACT CHANNELS</h2>
-          <div id="contact-socials" class="mt-6 flex flex-wrap gap-3"></div>
-        </section>
+        <!-- CONTACT CHANNELS + AVAILABILITY -->
+        <div
+          id="contact-availability-grid"
+          class="mt-6 grid gap-6 lg:grid-cols-[1.85fr_1fr]"
+        >
+          <section
+            id="contact-channels"
+            class="about-card rounded-[27px] p-6 sm:p-7"
+            data-reveal
+          >
+            <h2 class="card-title text-[11px] tracking-[1.8px] text-muted">
+              CONTACT CHANNELS
+            </h2>
+
+            <div id="contact-socials" class="mt-4 flex flex-wrap gap-3"></div>
+          </section>
+
+          <section
+            class="about-card rounded-[27px] p-6 sm:p-7"
+            aria-labelledby="availability-heading"
+            data-reveal
+          >
+            <h2
+              id="availability-heading"
+              class="section-label text-[11px] tracking-[1.8px] text-muted"
+            >
+              AVAILABILITY
+            </h2>
+
+            <p class="mt-4 text-sm leading-relaxed text-accent">
+              Open to freelance and full-time collaboration
+            </p>
+          </section>
+        </div>
       </div>
     </section>
 
     <!-- CTA -->
     <section class="pt-4 pb-10 sm:pt-6 sm:pb-12 lg:pt-8 lg:pb-14">
       <div class="mx-auto w-[calc(100%-36px)] max-w-[1320px] sm:w-[calc(100%-64px)]">
-        <div data-reveal class="rounded-[27px] border border-line bg-white/85 p-7 shadow-[0_25px_40px_-23px_rgba(27,43,69,.32)] sm:p-10 dark:border-[#2b3c54] dark:bg-[#172337]/90">
-          <h2 class="text-[25px] leading-tight font-medium tracking-[-.6px] sm:text-[31px]">
+        <div class="about-card rounded-[27px] p-7 sm:p-10" data-reveal>
+          <h2
+            class="
+              card-title text-[25px] leading-tight
+              font-medium tracking-[-.6px] sm:text-[31px]
+            "
+          >
             Need a frontend partner with a product mindset?
           </h2>
 
-          <p class="mt-5 max-w-[950px] text-sm leading-[1.8] text-muted sm:text-base dark:text-[#a8b8cc]">
-            I can join as an individual contributor or collaborate with your existing team to ship high-quality web experience.
+          <p class="mt-5 max-w-[950px] text-sm leading-[1.8] text-muted sm:text-base">
+            I can join as an individual contributor or collaborate with your
+            existing team to ship high-quality web experience.
           </p>
 
           <div class="mt-6 flex flex-wrap gap-3">
-            <a
-              id="contact-cta"
-              href="contact.html"
-              class="inline-flex min-h-[44px] items-center justify-center rounded-full border border-transparent bg-linear-to-r from-[#00b9ad] to-[#00b5d0] px-5 py-2.5 text-xs font-medium text-white shadow-[0_7px_15px_rgba(0,184,176,.24)] transition-all hover:-translate-y-0.5 hover:from-[#009f98] hover:to-[#009ebd] hover:shadow-[0_11px_24px_rgba(0,184,176,.32)] active:scale-[.98] sm:text-sm"
-            >Contact Me</a>
+            <a id="contact-cta" href="contact.html" class="primary-button">
+              Contact Me
+            </a>
 
-            <a
-              href="awards.html"
-              class="inline-flex min-h-[44px] items-center justify-center rounded-full border border-line bg-white/70 px-5 py-2.5 text-xs font-medium transition-all hover:-translate-y-0.5 hover:border-accent hover:scale-105 hover:bg-accent/10 hover:text-[#009e98] active:scale-[.98] sm:text-sm dark:border-[#34455d] dark:bg-[#1c2b42]/70 dark:hover:border-accent hover:scale-105 dark:hover:text-accent"
-            >Browse Awards</a>
+            <a href="awards.html" class="outline-button">
+              Browse Awards
+            </a>
           </div>
         </div>
       </div>
@@ -434,21 +1460,27 @@
             Adi Sahrul Ramadhan
           </a>
 
-          <p class="mt-5 max-w-[530px] text-sm leading-relaxed text-muted dark:text-[#a8b8cc]">
-            Full Stack Web Developer focused on delivering scalable products with clean architecture and measurable impact.
+          <p class="mt-5 max-w-[530px] text-sm leading-relaxed text-muted">
+            Full Stack Web Developer focused on delivering scalable products
+            with clean architecture and measurable impact.
           </p>
 
           <div id="footer-socials" class="mt-5 flex gap-2.5"></div>
         </div>
 
         <div>
-          <h3 class="text-[10px] tracking-[2px] text-muted dark:text-[#a8b8cc]">EXPLORE</h3>
+          <h3 class="text-[10px] tracking-[2px] text-muted">
+            EXPLORE
+          </h3>
 
-          <div class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 text-xs text-muted dark:text-[#a8b8cc] [&>a:hover]:text-black dark:[&>a:hover]:text-white">
+          <div
+            id="footer-navigation"
+            class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 text-xs text-muted"
+          >
             <a href="index.html">Home</a>
             <a href="certificates.html">Certificates</a>
             <a href="about.html">About</a>
-            <span aria-disabled="true">Blog</span>
+            <a href="blog.html">Blog</a>
             <a href="experience.html">Experience</a>
             <a href="skills.html">Skills</a>
             <a href="projects.html">Projects</a>
@@ -458,91 +1490,146 @@
         </div>
 
         <div>
-          <h3 class="text-[10px] tracking-[2px] text-muted dark:text-[#a8b8cc]">CONTACT</h3>
+          <h3 class="text-[10px] tracking-[2px] text-muted">
+            CONTACT
+          </h3>
 
-          <p class="mt-4 text-xs leading-relaxed text-muted dark:text-[#a8b8cc]">
+          <p class="mt-4 text-xs leading-relaxed text-muted">
             Open to freelance and full-time collaboration.
           </p>
 
-          <a id="footer-email" href="#contact-channels" class="mt-3 inline-block break-all text-xs text-muted hover:text-black dark:text-[#a8b8cc] dark:hover:text-white">
+          <a
+            id="footer-email"
+            href="#contact-channels"
+            class="mt-3 inline-block break-all text-xs text-muted"
+          >
             Connect through my social profiles
           </a>
         </div>
       </div>
 
-      <p class="mt-16 text-[11px] text-muted dark:text-[#a8b8cc]">
+      <p class="mt-16 text-[11px] text-muted">
         © <span id="year"></span> Adi Sahrul Ramadhan. All rights reserved.
       </p>
     </div>
   </footer>
 
   <!-- EDUCATION DETAILS MODAL -->
-  <div
+  <dialog
     id="education-modal"
     data-open="false"
-    role="dialog"
-    aria-modal="true"
     aria-labelledby="education-modal-degree"
-    class="fixed inset-0 z-[70] hidden items-center justify-center bg-[#0b1220]/55 p-4 backdrop-blur-sm data-[open=true]:flex"
+    class="education-dialog"
   >
-    <div class="modal-panel relative w-full max-w-[700px] rounded-[24px] bg-white p-6 shadow-[0_35px_60px_-15px_rgba(11,18,32,.35)] sm:p-8 dark:bg-[#172337]">
+    <div class="modal-panel relative w-full max-w-[700px] rounded-[24px] p-6 sm:p-8">
       <button
         id="education-modal-close"
         type="button"
         aria-label="Close"
-        class="absolute right-5 top-5 grid size-9 shrink-0 place-items-center rounded-full border border-line transition-colors hover:border-accent hover:scale-105  hover:text-[#1e293b] dark:border-[#34455d]"
+        class="icon-button"
       >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+        <svg
+          width="18"
+          height="18"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
           <path d="M6 6l12 12M18 6 6 18"></path>
         </svg>
       </button>
 
       <div class="flex items-start gap-4 pr-14">
-        <div class="relative grid size-14 shrink-0 place-items-center overflow-hidden rounded-lg border border-line bg-white">
+        <div
+          class="
+            relative grid size-14 shrink-0 place-items-center
+            overflow-hidden rounded-lg border border-line bg-white
+          "
+        >
           <img
             id="education-modal-logo"
             src="assets/education/university.png"
             alt="University logo"
             class="size-full object-contain p-1.5"
           />
+
           <span id="education-modal-logo-fallback" hidden class="text-accent">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true">
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
               <path d="m2 8 10-5 10 5-10 5ZM6 10v7c4 3 8 3 12 0v-7M22 8v8"></path>
             </svg>
           </span>
         </div>
 
         <div>
-          <p id="education-modal-university" class="text-[11px] font-semibold tracking-[1.8px] text-accent uppercase"></p>
-          <h3 id="education-modal-degree" class="mt-1.5 text-[22px] leading-tight font-semibold tracking-[-.5px] sm:text-[26px]"></h3>
+          <p
+            id="education-modal-university"
+            class="text-[11px] font-semibold tracking-[1.8px] text-accent uppercase"
+          ></p>
+
+          <h3
+            id="education-modal-degree"
+            class="
+              mt-1.5 text-[22px] leading-tight
+              font-semibold tracking-[-.5px] sm:text-[26px]
+            "
+          ></h3>
         </div>
       </div>
 
-      <ul id="education-modal-list" class="mt-6 space-y-2.5 text-sm leading-[1.65] text-muted dark:text-[#a8b8cc]"></ul>
+      <ul
+        id="education-modal-list"
+        class="mt-6 space-y-2.5 text-sm leading-[1.65] text-muted"
+      ></ul>
 
       <div class="mt-6 flex flex-wrap gap-2.5">
-        <span id="education-modal-period" class="rounded-full border border-line px-4 py-1.5 text-xs text-[#52637b] dark:border-[#34455d] dark:bg-[#1c2b42] dark:text-[#b5c3d7]"></span>
-        <span id="education-modal-gpa" class="rounded-full border border-line px-4 py-1.5 text-xs text-[#52637b] dark:border-[#34455d] dark:bg-[#1c2b42] dark:text-[#b5c3d7]"></span>
+        <span
+          id="education-modal-period"
+          class="info-badge rounded-full px-4 py-1.5 text-xs text-[#52637b]"
+        ></span>
+
+        <span
+          id="education-modal-gpa"
+          class="info-badge rounded-full px-4 py-1.5 text-xs text-[#52637b]"
+        ></span>
       </div>
     </div>
-  </div>
+  </dialog>
 
   <script>
     (() => {
       "use strict";
 
-      // =====================================================
-      // DATA CONTOH — SESUAIKAN DENGAN DATA ASLI ANDA
-      // =====================================================
-
+      // DATA
       const DATA = {
-        linkedin: "https://linkedin.com/in/adi-sahrul-ramadhan-8966a1286",
-        github: "https://github.com/AdiSahrulRamadhan",
-        instagram: "https://www.instagram.com/adishrlramadhannn_?stkn=MXEyeGs4cmoydGd0dA%3D%3D&utm_source=qr",
-        youtube: "https://www.youtube.com/@-AdiSahrulRamadhan",
-        email: "adisahrul383@gmail.com",
+        linkedin:
+          "https://linkedin.com/in/adi-sahrul-ramadhan-8966a1286",
 
-        photo: "assets/profile.png",
+        github:
+          "https://github.com/AdiSahrulRamadhan",
+
+        instagram:
+          "https://www.instagram.com/adishrlramadhannn_?stkn=MXEyeGs4cmoydGd0dA%3D%3D&utm_source=qr",
+
+        youtube:
+          "https://www.youtube.com/@-AdiSahrulRamadhan",
+
+        email:
+          "adisahrul383@gmail.com",
+
+        photo:
+          "assets/profile.png",
 
         education: {
           degree: "Bachelor of Informatics Engineering",
@@ -550,6 +1637,7 @@
           period: "Aug 2022 - Jun 2026",
           gpa: "3.81",
           logo: "assets/education/university.png",
+
           details: [
             "Assisted course delivery for Introduction to Information Technology, Basic Algorithms and Programming, Basic Web Programming, and Web Application Development.",
             "Presented ITAdventure Web Design Development Workshop and Training for around 30 students.",
@@ -564,324 +1652,601 @@
       };
 
       const SOCIALS = [
-        ["linkedin","LinkedIn"],
-        ["github","GitHub"],
-        ["instagram","Instagram"],
-        ["youtube","YouTube"],
-        ["email","Email"]
+        ["linkedin", "LinkedIn"],
+        ["github", "GitHub"],
+        ["instagram", "Instagram"],
+        ["youtube", "YouTube"],
+        ["email", "Email"]
       ];
 
       const ICONS = {
-        linkedin:'<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7m4 0v-7m0 3c0-4 6-4 6 0v4"/><circle cx="7" cy="7" r=".8" fill="currentColor" stroke="none"/>',
-        github:'<path d="M9 19c-4 1-4-2-6-2m12 5v-4c0-1-.4-1.7-1-2 3-.4 6-1.5 6-6a5 5 0 0 0-1.4-3.5A5 5 0 0 0 18.5 3S17 2.5 14.8 4a11 11 0 0 0-5.6 0C7 2.5 5.5 3 5.5 3a5 5 0 0 0-.1 3.5A5 5 0 0 0 4 10c0 4.5 3 5.6 6 6-.6.3-1 1-1 2v4"/>',
-        instagram:'<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>',
-        youtube:'<rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 6 3-6 3Z"/>',
-        email:'<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>',
-        moon:'<path d="M21 13A9 9 0 0 1 11 3a9 9 0 1 0 10 10Z"/>',
-        sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5M17.5 6.5 19 5"/>'
+        linkedin:
+          '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7m4 0v-7m0 3c0-4 6-4 6 0v4"/><circle cx="7" cy="7" r=".8" fill="currentColor" stroke="none"/>',
+
+        github:
+          '<path d="M9 19c-4 1-4-2-6-2m12 5v-4c0-1-.4-1.7-1-2 3-.4 6-1.5 6-6a5 5 0 0 0-1.4-3.5A5 5 0 0 0 18.5 3S17 2.5 14.8 4a11 11 0 0 0-5.6 0C7 2.5 5.5 3 5.5 3a5 5 0 0 0-.1 3.5A5 5 0 0 0 4 10c0 4.5 3 5.6 6 6-.6.3-1 1-1 2v4"/>',
+
+        instagram:
+          '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>',
+
+        youtube:
+          '<rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 6 3-6 3Z"/>',
+
+        email:
+          '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>',
+
+        moon:
+          '<path d="M21 13A9 9 0 0 1 11 3a9 9 0 1 0 10 10Z"/>',
+
+        sun:
+          '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5M17.5 6.5 19 5"/>'
       };
 
+      // HELPERS
       function esc(value) {
-        return String(value).replace(/[&<>"']/g,c=>({
-          "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
-        })[c]);
+        return String(value).replace(/[&<>"']/g, character => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;"
+        })[character]);
       }
 
-      function icon(name,size=22) {
-        return `<svg width="${size}" height="${size}" viewBox="0 0 24 24"
-          fill="none" stroke="currentColor" stroke-width="1.7"
-          stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          ${ICONS[name]||""}</svg>`;
+      function icon(name, size = 22) {
+        return `
+          <svg
+            width="${size}"
+            height="${size}"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            ${ICONS[name] || ""}
+          </svg>
+        `;
       }
 
       function socialHref(key) {
-        const value=DATA[key]?.trim();
-        if(!value) return "";
-        if(key==="email") return `mailto:${value}`;
-        return /^https?:\/\//i.test(value)?value:"";
+        const value = DATA[key]?.trim();
+
+        if (!value) return "";
+        if (key === "email") return `mailto:${value}`;
+
+        return /^https?:\/\//i.test(value) ? value : "";
       }
 
       function socialAttrs(key) {
-        const href=socialHref(key);
+        const href = socialHref(key);
+
         return href
-          ?`href="${esc(href)}" ${key!=="email"?'target="_blank" rel="noopener noreferrer"':""}`
-          :'aria-disabled="true"';
+          ? `href="${esc(href)}" ${
+              key !== "email"
+                ? 'target="_blank" rel="noopener noreferrer"'
+                : ""
+            }`
+          : 'aria-disabled="true"';
       }
 
-      document.getElementById("contact-socials").innerHTML=SOCIALS.map(([key,name])=>`
-        <a ${socialAttrs(key)}
-          class="inline-flex min-h-[43px] items-center gap-2 rounded-full border border-line bg-white/70 px-3.5 py-2 text-xs transition-all hover:-translate-y-0.5 hover:border-accent hover:scale-105  hover:text-[#1e293b] sm:text-sm dark:border-[#34455d] dark:bg-[#19273c]/80">
-          <span class="grid size-6 place-items-center rounded-full bg-accent/10 text-accent">${icon(key,15)}</span>
-          ${name}
-        </a>
-      `).join("");
+      // CONTACT SOCIALS
+      document.getElementById("contact-socials").innerHTML =
+        SOCIALS.map(([key, name]) => `
+          <a ${socialAttrs(key)} class="social-button">
+            <span class="social-mark">
+              ${icon(key, 15)}
+            </span>
+            ${name}
+          </a>
+        `).join("");
 
-      document.getElementById("footer-socials").innerHTML=SOCIALS.map(([key,name])=>`
-        <a ${socialAttrs(key)} aria-label="${name}"
-          class="grid size-9 place-items-center rounded-full border border-line bg-white/70 transition-all duration-300 ease-out hover:border-[#00bdb6] hover:scale-110 hover:text-[#008f8a] dark:border-[#34455d] dark:bg-[#1c2b42]">
-          ${icon(key,16)}
-        </a>
-      `).join("");
+      // FOOTER SOCIALS
+      document.getElementById("footer-socials").innerHTML =
+        SOCIALS.map(([key, name]) => `
+          <a
+            ${socialAttrs(key)}
+            aria-label="${name}"
+            class="
+              grid size-9 place-items-center rounded-full
+              border border-line bg-white/70
+              transition-all duration-300 ease-out
+              hover:border-[#00bdb6] hover:scale-110 hover:text-[#008f8a]
+              dark:border-[#34455d] dark:bg-[#1c2b42]
+            "
+          >
+            ${icon(key, 16)}
+          </a>
+        `).join("");
 
-      if(DATA.email.trim()) {
-        const href=socialHref("email");
-        document.getElementById("contact-cta").href=href;
-        const footerEmail=document.getElementById("footer-email");
-        footerEmail.href=href;
-        footerEmail.textContent=DATA.email.trim();
+      if (DATA.email.trim()) {
+        const href = socialHref("email");
+        const footerEmail = document.getElementById("footer-email");
+
+        document.getElementById("contact-cta").href = href;
+
+        footerEmail.href = href;
+        footerEmail.textContent = DATA.email.trim();
       }
 
-      document.getElementById("year").textContent=new Date().getFullYear();
+      document.getElementById("year").textContent =
+        new Date().getFullYear();
 
       // EDUCATION DATA
+      const education = DATA.education;
 
-      const education=DATA.education;
+      document.getElementById("education-degree").textContent =
+        education.degree;
 
-      document.getElementById("education-degree").textContent=education.degree;
-      document.getElementById("education-university").textContent=education.university;
-      document.getElementById("education-period").textContent=education.period;
+      document.getElementById("education-university").textContent =
+        education.university;
 
-      const gpa=document.getElementById("education-gpa");
-      gpa.hidden=!education.gpa;
-      gpa.textContent=`GPA ${education.gpa}`;
+      document.getElementById("education-period").textContent =
+        education.period;
 
-      document.getElementById("languages-list").innerHTML=DATA.languages.map(([language,level])=>`
-        <article class="rounded-[17px] border border-line p-4 dark:border-[#34455d]">
-          <h3 class="text-base font-medium">${esc(language)}</h3>
-          <p class="mt-2 text-xs leading-relaxed text-muted dark:text-[#a8b8cc]">${esc(level)}</p>
-        </article>
-      `).join("");
+      const gpa = document.getElementById("education-gpa");
 
-      // EDUCATION DETAILS MODAL
+      gpa.hidden = !education.gpa;
+      gpa.textContent = `GPA ${education.gpa}`;
 
-      document.getElementById("education-modal-university").textContent=education.university;
-      document.getElementById("education-modal-degree").textContent=education.degree;
-      document.getElementById("education-modal-period").textContent=education.period;
+      document.getElementById("languages-list").innerHTML =
+        DATA.languages.map(([language, level]) => `
+          <article class="about-card card-inset p-4">
+            <h3 class="card-title text-base font-medium">
+              ${esc(language)}
+            </h3>
+            <p class="mt-2 text-xs leading-relaxed text-muted">
+              ${esc(level)}
+            </p>
+          </article>
+        `).join("");
 
-      const modalGpa=document.getElementById("education-modal-gpa");
-      modalGpa.hidden=!education.gpa;
-      modalGpa.textContent=`GPA ${education.gpa}`;
+      // EDUCATION MODAL CONTENT
+      document.getElementById("education-modal-university").textContent =
+        education.university;
 
-      document.getElementById("education-modal-list").innerHTML=education.details.map(text=>`
-        <li class="flex items-start gap-2">
-          <span class="mt-[8px] size-1.5 shrink-0 rounded-full bg-accent"></span>
-          <span>${esc(text)}</span>
-        </li>
-      `).join("");
+      document.getElementById("education-modal-degree").textContent =
+        education.degree;
 
-      const educationModal=document.getElementById("education-modal");
-      const educationModalClose=document.getElementById("education-modal-close");
-      const educationDegreeTrigger=document.getElementById("education-degree-trigger");
-      const educationToggle=document.getElementById("education-toggle");
+      document.getElementById("education-modal-period").textContent =
+        education.period;
 
-      let educationModalTrigger=null;
+      const modalGpa = document.getElementById("education-modal-gpa");
+
+      modalGpa.hidden = !education.gpa;
+      modalGpa.textContent = `GPA ${education.gpa}`;
+
+      document.getElementById("education-modal-list").innerHTML =
+        education.details.map(text => `
+          <li class="flex items-start gap-2">
+            <span
+              class="mt-[8px] size-1.5 shrink-0 rounded-full bg-accent"
+            ></span>
+            <span>${esc(text)}</span>
+          </li>
+        `).join("");
+
+      // EDUCATION MODAL INTERACTION
+      const educationModal =
+        document.getElementById("education-modal");
+
+      const educationModalClose =
+        document.getElementById("education-modal-close");
+
+      const educationDegreeTrigger =
+        document.getElementById("education-degree-trigger");
+
+      const educationToggle =
+        document.getElementById("education-toggle");
+
+      let educationModalTrigger = null;
+      let modalCloseTimer;
+      let modalClosing = false;
+      let previousOverflow = "";
 
       function openEducationModal(trigger) {
-        educationModalTrigger=trigger||null;
-        educationModal.hidden=false;
-        // force reflow so the open transition runs
+        if (educationModal.open) return;
+
+        clearTimeout(modalCloseTimer);
+
+        modalClosing = false;
+        educationModalTrigger = trigger || document.activeElement;
+        previousOverflow = document.documentElement.style.overflow;
+
+        educationModal.dataset.open = "false";
+        educationModal.showModal();
+
+        document.documentElement.style.overflow = "hidden";
+
         void educationModal.offsetWidth;
-        educationModal.dataset.open="true";
-        document.documentElement.style.overflow="hidden";
-        educationModalClose.focus();
+
+        educationModal.dataset.open = "true";
+        educationModalClose.focus({ preventScroll: true });
       }
 
       function closeEducationModal() {
-        educationModal.dataset.open="false";
-        document.documentElement.style.overflow="";
-        const returnFocusTo=educationModalTrigger;
-        educationModalTrigger=null;
+        if (!educationModal.open || modalClosing) return;
 
-        const done=()=>{
-          educationModal.hidden=true;
-          returnFocusTo?.focus?.();
+        modalClosing = true;
+        educationModal.dataset.open = "false";
+
+        const done = () => {
+          if (!modalClosing) return;
+
+          clearTimeout(modalCloseTimer);
+          educationModal.close();
+
+          document.documentElement.style.overflow =
+            previousOverflow;
+
+          modalClosing = false;
+
+          educationModalTrigger?.focus({
+            preventScroll: true
+          });
+
+          educationModalTrigger = null;
         };
 
-        if(matchMedia("(prefers-reduced-motion:reduce)").matches) {
+        if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
           done();
         } else {
-          educationModal.addEventListener("transitionend",done,{once:true});
-          setTimeout(done,260);
+          modalCloseTimer = setTimeout(done, 300);
         }
       }
 
-      educationDegreeTrigger.addEventListener("click",()=>openEducationModal(educationDegreeTrigger));
-      educationToggle.addEventListener("click",()=>openEducationModal(educationToggle));
-      educationModalClose.addEventListener("click",closeEducationModal);
+      educationDegreeTrigger.addEventListener("click", () => {
+        openEducationModal(educationDegreeTrigger);
+      });
 
-      educationModal.addEventListener("click",event=>{
-        if(event.target===educationModal) closeEducationModal();
+      educationToggle.addEventListener("click", () => {
+        openEducationModal(educationToggle);
+      });
+
+      educationModalClose.addEventListener(
+        "click",
+        closeEducationModal
+      );
+
+      educationModal.addEventListener("cancel", event => {
+        event.preventDefault();
+        closeEducationModal();
+      });
+
+      educationModal.addEventListener("click", event => {
+        const rect = educationModal.getBoundingClientRect();
+
+        const outside =
+          event.clientX < rect.left ||
+          event.clientX > rect.right ||
+          event.clientY < rect.top ||
+          event.clientY > rect.bottom;
+
+        if (event.target === educationModal && outside) {
+          closeEducationModal();
+        }
       });
 
       // IMAGE FALLBACKS
+      function setupImage(imageId, fallbackId, src, alt) {
+        const image = document.getElementById(imageId);
+        const fallback = document.getElementById(fallbackId);
 
-      function setupImage(imageId,fallbackId,src,alt) {
-        const image=document.getElementById(imageId);
-        const fallback=document.getElementById(fallbackId);
-
-        const failed=()=>{
-          image.hidden=true;
-          fallback.hidden=false;
+        const failed = () => {
+          image.hidden = true;
+          fallback.hidden = false;
         };
 
-        const loaded=()=>{
-          image.hidden=false;
-          fallback.hidden=true;
+        const loaded = () => {
+          image.hidden = false;
+          fallback.hidden = true;
         };
 
-        image.addEventListener("error",failed);
-        image.addEventListener("load",loaded);
-        image.alt=alt;
-        image.src=src;
+        image.addEventListener("error", failed);
+        image.addEventListener("load", loaded);
 
-        if(image.complete) {
-          image.naturalWidth>0?loaded():failed();
+        image.alt = alt;
+        image.src = src;
+
+        if (image.complete) {
+          image.naturalWidth > 0 ? loaded() : failed();
         }
       }
 
-      setupImage("profile-image","profile-fallback",DATA.photo,"Adi Sahrul Ramadhan");
-      setupImage("university-logo","university-fallback",education.logo,education.university);
-      setupImage("education-modal-logo","education-modal-logo-fallback",education.logo,education.university);
+      setupImage(
+        "profile-image",
+        "profile-fallback",
+        DATA.photo,
+        "Adi Sahrul Ramadhan"
+      );
 
-      // =====================================================
+      setupImage(
+        "university-logo",
+        "university-fallback",
+        education.logo,
+        education.university
+      );
+
+      setupImage(
+        "education-modal-logo",
+        "education-modal-logo-fallback",
+        education.logo,
+        education.university
+      );
+
       // NAVBAR
-      // Scroll hanya mengubah background.
-      // About tetap aktif.
-      // =====================================================
+      const header = document.getElementById("header");
+      const navbar = document.getElementById("navbar");
+      const navigation = document.getElementById("navigation");
+      const menuButton = document.getElementById("menu-button");
 
-      const header=document.getElementById("header");
-      const navbar=document.getElementById("navbar");
-      const navigation=document.getElementById("navigation");
-      const menuButton=document.getElementById("menu-button");
-      const achievementMenu=document.getElementById("achievement-menu");
-      const achievementTrigger=document.getElementById("achievement-trigger");
-      const achievementDropdown=document.getElementById("achievement-dropdown");
+      const achievementMenu =
+        document.getElementById("achievement-menu");
+
+      const achievementTrigger =
+        document.getElementById("achievement-trigger");
+
+      const achievementDropdown =
+        document.getElementById("achievement-dropdown");
 
       function updateNavbarBackground() {
-        navbar.dataset.scrolled=String(window.scrollY>24);
+        navbar.dataset.scrolled = String(window.scrollY > 24);
       }
 
-      addEventListener("scroll",updateNavbarBackground,{passive:true});
+      addEventListener("scroll", updateNavbarBackground, {
+        passive: true
+      });
+
       updateNavbarBackground();
 
+      let achievementOpenedByHover = false;
+
       function setAchievementMenu(open) {
-        achievementMenu.dataset.open=String(open);
-        achievementTrigger.setAttribute("aria-expanded",String(open));
-        achievementDropdown.setAttribute("aria-hidden",String(!open));
-        achievementDropdown.toggleAttribute("inert",!open);
+        if (!open) {
+          achievementOpenedByHover = false;
+        }
+
+        achievementMenu.dataset.open = String(open);
+
+        achievementTrigger.setAttribute(
+          "aria-expanded",
+          String(open)
+        );
+
+        achievementDropdown.setAttribute(
+          "aria-hidden",
+          String(!open)
+        );
+
+        achievementDropdown.toggleAttribute("inert", !open);
       }
+
+      setAchievementMenu(false);
 
       function setMenu(open) {
-        navigation.dataset.open=String(open);
-        menuButton.setAttribute("aria-expanded",String(open));
-        menuButton.setAttribute("aria-label",open?"Close menu":"Open menu");
-        if(!open) setAchievementMenu(false);
+        navigation.dataset.open = String(open);
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          String(open)
+        );
+
+        menuButton.setAttribute(
+          "aria-label",
+          open ? "Close menu" : "Open menu"
+        );
+
+        if (!open) {
+          setAchievementMenu(false);
+        }
       }
 
-      menuButton.addEventListener("click",()=>{
-        setMenu(navigation.dataset.open!=="true");
+      menuButton.addEventListener("click", () => {
+        setMenu(navigation.dataset.open !== "true");
       });
 
-      navigation.querySelectorAll("a").forEach(link=>{
-        link.addEventListener("click",()=>setMenu(false));
+      navigation.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          setMenu(false);
+        });
       });
 
-      achievementTrigger.addEventListener("click",()=>{
-        setAchievementMenu(achievementMenu.dataset.open!=="true");
+      achievementTrigger.addEventListener("click", event => {
+        const isOpen =
+          achievementMenu.dataset.open === "true";
+
+        if (
+          event.detail > 0 &&
+          achievementOpenedByHover &&
+          isOpen
+        ) {
+          achievementOpenedByHover = false;
+          return;
+        }
+
+        achievementOpenedByHover = false;
+        setAchievementMenu(!isOpen);
       });
 
-      document.addEventListener("click",event=>{
-        if(!header.contains(event.target)) setMenu(false);
-        if(!achievementMenu.contains(event.target)) setAchievementMenu(false);
+      document.addEventListener("click", event => {
+        if (!header.contains(event.target)) {
+          setMenu(false);
+        }
+
+        if (!achievementMenu.contains(event.target)) {
+          setAchievementMenu(false);
+        }
       });
 
-      // Achievements: buka juga saat hover (perangkat dengan mouse),
-      // tanpa mengubah perilaku tap/klik untuk perangkat sentuh.
-      if(matchMedia("(hover: hover) and (pointer: fine)").matches) {
-        let achievementCloseTimer=null;
+      if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        let achievementCloseTimer = null;
 
-        achievementMenu.addEventListener("mouseenter",()=>{
+        achievementMenu.addEventListener("mouseenter", () => {
           clearTimeout(achievementCloseTimer);
+
+          if (achievementMenu.dataset.open !== "true") {
+            achievementOpenedByHover = true;
+          }
+
           setAchievementMenu(true);
         });
 
-        achievementMenu.addEventListener("mouseleave",()=>{
-          achievementCloseTimer=setTimeout(()=>{
-            setAchievementMenu(false);
-          },150);
+        achievementMenu.addEventListener("mouseleave", () => {
+          achievementCloseTimer = setTimeout(() => {
+            if (!achievementMenu.contains(document.activeElement)) {
+              setAchievementMenu(false);
+            }
+          }, 150);
         });
       }
 
-      document.addEventListener("keydown",event=>{
-        if(event.key!=="Escape") return;
+      document.addEventListener("keydown", event => {
+        if (event.key !== "Escape") return;
 
-        if(achievementMenu.dataset.open==="true") {
+        if (achievementMenu.dataset.open === "true") {
           setAchievementMenu(false);
           achievementTrigger.focus();
         }
 
-        if(educationModal.dataset.open==="true") {
+        if (educationModal.dataset.open === "true") {
           closeEducationModal();
           return;
         }
 
-        if(navigation.dataset.open==="true") {
+        if (navigation.dataset.open === "true") {
           setMenu(false);
           menuButton.focus();
         }
       });
 
-      matchMedia("(min-width:1024px)").addEventListener("change",event=>{
-        if(event.matches) setMenu(false);
+      matchMedia("(min-width:1024px)").addEventListener(
+        "change",
+        event => {
+          if (event.matches) {
+            setMenu(false);
+          }
+        }
+      );
+
+      achievementTrigger.addEventListener("keydown", event => {
+        if (!["ArrowDown", "ArrowUp"].includes(event.key)) return;
+
+        event.preventDefault();
+        setAchievementMenu(true);
+
+        const links =
+          achievementDropdown.querySelectorAll("a");
+
+        links[
+          event.key === "ArrowUp" ? links.length - 1 : 0
+        ]?.focus();
       });
 
-      // DARK MODE
+      achievementDropdown.addEventListener("keydown", event => {
+        const links = [
+          ...achievementDropdown.querySelectorAll("a")
+        ];
 
-      const themeButton=document.getElementById("theme-button");
-      const systemTheme=matchMedia("(prefers-color-scheme:dark)");
-      let selectedTheme=null;
+        const index = links.indexOf(document.activeElement);
+
+        let next;
+
+        if (event.key === "ArrowDown") {
+          next = (index + 1) % links.length;
+        }
+
+        if (event.key === "ArrowUp") {
+          next = (index - 1 + links.length) % links.length;
+        }
+
+        if (event.key === "Home") next = 0;
+        if (event.key === "End") next = links.length - 1;
+
+        if (next !== undefined) {
+          event.preventDefault();
+          links[next].focus();
+        }
+      });
+
+      achievementMenu.addEventListener("focusout", event => {
+        if (!achievementMenu.contains(event.relatedTarget)) {
+          setAchievementMenu(false);
+        }
+      });
+
+      // DARK / LIGHT MODE
+      const themeButton =
+        document.getElementById("theme-button");
+
+      const systemTheme =
+        matchMedia("(prefers-color-scheme:dark)");
+
+      let selectedTheme = null;
 
       try {
-        selectedTheme=localStorage.getItem("asr-theme");
+        selectedTheme = localStorage.getItem("asr-theme");
       } catch {}
 
       function applyTheme(dark) {
-        document.documentElement.classList.toggle("dark",dark);
-        themeButton.innerHTML=icon(dark?"sun":"moon");
-        themeButton.setAttribute("aria-pressed",String(dark));
-        themeButton.setAttribute("aria-label",dark?"Switch to light mode":"Switch to dark mode");
+        document.documentElement.classList.toggle("dark", dark);
+
+        themeButton.innerHTML = icon(dark ? "sun" : "moon");
+        themeButton.setAttribute("aria-pressed", String(dark));
+
+        themeButton.setAttribute(
+          "aria-label",
+          dark ? "Switch to light mode" : "Switch to dark mode"
+        );
+
+        document.querySelector('meta[name="theme-color"]').content =
+          dark ? "#101827" : "#f4f8ff";
       }
 
-      applyTheme(document.documentElement.classList.contains("dark"));
+      applyTheme(
+        document.documentElement.classList.contains("dark")
+      );
 
-      themeButton.addEventListener("click",()=>{
-        const dark=!document.documentElement.classList.contains("dark");
-        selectedTheme=dark?"dark":"light";
+      themeButton.addEventListener("click", () => {
+        const dark =
+          !document.documentElement.classList.contains("dark");
+
+        selectedTheme = dark ? "dark" : "light";
         applyTheme(dark);
 
         try {
-          localStorage.setItem("asr-theme",selectedTheme);
+          localStorage.setItem("asr-theme", selectedTheme);
         } catch {}
       });
 
-      systemTheme.addEventListener("change",event=>{
-        if(selectedTheme!=="dark"&&selectedTheme!=="light") {
+      systemTheme.addEventListener("change", event => {
+        if (
+          selectedTheme !== "dark" &&
+          selectedTheme !== "light"
+        ) {
           applyTheme(event.matches);
         }
       });
 
-      // REPEATABLE CTA REVEAL
+      // SCROLL REVEAL
+      const reducedMotion =
+        matchMedia("(prefers-reduced-motion:reduce)").matches;
 
-      const reducedMotion=matchMedia("(prefers-reduced-motion:reduce)").matches;
-
-      if(!reducedMotion&&"IntersectionObserver" in window) {
-        const observer=new IntersectionObserver(entries=>{
-          entries.forEach(entry=>{
-            entry.target.classList.toggle("is-visible",entry.isIntersecting);
+      if (!reducedMotion && "IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
           });
-        },{threshold:0,rootMargin:"0px 0px -25px 0px"});
+        }, {
+          threshold: 0,
+          rootMargin: "0px 0px -25px 0px"
+        });
 
-        document.querySelectorAll("[data-reveal]").forEach(element=>{
+        document.querySelectorAll("[data-reveal]").forEach(element => {
           element.classList.add("scroll-reveal");
           observer.observe(element);
         });
