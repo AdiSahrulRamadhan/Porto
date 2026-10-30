@@ -65,30 +65,6 @@
       }
     }
 
-    #achievement-chevron {
-      transition: transform 260ms cubic-bezier(.2, .75, .2, 1);
-    }
-
-    #achievement-menu[data-open="true"] #achievement-chevron {
-      transform: rotate(180deg);
-    }
-
-    .achievement-dropdown {
-      opacity: 0;
-      transform: translate3d(0, -8px, 0) scale(.97);
-      pointer-events: none;
-      transform-origin: top left;
-      transition:
-        opacity 200ms ease,
-        transform 200ms cubic-bezier(.2, .75, .2, 1);
-    }
-
-    #achievement-menu[data-open="true"] .achievement-dropdown {
-      opacity: 1;
-      transform: none;
-      pointer-events: auto;
-    }
-
     .skill-card,
     .skill-card-icon {
       transition:
@@ -162,6 +138,140 @@
     }
   </script>
   <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <style>
+    /* Navbar synchronized with About. */
+    .dark #achievement-dropdown {
+      border-color: #34455d;
+    }
+
+    #navigation > a:hover,
+    #navigation > a:focus-visible,
+    #achievement-trigger:hover,
+    #achievement-trigger:focus-visible,
+    #achievement-dropdown > a:hover,
+    #achievement-dropdown > a:focus-visible {
+      background-color: #caefed;
+      color: #087f7c;
+    }
+
+    #navigation > a[aria-current="page"]:hover,
+    #navigation > a[aria-current="page"]:focus-visible,
+    #achievement-trigger[data-active-page="true"]:hover,
+    #achievement-trigger[data-active-page="true"]:focus-visible,
+    #achievement-dropdown > a[aria-current="page"]:hover,
+    #achievement-dropdown > a[aria-current="page"]:focus-visible {
+      background-color: #b7e6e3;
+      color: #066c69;
+    }
+
+    .dark #navigation > a:hover,
+    .dark #navigation > a:focus-visible,
+    .dark #achievement-trigger:hover,
+    .dark #achievement-trigger:focus-visible,
+    .dark #achievement-dropdown > a:hover,
+    .dark #achievement-dropdown > a:focus-visible {
+      background-color: #24374d;
+      color: #ffffff;
+    }
+
+    #theme-button:hover {
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+    .dark #theme-button:hover {
+      color: #ffffff;
+      background: color-mix(
+        in oklab,
+        #19273c 80%,
+        transparent
+      );
+    }
+
+    .dark #menu-button:hover {
+      color: #ffffff;
+    }
+
+    @media (hover: hover) {
+      #menu-button:hover {
+        color: #1e293b;
+        border-color: #00bdb6;
+      }
+
+      .dark #menu-button:hover {
+        color: #ffffff;
+      }
+    }
+
+    #achievement-chevron {
+      transition: transform .26s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    #achievement-menu[data-open="true"] #achievement-chevron {
+      transform: rotate(180deg);
+    }
+
+    .achievement-dropdown {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-8px) scale(.97);
+      pointer-events: none;
+      transform-origin: top left;
+      transition:
+        opacity .2s ease,
+        transform .2s cubic-bezier(.16, 1, .3, 1),
+        visibility .2s;
+    }
+
+    #achievement-menu[data-open="true"] .achievement-dropdown {
+      visibility: visible;
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+
+
+    @media (prefers-reduced-motion: reduce) {
+      #header *,
+      #header *::before,
+      #header *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+
+      #theme-button,
+      #menu-button {
+        transform: none !important;
+      }
+    }
+
+    /* Keep long skill labels inside the mobile grid. */
+    #skills-groups > section,
+    #skills-groups > section > div,
+    #skills-groups > section > div > .group {
+      min-width: 0;
+    }
+
+    .skill-card h3,
+    .skill-card p {
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 420px) {
+      .skill-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .skill-card > div {
+        width: 100%;
+      }
+
+      .skill-card > span {
+        margin-inline-start: 58px;
+      }
+    }
+  </style>
 </head>
 
 <body
@@ -226,14 +336,34 @@
         href="index.html"
         class="group inline-flex shrink-0 items-center gap-[9px] sm:gap-[13px]"
       >
-        <span class="grid h-[42px] w-[39px] place-items-center rounded-[14px] border border-[#a7efea] bg-white shadow-[0_8px_15px_rgba(0,191,183,.14)] transition-transform group-hover:-rotate-3 sm:size-12 sm:rounded-[17px] dark:border-[#00bdb6]/50 dark:bg-[#172837]">
-          <span class="bg-gradient-to-r from-[#10bdd7] via-[#e26683] to-[#f2b62b] bg-clip-text text-base font-extrabold tracking-[-1px] text-transparent">
+        <span
+          class="
+            grid h-[42px] w-[39px] place-items-center rounded-[14px]
+            border border-[#a7efea] bg-white
+            shadow-[0_8px_15px_rgba(0,191,183,.14)]
+            transition-transform group-hover:-rotate-3
+            sm:size-12 sm:rounded-[17px]
+            dark:border-[#00bdb6]/50 dark:bg-[#172837]
+          "
+        >
+          <span
+            class="
+              bg-gradient-to-r from-[#10bdd7] via-[#e26683] to-[#f2b62b]
+              bg-clip-text text-base font-extrabold tracking-[-1px]
+              text-transparent
+            "
+          >
             ASR
           </span>
         </span>
 
         <span class="grid gap-1">
-          <strong class="whitespace-nowrap text-[11px] font-semibold sm:text-sm lg:text-xs xl:text-sm">
+          <strong
+            class="
+              whitespace-nowrap text-[11px] font-semibold
+              sm:text-sm lg:text-xs xl:text-sm
+            "
+          >
             Adi Sahrul Ramadhan
           </strong>
 
@@ -267,44 +397,52 @@
       >
         <a
           href="index.html"
-          class="text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="
+            text-muted hover:text-[#1e293b]
+            dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white
+          "
         >
           Home
         </a>
 
         <a
           href="about.html"
-          class="text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="
+            text-muted hover:text-[#1e293b]
+            dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white
+          "
         >
           About
         </a>
 
         <a
           href="experience.html"
-          class="text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="
+            text-muted hover:text-[#1e293b]
+            dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white
+          "
         >
           Experience
         </a>
 
         <a
           href="projects.html"
-          class="text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="
+            text-muted hover:text-[#1e293b]
+            dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white
+          "
         >
           Projects
         </a>
 
-        <div
-          id="achievement-menu"
-          data-open="false"
-          class="relative"
-        >
+        <div id="achievement-menu" data-open="false" class="relative">
           <button
             type="button"
             id="achievement-trigger"
             aria-haspopup="menu"
             aria-expanded="false"
             aria-controls="achievement-dropdown"
-            class="flex items-center gap-2 rounded-full px-[14px] py-[11px] text-sm text-muted transition-colors hover:text-[#1e293b] lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+            class="inline-flex items-center gap-2 whitespace-nowrap rounded-full px-[14px] py-[11px] text-sm text-muted transition-colors hover:text-[#1e293b] lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
           >
             Achievements
 
@@ -326,31 +464,64 @@
             id="achievement-dropdown"
             role="menu"
             aria-hidden="true"
-            class="achievement-dropdown absolute left-0 top-full z-20 mt-2 grid min-w-44 gap-1 rounded-2xl border border-line bg-white p-2 shadow-lg dark:border-[#34455d] dark:bg-[#172337]"
+            inert
+            class="
+              achievement-dropdown absolute left-0 top-full z-20 mt-2
+              grid min-w-44 gap-1 rounded-2xl border border-line
+              bg-white p-2 shadow-lg
+              dark:border-[#34455d] dark:bg-[#172337]
+            "
           >
             <a
               href="awards.html"
               role="menuitem"
-              class="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm transition-colors hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+              class="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm transition-colors text-muted hover:text-[#1e293b]
+            dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
             >
               <span>Awards</span>
-              <span class="inline-flex size-[22px] shrink-0 items-center justify-center rounded-full bg-[#dc2626] text-[10px] font-bold leading-none text-white">2</span>
+
+              <span
+                class="
+                  inline-flex size-[22px] shrink-0 items-center justify-center
+                  rounded-full bg-[#dc2626]
+                  text-[10px] font-bold leading-none text-white
+                "
+              >
+                2
+              </span>
             </a>
 
             <a
               href="certificates.html"
               role="menuitem"
-              class="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm transition-colors hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+              class="
+                flex items-center justify-between gap-3 rounded-xl
+                px-4 py-3 text-sm transition-colors hover:text-[#1e293b]
+                dark:text-[#a8b8cc]
+                dark:hover:bg-[#1e293b] dark:hover:text-white
+              "
             >
               <span>Certificates</span>
-              <span class="inline-flex size-[22px] shrink-0 items-center justify-center rounded-full bg-[#dc2626] text-[10px] font-bold leading-none text-white">28</span>
+
+              <span
+                class="
+                  inline-flex size-[22px] shrink-0 items-center justify-center
+                  rounded-full bg-[#dc2626]
+                  text-[10px] font-bold leading-none text-white
+                "
+              >
+                28
+              </span>
             </a>
           </div>
         </div>
 
         <a
           href="blog.html"
-          class="text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="
+            text-muted hover:text-[#1e293b]
+            dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white
+          "
         >
           Blog
         </a>
@@ -365,7 +536,10 @@
 
         <a
           href="contact.html"
-          class="text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="
+            text-muted hover:text-[#1e293b]
+            dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white
+          "
         >
           Contact
         </a>
@@ -378,7 +552,13 @@
           aria-label="Open menu"
           aria-controls="navigation"
           aria-expanded="false"
-          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:scale-105 hover:text-[#1e293b] sm:size-[45px] lg:hidden dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+          class="
+            grid size-[37px] shrink-0 place-items-center rounded-full
+            border border-line bg-white/70 transition-colors
+            hover:border-accent hover:scale-105 hover:text-[#1e293b]
+            sm:size-[45px] lg:hidden
+            dark:border-[#2b3c54] dark:bg-[#19273c]/80
+          "
         >
           <svg
             width="22"
@@ -398,7 +578,13 @@
           id="theme-button"
           type="button"
           aria-label="Switch to dark mode"
-          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-all hover:rotate-12 hover:border-accent hover:scale-105 hover:text-[#1e293b] active:scale-95 sm:size-[45px] dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+          class="
+            grid size-[37px] shrink-0 place-items-center rounded-full
+            border border-line bg-white/70 transition-all
+            hover:rotate-12 hover:scale-105 hover:text-[#1e293b]
+            active:scale-95 sm:size-[45px]
+            dark:border-[#2b3c54] dark:bg-[#19273c]/80
+          "
         >
           <svg
             width="22"
@@ -1410,9 +1596,15 @@
       const navbar = document.getElementById("navbar");
       const navigation = document.getElementById("navigation");
       const menuButton = document.getElementById("menu-button");
-      const achievementMenu = document.getElementById("achievement-menu");
-      const achievementTrigger = document.getElementById("achievement-trigger");
-      const achievementDropdown = document.getElementById("achievement-dropdown");
+
+      const achievementMenu =
+        document.getElementById("achievement-menu");
+
+      const achievementTrigger =
+        document.getElementById("achievement-trigger");
+
+      const achievementDropdown =
+        document.getElementById("achievement-dropdown");
 
       function updateNavbarBackground() {
         navbar.dataset.scrolled = String(window.scrollY > 24);
@@ -1424,7 +1616,13 @@
 
       updateNavbarBackground();
 
+      let achievementOpenedByHover = false;
+
       function setAchievementMenu(open) {
+        if (!open) {
+          achievementOpenedByHover = false;
+        }
+
         achievementMenu.dataset.open = String(open);
 
         achievementTrigger.setAttribute(
@@ -1439,6 +1637,8 @@
 
         achievementDropdown.toggleAttribute("inert", !open);
       }
+
+      setAchievementMenu(false);
 
       function setMenu(open) {
         navigation.dataset.open = String(open);
@@ -1468,10 +1668,21 @@
         });
       });
 
-      achievementTrigger.addEventListener("click", () => {
-        setAchievementMenu(
-          achievementMenu.dataset.open !== "true"
-        );
+      achievementTrigger.addEventListener("click", event => {
+        const isOpen =
+          achievementMenu.dataset.open === "true";
+
+        if (
+          event.detail > 0 &&
+          achievementOpenedByHover &&
+          isOpen
+        ) {
+          achievementOpenedByHover = false;
+          return;
+        }
+
+        achievementOpenedByHover = false;
+        setAchievementMenu(!isOpen);
       });
 
       document.addEventListener("click", event => {
@@ -1484,19 +1695,24 @@
         }
       });
 
-      if (
-        matchMedia("(hover: hover) and (pointer: fine)").matches
-      ) {
+      if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
         let achievementCloseTimer = null;
 
         achievementMenu.addEventListener("mouseenter", () => {
           clearTimeout(achievementCloseTimer);
+
+          if (achievementMenu.dataset.open !== "true") {
+            achievementOpenedByHover = true;
+          }
+
           setAchievementMenu(true);
         });
 
         achievementMenu.addEventListener("mouseleave", () => {
           achievementCloseTimer = setTimeout(() => {
-            setAchievementMenu(false);
+            if (!achievementMenu.contains(document.activeElement)) {
+              setAchievementMenu(false);
+            }
           }, 150);
         });
       }
@@ -1524,12 +1740,58 @@
         }
       );
 
-      // =====================================================
-      // DARK MODE
-      // =====================================================
+      achievementTrigger.addEventListener("keydown", event => {
+        if (!["ArrowDown", "ArrowUp"].includes(event.key)) return;
 
-      const themeButton = document.getElementById("theme-button");
-      const systemTheme = matchMedia("(prefers-color-scheme:dark)");
+        event.preventDefault();
+        setAchievementMenu(true);
+
+        const links =
+          achievementDropdown.querySelectorAll("a");
+
+        links[
+          event.key === "ArrowUp" ? links.length - 1 : 0
+        ]?.focus();
+      });
+
+      achievementDropdown.addEventListener("keydown", event => {
+        const links = [
+          ...achievementDropdown.querySelectorAll("a")
+        ];
+
+        const index = links.indexOf(document.activeElement);
+
+        let next;
+
+        if (event.key === "ArrowDown") {
+          next = (index + 1) % links.length;
+        }
+
+        if (event.key === "ArrowUp") {
+          next = (index - 1 + links.length) % links.length;
+        }
+
+        if (event.key === "Home") next = 0;
+        if (event.key === "End") next = links.length - 1;
+
+        if (next !== undefined) {
+          event.preventDefault();
+          links[next].focus();
+        }
+      });
+
+      achievementMenu.addEventListener("focusout", event => {
+        if (!achievementMenu.contains(event.relatedTarget)) {
+          setAchievementMenu(false);
+        }
+      });
+
+      // DARK / LIGHT MODE
+      const themeButton =
+        document.getElementById("theme-button");
+
+      const systemTheme =
+        matchMedia("(prefers-color-scheme:dark)");
 
       let selectedTheme = null;
 
@@ -1541,18 +1803,15 @@
         document.documentElement.classList.toggle("dark", dark);
 
         themeButton.innerHTML = icon(dark ? "sun" : "moon");
-
-        themeButton.setAttribute(
-          "aria-pressed",
-          String(dark)
-        );
+        themeButton.setAttribute("aria-pressed", String(dark));
 
         themeButton.setAttribute(
           "aria-label",
-          dark
-            ? "Switch to light mode"
-            : "Switch to dark mode"
+          dark ? "Switch to light mode" : "Switch to dark mode"
         );
+
+        document.querySelector('meta[name="theme-color"]').content =
+          dark ? "#101827" : "#f4f8ff";
       }
 
       applyTheme(
@@ -1564,7 +1823,6 @@
           !document.documentElement.classList.contains("dark");
 
         selectedTheme = dark ? "dark" : "light";
-
         applyTheme(dark);
 
         try {
@@ -1580,6 +1838,7 @@
           applyTheme(event.matches);
         }
       });
+
     })();
   </script>
 </body>

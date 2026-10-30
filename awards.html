@@ -11,9 +11,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
     rel="stylesheet"
   />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
 
   <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 
@@ -30,17 +31,9 @@
     }
 
     @layer base {
-      html {
-        color-scheme: light;
-      }
-
-      html.dark {
-        color-scheme: dark;
-      }
-
-      [hidden] {
-        display: none !important;
-      }
+      html { color-scheme: light; }
+      html.dark { color-scheme: dark; }
+      [hidden] { display: none !important; }
 
       a,
       button,
@@ -65,13 +58,12 @@
       }
     }
 
-    /* Scroll Reveal Animation Styles */
     .reveal-item {
       opacity: 0;
       transform: translateY(35px);
       transition:
-        opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
-        transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        opacity .6s cubic-bezier(.16, 1, .3, 1),
+        transform .6s cubic-bezier(.16, 1, .3, 1);
       will-change: opacity, transform;
     }
 
@@ -80,12 +72,9 @@
       transform: translateY(0);
     }
 
-    /* Modal Animation Styles */
     #detail-modal,
     #lightbox-modal {
-      transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease;
+      transition: opacity .3s ease, visibility .3s ease;
     }
 
     #detail-modal[aria-hidden="true"],
@@ -105,9 +94,9 @@
     #detail-modal .modal-content,
     #lightbox-modal .lightbox-content {
       transition:
-        transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-        opacity 0.3s ease;
-      transform: scale(0.92) translateY(15px);
+        transform .3s cubic-bezier(.16, 1, .3, 1),
+        opacity .3s ease;
+      transform: scale(.92) translateY(15px);
       opacity: 0;
     }
 
@@ -115,30 +104,6 @@
     #lightbox-modal[aria-hidden="false"] .lightbox-content {
       transform: scale(1) translateY(0);
       opacity: 1;
-    }
-
-    #achievement-chevron {
-      transition: transform 260ms cubic-bezier(.2, .75, .2, 1);
-    }
-
-    #achievement-menu[data-open="true"] #achievement-chevron {
-      transform: rotate(180deg);
-    }
-
-    .achievement-dropdown {
-      opacity: 0;
-      transform: translate3d(0, -8px, 0) scale(.97);
-      pointer-events: none;
-      transform-origin: top left;
-      transition:
-        opacity 200ms ease,
-        transform 200ms cubic-bezier(.2, .75, .2, 1);
-    }
-
-    #achievement-menu[data-open="true"] .achievement-dropdown {
-      opacity: 1;
-      transform: none;
-      pointer-events: auto;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -194,13 +159,13 @@
       font-size: 12px;
       line-height: 16px;
       font-weight: 600;
-      letter-spacing: 0.05em;
+      letter-spacing: .05em;
       color: #556987;
-      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
     }
 
     .awards-main h1 {
-      margin: 18px 0 18px;
+      margin: 18px 0;
       font-size: clamp(28px, 3.5vw, 44px);
       font-weight: 600;
       letter-spacing: -1.2px;
@@ -221,44 +186,41 @@
       margin-top: 32px;
     }
 
-    /* Card Styling dengan Hover Background Dynamic Effect */
     .award-card {
       position: relative;
       overflow: hidden;
       border: 1px solid #d9e5f5;
       border-radius: 24px;
       background: linear-gradient(145deg, #ffffff, #f0f7ff);
-      box-shadow: 0 10px 25px -15px rgba(36, 56, 85, 0.1);
+      box-shadow: 0 10px 25px -15px rgba(36, 56, 85, .1);
       transition:
-        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        border-color 0.4s ease;
+        transform .4s cubic-bezier(.16, 1, .3, 1),
+        box-shadow .4s cubic-bezier(.16, 1, .3, 1),
+        border-color .4s ease;
       will-change: transform;
       z-index: 1;
     }
 
-    /* Layer Latar Belakang Baru untuk Efek Gradient Animasi */
     .award-card::before {
       content: "";
       position: absolute;
       inset: 0;
       background: linear-gradient(
         135deg,
-        rgba(0, 189, 182, 0.12) 0%,
-        rgba(16, 189, 215, 0.05) 50%,
-        rgba(226, 102, 131, 0.08) 100%
+        rgba(0, 189, 182, .12) 0%,
+        rgba(16, 189, 215, .05) 50%,
+        rgba(226, 102, 131, .08) 100%
       );
       opacity: 0;
-      transition: opacity 0.4s ease;
+      transition: opacity .4s ease;
       z-index: -1;
     }
 
-    /* Hover State Card & Background Shift */
     .award-card:hover {
       transform: translateY(-8px);
       box-shadow:
-        0 22px 40px -15px rgba(0, 189, 182, 0.22),
-        0 12px 20px -10px rgba(36, 56, 85, 0.1);
+        0 22px 40px -15px rgba(0, 189, 182, .22),
+        0 12px 20px -10px rgba(36, 56, 85, .1);
       border-color: #00bdb6;
     }
 
@@ -281,14 +243,13 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform .8s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: transform .8s cubic-bezier(.22, 1, .36, 1);
     }
 
     .award-card:hover .award-image img {
       transform: scale(1.07);
     }
 
-    /* Efek Tombol saat Card di-hover (dihapus) */
     .award-body {
       padding: 24px;
       display: flex;
@@ -380,11 +341,11 @@
       border: 1px solid #d9e5f5;
       border-radius: 24px;
       background: linear-gradient(145deg, #ffffff, #f0f7ff);
-      box-shadow: 0 10px 25px -15px rgba(36, 56, 85, 0.1);
+      box-shadow: 0 10px 25px -15px rgba(36, 56, 85, .1);
       transition:
-        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-        border-color 0.4s ease;
+        transform .4s cubic-bezier(.16, 1, .3, 1),
+        box-shadow .4s cubic-bezier(.16, 1, .3, 1),
+        border-color .4s ease;
       will-change: transform;
       position: relative;
       overflow: hidden;
@@ -397,20 +358,20 @@
       inset: 0;
       background: linear-gradient(
         135deg,
-        rgba(0, 189, 182, 0.12) 0%,
-        rgba(16, 189, 215, 0.05) 50%,
-        rgba(226, 102, 131, 0.08) 100%
+        rgba(0, 189, 182, .12) 0%,
+        rgba(16, 189, 215, .05) 50%,
+        rgba(226, 102, 131, .08) 100%
       );
       opacity: 0;
-      transition: opacity 0.4s ease;
+      transition: opacity .4s ease;
       z-index: -1;
     }
 
     .awards-cta:hover {
       transform: translateY(-8px);
       box-shadow:
-        0 22px 40px -15px rgba(0, 189, 182, 0.22),
-        0 12px 20px -10px rgba(36, 56, 85, 0.1);
+        0 22px 40px -15px rgba(0, 189, 182, .22),
+        0 12px 20px -10px rgba(36, 56, 85, .1);
       border-color: #00bdb6;
     }
 
@@ -489,7 +450,7 @@
       border-radius: 50%;
       background: #f4f8ff;
       color: #637188;
-      transition: all 0.25s ease;
+      transition: all .25s ease;
     }
 
     .close-award:hover {
@@ -497,7 +458,7 @@
       color: #ffffff;
       border-color: #00bdb6;
       transform: scale(1.05);
-      box-shadow: 0 4px 12px rgba(0, 189, 182, 0.25);
+      box-shadow: 0 4px 12px rgba(0, 189, 182, .25);
     }
 
     .award-dialog-body {
@@ -538,7 +499,6 @@
       object-fit: contain;
     }
 
-    /* Dark Mode Support untuk Dynamic Card Background */
     .dark .award-card {
       background: linear-gradient(145deg, #172337, #131c2c);
       border-color: #2b3c54;
@@ -547,9 +507,9 @@
     .dark .award-card::before {
       background: linear-gradient(
         135deg,
-        rgba(0, 189, 182, 0.15) 0%,
-        rgba(16, 189, 215, 0.08) 50%,
-        rgba(226, 102, 131, 0.1) 100%
+        rgba(0, 189, 182, .15) 0%,
+        rgba(16, 189, 215, .08) 50%,
+        rgba(226, 102, 131, .1) 100%
       );
     }
 
@@ -571,7 +531,7 @@
       border-color: #00bdb6;
       color: #ffffff;
       transform: scale(1.05);
-      box-shadow: 0 4px 12px rgba(0, 189, 182, 0.35);
+      box-shadow: 0 4px 12px rgba(0, 189, 182, .35);
     }
 
     .dark .zoom-image-wrap,
@@ -758,75 +718,294 @@
   </style>
 
   <style>
-    .award-gallery{position:relative}
-    .gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:42px;height:42px;display:grid;place-items:center;border:1px solid #d0dded;border-radius:50%;background:#ffffffeb;color:#172337;font-size:29px;line-height:1;box-shadow:0 3px 12px #17233722;cursor:pointer}
-    .gallery-arrow:hover{background:#00bdb6;color:#fff;border-color:#00bdb6}
-    .gallery-prev{left:12px}
-    .gallery-next{right:12px}
-    .award-thumbnails{display:flex;gap:10px;overflow-x:auto;margin-top:14px;padding:3px 0 7px}
-    .award-thumbnails button{flex:0 0 94px;padding:3px;border:2px solid transparent;border-radius:10px;background:#e6edf6;overflow:hidden}
-    .award-thumbnails img{width:100%;height:58px;object-fit:contain;background:#fff}
-    .award-thumbnails button[aria-pressed="true"]{border-color:#00bdb6;background:#d7f7f3}
-    .dark .gallery-arrow{background:#1e2d42e8;color:#eff5ff;border-color:#34455d}
-    .dark .award-thumbnails button{background:#1e2d42}
+    .award-gallery {
+      position: relative;
+    }
 
-    @media(max-width:580px){
-      .gallery-arrow{width:36px;height:36px}
-      .gallery-prev{left:7px}
-      .gallery-next{right:7px}
+    .gallery-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #d0dded;
+      border-radius: 50%;
+      background: #ffffffeb;
+      color: #172337;
+      font-size: 29px;
+      line-height: 1;
+      box-shadow: 0 3px 12px #17233722;
+      cursor: pointer;
+    }
+
+    .gallery-arrow:hover {
+      background: #00bdb6;
+      color: #fff;
+      border-color: #00bdb6;
+    }
+
+    .gallery-prev { left: 12px; }
+    .gallery-next { right: 12px; }
+
+    .award-thumbnails {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      margin-top: 14px;
+      padding: 3px 0 7px;
+    }
+
+    .award-thumbnails button {
+      flex: 0 0 94px;
+      padding: 3px;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      background: #e6edf6;
+      overflow: hidden;
+    }
+
+    .award-thumbnails img {
+      width: 100%;
+      height: 58px;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .award-thumbnails button[aria-pressed="true"] {
+      border-color: #00bdb6;
+      background: #d7f7f3;
+    }
+
+    .dark .gallery-arrow {
+      background: #1e2d42e8;
+      color: #eff5ff;
+      border-color: #34455d;
+    }
+
+    .dark .award-thumbnails button {
+      background: #1e2d42;
+    }
+
+    @media (max-width: 580px) {
+      .gallery-arrow {
+        width: 36px;
+        height: 36px;
+      }
+
+      .gallery-prev { left: 7px; }
+      .gallery-next { right: 7px; }
     }
   </style>
 
   <style>
-    /* Zoom gallery */
-    #award-zoom{width:min(1440px,calc(100% - 32px));background:#fff}
-    #award-zoom .award-dialog-panel{padding:28px 30px 30px}
-    #award-zoom .award-dialog-header{align-items:center;padding:0 0 20px;gap:20px}
-    #award-zoom .award-dialog-header h2{font-size:20px;font-weight:500;letter-spacing:-.4px}
-    #award-zoom .close-award{width:44px;height:44px;background:#fff;box-shadow:none;transform:none}
-    #award-zoom .close-award:hover{background:#00bdb6;color:#fff;border-color:#00bdb6}
-    #award-zoom .zoom-image-wrap{padding:0;border:1px solid #d9e5f5;border-radius:20px;overflow:hidden;background:#f0f4f8;box-shadow:none;transform:none}
-    #award-zoom #zoom-image{display:block;width:100%;height:clamp(120px,calc(94dvh - 238px),680px);object-fit:contain}
-    #award-zoom .gallery-arrow{width:50px;height:50px;background:#ffffffeb;box-shadow:none}
-    #award-zoom .gallery-arrow:hover{background:#00bdb6;color:#fff}
-    #award-zoom .gallery-prev{left:15px}
-    #award-zoom .gallery-next{right:15px}
-    #award-zoom .award-image-counter{right:15px;bottom:15px;padding:5px 14px;border:1px solid #d0dfef;background:#ffffffeb;font-size:14px;line-height:1.4}
-    #zoom-award-thumbnails{gap:10px;margin-top:20px;padding:0 0 4px}
-    #zoom-award-thumbnails button{flex:0 0 160px;height:102px;padding:3px;border:1px solid #d0dfef;border-radius:15px;background:#fff;cursor:pointer}
-    #zoom-award-thumbnails button[aria-pressed="true"]{border-color:#00bdb6;box-shadow:inset 0 0 0 1px #00bdb6}
-    #zoom-award-thumbnails img{width:100%;height:100%;object-fit:contain;border-radius:11px;background:#fff}
+    #award-zoom {
+      width: min(1440px, calc(100% - 32px));
+      background: #fff;
+    }
 
-    .dark #award-zoom{background:#172337}
-    .dark #award-zoom .zoom-image-wrap{background:#101827;border-color:#34455d}
+    #award-zoom .award-dialog-panel {
+      padding: 28px 30px 30px;
+    }
+
+    #award-zoom .award-dialog-header {
+      align-items: center;
+      padding: 0 0 20px;
+      gap: 20px;
+    }
+
+    #award-zoom .award-dialog-header h2 {
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: -.4px;
+    }
+
+    #award-zoom .close-award {
+      width: 44px;
+      height: 44px;
+      background: #fff;
+      box-shadow: none;
+      transform: none;
+    }
+
+    #award-zoom .close-award:hover {
+      background: #00bdb6;
+      color: #fff;
+      border-color: #00bdb6;
+    }
+
+    #award-zoom .zoom-image-wrap {
+      padding: 0;
+      border: 1px solid #d9e5f5;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #f0f4f8;
+      box-shadow: none;
+      transform: none;
+    }
+
+    #award-zoom #zoom-image {
+      display: block;
+      width: 100%;
+      height: clamp(120px, calc(94dvh - 238px), 680px);
+      object-fit: contain;
+    }
+
+    #award-zoom .gallery-arrow {
+      width: 50px;
+      height: 50px;
+      background: #ffffffeb;
+      box-shadow: none;
+    }
+
+    #award-zoom .gallery-arrow:hover {
+      background: #00bdb6;
+      color: #fff;
+    }
+
+    #award-zoom .gallery-prev { left: 15px; }
+    #award-zoom .gallery-next { right: 15px; }
+
+    #award-zoom .award-image-counter {
+      right: 15px;
+      bottom: 15px;
+      padding: 5px 14px;
+      border: 1px solid #d0dfef;
+      background: #ffffffeb;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    #zoom-award-thumbnails {
+      gap: 10px;
+      margin-top: 20px;
+      padding: 0 0 4px;
+    }
+
+    #zoom-award-thumbnails button {
+      flex: 0 0 160px;
+      height: 102px;
+      padding: 3px;
+      border: 1px solid #d0dfef;
+      border-radius: 15px;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    #zoom-award-thumbnails button[aria-pressed="true"] {
+      border-color: #00bdb6;
+      box-shadow: inset 0 0 0 1px #00bdb6;
+    }
+
+    #zoom-award-thumbnails img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 11px;
+      background: #fff;
+    }
+
+    .dark #award-zoom {
+      background: #172337;
+    }
+
+    .dark #award-zoom .zoom-image-wrap {
+      background: #101827;
+      border-color: #34455d;
+    }
+
     .dark #award-zoom .close-award,
     .dark #award-zoom .gallery-arrow,
-    .dark #award-zoom .award-image-counter{background:#1e2d42;color:#eff5ff;border-color:#34455d}
-    .dark #award-zoom .close-award:hover,
-    .dark #award-zoom .gallery-arrow:hover{background:#00bdb6;border-color:#00bdb6;color:#fff}
-    .dark #zoom-award-thumbnails button{background:#1e2d42;border-color:#34455d}
-    .dark #zoom-award-thumbnails button[aria-pressed="true"]{border-color:#00bdb6}
+    .dark #award-zoom .award-image-counter {
+      background: #1e2d42;
+      color: #eff5ff;
+      border-color: #34455d;
+    }
 
-    @media(max-width:580px){
-      #award-zoom{width:calc(100% - 20px);border-radius:22px}
-      #award-zoom .award-dialog-panel{padding:18px 14px 18px}
-      #award-zoom .award-dialog-header{padding-bottom:16px;gap:12px}
-      #award-zoom .award-dialog-header h2{font-size:16px;letter-spacing:-.2px}
-      #award-zoom .close-award{width:36px;height:36px}
-      #award-zoom .zoom-image-wrap{border-radius:14px}
-      #award-zoom #zoom-image{height:clamp(120px,calc(94dvh - 210px),600px)}
-      #award-zoom .gallery-arrow{width:36px;height:36px}
-      #award-zoom .gallery-prev{left:7px}
-      #award-zoom .gallery-next{right:7px}
-      #award-zoom .award-image-counter{right:10px;bottom:10px;padding:4px 10px;font-size:12px}
-      #zoom-award-thumbnails{margin-top:14px;gap:8px}
-      #zoom-award-thumbnails button{flex-basis:100px;height:66px;border-radius:10px}
-      #zoom-award-thumbnails img{border-radius:7px}
+    .dark #award-zoom .close-award:hover,
+    .dark #award-zoom .gallery-arrow:hover {
+      background: #00bdb6;
+      border-color: #00bdb6;
+      color: #fff;
+    }
+
+    .dark #zoom-award-thumbnails button {
+      background: #1e2d42;
+      border-color: #34455d;
+    }
+
+    .dark #zoom-award-thumbnails button[aria-pressed="true"] {
+      border-color: #00bdb6;
+    }
+
+    @media (max-width: 580px) {
+      #award-zoom {
+        width: calc(100% - 20px);
+        border-radius: 22px;
+      }
+
+      #award-zoom .award-dialog-panel {
+        padding: 18px 14px;
+      }
+
+      #award-zoom .award-dialog-header {
+        padding-bottom: 16px;
+        gap: 12px;
+      }
+
+      #award-zoom .award-dialog-header h2 {
+        font-size: 16px;
+        letter-spacing: -.2px;
+      }
+
+      #award-zoom .close-award {
+        width: 36px;
+        height: 36px;
+      }
+
+      #award-zoom .zoom-image-wrap {
+        border-radius: 14px;
+      }
+
+      #award-zoom #zoom-image {
+        height: clamp(120px, calc(94dvh - 210px), 600px);
+      }
+
+      #award-zoom .gallery-arrow {
+        width: 36px;
+        height: 36px;
+      }
+
+      #award-zoom .gallery-prev { left: 7px; }
+      #award-zoom .gallery-next { right: 7px; }
+
+      #award-zoom .award-image-counter {
+        right: 10px;
+        bottom: 10px;
+        padding: 4px 10px;
+        font-size: 12px;
+      }
+
+      #zoom-award-thumbnails {
+        margin-top: 14px;
+        gap: 8px;
+      }
+
+      #zoom-award-thumbnails button {
+        flex-basis: 100px;
+        height: 66px;
+        border-radius: 10px;
+      }
+
+      #zoom-award-thumbnails img {
+        border-radius: 7px;
+      }
     }
   </style>
 
   <style>
-    /* Close button */
     #award-dialog .close-award,
     #award-zoom .close-award,
     .dark #award-dialog .close-award,
@@ -836,7 +1015,7 @@
       border-color: #d9e5f5;
       transform: scale(1);
       box-shadow: none;
-      transition: all 0.25s ease;
+      transition: all .25s ease;
     }
 
     #award-dialog .close-award:hover,
@@ -845,7 +1024,7 @@
       color: #ffffff;
       border-color: #00bdb6;
       transform: scale(1.05);
-      box-shadow: 0 4px 12px rgba(0, 189, 182, 0.25);
+      box-shadow: 0 4px 12px rgba(0, 189, 182, .25);
     }
 
     .dark #award-dialog .close-award:hover,
@@ -854,7 +1033,7 @@
       color: #ffffff;
       border-color: #00bdb6;
       transform: scale(1.05);
-      box-shadow: 0 4px 12px rgba(0, 189, 182, 0.35);
+      box-shadow: 0 4px 12px rgba(0, 189, 182, .35);
     }
 
     .dark #theme-button:hover {
@@ -867,19 +1046,121 @@
       border-color: #00bdb6;
     }
   </style>
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
+
+  <!-- Navbar mengikuti halaman About -->
+  <style>
+    .dark #achievement-dropdown {
+      border-color: #34455d;
+    }
+
+    #navigation > a:hover,
+    #navigation > a:focus-visible,
+    #achievement-trigger:hover,
+    #achievement-trigger:focus-visible,
+    #achievement-dropdown > a:hover,
+    #achievement-dropdown > a:focus-visible {
+      background-color: #caefed;
+      color: #087f7c;
+    }
+
+    #navigation > a[aria-current="page"]:hover,
+    #navigation > a[aria-current="page"]:focus-visible,
+    #achievement-trigger[data-active-page="true"]:hover,
+    #achievement-trigger[data-active-page="true"]:focus-visible,
+    #achievement-dropdown > a[aria-current="page"]:hover,
+    #achievement-dropdown > a[aria-current="page"]:focus-visible {
+      background-color: #b7e6e3;
+      color: #066c69;
+    }
+
+    .dark #navigation > a:hover,
+    .dark #navigation > a:focus-visible,
+    .dark #achievement-trigger:hover,
+    .dark #achievement-trigger:focus-visible,
+    .dark #achievement-dropdown > a:hover,
+    .dark #achievement-dropdown > a:focus-visible {
+      background-color: #24374d;
+      color: #ffffff;
+    }
+
+    #theme-button:hover {
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+    .dark #theme-button:hover {
+      color: #ffffff;
+      background: color-mix(in oklab, #19273c 80%, transparent);
+    }
+
+    .dark #menu-button:hover {
+      color: #ffffff;
+    }
+
+    @media (hover: hover) {
+      #menu-button:hover {
+        color: #1e293b;
+        border-color: #00bdb6;
+      }
+
+      .dark #menu-button:hover {
+        color: #ffffff;
+      }
+    }
+
+    #achievement-chevron {
+      transition: transform .26s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    #achievement-menu[data-open="true"] #achievement-chevron {
+      transform: rotate(180deg);
+    }
+
+    .achievement-dropdown {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-8px) scale(.97);
+      pointer-events: none;
+      transform-origin: top left;
+      transition:
+        opacity .2s ease,
+        transform .2s cubic-bezier(.16, 1, .3, 1),
+        visibility .2s;
+    }
+
+    #achievement-menu[data-open="true"] .achievement-dropdown {
+      visibility: visible;
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #header *,
+      #header *::before,
+      #header *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+
+      #theme-button,
+      #menu-button {
+        transform: none !important;
+      }
+    }
+  </style>
 </head>
 
 <body
   class="relative m-0 bg-[radial-gradient(circle_at_top_left,_var(--color-accent),_transparent_60%),radial-gradient(circle_at_bottom_right,_var(--color-accent),_transparent_60%)] bg-white font-sans text-[#121b2e] antialiased dark:bg-[#101827] dark:text-[#eff5ff]"
-  style="--color-accent: rgba(0, 189, 182, 0.3);"
+  style="--color-accent: rgba(0, 189, 182, .3);"
 >
-  <!-- BACKGROUND PATTERN (DIAGONAL ELEGANT LINES) -->
+  <!-- Background -->
   <div
     class="pointer-events-none fixed inset-0 z-0 bg-[repeating-linear-gradient(135deg,rgba(0,189,182,0.08)_0,rgba(0,189,182,0.08)_1px,transparent_1px,transparent_28px)] dark:bg-[repeating-linear-gradient(135deg,rgba(0,189,182,0.12)_0,rgba(0,189,182,0.12)_1px,transparent_1px,transparent_28px)]"
   ></div>
 
-  <!-- NAVBAR -->
+  <!-- Navbar -->
   <header
     id="header"
     class="fixed inset-x-0 top-2.5 z-50 px-2.5 sm:px-4 lg:top-4 lg:px-6"
@@ -894,6 +1175,7 @@
         border border-transparent px-3 py-2.5
         transition-[background-color,border-color,box-shadow] duration-300
         lg:min-h-20 lg:px-[18px] xl:gap-7
+
         hover:border-[#00bdb6]/70
         hover:bg-gradient-to-r
         hover:from-[#00bdb6]/25
@@ -901,6 +1183,7 @@
         hover:to-[#00bdb6]/25
         hover:shadow-[0_10px_35px_rgba(0,189,182,0.22)]
         hover:backdrop-blur-xl
+
         data-[scrolled=true]:border-[#00bdb6]/70
         data-[scrolled=true]:bg-gradient-to-r
         data-[scrolled=true]:from-[#00bdb6]/25
@@ -908,6 +1191,7 @@
         data-[scrolled=true]:to-[#00bdb6]/25
         data-[scrolled=true]:shadow-[0_10px_35px_rgba(0,189,182,0.22)]
         data-[scrolled=true]:backdrop-blur-xl
+
         dark:hover:border-[#00bdb6]/70
         dark:hover:bg-gradient-to-r
         dark:hover:from-[#00bdb6]/25
@@ -915,6 +1199,7 @@
         dark:hover:to-[#00bdb6]/25
         dark:hover:shadow-[0_0_40px_rgba(0,189,182,0.3)]
         dark:hover:backdrop-blur-xl
+
         dark:data-[scrolled=true]:border-[#00bdb6]/70
         dark:data-[scrolled=true]:bg-gradient-to-r
         dark:data-[scrolled=true]:from-[#00bdb6]/25
@@ -928,16 +1213,37 @@
         href="index.html"
         class="group inline-flex shrink-0 items-center gap-[9px] sm:gap-[13px]"
       >
-        <span class="grid h-[42px] w-[39px] place-items-center rounded-[14px] border border-[#a7efea] bg-white shadow-[0_8px_15px_rgba(0,191,183,.14)] transition-transform group-hover:-rotate-3 sm:size-12 sm:rounded-[17px] dark:border-[#00bdb6]/50 dark:bg-[#172837]">
-          <span class="bg-gradient-to-r from-[#10bdd7] via-[#e26683] to-[#f2b62b] bg-clip-text text-base font-extrabold tracking-[-1px] text-transparent">
+        <span
+          class="
+            grid h-[42px] w-[39px] place-items-center rounded-[14px]
+            border border-[#a7efea] bg-white
+            shadow-[0_8px_15px_rgba(0,191,183,.14)]
+            transition-transform group-hover:-rotate-3
+            sm:size-12 sm:rounded-[17px]
+            dark:border-[#00bdb6]/50 dark:bg-[#172837]
+          "
+        >
+          <span
+            class="
+              bg-gradient-to-r from-[#10bdd7] via-[#e26683] to-[#f2b62b]
+              bg-clip-text text-base font-extrabold tracking-[-1px]
+              text-transparent
+            "
+          >
             ASR
           </span>
         </span>
 
         <span class="grid gap-1">
-          <strong class="whitespace-nowrap text-[11px] font-semibold sm:text-sm lg:text-xs xl:text-sm">
+          <strong
+            class="
+              whitespace-nowrap text-[11px] font-semibold
+              sm:text-sm lg:text-xs xl:text-sm
+            "
+          >
             Adi Sahrul Ramadhan
           </strong>
+
           <small class="text-[10px] text-muted sm:text-xs dark:text-[#a8b8cc]">
             Portfolio
           </small>
@@ -953,9 +1259,11 @@
           rounded-[20px] border border-line bg-[#f6fbff]/95 p-[15px]
           shadow-lg backdrop-blur-xl data-[open=true]:flex
           dark:border-[#2b3c54] dark:bg-[#121e30]/95
+
           lg:static lg:flex lg:flex-1 lg:flex-nowrap lg:justify-center
           lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0
           lg:shadow-none lg:backdrop-blur-none dark:lg:bg-transparent
+
           [&>a]:inline-flex [&>a]:items-center
           [&>a]:whitespace-nowrap [&>a]:rounded-full
           [&>a]:px-[14px] [&>a]:py-[11px] [&>a]:text-sm
@@ -966,44 +1274,47 @@
       >
         <a
           href="index.html"
-          class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
         >
           Home
         </a>
 
         <a
           href="about.html"
-          class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
         >
           About
         </a>
 
         <a
           href="experience.html"
-          class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
         >
           Experience
         </a>
 
         <a
           href="projects.html"
-          class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
         >
           Projects
         </a>
 
-        <div
-          id="achievement-menu"
-          data-open="false"
-          class="relative"
-        >
+        <div id="achievement-menu" data-open="false" class="relative">
           <button
             type="button"
             id="achievement-trigger"
+            data-active-page="true"
             aria-haspopup="menu"
             aria-expanded="false"
             aria-controls="achievement-dropdown"
-            class="inline-flex items-center gap-2 whitespace-nowrap rounded-full bg-[#00bdb6]/20 px-[14px] py-[11px] text-sm font-bold text-[#008f8a] shadow-sm transition-colors lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm dark:bg-[#00bdb6]/30 dark:text-[#33d1cb]"
+            class="
+              inline-flex items-center gap-2 whitespace-nowrap rounded-full
+              bg-[#00bdb6]/20 px-[14px] py-[11px]
+              text-sm font-bold text-[#008f8a] shadow-sm transition-colors
+              lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm
+              dark:bg-[#00bdb6]/30 dark:text-[#33d1cb]
+            "
           >
             Achievements
 
@@ -1025,46 +1336,80 @@
             id="achievement-dropdown"
             role="menu"
             aria-hidden="true"
-            class="achievement-dropdown absolute left-0 top-full z-20 mt-2 grid min-w-44 gap-1 rounded-2xl border border-line bg-white p-2 shadow-lg dark:border-[#34455d] dark:bg-[#172337]"
+            inert
+            class="
+              achievement-dropdown absolute left-0 top-full z-20 mt-2
+              grid min-w-44 gap-1 rounded-2xl border border-line
+              bg-white p-2 shadow-lg
+              dark:border-[#34455d] dark:bg-[#172337]
+            "
           >
             <a
               href="awards.html"
               role="menuitem"
               aria-current="page"
-              class="flex items-center justify-between gap-3 rounded-xl bg-[#00bdb6]/20 px-4 py-3 text-sm font-bold text-[#008f8a] shadow-sm transition-colors dark:bg-[#00bdb6]/30 dark:text-[#33d1cb]"
+              class="
+                flex items-center justify-between gap-3 rounded-xl
+                bg-[#00bdb6]/20 px-4 py-3
+                text-sm font-bold text-[#008f8a] shadow-sm transition-colors
+                dark:bg-[#00bdb6]/30 dark:text-[#33d1cb]
+              "
             >
               <span>Awards</span>
-              <span class="inline-flex size-[22px] shrink-0 items-center justify-center rounded-full bg-[#dc2626] text-[10px] font-bold leading-none text-white">2</span>
+
+              <span
+                class="
+                  inline-flex size-[22px] shrink-0 items-center justify-center
+                  rounded-full bg-[#dc2626]
+                  text-[10px] font-bold leading-none text-white
+                "
+              >
+                2
+              </span>
             </a>
 
             <a
               href="certificates.html"
               role="menuitem"
-              class="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm transition-colors  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+              class="
+                flex items-center justify-between gap-3 rounded-xl
+                px-4 py-3 text-sm transition-colors hover:text-[#1e293b]
+                dark:text-[#a8b8cc]
+                dark:hover:bg-[#1e293b] dark:hover:text-white
+              "
             >
               <span>Certificates</span>
-              <span class="inline-flex size-[22px] shrink-0 items-center justify-center rounded-full bg-[#dc2626] text-[10px] font-bold leading-none text-white">28</span>
+
+              <span
+                class="
+                  inline-flex size-[22px] shrink-0 items-center justify-center
+                  rounded-full bg-[#dc2626]
+                  text-[10px] font-bold leading-none text-white
+                "
+              >
+                28
+              </span>
             </a>
           </div>
         </div>
 
         <a
           href="blog.html"
-          class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
         >
           Blog
         </a>
 
         <a
           href="skills.html"
-          class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
         >
           Skills
         </a>
 
         <a
           href="contact.html"
-          class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
         >
           Contact
         </a>
@@ -1077,7 +1422,13 @@
           aria-label="Open menu"
           aria-controls="navigation"
           aria-expanded="false"
-          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:scale-105  hover:text-[#1e293b] sm:size-[45px] lg:hidden dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+          class="
+            grid size-[37px] shrink-0 place-items-center rounded-full
+            border border-line bg-white/70 transition-colors
+            hover:border-accent hover:scale-105 hover:text-[#1e293b]
+            sm:size-[45px] lg:hidden
+            dark:border-[#2b3c54] dark:bg-[#19273c]/80
+          "
         >
           <svg
             width="22"
@@ -1097,7 +1448,13 @@
           id="theme-button"
           type="button"
           aria-label="Switch to dark mode"
-          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-all hover:rotate-12 hover:border-accent hover:scale-105  hover:text-[#1e293b] active:scale-95 sm:size-[45px] dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+          class="
+            grid size-[37px] shrink-0 place-items-center rounded-full
+            border border-line bg-white/70 transition-all
+            hover:rotate-12 hover:scale-105 hover:text-[#1e293b]
+            active:scale-95 sm:size-[45px]
+            dark:border-[#2b3c54] dark:bg-[#19273c]/80
+          "
         >
           <svg
             width="22"
@@ -1156,9 +1513,7 @@
               Menjadi bagian dari penerima Beasiswa Pemuda Tangguh Surabaya yang diamanahi langsung oleh Dinas Pendidikan Kota Surabaya sebagai tutor mengajar dan mengaji adalah sebuah perjalanan yang melatih mental sekaligus menyentuh hati. Setiap minggunya, saya melangkah dari balai ke balai di wilayah kecamatan untuk menyebarkan ilmu bagi generasi muda lintas usia mulai dari anak-anak TK hingga dinamika remaja SMA/SMK. Pengabdian ini bukan sekadar tugas formalitas, melainkan ruang bagi saya untuk membagikan ilmu akademik dan nilai keagamaan, bertumbuh bersama masyarakat, serta berkontribusi nyata dalam mencetak Arek-Arek Suroboyo yang cerdas, berkarakter, dan berakhlak mulia langsung dari akar rumput.
             </p>
 
-            <p class="award-date">
-              September 2025
-            </p>
+            <p class="award-date">September 2025</p>
 
             <button
               type="button"
@@ -1198,9 +1553,7 @@
               Menjadi bagian dari penerima Beasiswa Pemuda Tangguh Surabaya yang diamanahi langsung oleh Dinas Pendidikan Kota Surabaya sebagai tutor mengajar dan mengaji adalah sebuah perjalanan yang melatih mental sekaligus menyentuh hati. Setiap minggunya, saya melangkah dari balai ke balai di wilayah kecamatan untuk menyebarkan ilmu bagi generasi muda lintas usia mulai dari anak-anak TK hingga dinamika remaja SMA/SMK. Pengabdian ini bukan sekadar tugas formalitas, melainkan ruang bagi saya untuk membagikan ilmu akademik dan nilai keagamaan, bertumbuh bersama masyarakat, serta berkontribusi nyata dalam mencetak Arek-Arek Suroboyo yang cerdas, berkarakter, dan berakhlak mulia langsung dari akar rumput.
             </p>
 
-            <p class="award-date">
-              Januari 2024
-            </p>
+            <p class="award-date">Januari 2024</p>
 
             <button
               type="button"
@@ -1238,6 +1591,7 @@
     </section>
   </main>
 
+  <!-- Detail award -->
   <dialog id="award-dialog" aria-labelledby="award-title">
     <div class="award-dialog-panel">
       <header class="award-dialog-header">
@@ -1280,8 +1634,18 @@
             class="gallery-arrow gallery-prev"
             aria-label="Previous award image"
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M19 12H5m7 7-7-7 7-7"/>
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M19 12H5m7 7-7-7 7-7" />
             </svg>
           </button>
 
@@ -1291,8 +1655,18 @@
             class="gallery-arrow gallery-next"
             aria-label="Next award image"
           >
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M5 12h14m-7-7 7 7-7 7"/>
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M5 12h14m-7-7 7 7-7 7" />
             </svg>
           </button>
         </div>
@@ -1309,7 +1683,7 @@
     </div>
   </dialog>
 
-  <!-- AWARD ZOOM -->
+  <!-- Zoom award -->
   <dialog id="award-zoom" aria-labelledby="zoom-title">
     <div class="award-dialog-panel">
       <header class="award-dialog-header">
@@ -1321,8 +1695,17 @@
           id="close-zoom"
           aria-label="Close image zoom"
         >
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
-            <path d="m6 6 12 12M18 6 6 18"/>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            aria-hidden="true"
+          >
+            <path d="m6 6 12 12M18 6 6 18" />
           </svg>
         </button>
       </header>
@@ -1336,8 +1719,18 @@
           class="gallery-arrow gallery-prev"
           aria-label="Previous award image"
         >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M19 12H5m7 7-7-7 7-7"/>
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M19 12H5m7 7-7-7 7-7" />
           </svg>
         </button>
 
@@ -1347,8 +1740,18 @@
           class="gallery-arrow gallery-next"
           aria-label="Next award image"
         >
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M5 12h14m-7-7 7 7-7 7"/>
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M5 12h14m-7-7 7 7-7 7" />
           </svg>
         </button>
 
@@ -1369,7 +1772,7 @@
     </div>
   </dialog>
 
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer class="border-t border-line/70 py-12 sm:py-16 dark:border-[#2b3c54]">
     <div class="mx-auto w-[calc(100%-36px)] max-w-[1360px] sm:w-[calc(100%-64px)]">
       <div class="grid gap-10 md:grid-cols-[1.8fr_.75fr_1fr]">
@@ -1549,9 +1952,15 @@
       const navbar = document.getElementById("navbar");
       const navigation = document.getElementById("navigation");
       const menuButton = document.getElementById("menu-button");
-      const achievementMenu = document.getElementById("achievement-menu");
-      const achievementTrigger = document.getElementById("achievement-trigger");
-      const achievementDropdown = document.getElementById("achievement-dropdown");
+
+      const achievementMenu =
+        document.getElementById("achievement-menu");
+
+      const achievementTrigger =
+        document.getElementById("achievement-trigger");
+
+      const achievementDropdown =
+        document.getElementById("achievement-dropdown");
 
       function updateNavbarBackground() {
         navbar.dataset.scrolled = String(window.scrollY > 24);
@@ -1563,7 +1972,13 @@
 
       updateNavbarBackground();
 
+      let achievementOpenedByHover = false;
+
       function setAchievementMenu(open) {
+        if (!open) {
+          achievementOpenedByHover = false;
+        }
+
         achievementMenu.dataset.open = String(open);
 
         achievementTrigger.setAttribute(
@@ -1578,6 +1993,8 @@
 
         achievementDropdown.toggleAttribute("inert", !open);
       }
+
+      setAchievementMenu(false);
 
       function setMenu(open) {
         navigation.dataset.open = String(open);
@@ -1607,10 +2024,21 @@
         });
       });
 
-      achievementTrigger.addEventListener("click", () => {
-        setAchievementMenu(
-          achievementMenu.dataset.open !== "true"
-        );
+      achievementTrigger.addEventListener("click", event => {
+        const isOpen =
+          achievementMenu.dataset.open === "true";
+
+        if (
+          event.detail > 0 &&
+          achievementOpenedByHover &&
+          isOpen
+        ) {
+          achievementOpenedByHover = false;
+          return;
+        }
+
+        achievementOpenedByHover = false;
+        setAchievementMenu(!isOpen);
       });
 
       document.addEventListener("click", event => {
@@ -1623,19 +2051,24 @@
         }
       });
 
-      if (
-        matchMedia("(hover: hover) and (pointer: fine)").matches
-      ) {
+      if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
         let achievementCloseTimer = null;
 
         achievementMenu.addEventListener("mouseenter", () => {
           clearTimeout(achievementCloseTimer);
+
+          if (achievementMenu.dataset.open !== "true") {
+            achievementOpenedByHover = true;
+          }
+
           setAchievementMenu(true);
         });
 
         achievementMenu.addEventListener("mouseleave", () => {
           achievementCloseTimer = setTimeout(() => {
-            setAchievementMenu(false);
+            if (!achievementMenu.contains(document.activeElement)) {
+              setAchievementMenu(false);
+            }
           }, 150);
         });
       }
@@ -1663,8 +2096,56 @@
         }
       );
 
-      const themeButton = document.getElementById("theme-button");
-      const systemTheme = matchMedia("(prefers-color-scheme:dark)");
+      achievementTrigger.addEventListener("keydown", event => {
+        if (!["ArrowDown", "ArrowUp"].includes(event.key)) return;
+
+        event.preventDefault();
+        setAchievementMenu(true);
+
+        const links =
+          achievementDropdown.querySelectorAll("a");
+
+        links[
+          event.key === "ArrowUp" ? links.length - 1 : 0
+        ]?.focus();
+      });
+
+      achievementDropdown.addEventListener("keydown", event => {
+        const links = [
+          ...achievementDropdown.querySelectorAll("a")
+        ];
+
+        const index = links.indexOf(document.activeElement);
+        let next;
+
+        if (event.key === "ArrowDown") {
+          next = (index + 1) % links.length;
+        }
+
+        if (event.key === "ArrowUp") {
+          next = (index - 1 + links.length) % links.length;
+        }
+
+        if (event.key === "Home") next = 0;
+        if (event.key === "End") next = links.length - 1;
+
+        if (next !== undefined) {
+          event.preventDefault();
+          links[next].focus();
+        }
+      });
+
+      achievementMenu.addEventListener("focusout", event => {
+        if (!achievementMenu.contains(event.relatedTarget)) {
+          setAchievementMenu(false);
+        }
+      });
+
+      const themeButton =
+        document.getElementById("theme-button");
+
+      const systemTheme =
+        matchMedia("(prefers-color-scheme:dark)");
 
       let selectedTheme = null;
 
@@ -1674,19 +2155,17 @@
 
       function applyTheme(dark) {
         document.documentElement.classList.toggle("dark", dark);
-        themeButton.innerHTML = icon(dark ? "sun" : "moon");
 
-        themeButton.setAttribute(
-          "aria-pressed",
-          String(dark)
-        );
+        themeButton.innerHTML = icon(dark ? "sun" : "moon");
+        themeButton.setAttribute("aria-pressed", String(dark));
 
         themeButton.setAttribute(
           "aria-label",
-          dark
-            ? "Switch to light mode"
-            : "Switch to dark mode"
+          dark ? "Switch to light mode" : "Switch to dark mode"
         );
+
+        document.querySelector('meta[name="theme-color"]').content =
+          dark ? "#101827" : "#f4f8ff";
       }
 
       applyTheme(
@@ -1748,7 +2227,11 @@
       const imageCounter = document.getElementById("award-image-counter");
       const zoomImage = document.getElementById("zoom-image");
       const zoomCounter = document.getElementById("zoom-image-counter");
-      const thumbnailIds = ["award-thumbnails", "zoom-award-thumbnails"];
+
+      const thumbnailIds = [
+        "award-thumbnails",
+        "zoom-award-thumbnails"
+      ];
 
       let selected = 0;
       let selectedImage = 0;
@@ -1780,12 +2263,14 @@
         });
 
         thumbnailIds.forEach(id => {
-          document.getElementById(id).querySelectorAll("button").forEach((button, index) => {
-            button.setAttribute(
-              "aria-pressed",
-              String(index === selectedImage)
-            );
-          });
+          document.getElementById(id)
+            .querySelectorAll("button")
+            .forEach((button, index) => {
+              button.setAttribute(
+                "aria-pressed",
+                String(index === selectedImage)
+              );
+            });
         });
       };
 
@@ -1799,6 +2284,7 @@
           award.images.forEach((src, index) => {
             const button = document.createElement("button");
             button.type = "button";
+
             button.setAttribute(
               "aria-label",
               `Show image ${index + 1}`
@@ -1879,6 +2365,7 @@
           event.key === "ArrowRight"
         ) {
           event.preventDefault();
+
           moveAwardImage(
             event.key === "ArrowLeft" ? -1 : 1
           );

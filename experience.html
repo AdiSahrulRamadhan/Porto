@@ -354,18 +354,20 @@
 
     .card-previews {
       display: grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      gap: 10px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
       margin-top: 16px;
+      max-width: 560px;
     }
 
     .card-preview {
-      aspect-ratio: 4 / 3;
+      aspect-ratio: 16 / 9;
       overflow: hidden;
       border: 1px solid #e2ebf6;
-      border-radius: 12px;
+      border-radius: 6px;
       background: #f0f4f8;
       cursor: zoom-in;
+      position: relative;
     }
 
     .card-preview img {
@@ -377,6 +379,18 @@
 
     .card-preview:hover img {
       transform: scale(1.05);
+    }
+
+    .preview-count {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background: rgba(0, 0, 0, .55);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: -.5px;
     }
 
     /* REVEAL */
@@ -2035,9 +2049,11 @@
           ],
 
           images: [
-            "https://picsum.photos/1200/800?random=81",
-            "https://picsum.photos/1200/800?random=82",
-            "https://picsum.photos/1200/800?random=83"
+            "assets/experience/Riset-1.jpeg",
+            "assets/experience/Riset-2.jpeg",
+            "assets/experience/Riset-3.jpeg",
+            "assets/experience/Riset-4.jpeg",
+            "assets/experience/Riset-5.jpeg"
           ],
 
           logo: "assets/Logo Riset.png"
@@ -2074,9 +2090,14 @@
           ],
 
           images: [
-            "https://picsum.photos/1200/800?random=91",
-            "https://picsum.photos/1200/800?random=92",
-            "https://picsum.photos/1200/800?random=93"
+            "assets/experience/Magang-1.jpeg",
+            "assets/experience/Magang-2.jpeg",
+            "assets/experience/Magang-3.jpeg",
+            "assets/experience/Magang-4.jpeg",
+            "assets/experience/Magang-5.jpeg",
+            "assets/experience/Magang-6.jpeg",
+            "assets/experience/Magang-7.jpeg",
+            "assets/experience/Magang-8.jpeg"
           ],
 
           logo: "assets/PT Quantum HRM Internasional.jpg"
@@ -2276,7 +2297,7 @@
 
               <div class="card-previews">
                 ${
-                  item.images.slice(0, 2).map((src, imageIndex) => `
+                  item.images.slice(0, 4).map((src, imageIndex) => `
                     <button
                       type="button"
                       class="card-preview"
@@ -2289,6 +2310,11 @@
                         alt="${esc(item.title)} — preview ${imageIndex + 1}"
                         loading="lazy"
                       />
+                      ${
+                        imageIndex === 3 && item.images.length > 4
+                          ? `<span class="preview-count">+${item.images.length - 4}</span>`
+                          : ""
+                      }
                     </button>
                   `).join("")
                 }
