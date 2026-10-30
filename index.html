@@ -199,6 +199,10 @@
         transition: none;
       }
     }
+    .dark #theme-button:hover {
+      color: #ffffff;
+      background: color-mix(in oklab, #19273c 80%, transparent);
+    }
   </style>
 
   <script>
@@ -691,10 +695,10 @@
           "border-transparent bg-linear-to-r from-[#00b9ad] to-[#00b5d0] text-white shadow-[0_7px_15px_rgba(0,184,176,.24)] hover:from-[#009f98] hover:to-[#009ebd] hover:shadow-[0_11px_24px_rgba(0,184,176,.32)]",
 
         outline:
-          "border-line bg-white/70 hover:border-accent hover:bg-accent/10 hover:text-[#009e98] hover:shadow-[0_8px_18px_rgba(0,184,176,.1)] dark:border-[#34455d] dark:bg-[#1c2b42]/70 dark:hover:border-accent dark:hover:bg-[#1e293b] dark:hover:text-white",
+          "border-line bg-white/70 hover:border-accent hover:scale-105 hover:bg-accent/10 hover:text-[#009e98] hover:shadow-[0_8px_18px_rgba(0,184,176,.1)] dark:border-[#34455d] dark:bg-[#1c2b42]/70 dark:hover:border-accent hover:scale-105 dark:hover:bg-[#1e293b] dark:hover:text-white",
 
         accent:
-          "border-[#78e0e7] bg-linear-to-r from-[#00bfb3]/20 to-[#1bbaf5]/22 hover:border-accent hover:from-[#00b9ad] hover:to-[#00b5d0] hover:text-white",
+          "border-[#78e0e7] bg-linear-to-r from-[#00bfb3]/20 to-[#1bbaf5]/22 hover:border-accent hover:scale-105 hover:from-[#00b9ad] hover:to-[#00b5d0] hover:text-white",
 
         link:
           "inline-flex items-center gap-2 rounded-md text-sm font-medium text-accent transition-colors hover:text-[#008f8a] dark:hover:text-[#73ebe0] [&_svg]:size-4",
@@ -1016,7 +1020,7 @@
           "bg-[#00bdb6]/20 font-bold text-[#008f8a] shadow-sm dark:bg-[#00bdb6]/30 dark:text-[#33d1cb]";
 
         const defaultClass =
-          "text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white";
+          "text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white";
 
         return `
           <a
@@ -1140,7 +1144,7 @@
                     id="achievement-trigger"
                     aria-expanded="false"
                     aria-controls="achievement-dropdown"
-                    class="flex items-center gap-2 rounded-full px-[14px] py-[11px] text-sm text-muted transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+                    class="flex items-center gap-2 rounded-full px-[14px] py-[11px] text-sm text-muted transition-colors  hover:text-[#1e293b] lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
                   >
                     Achievements
 
@@ -1166,14 +1170,14 @@
                   >
                     <a
                       href="awards.html"
-                      class="rounded-xl px-4 py-3 text-sm transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+                      class="rounded-xl px-4 py-3 text-sm transition-colors  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
                     >
                       Awards
                     </a>
 
                     <a
                       href="certificates.html"
-                      class="rounded-xl px-4 py-3 text-sm transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+                      class="rounded-xl px-4 py-3 text-sm transition-colors  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
                     >
                       Certificates
                     </a>
@@ -1193,7 +1197,7 @@
                   aria-label="Open menu"
                   aria-controls="navigation"
                   aria-expanded="false"
-                  class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] sm:size-[45px] lg:hidden dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+                  class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:scale-105  hover:text-[#1e293b] sm:size-[45px] lg:hidden dark:border-[#2b3c54] dark:bg-[#19273c]/80"
                 >
                   ${icon("menu")}
                 </button>
@@ -1202,7 +1206,7 @@
                   id="theme-button"
                   type="button"
                   aria-label="Switch to dark mode"
-                  class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-all hover:rotate-12 hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] active:scale-95 sm:size-[45px] dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+                  class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-all hover:rotate-12 hover:border-accent hover:scale-105  hover:text-[#1e293b] active:scale-95 sm:size-[45px] dark:border-[#2b3c54] dark:bg-[#19273c]/80"
                 >
                   ${icon("moon")}
                 </button>
@@ -1220,7 +1224,7 @@
         return SOCIALS.map(([key, name]) => `
           <a
             ${socialAttrs(key)}
-            class="inline-flex min-h-[43px] items-center gap-2 rounded-full border border-line bg-white/70 px-3.5 py-2 text-xs transition-all hover:-translate-y-0.5 hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] sm:text-sm dark:border-[#34455d] dark:bg-[#19273c]/80"
+            class="inline-flex min-h-[43px] items-center gap-2 rounded-full border border-line bg-white/70 px-3.5 py-2 text-xs transition-all hover:-translate-y-0.5 hover:border-accent hover:scale-105  hover:text-[#1e293b] sm:text-sm dark:border-[#34455d] dark:bg-[#19273c]/80"
           >
             <span class="grid size-6 place-items-center rounded-full bg-accent/10 text-accent">
               ${icon(key, 15)}
@@ -1408,7 +1412,7 @@
 
       function projectCard(project) {
         return `
-          <article class="${UI.card} group rounded-[27px] p-[22px] transition-all hover:-translate-y-1.5 hover:border-accent/45">
+          <article class="${UI.card} group rounded-[27px] p-[22px] transition-all hover:-translate-y-1.5 hover:border-accent ">
             <div class="rounded-[19px] border border-line bg-white p-4 dark:border-[#34455d] dark:bg-[#101d30]">
               <div class="relative aspect-[1.7/1] overflow-hidden rounded-md">
                 ${
@@ -1574,7 +1578,7 @@
 
       function skillCard(skill) {
         return `
-          <article class="${UI.card} flex items-start gap-3 rounded-[18px] p-5 transition-all hover:-translate-y-1 hover:border-accent/45">
+          <article class="${UI.card} flex items-start gap-3 rounded-[18px] p-5 transition-all hover:-translate-y-1 hover:border-accent ">
             <span class="grid size-10 shrink-0 place-items-center rounded-full bg-accent/10 text-accent">
               ${
                 skill.slug
@@ -1867,7 +1871,7 @@
                         <a
                           ${socialAttrs(key)}
                           aria-label="${name}"
-                          class="grid size-9 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:border-[#34455d] dark:bg-[#1c2b42]"
+                          class="grid size-9 place-items-center rounded-full border border-line bg-white/70 transition-all duration-300 ease-out hover:border-[#00bdb6] hover:scale-110 hover:text-[#008f8a] dark:border-[#34455d] dark:bg-[#1c2b42]"
                         >
                           ${icon(key, 16)}
                         </a>
@@ -1881,7 +1885,7 @@
                     EXPLORE
                   </h3>
 
-                  <div class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 text-xs ${UI.muted} [&>a:hover]:text-accent">
+                  <div class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 text-xs ${UI.muted} [&>a:hover]:text-black dark:[&>a:hover]:text-white">
                     <a href="index.html">Home</a>
                     <a href="certificates.html">Certificates</a>
                     <a href="about.html">About</a>
@@ -1905,7 +1909,7 @@
 
                   <a
                     href="${esc(socialHref("email") || "contact.html")}"
-                    class="mt-3 inline-block break-all text-xs hover:text-accent ${UI.muted}"
+                    class="mt-3 inline-block break-all text-xs text-muted hover:text-black dark:text-[#a8b8cc] dark:hover:text-white"
                   >
                     ${esc(DATA.email || "Connect through my social profiles")}
                   </a>
@@ -1941,7 +1945,7 @@
                 <div class="mt-9 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5">
                   ${
                     DATA.stats.map(([label, value]) => `
-                      <article class="${UI.card} rounded-[25px] p-6 transition-all hover:-translate-y-1 hover:border-accent/50 sm:p-7">
+                      <article class="${UI.card} rounded-[25px] p-6 transition-all hover:-translate-y-1 hover:border-accent  sm:p-7">
                         <h3 class="text-[9px] font-medium tracking-[1.5px] sm:text-[11px] ${UI.muted}">
                           ${label}
                         </h3>
@@ -1983,7 +1987,7 @@
                 <div class="mt-6 grid gap-4 md:grid-cols-3">
                   ${
                     DATA.principles.map(([title, text]) => `
-                      <article class="${UI.card} rounded-[17px] p-[22px] transition-all hover:-translate-y-1 hover:border-accent/50">
+                      <article class="${UI.card} rounded-[17px] p-[22px] transition-all hover:-translate-y-1 hover:border-accent ">
                         <h3 class="text-[10px] tracking-[1.7px] ${UI.muted}">
                           ${title}
                         </h3>
@@ -2086,7 +2090,7 @@
                       id="certificate-prev"
                       type="button"
                       aria-label="Previous certificate"
-                      class="grid size-8 place-items-center rounded-full hover:bg-white hover:scale-105 hover:text-[#1e293b]"
+                      class="grid size-8 place-items-center rounded-full  hover:text-[#1e293b]"
                     >
                       ${icon("left", 16)}
                     </button>
@@ -2113,7 +2117,7 @@
                       id="certificate-next"
                       type="button"
                       aria-label="Next certificate"
-                      class="grid size-8 place-items-center rounded-full hover:bg-white hover:scale-105 hover:text-[#1e293b]"
+                      class="grid size-8 place-items-center rounded-full  hover:text-[#1e293b]"
                     >
                       ${icon("right", 16)}
                     </button>
@@ -2194,7 +2198,7 @@
                       <a
                         ${socialAttrs(key)}
                         data-reveal
-                        class="${UI.card} block rounded-[20px] p-6 hover:border-accent/50"
+                        class="${UI.card} block rounded-[20px] p-6 hover:border-accent "
                       >
                         <span class="grid size-9 place-items-center rounded-full ${color}">
                           ${icon(key, 16)}
@@ -2274,7 +2278,7 @@
                 id="dialog-close"
                 type="button"
                 aria-label="Close dialog"
-                class="grid size-10 shrink-0 place-items-center rounded-full border border-line hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:border-[#34455d]"
+                class="grid size-10 shrink-0 place-items-center rounded-full border border-line hover:border-accent hover:scale-105  hover:text-[#1e293b] dark:border-[#34455d]"
               >
                 ${icon("close")}
               </button>
@@ -3141,7 +3145,7 @@
           const img = document.createElement("img");
 
           badge.className =
-            "tech-badge relative grid size-[43px] shrink-0 cursor-help place-items-center rounded-full border border-line bg-[#f5f9ff] text-muted transition-colors hover:border-accent hover:bg-accent/10 sm:size-12 dark:border-[#34455d] dark:bg-[#19263b] dark:text-[#a8b8cc]";
+            "tech-badge relative grid size-[43px] shrink-0 cursor-help place-items-center rounded-full border border-line bg-[#f5f9ff] text-muted transition-colors hover:border-accent hover:scale-105 hover:bg-accent/10 sm:size-12 dark:border-[#34455d] dark:bg-[#19263b] dark:text-[#a8b8cc]";
 
           badge.dataset.name = name;
 

@@ -136,6 +136,10 @@
         transform: none;
       }
     }
+
+    .dark #theme-button:hover {
+      color: #ffffff;
+    }
   </style>
 
   <script>
@@ -262,28 +266,28 @@
       >
         <a
           href="index.html"
-          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
         >
           Home
         </a>
 
         <a
           href="about.html"
-          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
         >
           About
         </a>
 
         <a
           href="experience.html"
-          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
         >
           Experience
         </a>
 
         <a
           href="projects.html"
-          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
         >
           Projects
         </a>
@@ -299,7 +303,7 @@
             aria-haspopup="menu"
             aria-expanded="false"
             aria-controls="achievement-dropdown"
-            class="flex items-center gap-2 rounded-full px-[14px] py-[11px] text-sm text-muted transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+            class="flex items-center gap-2 rounded-full px-[14px] py-[11px] text-sm text-muted transition-colors hover:text-[#1e293b] lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
           >
             Achievements
 
@@ -326,24 +330,26 @@
             <a
               href="awards.html"
               role="menuitem"
-              class="rounded-xl px-4 py-3 text-sm transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+              class="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm transition-colors hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
             >
-              Awards
+              <span>Awards</span>
+              <span class="inline-flex size-[22px] shrink-0 items-center justify-center rounded-full bg-[#dc2626] text-[10px] font-bold leading-none text-white">2</span>
             </a>
 
             <a
               href="certificates.html"
               role="menuitem"
-              class="rounded-xl px-4 py-3 text-sm transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+              class="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm transition-colors hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
             >
-              Certificates
+              <span>Certificates</span>
+              <span class="inline-flex size-[22px] shrink-0 items-center justify-center rounded-full bg-[#dc2626] text-[10px] font-bold leading-none text-white">28</span>
             </a>
           </div>
         </div>
 
         <a
           href="blog.html"
-          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
         >
           Blog
         </a>
@@ -358,7 +364,7 @@
 
         <a
           href="contact.html"
-          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
         >
           Contact
         </a>
@@ -371,7 +377,7 @@
           aria-label="Open menu"
           aria-controls="navigation"
           aria-expanded="false"
-          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] sm:size-[45px] lg:hidden dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:scale-105 hover:text-[#1e293b] sm:size-[45px] lg:hidden dark:border-[#2b3c54] dark:bg-[#19273c]/80"
         >
           <svg
             width="22"
@@ -391,7 +397,7 @@
           id="theme-button"
           type="button"
           aria-label="Switch to dark mode"
-          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-all hover:rotate-12 hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] active:scale-95 sm:size-[45px] dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-all hover:rotate-12 hover:border-accent hover:scale-105 hover:text-[#1e293b] active:scale-95 sm:size-[45px] dark:border-[#2b3c54] dark:bg-[#19273c]/80"
         >
           <svg
             width="22"
@@ -415,7 +421,7 @@
       class="pb-16 pt-[115px] sm:pt-[125px] lg:pt-[140px]"
     >
       <div class="mx-auto w-[calc(100%-36px)] max-w-[1320px] sm:w-[calc(100%-64px)]">
-        <span class="inline-flex rounded-full border border-line bg-white/65 px-[14px] py-1 text-[10px] font-medium tracking-[2px] text-[#4c5f7b] dark:border-[#2b3c54] dark:bg-[#19273c]/80 dark:text-[#a8b8cc]">
+        <span class="inline-flex items-center rounded-full border border-line bg-white px-4 py-1.5 text-xs font-semibold tracking-wider text-[#556987] shadow-xs dark:border-[#00bdb6] dark:bg-[#00bdb6] dark:text-white dark:scale-105 dark:shadow-[0_4px_12px_rgba(0,189,182,0.35)]">
           SKILLS
         </span>
 
@@ -462,7 +468,7 @@
             EXPLORE
           </h3>
 
-          <div class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 text-xs text-muted dark:text-[#a8b8cc] [&>a:hover]:text-accent">
+          <div class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 text-xs text-muted dark:text-[#a8b8cc] [&>a:hover]:text-black dark:[&>a:hover]:text-white">
             <a href="index.html">Home</a>
             <a href="certificates.html">Certificates</a>
             <a href="about.html">About</a>
@@ -487,7 +493,7 @@
           <a
             id="footer-email"
             href="contact.html"
-            class="mt-3 inline-block break-all text-xs text-muted hover:text-accent dark:text-[#a8b8cc]"
+            class="mt-3 inline-block break-all text-xs text-muted hover:text-black dark:text-[#a8b8cc] dark:hover:text-white"
           >
             Connect through my social profiles
           </a>
@@ -1310,7 +1316,7 @@
           <a
             ${socialAttrs(key)}
             aria-label="${name}"
-            class="grid size-9 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:border-[#34455d] dark:bg-[#1c2b42]"
+            class="grid size-9 place-items-center rounded-full border border-line bg-white/70 transition-all duration-300 ease-out hover:border-[#00bdb6] hover:scale-110 hover:text-[#008f8a] dark:border-[#34455d] dark:bg-[#1c2b42]"
           >
             ${icon(key, 16)}
           </a>

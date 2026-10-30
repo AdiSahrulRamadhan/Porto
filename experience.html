@@ -128,6 +128,10 @@
         opacity: 1 !important;
       }
     }
+    .dark #theme-button:hover {
+      color: #ffffff;
+      background: color-mix(in oklab, #19273c 80%, transparent);
+    }
   </style>
 
   <script>
@@ -208,22 +212,22 @@
           xl:[&>a]:px-[13px] xl:[&>a]:text-sm
         "
       >
-        <a href="index.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Home</a>
-        <a href="about.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">About</a>
+        <a href="index.html" class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Home</a>
+        <a href="about.html" class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">About</a>
         <a href="experience.html" aria-current="page" class="bg-[#00bdb6]/20 font-bold text-[#008f8a] shadow-sm dark:bg-[#00bdb6]/30 dark:text-[#33d1cb]">Experience</a>
-        <a href="projects.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Projects</a>
+        <a href="projects.html" class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Projects</a>
         <div id="achievement-menu" data-open="false" class="relative">
-          <button type="button" id="achievement-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="achievement-dropdown" class="flex items-center gap-2 rounded-full px-[14px] py-[11px] text-sm text-muted transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">
+          <button type="button" id="achievement-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="achievement-dropdown" class="flex items-center gap-2 rounded-full px-[14px] py-[11px] text-sm text-muted transition-colors  hover:text-[#1e293b] lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">
             Achievements <svg id="achievement-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
           </button>
           <div id="achievement-dropdown" role="menu" aria-hidden="true" class="achievement-dropdown absolute left-0 top-full z-20 mt-2 grid min-w-44 gap-1 rounded-2xl border border-line bg-white p-2 shadow-lg dark:border-[#34455d] dark:bg-[#172337]">
-            <a href="awards.html" role="menuitem" class="rounded-xl px-4 py-3 text-sm transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Awards</a>
-            <a href="certificates.html" role="menuitem" class="rounded-xl px-4 py-3 text-sm transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Certificates</a>
+            <a href="awards.html" role="menuitem" class="rounded-xl px-4 py-3 text-sm transition-colors  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Awards</a>
+            <a href="certificates.html" role="menuitem" class="rounded-xl px-4 py-3 text-sm transition-colors  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Certificates</a>
           </div>
         </div>
-        <a href="blog.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Blog</a>
-        <a href="skills.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Skills</a>
-        <a href="contact.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Contact</a>
+        <a href="blog.html" class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Blog</a>
+        <a href="skills.html" class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Skills</a>
+        <a href="contact.html" class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Contact</a>
       </div>
 
       <div class="ml-auto flex items-center gap-1.5 sm:gap-[9px]">
@@ -233,7 +237,7 @@
           aria-label="Open menu"
           aria-controls="navigation"
           aria-expanded="false"
-          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] sm:size-[45px] lg:hidden dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:scale-105  hover:text-[#1e293b] sm:size-[45px] lg:hidden dark:border-[#2b3c54] dark:bg-[#19273c]/80"
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
             <path d="M4 7h16M4 12h16M4 17h16"></path>
@@ -244,7 +248,7 @@
           id="theme-button"
           type="button"
           aria-label="Switch to dark mode"
-          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-all hover:rotate-12 hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] active:scale-95 sm:size-[45px] dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-all hover:rotate-12 hover:border-accent hover:scale-105  hover:text-[#1e293b] active:scale-95 sm:size-[45px] dark:border-[#2b3c54] dark:bg-[#19273c]/80"
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
             <path d="M21 13A9 9 0 0 1 11 3a9 9 0 1 0 10 10Z"></path>
@@ -662,10 +666,10 @@
               </span>
             </div>
           </div>
-          <button type="button" id="modal-prev-btn" aria-label="Previous Image" class="absolute left-3 top-1/2 -translate-y-1/2 grid size-10 place-items-center rounded-full bg-white/80 text-gray-800 shadow-md backdrop-blur-md hover:bg-white hover:scale-105 active:scale-95 dark:bg-black/60 dark:text-white">
+          <button type="button" id="modal-prev-btn" aria-label="Previous Image" class="absolute left-3 top-1/2 -translate-y-1/2 grid size-10 place-items-center rounded-full bg-white/80 text-gray-800 shadow-md backdrop-blur-md  active:scale-95 dark:bg-black/60 dark:text-white">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
           </button>
-          <button type="button" id="modal-next-btn" aria-label="Next Image" class="absolute right-3 top-1/2 -translate-y-1/2 grid size-10 place-items-center rounded-full bg-white/80 text-gray-800 shadow-md backdrop-blur-md hover:bg-white hover:scale-105 active:scale-95 dark:bg-black/60 dark:text-white">
+          <button type="button" id="modal-next-btn" aria-label="Next Image" class="absolute right-3 top-1/2 -translate-y-1/2 grid size-10 place-items-center rounded-full bg-white/80 text-gray-800 shadow-md backdrop-blur-md  active:scale-95 dark:bg-black/60 dark:text-white">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
           </button>
         </div>
@@ -704,7 +708,7 @@
           <p id="lightbox-company" class="text-[11px] font-semibold uppercase tracking-wider text-[#00bdb6]"></p>
           <h2 id="lightbox-title" class="mt-1 text-base font-bold text-[#121b2e] sm:text-xl dark:text-[#eff5ff]">Experience</h2>
         </div>
-        <button type="button" id="lightbox-close" aria-label="Close image viewer" class="grid size-10 shrink-0 place-items-center rounded-xl border border-line bg-[#f4f8ff] text-[#637188] transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:border-[#34455d] dark:bg-[#1e2d42] dark:text-[#a8b8cc]">
+        <button type="button" id="lightbox-close" aria-label="Close image viewer" class="grid size-10 shrink-0 place-items-center rounded-xl border border-line bg-[#f4f8ff] text-[#637188] transition-colors hover:border-accent hover:scale-105  hover:text-[#1e293b] dark:border-[#34455d] dark:bg-[#1e2d42] dark:text-[#a8b8cc]">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
         </button>
       </div>
@@ -714,11 +718,11 @@
         </div>
       </div>
       <div class="flex shrink-0 items-center justify-between gap-4 border-t border-line px-5 py-3 sm:px-6 dark:border-[#2b3c54]">
-        <button type="button" id="lightbox-prev-btn" aria-label="Previous Image" class="grid size-10 place-items-center rounded-xl border border-line text-[#637188] transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:border-[#34455d] dark:text-[#a8b8cc]">
+        <button type="button" id="lightbox-prev-btn" aria-label="Previous Image" class="grid size-10 place-items-center rounded-xl border border-line text-[#637188] transition-colors hover:border-accent hover:scale-105  hover:text-[#1e293b] dark:border-[#34455d] dark:text-[#a8b8cc]">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
         </button>
         <span id="lightbox-counter" class="text-xs font-semibold text-[#637188] dark:text-[#a8b8cc]">1/1</span>
-        <button type="button" id="lightbox-next-btn" aria-label="Next Image" class="grid size-10 place-items-center rounded-xl border border-line text-[#637188] transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:border-[#34455d] dark:text-[#a8b8cc]">
+        <button type="button" id="lightbox-next-btn" aria-label="Next Image" class="grid size-10 place-items-center rounded-xl border border-line text-[#637188] transition-colors hover:border-accent hover:scale-105  hover:text-[#1e293b] dark:border-[#34455d] dark:text-[#a8b8cc]">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
         </button>
       </div>
@@ -737,7 +741,7 @@
 
         <div>
           <h3 class="text-[10px] tracking-[2px] text-muted dark:text-[#a8b8cc]">EXPLORE</h3>
-          <div class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 text-xs text-muted dark:text-[#a8b8cc] [&>a:hover]:text-accent">
+          <div class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 text-xs text-muted dark:text-[#a8b8cc] [&>a:hover]:text-black dark:[&>a:hover]:text-white">
             <a href="index.html">Home</a>
             <a href="certificates.html">Certificates</a>
             <a href="about.html">About</a>
@@ -753,7 +757,7 @@
         <div>
           <h3 class="text-[10px] tracking-[2px] text-muted dark:text-[#a8b8cc]">CONTACT</h3>
           <p class="mt-4 text-xs leading-relaxed text-muted dark:text-[#a8b8cc]">Open to freelance and full-time collaboration.</p>
-          <a id="footer-email" href="contact.html" class="mt-3 inline-block break-all text-xs text-muted hover:text-accent dark:text-[#a8b8cc]">Connect through my social profiles</a>
+          <a id="footer-email" href="contact.html" class="mt-3 inline-block break-all text-xs text-muted hover:text-black dark:text-[#a8b8cc] dark:hover:text-white">Connect through my social profiles</a>
         </div>
       </div>
 
@@ -1040,7 +1044,7 @@
       }
 
       document.getElementById("footer-socials").innerHTML = SOCIALS.map(([key, name]) => `
-        <a ${socialAttrs(key)} aria-label="${name}" class="grid size-9 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:border-[#34455d] dark:bg-[#1c2b42]">
+        <a ${socialAttrs(key)} aria-label="${name}" class="grid size-9 place-items-center rounded-full border border-line bg-white/70 transition-all duration-300 ease-out hover:border-[#00bdb6] hover:scale-110 hover:text-[#008f8a] dark:border-[#34455d] dark:bg-[#1c2b42]">
           ${icon(key, 16)}
         </a>
       `).join("");

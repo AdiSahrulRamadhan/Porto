@@ -200,6 +200,11 @@ dialog::backdrop{background:#101827b8;backdrop-filter:blur(5px)}
 .dark .filter-tab.active{background:#00bdb6;color:white;border-color:#00bdb6}
 .dark .dialog-image{background:#101d30}
 .dark .dialog-header{border-color:#2b3c54}
+.dark #theme-button:hover {
+      color: #ffffff;
+      background: 
+color-mix(in oklab, #19273c 80%, transparent);
+    }
 
 /* ─── Responsive ─────────────────────────────────────────────────────── */
 @media(min-width:640px){.projects-main{width:calc(100% - 32px);padding-left:16px;padding-right:16px}}
@@ -285,22 +290,22 @@ dialog::backdrop{background:#101827b8;backdrop-filter:blur(5px)}
             xl:[&>a]:px-[13px] xl:[&>a]:text-sm
           "
         >
-          <a href="index.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Home</a>
-          <a href="about.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">About</a>
-          <a href="experience.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Experience</a>
+          <a href="index.html" class="text-muted hover:bg-[#e2e8f0] hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Home</a>
+          <a href="about.html" class="text-muted hover:bg-[#e2e8f0] hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">About</a>
+          <a href="experience.html" class="text-muted hover:bg-[#e2e8f0] hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Experience</a>
           <a href="projects.html" aria-current="page" class="bg-[#00bdb6]/20 font-bold text-[#008f8a] shadow-sm dark:bg-[#00bdb6]/30 dark:text-[#33d1cb]">Projects</a>
           <div id="achievement-menu" data-open="false" class="relative">
-            <button type="button" id="achievement-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="achievement-dropdown" class="flex items-center gap-2 rounded-full px-[14px] py-[11px] text-sm text-muted transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">
+            <button type="button" id="achievement-trigger" aria-haspopup="menu" aria-expanded="false" aria-controls="achievement-dropdown" class="flex items-center gap-2 rounded-full px-[14px] py-[11px] text-sm text-muted transition-colors hover:bg-[#e2e8f0] hover:text-[#1e293b] lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">
               Achievements <svg id="achievement-chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m6 9 6 6 6-6"></path></svg>
             </button>
             <div id="achievement-dropdown" role="menu" aria-hidden="true" class="achievement-dropdown absolute left-0 top-full z-20 mt-2 grid min-w-44 gap-1 rounded-2xl border border-line bg-white p-2 shadow-lg dark:border-[#34455d] dark:bg-[#172337]">
-              <a href="awards.html" role="menuitem" class="rounded-xl px-4 py-3 text-sm transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Awards</a>
-              <a href="certificates.html" role="menuitem" class="rounded-xl px-4 py-3 text-sm transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Certificates</a>
+              <a href="awards.html" role="menuitem" class="rounded-xl px-4 py-3 text-sm transition-colors hover:bg-[#e2e8f0] hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Awards</a>
+              <a href="certificates.html" role="menuitem" class="rounded-xl px-4 py-3 text-sm transition-colors hover:bg-[#e2e8f0] hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Certificates</a>
             </div>
           </div>
-          <a href="blog.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Blog</a>
-          <a href="skills.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Skills</a>
-          <a href="contact.html" class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Contact</a>
+          <a href="blog.html" class="text-muted hover:bg-[#e2e8f0] hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Blog</a>
+          <a href="skills.html" class="text-muted hover:bg-[#e2e8f0] hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Skills</a>
+          <a href="contact.html" class="text-muted hover:bg-[#e2e8f0] hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white">Contact</a>
         </div>
 
       <div class="ml-auto flex items-center gap-1.5 sm:gap-[9px]">

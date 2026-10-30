@@ -185,15 +185,18 @@
     }
 
     .eyebrow {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
       border: 1px solid #d9e5f5;
-      border-radius: 99px;
-      background: #ffffff99;
-      padding: 4px 12px;
-      font-size: 11px;
+      border-radius: 9999px;
+      background: #ffffff;
+      padding: 6px 16px;
+      font-size: 12px;
+      line-height: 16px;
       font-weight: 600;
-      letter-spacing: 2px;
+      letter-spacing: 0.05em;
       color: #556987;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
     }
 
     .awards-main h1 {
@@ -208,6 +211,7 @@
       font-size: 16px;
       line-height: 1.7;
       color: #637188;
+      text-align: justify;
     }
 
     .awards-grid {
@@ -277,21 +281,14 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform .5s cubic-bezier(0.16, 1, 0.3, 1);
+      transition: transform .8s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .award-card:hover .award-image img {
       transform: scale(1.07);
     }
 
-    /* Efek Tombol saat Card di-hover */
-    .award-card:hover .outline-button {
-      background: #00bdb6;
-      color: white;
-      border-color: #00bdb6;
-      box-shadow: 0 6px 15px rgba(0, 189, 182, 0.3);
-    }
-
+    /* Efek Tombol saat Card di-hover (dihapus) */
     .award-body {
       padding: 24px;
       display: flex;
@@ -316,6 +313,7 @@
       letter-spacing: -.3px;
       margin: 0 0 12px;
       transition: color .3s ease;
+      cursor: pointer;
     }
 
     .award-card:hover .award-body h2 {
@@ -331,6 +329,7 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
       margin: 0 0 16px;
+      text-align: justify;
     }
 
     .award-date {
@@ -380,8 +379,43 @@
       padding: 38px;
       border: 1px solid #d9e5f5;
       border-radius: 24px;
-      background: #ffffffd9;
-      box-shadow: 0 24px 38px -25px #24385566;
+      background: linear-gradient(145deg, #ffffff, #f0f7ff);
+      box-shadow: 0 10px 25px -15px rgba(36, 56, 85, 0.1);
+      transition:
+        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+        border-color 0.4s ease;
+      will-change: transform;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .awards-cta::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(0, 189, 182, 0.12) 0%,
+        rgba(16, 189, 215, 0.05) 50%,
+        rgba(226, 102, 131, 0.08) 100%
+      );
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      z-index: -1;
+    }
+
+    .awards-cta:hover {
+      transform: translateY(-8px);
+      box-shadow:
+        0 22px 40px -15px rgba(0, 189, 182, 0.22),
+        0 12px 20px -10px rgba(36, 56, 85, 0.1);
+      border-color: #00bdb6;
+    }
+
+    .awards-cta:hover::before {
+      opacity: 1;
     }
 
     .awards-cta h2 {
@@ -412,7 +446,7 @@
       padding: 0;
       border: 1px solid #d9e5f5;
       border-radius: 30px;
-      width: min(1120px, calc(100% - 32px));
+      width: min(880px, calc(100% - 32px));
       max-height: 94dvh;
       background: #f4f8ff;
       color: #121b2e;
@@ -433,13 +467,13 @@
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      gap: 24px;
-      padding: 32px 36px 26px;
+      gap: 16px;
+      padding: 24px 28px 16px;
       border-bottom: 0;
     }
 
     .award-dialog-header h2 {
-      font-size: 28px;
+      font-size: 22px;
       line-height: 1.35;
       font-weight: 600;
       letter-spacing: -.6px;
@@ -448,22 +482,26 @@
     .close-award {
       display: grid;
       place-items: center;
-      width: 44px;
-      height: 44px;
+      width: 38px;
+      height: 38px;
       flex-shrink: 0;
       border: 1px solid #d9e5f5;
       border-radius: 50%;
       background: #f4f8ff;
       color: #637188;
+      transition: all 0.25s ease;
     }
 
     .close-award:hover {
-      color: #00aaa5;
+      background: #00bdb6;
+      color: #ffffff;
       border-color: #00bdb6;
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 189, 182, 0.25);
     }
 
     .award-dialog-body {
-      padding: 0 36px 34px;
+      padding: 0 28px 24px;
     }
 
     .award-dialog-body > p {
@@ -484,8 +522,8 @@
     #award-detail-image {
       display: block;
       width: 100%;
-      height: 420px;
-      max-height: 52dvh;
+      height: 240px;
+      max-height: 35dvh;
       object-fit: cover;
     }
 
@@ -528,7 +566,14 @@
     }
 
     .dark .eyebrow,
-    .dark .close-award,
+    .dark .close-award:hover {
+      background: #00bdb6;
+      border-color: #00bdb6;
+      color: #ffffff;
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 189, 182, 0.35);
+    }
+
     .dark .zoom-image-wrap,
     .dark #zoom-award {
       background: #1e2d42;
@@ -634,8 +679,9 @@
     }
 
     #award-dialog #award-description {
-      font-size: 19px;
+      font-size: 15px;
       color: #556176;
+      text-align: justify;
     }
 
     #award-dialog #award-date {
@@ -710,6 +756,117 @@
       }
     }
   </style>
+
+  <style>
+    .award-gallery{position:relative}
+    .gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:42px;height:42px;display:grid;place-items:center;border:1px solid #d0dded;border-radius:50%;background:#ffffffeb;color:#172337;font-size:29px;line-height:1;box-shadow:0 3px 12px #17233722;cursor:pointer}
+    .gallery-arrow:hover{background:#00bdb6;color:#fff;border-color:#00bdb6}
+    .gallery-prev{left:12px}
+    .gallery-next{right:12px}
+    .award-thumbnails{display:flex;gap:10px;overflow-x:auto;margin-top:14px;padding:3px 0 7px}
+    .award-thumbnails button{flex:0 0 94px;padding:3px;border:2px solid transparent;border-radius:10px;background:#e6edf6;overflow:hidden}
+    .award-thumbnails img{width:100%;height:58px;object-fit:contain;background:#fff}
+    .award-thumbnails button[aria-pressed="true"]{border-color:#00bdb6;background:#d7f7f3}
+    .dark .gallery-arrow{background:#1e2d42e8;color:#eff5ff;border-color:#34455d}
+    .dark .award-thumbnails button{background:#1e2d42}
+
+    @media(max-width:580px){
+      .gallery-arrow{width:36px;height:36px}
+      .gallery-prev{left:7px}
+      .gallery-next{right:7px}
+    }
+  </style>
+
+  <style>
+    /* Zoom gallery */
+    #award-zoom{width:min(1440px,calc(100% - 32px));background:#fff}
+    #award-zoom .award-dialog-panel{padding:28px 30px 30px}
+    #award-zoom .award-dialog-header{align-items:center;padding:0 0 20px;gap:20px}
+    #award-zoom .award-dialog-header h2{font-size:20px;font-weight:500;letter-spacing:-.4px}
+    #award-zoom .close-award{width:44px;height:44px;background:#fff;box-shadow:none;transform:none}
+    #award-zoom .close-award:hover{background:#00bdb6;color:#fff;border-color:#00bdb6}
+    #award-zoom .zoom-image-wrap{padding:0;border:1px solid #d9e5f5;border-radius:20px;overflow:hidden;background:#f0f4f8;box-shadow:none;transform:none}
+    #award-zoom #zoom-image{display:block;width:100%;height:clamp(120px,calc(94dvh - 238px),680px);object-fit:contain}
+    #award-zoom .gallery-arrow{width:50px;height:50px;background:#ffffffeb;box-shadow:none}
+    #award-zoom .gallery-arrow:hover{background:#00bdb6;color:#fff}
+    #award-zoom .gallery-prev{left:15px}
+    #award-zoom .gallery-next{right:15px}
+    #award-zoom .award-image-counter{right:15px;bottom:15px;padding:5px 14px;border:1px solid #d0dfef;background:#ffffffeb;font-size:14px;line-height:1.4}
+    #zoom-award-thumbnails{gap:10px;margin-top:20px;padding:0 0 4px}
+    #zoom-award-thumbnails button{flex:0 0 160px;height:102px;padding:3px;border:1px solid #d0dfef;border-radius:15px;background:#fff;cursor:pointer}
+    #zoom-award-thumbnails button[aria-pressed="true"]{border-color:#00bdb6;box-shadow:inset 0 0 0 1px #00bdb6}
+    #zoom-award-thumbnails img{width:100%;height:100%;object-fit:contain;border-radius:11px;background:#fff}
+
+    .dark #award-zoom{background:#172337}
+    .dark #award-zoom .zoom-image-wrap{background:#101827;border-color:#34455d}
+    .dark #award-zoom .close-award,
+    .dark #award-zoom .gallery-arrow,
+    .dark #award-zoom .award-image-counter{background:#1e2d42;color:#eff5ff;border-color:#34455d}
+    .dark #award-zoom .close-award:hover,
+    .dark #award-zoom .gallery-arrow:hover{background:#00bdb6;border-color:#00bdb6;color:#fff}
+    .dark #zoom-award-thumbnails button{background:#1e2d42;border-color:#34455d}
+    .dark #zoom-award-thumbnails button[aria-pressed="true"]{border-color:#00bdb6}
+
+    @media(max-width:580px){
+      #award-zoom{width:calc(100% - 20px);border-radius:22px}
+      #award-zoom .award-dialog-panel{padding:18px 14px 18px}
+      #award-zoom .award-dialog-header{padding-bottom:16px;gap:12px}
+      #award-zoom .award-dialog-header h2{font-size:16px;letter-spacing:-.2px}
+      #award-zoom .close-award{width:36px;height:36px}
+      #award-zoom .zoom-image-wrap{border-radius:14px}
+      #award-zoom #zoom-image{height:clamp(120px,calc(94dvh - 210px),600px)}
+      #award-zoom .gallery-arrow{width:36px;height:36px}
+      #award-zoom .gallery-prev{left:7px}
+      #award-zoom .gallery-next{right:7px}
+      #award-zoom .award-image-counter{right:10px;bottom:10px;padding:4px 10px;font-size:12px}
+      #zoom-award-thumbnails{margin-top:14px;gap:8px}
+      #zoom-award-thumbnails button{flex-basis:100px;height:66px;border-radius:10px}
+      #zoom-award-thumbnails img{border-radius:7px}
+    }
+  </style>
+
+  <style>
+    /* Close button */
+    #award-dialog .close-award,
+    #award-zoom .close-award,
+    .dark #award-dialog .close-award,
+    .dark #award-zoom .close-award {
+      background: #f4f8ff;
+      color: #637188;
+      border-color: #d9e5f5;
+      transform: scale(1);
+      box-shadow: none;
+      transition: all 0.25s ease;
+    }
+
+    #award-dialog .close-award:hover,
+    #award-zoom .close-award:hover {
+      background: #00bdb6;
+      color: #ffffff;
+      border-color: #00bdb6;
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 189, 182, 0.25);
+    }
+
+    .dark #award-dialog .close-award:hover,
+    .dark #award-zoom .close-award:hover {
+      background: #00bdb6;
+      color: #ffffff;
+      border-color: #00bdb6;
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 189, 182, 0.35);
+    }
+
+    .dark #theme-button:hover {
+      color: #ffffff;
+    }
+
+    .dark .gallery-arrow:hover {
+      background: #00bdb6;
+      color: #ffffff;
+      border-color: #00bdb6;
+    }
+  </style>
 </head>
 
 <body
@@ -736,7 +893,6 @@
         border border-transparent px-3 py-2.5
         transition-[background-color,border-color,box-shadow] duration-300
         lg:min-h-20 lg:px-[18px] xl:gap-7
-
         hover:border-[#00bdb6]/70
         hover:bg-gradient-to-r
         hover:from-[#00bdb6]/25
@@ -744,7 +900,6 @@
         hover:to-[#00bdb6]/25
         hover:shadow-[0_10px_35px_rgba(0,189,182,0.22)]
         hover:backdrop-blur-xl
-
         data-[scrolled=true]:border-[#00bdb6]/70
         data-[scrolled=true]:bg-gradient-to-r
         data-[scrolled=true]:from-[#00bdb6]/25
@@ -752,7 +907,6 @@
         data-[scrolled=true]:to-[#00bdb6]/25
         data-[scrolled=true]:shadow-[0_10px_35px_rgba(0,189,182,0.22)]
         data-[scrolled=true]:backdrop-blur-xl
-
         dark:hover:border-[#00bdb6]/70
         dark:hover:bg-gradient-to-r
         dark:hover:from-[#00bdb6]/25
@@ -760,7 +914,6 @@
         dark:hover:to-[#00bdb6]/25
         dark:hover:shadow-[0_0_40px_rgba(0,189,182,0.3)]
         dark:hover:backdrop-blur-xl
-
         dark:data-[scrolled=true]:border-[#00bdb6]/70
         dark:data-[scrolled=true]:bg-gradient-to-r
         dark:data-[scrolled=true]:from-[#00bdb6]/25
@@ -784,7 +937,6 @@
           <strong class="whitespace-nowrap text-[11px] font-semibold sm:text-sm lg:text-xs xl:text-sm">
             Adi Sahrul Ramadhan
           </strong>
-
           <small class="text-[10px] text-muted sm:text-xs dark:text-[#a8b8cc]">
             Portfolio
           </small>
@@ -800,11 +952,9 @@
           rounded-[20px] border border-line bg-[#f6fbff]/95 p-[15px]
           shadow-lg backdrop-blur-xl data-[open=true]:flex
           dark:border-[#2b3c54] dark:bg-[#121e30]/95
-
           lg:static lg:flex lg:flex-1 lg:flex-nowrap lg:justify-center
           lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0
           lg:shadow-none lg:backdrop-blur-none dark:lg:bg-transparent
-
           [&>a]:inline-flex [&>a]:items-center
           [&>a]:whitespace-nowrap [&>a]:rounded-full
           [&>a]:px-[14px] [&>a]:py-[11px] [&>a]:text-sm
@@ -815,28 +965,28 @@
       >
         <a
           href="index.html"
-          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
         >
           Home
         </a>
 
         <a
           href="about.html"
-          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
         >
           About
         </a>
 
         <a
           href="experience.html"
-          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
         >
           Experience
         </a>
 
         <a
           href="projects.html"
-          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
         >
           Projects
         </a>
@@ -880,38 +1030,40 @@
               href="awards.html"
               role="menuitem"
               aria-current="page"
-              class="rounded-xl bg-[#00bdb6]/20 px-4 py-3 text-sm font-bold text-[#008f8a] shadow-sm transition-colors dark:bg-[#00bdb6]/30 dark:text-[#33d1cb]"
+              class="flex items-center justify-between gap-3 rounded-xl bg-[#00bdb6]/20 px-4 py-3 text-sm font-bold text-[#008f8a] shadow-sm transition-colors dark:bg-[#00bdb6]/30 dark:text-[#33d1cb]"
             >
-              Awards
+              <span>Awards</span>
+              <span class="inline-flex size-[22px] shrink-0 items-center justify-center rounded-full bg-[#dc2626] text-[10px] font-bold leading-none text-white">2</span>
             </a>
 
             <a
               href="certificates.html"
               role="menuitem"
-              class="rounded-xl px-4 py-3 text-sm transition-colors hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+              class="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm transition-colors  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
             >
-              Certificates
+              <span>Certificates</span>
+              <span class="inline-flex size-[22px] shrink-0 items-center justify-center rounded-full bg-[#dc2626] text-[10px] font-bold leading-none text-white">28</span>
             </a>
           </div>
         </div>
 
         <a
           href="blog.html"
-          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
         >
           Blog
         </a>
 
         <a
           href="skills.html"
-          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
         >
           Skills
         </a>
 
         <a
           href="contact.html"
-          class="text-muted hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          class="text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
         >
           Contact
         </a>
@@ -924,7 +1076,7 @@
           aria-label="Open menu"
           aria-controls="navigation"
           aria-expanded="false"
-          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] sm:size-[45px] lg:hidden dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:scale-105  hover:text-[#1e293b] sm:size-[45px] lg:hidden dark:border-[#2b3c54] dark:bg-[#19273c]/80"
         >
           <svg
             width="22"
@@ -944,7 +1096,7 @@
           id="theme-button"
           type="button"
           aria-label="Switch to dark mode"
-          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-all hover:rotate-12 hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] active:scale-95 sm:size-[45px] dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+          class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-all hover:rotate-12 hover:border-accent hover:scale-105  hover:text-[#1e293b] active:scale-95 sm:size-[45px] dark:border-[#2b3c54] dark:bg-[#19273c]/80"
         >
           <svg
             width="22"
@@ -995,11 +1147,11 @@
               Kepala Dinas Pendidikan Kota Surabaya
             </p>
 
-            <h2>
+            <h2 data-award="0">
               Piagam Penghargaan Sebagai Tutor Mengajar &amp; Mengaji Beasiswa Pemuda Tangguh 2025
             </h2>
 
-            <p class="award-description">
+            <p class="award-description text-justify">
               Menjadi bagian dari penerima Beasiswa Pemuda Tangguh Surabaya yang diamanahi langsung oleh Dinas Pendidikan Kota Surabaya sebagai tutor mengajar dan mengaji adalah sebuah perjalanan yang melatih mental sekaligus menyentuh hati. Setiap minggunya, saya melangkah dari balai ke balai di wilayah kecamatan untuk menyebarkan ilmu bagi generasi muda lintas usia mulai dari anak-anak TK hingga dinamika remaja SMA/SMK. Pengabdian ini bukan sekadar tugas formalitas, melainkan ruang bagi saya untuk membagikan ilmu akademik dan nilai keagamaan, bertumbuh bersama masyarakat, serta berkontribusi nyata dalam mencetak Arek-Arek Suroboyo yang cerdas, berkarakter, dan berakhlak mulia langsung dari akar rumput.
             </p>
 
@@ -1037,11 +1189,11 @@
               Kepala Dinas Pendidikan Kota Surabaya
             </p>
 
-            <h2>
+            <h2 data-award="1">
               Piagam Penghargaan Sebagai Tutor Mengajar &amp; Mengaji Beasiswa Pemuda Tangguh 2024
             </h2>
 
-            <p class="award-description">
+            <p class="award-description text-justify">
               Menjadi bagian dari penerima Beasiswa Pemuda Tangguh Surabaya yang diamanahi langsung oleh Dinas Pendidikan Kota Surabaya sebagai tutor mengajar dan mengaji adalah sebuah perjalanan yang melatih mental sekaligus menyentuh hati. Setiap minggunya, saya melangkah dari balai ke balai di wilayah kecamatan untuk menyebarkan ilmu bagi generasi muda lintas usia mulai dari anak-anak TK hingga dinamika remaja SMA/SMK. Pengabdian ini bukan sekadar tugas formalitas, melainkan ruang bagi saya untuk membagikan ilmu akademik dan nilai keagamaan, bertumbuh bersama masyarakat, serta berkontribusi nyata dalam mencetak Arek-Arek Suroboyo yang cerdas, berkarakter, dan berakhlak mulia langsung dari akar rumput.
             </p>
 
@@ -1104,45 +1256,51 @@
       </header>
 
       <div class="award-dialog-body">
-        <button
-          type="button"
-          id="zoom-award"
-          aria-label="Enlarge certificate"
-        >
-          <img id="award-detail-image" alt="" />
-
-          <span
-            id="award-image-counter"
-            class="award-image-counter"
-            aria-label="Image 1 of 1"
+        <div class="award-gallery">
+          <button
+            type="button"
+            id="zoom-award"
+            aria-label="Enlarge award image"
           >
-            1 / 1
-          </span>
-        </button>
+            <img id="award-detail-image" alt="" />
 
-        <div
-          id="award-gallery-controls"
-          class="mt-4 flex items-center justify-center gap-3"
-          hidden
-        >
+            <span
+              id="award-image-counter"
+              class="award-image-counter"
+              aria-live="polite"
+            >
+              1 / 1
+            </span>
+          </button>
+
           <button
             type="button"
             id="award-image-prev"
-            class="outline-button"
+            class="gallery-arrow gallery-prev"
             aria-label="Previous award image"
           >
-            Previous
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M19 12H5m7 7-7-7 7-7"/>
+            </svg>
           </button>
 
           <button
             type="button"
             id="award-image-next"
-            class="outline-button"
+            class="gallery-arrow gallery-next"
             aria-label="Next award image"
           >
-            Next
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M5 12h14m-7-7 7 7-7 7"/>
+            </svg>
           </button>
         </div>
+
+        <div
+          id="award-thumbnails"
+          class="award-thumbnails"
+          aria-label="Award images"
+        ></div>
 
         <p id="award-description"></p>
         <p class="award-date" id="award-date"></p>
@@ -1150,6 +1308,7 @@
     </div>
   </dialog>
 
+  <!-- AWARD ZOOM -->
   <dialog id="award-zoom" aria-labelledby="zoom-title">
     <div class="award-dialog-panel">
       <header class="award-dialog-header">
@@ -1161,13 +1320,51 @@
           id="close-zoom"
           aria-label="Close image zoom"
         >
-          ✕
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true">
+            <path d="m6 6 12 12M18 6 6 18"/>
+          </svg>
         </button>
       </header>
 
-      <div class="zoom-image-wrap">
+      <div class="zoom-image-wrap award-gallery">
         <img id="zoom-image" alt="" />
+
+        <button
+          type="button"
+          id="zoom-image-prev"
+          class="gallery-arrow gallery-prev"
+          aria-label="Previous award image"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 12H5m7 7-7-7 7-7"/>
+          </svg>
+        </button>
+
+        <button
+          type="button"
+          id="zoom-image-next"
+          class="gallery-arrow gallery-next"
+          aria-label="Next award image"
+        >
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14m-7-7 7 7-7 7"/>
+          </svg>
+        </button>
+
+        <span
+          id="zoom-image-counter"
+          class="award-image-counter"
+          aria-live="polite"
+        >
+          1 / 1
+        </span>
       </div>
+
+      <div
+        id="zoom-award-thumbnails"
+        class="award-thumbnails"
+        aria-label="Award images in zoom"
+      ></div>
     </div>
   </dialog>
 
@@ -1183,7 +1380,7 @@
             Adi Sahrul Ramadhan
           </a>
 
-          <p class="mt-5 max-w-[530px] text-sm leading-relaxed text-muted dark:text-[#a8b8cc]">
+          <p class="mt-5 max-w-[530px] text-sm leading-relaxed text-justify text-muted dark:text-[#a8b8cc]">
             Full Stack Web Developer focused on delivering scalable products with clean architecture and measurable impact.
           </p>
 
@@ -1198,7 +1395,7 @@
             EXPLORE
           </h3>
 
-          <div class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 text-xs text-muted dark:text-[#a8b8cc] [&>a:hover]:text-accent">
+          <div class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 text-xs text-muted dark:text-[#a8b8cc] [&>a:hover]:text-black dark:[&>a:hover]:text-white">
             <a href="index.html">Home</a>
             <a href="certificates.html">Certificates</a>
             <a href="about.html">About</a>
@@ -1216,14 +1413,14 @@
             CONTACT
           </h3>
 
-          <p class="mt-4 text-xs leading-relaxed text-muted dark:text-[#a8b8cc]">
+          <p class="mt-4 text-xs leading-relaxed text-justify text-muted dark:text-[#a8b8cc]">
             Open to freelance and full-time collaboration.
           </p>
 
           <a
             id="footer-email"
             href="contact.html"
-            class="mt-3 inline-block break-all text-xs text-muted hover:text-accent dark:text-[#a8b8cc]"
+            class="mt-3 inline-block break-all text-xs text-muted hover:text-black dark:text-[#a8b8cc] dark:hover:text-white"
           >
             Connect through my social profiles
           </a>
@@ -1259,22 +1456,16 @@
       const ICONS = {
         linkedin:
           '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7m4 0v-7m0 3c0-4 6-4 6 0v4"/><circle cx="7" cy="7" r=".8" fill="currentColor" stroke="none"/>',
-
         github:
           '<path d="M9 19c-4 1-4-2-6-2m12 5v-4c0-1-.4-1.7-1-2 3-.4 6-1.5 6-6a5 5 0 0 0-1.4-3.5A5 5 0 0 0 18.5 3S17 2.5 14.8 4a11 11 0 0 0-5.6 0C7 2.5 5.5 3 5.5 3a5 5 0 0 0-.1 3.5A5 5 0 0 0 4 10c0 4.5 3 5.6 6 6-.6.3-1 1-1 2v4"/>',
-
         instagram:
           '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>',
-
         youtube:
           '<rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 6 3-6 3Z"/>',
-
         email:
           '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>',
-
         moon:
           '<path d="M21 13A9 9 0 0 1 11 3a9 9 0 1 0 10 10Z"/>',
-
         sun:
           '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5M17.5 6.5 19 5"/>'
       };
@@ -1336,7 +1527,7 @@
           <a
             ${socialAttrs(key)}
             aria-label="${name}"
-            class="grid size-9 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:bg-white hover:scale-105 hover:text-[#1e293b] dark:border-[#34455d] dark:bg-[#1c2b42]"
+            class="grid size-9 place-items-center rounded-full border border-line bg-white/70 transition-all duration-300 ease-out hover:border-[#00bdb6] hover:scale-110 hover:text-[#008f8a] dark:border-[#34455d] dark:bg-[#1c2b42]"
           >
             ${icon(key, 16)}
           </a>
@@ -1482,7 +1673,6 @@
 
       function applyTheme(dark) {
         document.documentElement.classList.toggle("dark", dark);
-
         themeButton.innerHTML = icon(dark ? "sun" : "moon");
 
         themeButton.setAttribute(
@@ -1507,7 +1697,6 @@
           !document.documentElement.classList.contains("dark");
 
         selectedTheme = dark ? "dark" : "light";
-
         applyTheme(dark);
 
         try {
@@ -1556,7 +1745,9 @@
       const zoom = document.getElementById("award-zoom");
       const detailImage = document.getElementById("award-detail-image");
       const imageCounter = document.getElementById("award-image-counter");
-      const galleryControls = document.getElementById("award-gallery-controls");
+      const zoomImage = document.getElementById("zoom-image");
+      const zoomCounter = document.getElementById("zoom-image-counter");
+      const thumbnailIds = ["award-thumbnails", "zoom-award-thumbnails"];
 
       let selected = 0;
       let selectedImage = 0;
@@ -1565,21 +1756,78 @@
       const renderAwardImage = () => {
         const award = awards[selected];
         const total = award.images.length;
+        const caption = `${selectedImage + 1} / ${total}`;
+        const label = `Image ${selectedImage + 1} of ${total}`;
 
-        detailImage.src = award.images[selectedImage];
+        [detailImage, zoomImage].forEach(img => {
+          img.src = award.images[selectedImage];
+          img.alt = `${award.title} — image ${selectedImage + 1} of ${total}`;
+        });
 
-        detailImage.alt =
-          `${award.title} — image ${selectedImage + 1} of ${total}`;
+        [imageCounter, zoomCounter].forEach(counter => {
+          counter.textContent = caption;
+          counter.setAttribute("aria-label", label);
+        });
 
-        imageCounter.textContent =
-          `${selectedImage + 1} / ${total}`;
+        [
+          "award-image-prev",
+          "award-image-next",
+          "zoom-image-prev",
+          "zoom-image-next"
+        ].forEach(id => {
+          document.getElementById(id).hidden = total < 2;
+        });
 
-        imageCounter.setAttribute(
-          "aria-label",
-          `Image ${selectedImage + 1} of ${total}`
-        );
+        thumbnailIds.forEach(id => {
+          document.getElementById(id).querySelectorAll("button").forEach((button, index) => {
+            button.setAttribute(
+              "aria-pressed",
+              String(index === selectedImage)
+            );
+          });
+        });
+      };
 
-        galleryControls.hidden = total < 2;
+      const renderAwardThumbnails = () => {
+        const award = awards[selected];
+
+        thumbnailIds.forEach(id => {
+          const thumbnails = document.getElementById(id);
+          thumbnails.replaceChildren();
+
+          award.images.forEach((src, index) => {
+            const button = document.createElement("button");
+            button.type = "button";
+            button.setAttribute(
+              "aria-label",
+              `Show image ${index + 1}`
+            );
+
+            const img = document.createElement("img");
+            img.src = src;
+            img.alt = `${award.title} — page ${index + 1}`;
+            button.append(img);
+
+            button.addEventListener("click", () => {
+              selectedImage = index;
+              renderAwardImage();
+            });
+
+            thumbnails.append(button);
+          });
+
+          thumbnails.hidden = award.images.length < 2;
+        });
+      };
+
+      const moveAwardImage = step => {
+        const total = awards[selected].images.length;
+
+        selectedImage = (
+          selectedImage + step + total
+        ) % total;
+
+        renderAwardImage();
       };
 
       document.querySelectorAll("[data-award]").forEach(button => {
@@ -1602,6 +1850,7 @@
           document.getElementById("award-date").textContent =
             "Awarded: " + award.date;
 
+          renderAwardThumbnails();
           renderAwardImage();
 
           dialog.showModal();
@@ -1609,27 +1858,31 @@
         });
       });
 
-      document.getElementById("award-image-prev").addEventListener(
-        "click",
-        () => {
-          selectedImage = (
-            selectedImage - 1 + awards[selected].images.length
-          ) % awards[selected].images.length;
+      ["award-image-prev", "zoom-image-prev"].forEach(id => {
+        document.getElementById(id).addEventListener("click", () => {
+          moveAwardImage(-1);
+        });
+      });
 
-          renderAwardImage();
+      ["award-image-next", "zoom-image-next"].forEach(id => {
+        document.getElementById(id).addEventListener("click", () => {
+          moveAwardImage(1);
+        });
+      });
+
+      document.addEventListener("keydown", event => {
+        if (!dialog.open && !zoom.open) return;
+
+        if (
+          event.key === "ArrowLeft" ||
+          event.key === "ArrowRight"
+        ) {
+          event.preventDefault();
+          moveAwardImage(
+            event.key === "ArrowLeft" ? -1 : 1
+          );
         }
-      );
-
-      document.getElementById("award-image-next").addEventListener(
-        "click",
-        () => {
-          selectedImage = (
-            selectedImage + 1
-          ) % awards[selected].images.length;
-
-          renderAwardImage();
-        }
-      );
+      });
 
       document.getElementById("close-award").addEventListener(
         "click",
@@ -1639,8 +1892,10 @@
       );
 
       dialog.addEventListener("close", () => {
-        document.body.style.overflow = "";
-        trigger?.focus();
+        if (!zoom.open) {
+          document.body.style.overflow = "";
+          trigger?.focus();
+        }
       });
 
       document.getElementById("zoom-award").addEventListener(
@@ -1649,14 +1904,9 @@
           document.getElementById("zoom-title").textContent =
             awards[selected].title;
 
-          const img = document.getElementById("zoom-image");
-
-          img.src = awards[selected].images[selectedImage];
-
-          img.alt =
-            `${awards[selected].title} — image ${selectedImage + 1}`;
-
+          renderAwardImage();
           zoom.showModal();
+          document.body.style.overflow = "hidden";
         }
       );
 
@@ -1666,6 +1916,15 @@
           zoom.close();
         }
       );
+
+      zoom.addEventListener("close", () => {
+        if (dialog.open) {
+          document.getElementById("zoom-award").focus();
+        } else {
+          document.body.style.overflow = "";
+          trigger?.focus();
+        }
+      });
 
       [dialog, zoom].forEach(panel => {
         panel.addEventListener("click", event => {
