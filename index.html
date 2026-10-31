@@ -226,7 +226,7 @@
     }
   </script>
   <style>
-    /* Certificates carousel synchronized with /certificates. */
+    /* Certificates carousel synchronized with certificates.html. */
 :is(#certificate-carousel, #award-dialog, #award-zoom) .award-org {
       color: #00aaa5;
       text-transform: uppercase;
@@ -1419,6 +1419,299 @@
       }
     }
   </style>
+
+  <style id="index-stats-introduction-style">
+    #stats .ist-card, #intro .iin-about, #intro .iin-principle {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid #d9e5f5;
+      background: rgba(255,255,255,.88);
+      box-shadow: 0 24px 36px -24px rgba(30,58,89,.38);
+      transition: border-color .25s ease, box-shadow .25s ease, transform .25s ease;
+    }
+    #stats .ist-card::before, #intro .iin-about::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse at top right,rgba(0,189,182,.1),transparent 60%);
+    }
+    #stats .ist-card::after, #intro .iin-about::after {
+      content: "";
+      position: absolute;
+      inset: 0 12% auto;
+      height: 1px;
+      background: linear-gradient(to right,transparent,rgba(0,189,182,.7),transparent);
+      pointer-events: none;
+    }
+    #stats .ist-card:hover, #intro .iin-principle:hover {
+      border-color: rgba(0,189,182,.55);
+      box-shadow: 0 24px 38px -24px rgba(0,143,138,.32);
+      transform: translateY(-4px);
+    }
+    #stats .ist-card {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-width: 0;
+      min-height: 210px;
+      border-radius: 28px;
+      padding: 24px;
+    }
+    #stats .ist-card > *, #intro .iin-about > * { position: relative; z-index: 1; }
+    #stats .ist-label, #intro .iin-label {
+      display: inline-flex;
+      align-items: center;
+      max-width: 100%;
+      padding: 5px 12px;
+      border: 1px solid rgba(0,189,182,.26);
+      border-radius: 999px;
+      background: rgba(0,189,182,.075);
+      color: #52637b;
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: 1.4px;
+    }
+    #stats .ist-value {
+      margin: 24px 0 12px;
+      background: linear-gradient(115deg,#20c9eb,#29b3df);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      font-size: 60px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -2px;
+      font-variant-numeric: tabular-nums;
+    }
+    #stats .ist-bottom { display: flex; align-items: center; gap: 18px; width: 100%; margin-top: auto; }
+    #stats .ist-rule { height: 1px; flex: 1; background: linear-gradient(to right,rgba(0,189,182,.65),transparent); }
+    #stats .ist-detail-link {
+      display: grid;
+      place-items: center;
+      flex: 0 0 40px;
+      width: 40px;
+      height: 40px;
+      border: 1px solid #d2e2f3;
+      border-radius: 50%;
+      background: rgba(255,255,255,.7);
+      color: #00bdb6;
+      transition: background .25s ease, color .25s ease, border-color .25s ease;
+    }
+    #stats .ist-detail-link:hover, #stats .ist-detail-link:focus-visible { border-color: #00bdb6; background: #00bdb6; color: white; }
+    #intro .iin-layout { display: grid; gap: 24px; margin-top: 36px; }
+    #intro .iin-about { display: flex; flex-direction: column; align-items: flex-start; padding: 28px; border-radius: 28px; }
+    #intro .iin-label { font-size: 11px; }
+    #intro .iin-title { margin-top: 22px; font-size: 30px; font-weight: 500; line-height: 1.25; letter-spacing: -.7px; }
+    #intro .iin-bio { margin-top: 24px; font-size: 16px; line-height: 1.85; color: #637188; }
+    #intro .iin-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; padding-top: 28px; }
+    #intro .iin-badge { display: inline-flex; align-items: center; gap: 8px; max-width: 100%; border: 1px solid #d2e2f3; border-radius: 999px; padding: 6px 12px; color: #52637b; font-size: 12px; line-height: 1.5; }
+    #intro .iin-badge svg { flex-shrink: 0; color: #00bdb6; }
+    #intro .iin-available { border-color: rgba(0,189,182,.3); background: rgba(0,189,182,.08); color: #009e99; }
+    #intro .iin-status-dot { width: 8px; height: 8px; flex: 0 0 8px; border-radius: 50%; background: #00bdb6; }
+    #intro .iin-more { display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; color: #00aaa4; font-size: 14px; font-weight: 500; }
+    #intro .iin-more svg { transition: transform .25s ease; }
+    #intro .iin-more:hover svg { transform: translate(2px,-2px); }
+    #intro .iin-more:hover { color: #008f8a; }
+    #intro .iin-principles { display: grid; gap: 16px; }
+    #intro .iin-principle { display: flex; align-items: flex-start; gap: 16px; min-width: 0; border-radius: 20px; padding: 22px; }
+    #intro .iin-icon { display: grid; place-items: center; width: 40px; height: 40px; flex: 0 0 40px; border: 1px solid rgba(0,189,182,.26); border-radius: 13px; background: rgba(0,189,182,.075); color: #00bdb6; }
+    #intro .iin-principle-title { color: #52637b; font-size: 12px; font-weight: 500; line-height: 1.5; letter-spacing: 1.5px; }
+    #intro .iin-principle-text { margin-top: 10px; font-size: 14px; line-height: 1.65; }
+    .dark #stats .ist-card, .dark #intro .iin-about, .dark #intro .iin-principle { border-color: #2b3c54; background: rgba(23,35,55,.9); box-shadow: 0 24px 36px -24px rgba(0,0,0,.65); }
+    .dark #stats .ist-card:hover, .dark #intro .iin-principle:hover { border-color: rgba(0,189,182,.7); }
+    .dark #stats .ist-label, .dark #intro .iin-label, .dark #intro .iin-principle-title, .dark #intro .iin-badge { color: #b5c3d7; }
+    .dark #intro .iin-bio { color: #a8b8cc; }
+    .dark #intro .iin-badge, .dark #stats .ist-detail-link { border-color: #34455d; }
+    .dark #stats .ist-detail-link { background: rgba(25,39,60,.8); }
+    .dark #stats .ist-detail-link:hover, .dark #stats .ist-detail-link:focus-visible { background: #00bdb6; border-color: #00bdb6; }
+    .dark #intro .iin-available { border-color: rgba(0,189,182,.4); color: #33d1cb; }
+    .dark #intro .iin-more { color: #33d1cb; }
+    /* Introduction: card hover also controls the icon and label colors. */
+    #intro .iin-about, #intro .iin-principle {
+      transition: background-color .28s ease, border-color .28s ease, box-shadow .28s ease, transform .28s ease;
+    }
+    #intro .iin-icon, #intro .iin-label, #intro .iin-badge, #intro .iin-badge svg {
+      transition: background-color .28s ease, border-color .28s ease, color .28s ease, box-shadow .28s ease;
+    }
+    #intro .iin-about:is(:hover,:focus-within), #intro .iin-principle:is(:hover,:focus-within) {
+      background-color: #eefbf9;
+      border-color: #79dcd5;
+      box-shadow: 0 20px 38px -22px rgba(0,143,138,.42);
+      transform: translateY(-4px);
+    }
+    #intro .iin-principle:is(:hover,:focus-within) .iin-icon {
+      background-color: #00bdb6;
+      border-color: #00bdb6;
+      color: #ffffff;
+      box-shadow: 0 8px 18px -6px rgba(0,189,182,.48);
+    }
+    #intro .iin-about:is(:hover,:focus-within) .iin-label,
+    #intro .iin-about:is(:hover,:focus-within) .iin-badge:first-child {
+      background-color: #00bdb6;
+      border-color: #00bdb6;
+      color: #ffffff;
+    }
+    #intro .iin-about:is(:hover,:focus-within) .iin-badge:first-child svg { color: #ffffff; }
+    .dark #intro .iin-about:is(:hover,:focus-within), .dark #intro .iin-principle:is(:hover,:focus-within) {
+      background-color: #1b3444;
+      border-color: #00bdb6;
+      box-shadow: 0 20px 38px -22px rgba(0,189,182,.28);
+    }
+    @media (min-width: 640px) {
+      #stats .ist-card { min-height: 228px; padding: 26px; }
+      #stats .ist-label { font-size: 11px; }
+      #stats .ist-value { font-size: 64px; }
+      #intro .iin-about { padding: 32px; }
+      #intro .iin-title { font-size: 36px; }
+    }
+    @media (min-width: 1024px) {
+      #intro .iin-layout { grid-template-columns: minmax(0,2.08fr) minmax(0,1fr); }
+      #intro .iin-principles { grid-template-rows: repeat(3,minmax(0,1fr)); }
+    }
+    @media (max-width: 639px) {
+      #stats .ist-card { min-height: 190px; padding: 18px; border-radius: 22px; }
+      #stats .ist-label { padding: 5px 8px; font-size: 9px; letter-spacing: 1px; }
+      #stats .ist-value { font-size: 48px; }
+      #stats .ist-bottom { gap: 8px; }
+      #intro .iin-about { padding: 24px; }
+      #intro .iin-bio { font-size: 15px; }
+      #intro .iin-principle { padding: 20px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      #stats .ist-card, #stats .ist-detail-link, #intro .iin-about, #intro .iin-principle, #intro .iin-icon, #intro .iin-label, #intro .iin-badge, #intro .iin-badge svg, #intro .iin-more svg { transition: none; }
+      #stats .ist-card:hover, #intro .iin-about:is(:hover,:focus-within), #intro .iin-principle:is(:hover,:focus-within), #intro .iin-more:hover svg { transform: none; }
+    }
+  </style>
+
+  <style id="index-card-hover-style">
+    /* Shared hover treatment for the remaining index cards. */
+    :is(#stats .ist-card, #projects .index-project-card, #skills .skill-card,
+        #experience .ixp-experience-card, #awards .iaw-award-card,
+        #contact .index-social-card, #collaborate .index-collaboration-card) {
+      transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s cubic-bezier(.16,1,.3,1), border-color .3s ease, background-color .3s ease;
+    }
+    :is(#stats .ist-card, #projects .index-project-card, #skills .skill-card,
+        #experience .ixp-experience-card, #awards .iaw-award-card,
+        #contact .index-social-card, #collaborate .index-collaboration-card):is(:hover,:focus-within) {
+      border-color: #00bdb6;
+      box-shadow: 0 22px 40px -15px rgba(0,189,182,.22), 0 12px 20px -10px rgba(36,56,85,.1);
+      transform: translateY(-6px);
+    }
+    .dark :is(#stats .ist-card, #projects .index-project-card, #skills .skill-card,
+        #experience .ixp-experience-card, #awards .iaw-award-card,
+        #contact .index-social-card, #collaborate .index-collaboration-card):is(:hover,:focus-within) {
+      box-shadow: 0 22px 40px -15px rgba(0,189,182,.25), 0 12px 20px -10px rgba(0,0,0,.4);
+    }
+    :is(#stats .ist-card, #projects .index-project-card):is(:hover,:focus-within) { background-color: #f0fbf9; }
+    .dark :is(#stats .ist-card, #projects .index-project-card):is(:hover,:focus-within) { background-color: #1b3444; }
+    #stats .ist-label { transition: background-color .3s ease, color .3s ease, border-color .3s ease; }
+    #stats .ist-card:is(:hover,:focus-within) .ist-label,
+    #stats .ist-card:is(:hover,:focus-within) .ist-detail-link {
+      background-color: #00bdb6; border-color: #00bdb6; color: white;
+    }
+    #projects .index-project-card h3 { transition: color .3s ease; }
+    #projects .index-project-card:is(:hover,:focus-within) h3 { color: #007b76; }
+    .dark #projects .index-project-card:is(:hover,:focus-within) h3 { color: #33d1cb; }
+    #certificate-carousel.featured-certificate:is(:hover,:focus-within) {
+      box-shadow: 0 22px 40px -15px rgba(0,189,182,.25), 0 12px 20px -10px rgba(36,56,85,.12);
+    }
+
+    /* Social cards retain the identifying color of each platform. */
+    #contact .index-social-card { position: relative; isolation: isolate; overflow: hidden; }
+    #contact .index-social-icon {
+      transition: background-color .3s ease, color .3s ease, box-shadow .3s ease, transform .3s ease;
+    }
+    #contact .index-social-arrow {
+      position: absolute; top: 24px; right: 24px;
+      display: grid; place-items: center; width: 32px; height: 32px;
+      border-radius: 50%; color: #637188;
+      transition: color .3s ease, background-color .3s ease, transform .3s ease;
+    }
+    #contact .index-social-card h3 { transition: color .3s ease; }
+    #contact .index-social-card:is(:hover,:focus-within) {
+      border-color: var(--index-social-accent);
+      background-color: color-mix(in srgb,var(--index-social-accent) 6%,white);
+    }
+    #contact .index-social-card:is(:hover,:focus-within) .index-social-icon {
+      background-color: var(--index-social-accent); color: white;
+      box-shadow: 0 7px 16px -7px var(--index-social-accent);
+      transform: scale(1.08);
+    }
+    #contact .index-social-card:is(:hover,:focus-within) .index-social-arrow {
+      color: var(--index-social-accent);
+      background-color: color-mix(in srgb,var(--index-social-accent) 12%,transparent);
+      transform: translate(2px,-2px);
+    }
+    #contact .index-social-card:is(:hover,:focus-within) h3 { color: var(--index-social-accent); }
+    .dark #contact .index-social-card:is(:hover,:focus-within) {
+      background-color: color-mix(in srgb,var(--index-social-accent) 12%,#172337);
+    }
+    .dark #contact .index-social-card:is(:hover,:focus-within) :is(h3,.index-social-arrow) {
+      color: color-mix(in srgb,var(--index-social-accent) 65%,white);
+    }
+
+    /* The collaboration panel follows the same soft gradient treatment. */
+    #collaborate .index-collaboration-card { position: relative; isolation: isolate; }
+    #collaborate .index-collaboration-card::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      border-radius: inherit; pointer-events: none; opacity: 0;
+      background: linear-gradient(135deg,rgba(0,189,182,.12),rgba(16,189,215,.05) 50%,rgba(226,102,131,.08));
+      transition: opacity .4s ease;
+    }
+    #collaborate .index-collaboration-card:is(:hover,:focus-within)::before { opacity: 1; }
+    #collaborate .index-collaboration-card h2 { transition: color .3s ease; }
+    #collaborate .index-collaboration-card:is(:hover,:focus-within) h2 { color: #007b76; }
+    .dark #collaborate .index-collaboration-card:is(:hover,:focus-within) h2 { color: #33d1cb; }
+
+    /* Education hover matches the original About page. */
+    #about-education {
+      --ied-overlay: linear-gradient(135deg,rgba(0,189,182,.12),rgba(16,189,215,.05) 50%,rgba(226,102,131,.08));
+      --ied-hover-shadow: 0 22px 40px -15px rgba(0,189,182,.22), 0 12px 20px -10px rgba(36,56,85,.1);
+    }
+    .dark #about-education {
+      --ied-overlay: linear-gradient(135deg,rgba(0,189,182,.15),rgba(16,189,215,.08) 50%,rgba(226,102,131,.1));
+      --ied-hover-shadow: 0 22px 40px -15px rgba(0,189,182,.25), 0 12px 20px -10px rgba(0,0,0,.4);
+    }
+    #about-education .ied-card {
+      transition: transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s cubic-bezier(.16,1,.3,1), border-color .4s ease;
+    }
+    #about-education .ied-card::before {
+      content: ""; position: absolute; inset: 0; z-index: -1;
+      border-radius: inherit; pointer-events: none;
+      background: var(--ied-overlay); opacity: 0; transition: opacity .4s ease;
+    }
+    #about-education :is(.ied-degree-button,.ied-label) { transition: color .3s ease; }
+    #about-education .ied-card:focus-within { border-color: #00bdb6; box-shadow: var(--ied-hover-shadow); }
+    #about-education .ied-card:focus-within::before { opacity: 1; }
+    #about-education .ied-outer:focus-within > .ied-label { color: var(--ied-accent); }
+    @media (hover: hover) and (pointer: fine) {
+      #about-education .ied-card:hover { transform: translateY(-8px); border-color: #00bdb6; box-shadow: var(--ied-hover-shadow); }
+      #about-education .ied-card:hover::before { opacity: 1; }
+      #about-education .ied-inner:hover { transform: translateY(-4px); }
+      #about-education .ied-outer:hover > .ied-label,
+      #about-education .ied-inner:hover .ied-degree-button { color: var(--ied-accent); }
+    }
+
+    /* A full-width top border, using the same colors as Contact. */
+    #index-footer { position: relative; z-index: 1; border-top: 1px solid rgba(217,229,245,.7); }
+    .dark #index-footer { border-top-color: #2b3c54; }
+    @media (prefers-reduced-motion: reduce) {
+      :is(#stats .ist-card, #projects .index-project-card, #skills .skill-card,
+          #experience .ixp-experience-card, #awards .iaw-award-card,
+          #contact .index-social-card, #collaborate .index-collaboration-card) { transition: none; }
+      :is(#stats .ist-card, #projects .index-project-card, #skills .skill-card,
+          #experience .ixp-experience-card, #awards .iaw-award-card,
+          #contact .index-social-card, #collaborate .index-collaboration-card):is(:hover,:focus-within) { transform: none; }
+      #contact :is(.index-social-icon,.index-social-arrow), #contact .index-social-card h3,
+      #collaborate .index-collaboration-card::before, #collaborate .index-collaboration-card h2,
+      #about-education .ied-card, #about-education .ied-card::before,
+      #about-education :is(.ied-degree-button,.ied-label) { transition: none; }
+      #contact .index-social-card:is(:hover,:focus-within) :is(.index-social-icon,.index-social-arrow),
+      #about-education .ied-card:hover, #about-education .ied-inner:hover { transform: none; }
+    }
+  </style>
 </head>
 <body class="relative m-0 bg-[radial-gradient(circle_at_top_left,_rgba(0,189,182,0.3),_transparent_60%),radial-gradient(circle_at_bottom_right,_rgba(0,189,182,0.3),_transparent_60%)] bg-white font-sans text-[#121b2e] antialiased dark:bg-[#101827] dark:text-[#eff5ff]">
   <!-- BACKGROUND PATTERN -->
@@ -1539,7 +1832,7 @@
         "initials": "ASR",
         "photo": "assets/profile.png",
         "cv": "assets/Adi-Sahrul-Ramadhan-CV.pdf",
-        "linkedin": "https://www.linkedin.com/in/adisahrulramadhan/",
+        "linkedin": "https://linkedin.com/in/adi-sahrul-ramadhan-8966a1286",
         "github": "https://github.com/AdiSahrulRamadhan",
         "instagram": "https://www.instagram.com/adishrlramadhannn_?stkn=MXEyeGs4cmoydGd0dA%3D%3D&utm_source=qr",
         "youtube": "https://www.youtube.com/@-AdiSahrulRamadhan",
@@ -2933,6 +3226,12 @@
         right:
           '<path d="M4 12h16m-6-6 6 6-6 6"/>',
 
+        upRight:
+          '<path d="M7 17 17 7M7 7h10v10"/>',
+
+        sparkles:
+          '<path d="m12 3 2.3 6.7L21 12l-6.7 2.3L12 21l-2.3-6.7L3 12l6.7-2.3L12 3ZM20 3v4m-2-2h4"/>',
+
         left:
           '<path d="M20 12H4m6-6-6 6 6 6"/>',
 
@@ -3050,9 +3349,10 @@
 
       function textAction(text, name) {
         const pages = {
-          "all-certificates": "/certificates",
-          "all-experience": "/experience",
-          "all-awards": "/awards"
+          "all-skills": "skills.html",
+          "all-certificates": "certificates.html",
+          "all-experience": "experience.html",
+          "all-awards": "awards.html"
         };
         if (pages[name]) {
           return `<a href="${pages[name]}" class="${UI.link}">${text} ${icon("right", 16)}</a>`;
@@ -3205,7 +3505,7 @@
 
       // =====================================================
       // NAVBAR
-      // Home selalu aktif pada /.
+      // Home selalu aktif pada index.html.
       // =====================================================
 
       function navLink(label, href, active = false) {
@@ -3278,7 +3578,7 @@
             >
               <!-- BRAND -->
               <a
-                href="/"
+                href="index.html"
                 class="group inline-flex shrink-0 items-center gap-[9px] sm:gap-[13px]"
               >
                 <span class="grid h-[42px] w-[39px] place-items-center rounded-[14px] border border-[#a7efea] bg-white shadow-[0_8px_15px_rgba(0,191,183,.14)] transition-transform group-hover:-rotate-3 sm:size-12 sm:rounded-[17px] dark:border-[#00bdb6]/50 dark:bg-[#172837]">
@@ -3321,10 +3621,10 @@
                   xl:[&>a]:px-[13px] xl:[&>a]:text-sm
                 "
               >
-                ${navLink("Home", "/", true)}
-                ${navLink("About", "/about")}
-                ${navLink("Experience", "/experience")}
-                ${navLink("Projects", "/projects")}
+                ${navLink("Home", "index.html", true)}
+                ${navLink("About", "about.html")}
+                ${navLink("Experience", "experience.html")}
+                ${navLink("Projects", "projects.html")}
 
                 <!-- ACHIEVEMENTS DROPDOWN -->
                 <div
@@ -3364,7 +3664,7 @@
                     class="achievement-dropdown absolute left-0 top-full z-20 mt-2 grid min-w-44 gap-1 rounded-2xl border border-line bg-white p-2 shadow-lg dark:border-[#34455d] dark:bg-[#172337]"
                   >
                     <a
-                      href="/awards"
+                      href="awards.html"
                       role="menuitem"
                       class="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm transition-colors text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
                     >
@@ -3372,7 +3672,7 @@
                     </a>
 
                     <a
-                      href="/certificates"
+                      href="certificates.html"
                       role="menuitem"
                       class="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm transition-colors text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
                     >
@@ -3381,9 +3681,9 @@
                   </div>
                 </div>
 
-                ${navLink("Blog", "/blog")}
-                ${navLink("Skills", "/skills")}
-                ${navLink("Contact", "/contact")}
+                ${navLink("Blog", "blog.html")}
+                ${navLink("Skills", "skills.html")}
+                ${navLink("Contact", "contact.html")}
               </div>
 
               <!-- MOBILE MENU AND THEME -->
@@ -3490,7 +3790,7 @@
                     </a>
 
                     ${button("Download CV", DATA.cv, "outline", "download")}
-                    ${button("Explore Projects", "#projects", "accent")}
+                    ${button("Explore Projects", "projects.html", "accent")}
                   </div>
 
                   <div class="mt-4 grid w-full grid-cols-2 gap-2 sm:grid-cols-5 xl:gap-3">
@@ -3609,7 +3909,7 @@
 
       function projectCard(project) {
         return `
-          <article class="${UI.card} group rounded-[27px] p-[22px] transition-all hover:-translate-y-1.5 hover:border-accent ">
+          <article class="index-project-card ${UI.card} group rounded-[27px] p-[22px] transition-all hover:-translate-y-1.5 hover:border-accent ">
             <div class="rounded-[19px] border border-line bg-white p-4 dark:border-[#34455d] dark:bg-[#101d30]">
               <div class="relative aspect-[1.7/1] overflow-hidden rounded-md">
                 ${
@@ -3783,7 +4083,7 @@
       }
 
       // =====================================================
-      // SKILL CARDS — sama dengan halaman /skills
+      // SKILL CARDS — sama dengan halaman skills.html
       // Ganti blok SKILL CARDS lama sampai sebelum EXPERIENCE.
       // =====================================================
 
@@ -4210,12 +4510,12 @@
 
       function footerHTML() {
         return `
-          <footer class="border-t border-line/70 py-12 sm:py-16 dark:border-[#2b3c54]">
+          <footer id="index-footer" class="border-t border-line/70 py-12 sm:py-16 dark:border-[#2b3c54]">
             <div class="${UI.container}">
               <div class="grid gap-10 md:grid-cols-[1.8fr_.75fr_1fr]">
                 <div>
                   <a
-href="/"
+                    href="index.html"
                     class="text-xl font-medium tracking-[-.5px]"
                   >
                     ${esc(DATA.name)}
@@ -4246,15 +4546,15 @@ href="/"
                   </h3>
 
                   <div class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 text-xs ${UI.muted} [&>a:hover]:text-black dark:[&>a:hover]:text-white">
-                    <a href="/">Home</a>
-                    <a href="/certificates">Certificates</a>
-                    <a href="/about">About</a>
-                    <a href="/blog">Blog</a>
-                    <a href="/experience">Experience</a>
-                    <a href="/skills">Skills</a>
-                    <a href="/projects">Projects</a>
-                    <a href="/contact">Contact</a>
-                    <a href="/awards">Awards</a>
+                    <a href="index.html">Home</a>
+                    <a href="certificates.html">Certificates</a>
+                    <a href="about.html">About</a>
+                    <a href="blog.html">Blog</a>
+                    <a href="experience.html">Experience</a>
+                    <a href="skills.html">Skills</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="contact.html">Contact</a>
+                    <a href="awards.html">Awards</a>
                   </div>
                 </div>
 
@@ -4268,7 +4568,7 @@ href="/"
                   </p>
 
                   <a
-                    href="${esc(socialHref("email") || "/contact")}"
+                    href="${esc(socialHref("email") || "contact.html")}"
                     class="mt-3 inline-block break-all text-xs text-muted hover:text-black dark:text-[#a8b8cc] dark:hover:text-white"
                   >
                     ${esc(DATA.email || "Connect through my social profiles")}
@@ -4281,6 +4581,56 @@ href="/"
               </p>
             </div>
           </footer>
+        `;
+      }
+
+
+      function statsCardsHTML() {
+        const destinations = ["experience.html", "projects.html", "certificates.html", "awards.html"];
+        return `
+          <div class="ist-grid mt-9 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5">
+            ${DATA.stats.map(([label, value, suffix = "+"], index) => `
+              <article class="ist-card">
+                <h3 class="ist-label">${esc(label)}</h3>
+                <p class="ist-value"><span data-count="${value}">${value}</span>${esc(suffix)}</p>
+                <div class="ist-bottom">
+                  <span class="ist-rule" aria-hidden="true"></span>
+                  <a class="ist-detail-link" href="${destinations[index]}" aria-label="View ${esc(label.toLowerCase())} details">
+                    ${icon("upRight", 18)}
+                  </a>
+                </div>
+              </article>
+            `).join("")}
+          </div>
+        `;
+      }
+
+      function introductionCardsHTML() {
+        const principleIcons = ["code", "sparkles", "users"];
+        return `
+          <div class="iin-layout grid">
+            <article class="iin-about">
+              <p class="iin-label">ABOUT ME</p>
+              <h3 class="iin-title">Software Engineer</h3>
+              <p class="iin-bio">${esc(DATA.bio)}</p>
+              <div class="iin-meta">
+                <span class="iin-badge">${icon("code", 15)} Full-stack web development</span>
+                <span class="iin-badge iin-available"><span class="iin-status-dot" aria-hidden="true"></span>Open to freelance and full-time collaboration</span>
+              </div>
+              <a class="iin-more" href="about.html">More about me ${icon("upRight", 16)}</a>
+            </article>
+            <div class="iin-principles">
+              ${DATA.principles.map(([title, text], index) => `
+                <article class="iin-principle">
+                  <span class="iin-icon" aria-hidden="true">${icon(principleIcons[index], 21)}</span>
+                  <div class="min-w-0">
+                    <h3 class="iin-principle-title">${esc(title)}</h3>
+                    <p class="iin-principle-text">${esc(text)}</p>
+                  </div>
+                </article>
+              `).join("")}
+            </div>
+          </div>
         `;
       }
 
@@ -4301,23 +4651,7 @@ href="/"
               "STATS",
               "Career snapshot at a glance.",
               "A quick overview of experience, project delivery, certifications, and awards.",
-              `
-                <div class="mt-9 grid grid-cols-2 gap-4 lg:grid-cols-4 lg:gap-5">
-                  ${
-                    DATA.stats.map(([label, value, suffix = "+"]) => `
-                      <article class="${UI.card} rounded-[25px] p-6 transition-all hover:-translate-y-1 hover:border-accent  sm:p-7">
-                        <h3 class="text-[9px] font-medium tracking-[1.5px] sm:text-[11px] ${UI.muted}">
-                          ${label}
-                        </h3>
-
-                        <p class="mt-5 text-[40px] leading-none font-medium tracking-[-1.5px] sm:text-[54px]">
-                          <span data-count="${value}">${value}</span>${esc(suffix)}
-                        </p>
-                      </article>
-                    `).join("")
-                  }
-                </div>
-              `
+              statsCardsHTML()
             )
           }
 
@@ -4329,37 +4663,7 @@ href="/"
               "INTRODUCTION",
               "I build polished web products<br class='hidden sm:block'/>from concept to production.",
               "",
-              `
-                <article class="${UI.card} mt-10 rounded-[26px] p-6 sm:p-9">
-                  <p class="text-[11px] tracking-[1.8px] ${UI.muted}">
-                    ABOUT ME
-                  </p>
-
-                  <h3 class="mt-5 text-[25px] font-medium sm:text-[30px]">
-                    Software Engineer
-                  </h3>
-
-                  <p class="mt-6 text-[15px] leading-[1.8] sm:text-base ${UI.muted}">
-                    ${esc(DATA.bio)}
-                  </p>
-                </article>
-
-                <div class="mt-6 grid gap-4 md:grid-cols-3">
-                  ${
-                    DATA.principles.map(([title, text]) => `
-                      <article class="${UI.card} rounded-[17px] p-[22px] transition-all hover:-translate-y-1 hover:border-accent ">
-                        <h3 class="text-[10px] tracking-[1.7px] ${UI.muted}">
-                          ${title}
-                        </h3>
-
-                        <p class="mt-3 text-sm leading-relaxed">
-                          ${text}
-                        </p>
-                      </article>
-                    `).join("")
-                  }
-                </div>
-              `
+              introductionCardsHTML()
             )
           }
 
@@ -4378,9 +4682,9 @@ href="/"
 
                 <div class="mt-12 flex justify-center">
                   ${
-                    action(
+                    button(
                       `View all projects ${icon("right", 16)}`,
-                      "all-projects"
+                      "projects.html"
                     )
                   }
                 </div>
@@ -4486,11 +4790,14 @@ href="/"
                       <a
                         ${socialAttrs(key)}
                         data-reveal
-                        class="${UI.card} block rounded-[20px] p-6 hover:border-accent "
+                        class="index-social-card ${UI.card} block rounded-[20px] p-6 hover:border-accent"
+                        style="--index-social-accent:${color.match(/text-\[(#[0-9a-fA-F]+)\]/)?.[1] || "#00bdb6"}"
                       >
-                        <span class="grid size-9 place-items-center rounded-full ${color}">
+                        <span class="index-social-icon grid size-9 place-items-center rounded-full ${color}">
                           ${icon(key, 16)}
                         </span>
+
+                        <span class="index-social-arrow" aria-hidden="true">${icon("upRight", 18)}</span>
 
                         <h3 class="mt-5 text-base font-medium">
                           ${name}
@@ -4509,11 +4816,11 @@ href="/"
 
           ${divider()}
 
-          <section class="${UI.section}">
+          <section id="collaborate" class="${UI.section}">
             <div class="${UI.container}">
               <div
                 data-reveal
-                class="${UI.card} rounded-[27px] p-7 sm:p-10"
+                class="index-collaboration-card ${UI.card} rounded-[27px] p-7 sm:p-10"
               >
                 <h2 class="text-[25px] leading-tight font-medium tracking-[-.6px] sm:text-[31px]">
                   Let’s build your next product together.
@@ -4527,7 +4834,7 @@ href="/"
                   ${
                     button(
                       "Contact Me",
-                      socialHref("email") || "/contact",
+                      socialHref("email") || "contact.html",
                       "primary"
                     )
                   }
@@ -4979,18 +5286,6 @@ href="/"
         const actionName = trigger.dataset.action;
         const id = trigger.dataset.id;
 
-        if (actionName === "all-projects") {
-          openDialog(
-            "All Projects",
-            `
-              <div class="grid items-start gap-5 md:grid-cols-2">
-                ${DATA.projects.map(projectCard).join("")}
-              </div>
-            `,
-            trigger
-          );
-        }
-
         if (actionName === "project") {
           const project = DATA.projects.find(item => item.id === id);
 
@@ -5102,30 +5397,6 @@ href="/"
                       : ""
                   }
                 </div>
-              </div>
-            `,
-            trigger
-          );
-        }
-
-        if (actionName === "all-skills") {
-          openDialog(
-            "Skills & Technologies",
-            `
-              <div class="grid gap-4 sm:grid-cols-2">
-                ${DATA.skills.map(skillCard).join("")}
-              </div>
-
-              <h3 class="mt-9 text-lg font-semibold">
-                Technology toolkit
-              </h3>
-
-              <div class="mt-5 flex flex-wrap gap-2">
-                ${
-                  TECH.map(([name, slug]) => {
-                    return tagHTML([name, slug]);
-                  }).join("")
-                }
               </div>
             `,
             trigger
@@ -6210,7 +6481,7 @@ href="/"
       });
     })();
   </script>
-<!-- EXPERIENCE INDEX — synchronized with /experience -->
+<!-- EXPERIENCE INDEX — synchronized with experience.html -->
 <style>
  .ixp-timeline{position:relative;display:grid;gap:32px;padding-left:32px;margin-top:48px;}
 .ixp-timeline::before{content:"";position:absolute;left:10px;top:12px;bottom:12px;width:2px;border-radius:999px;background:#6caaa9;box-shadow:none;}
@@ -6378,7 +6649,7 @@ href="/"
   timeline.className = "ixp-timeline";
   const footer = document.createElement("div");
   footer.className = "mt-8 pl-8";
-  footer.innerHTML = '<a href="/experience" class="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline">View full timeline <span aria-hidden="true">→</span></a>';
+  footer.innerHTML = '<a href="experience.html" class="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline">View full timeline <span aria-hidden="true">→</span></a>';
   oldTimeline.replaceWith(timeline, footer);
   document.body.insertAdjacentHTML("beforeend", `<!-- EXPERIENCE DETAILS --><dialog id="ixp-award-dialog" aria-labelledby="ixp-award-title"><div class="ixp-award-dialog-panel"><header class="ixp-award-dialog-header"><div><p class="ixp-award-org" id="ixp-award-org"></p><h2 id="ixp-award-title"></h2></div><button type="button" class="ixp-close-award" id="ixp-close-award" aria-label="Close experience details" ><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true" ><path d="m6 6 12 12M18 6 6 18" /></svg></button></header><div class="ixp-award-dialog-body"><div class="ixp-certificate-gallery"><button type="button" id="ixp-zoom-award" aria-label="Enlarge experience image" ><img id="ixp-award-detail-image" alt="" /><span id="ixp-detail-image-counter" class="ixp-award-image-counter" aria-live="polite" >1 / 1</span></button><button type="button" id="ixp-detail-image-prev" class="ixp-gallery-arrow ixp-gallery-prev" aria-label="Previous experience image" hidden ><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M19 12H5m7 7-7-7 7-7" /></svg></button><button type="button" id="ixp-detail-image-next" class="ixp-gallery-arrow ixp-gallery-next" aria-label="Next experience image" hidden ><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M5 12h14m-7-7 7 7-7 7" /></svg></button></div><div id="ixp-certificate-thumbnails" class="ixp-certificate-thumbnails" aria-label="Experience images" hidden ></div><p id="ixp-award-description"></p><ul id="ixp-experience-bullets" class="ixp-experience-bullets" ></ul><div id="ixp-certificate-detail-tags" class="ixp-certificate-detail-tags" ></div><div class="ixp-certificate-detail-meta"><p class="ixp-award-date" id="ixp-award-date"></p></div></div></div></dialog><!-- ZOOM --><dialog id="ixp-award-zoom" aria-labelledby="ixp-zoom-title"><div class="ixp-award-dialog-panel"><header class="ixp-award-dialog-header"><h2 id="ixp-zoom-title"></h2><button type="button" class="ixp-close-award" id="ixp-close-zoom" aria-label="Close image zoom" ><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true" ><path d="m6 6 12 12M18 6 6 18" /></svg></button></header><div class="ixp-zoom-image-wrap ixp-certificate-gallery"><img id="ixp-zoom-image" alt="" /><button type="button" id="ixp-zoom-image-prev" class="ixp-gallery-arrow ixp-gallery-prev" aria-label="Previous experience image" hidden ><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M19 12H5m7 7-7-7 7-7" /></svg></button><button type="button" id="ixp-zoom-image-next" class="ixp-gallery-arrow ixp-gallery-next" aria-label="Next experience image" hidden ><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M5 12h14m-7-7 7 7-7 7" /></svg></button><span id="ixp-zoom-image-counter" class="ixp-award-image-counter" aria-live="polite" >1 / 1</span></div><div id="ixp-zoom-certificate-thumbnails" class="ixp-certificate-thumbnails" aria-label="Experience images in zoom" hidden ></div></div></dialog>`);
       const EXPERIENCES = [
@@ -7037,7 +7308,7 @@ href="/"
 })();
 </script>
 
-<!-- AWARDS INDEX — synchronized with /awards -->
+<!-- AWARDS INDEX — synchronized with awards.html -->
 <style>
 .iaw-awards-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;margin-top:32px;}
 .iaw-award-card{position:relative;overflow:hidden;border:1px solid #d9e5f5;border-radius:24px;background:linear-gradient(145deg,#ffffff,#f0f7ff);box-shadow:0 10px 25px -15px rgba(36,56,85,.1);transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .4s cubic-bezier(.16,1,.3,1),border-color .4s ease;will-change:transform;z-index:1;}
@@ -7221,7 +7492,7 @@ href="/"
   `).join("");
   const footer = document.createElement("div");
   footer.className = "mt-8";
-  footer.innerHTML = '<a href="/awards" class="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline">View all awards <span aria-hidden="true">→</span></a>';
+  footer.innerHTML = '<a href="awards.html" class="inline-flex items-center gap-2 text-sm font-medium text-accent hover:underline">View all awards <span aria-hidden="true">→</span></a>';
   oldTimeline.replaceWith(grid, footer);
 
   document.body.insertAdjacentHTML("beforeend", `
