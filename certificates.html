@@ -1294,7 +1294,7 @@
       }
     }
   </style>
-  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="icon" type="image/webp" href="assets/favicon.webp" />
   <style>
     /* Navbar synchronized with About. */
     .dark #achievement-dropdown {
@@ -2236,76 +2236,82 @@
       "use strict";
 
       /*
-       * Data 6 sampel berada pada index 0–5.
+       * Data 6 sertifikat DQLab berada pada index 0–5.
        * Dicoding berada pada index 6–26.
        * Cisco berada pada index 27.
        */
       const certificates = [
         {
           title: "Introduction to Data Science with R",
-          org: "Sample training provider",
+          org: "DQLab",
           desc: "Certificate in introductory data science with R, focused on understanding how a programming language can support the exploration and interpretation of data. The subject connects basic analytical thinking with organized workflows for working with information and identifying useful patterns. It provides a foundation for further study in data analysis, visualization, and evidence-based problem solving.",
-          date: "Not specified",
-          credential: "DEMO-001",
+          date: "17 April 2024",
+          expires: "17 April 2027",
+          credential: "DQLABBGINRWLONSS",
           verifyUrl: "https://academy.dqlab.id/Certificate_check/result/DQLABBGINRWLONSS",
           skills: ["Cloud Computing", "Architecture", "Security"],
           extraImages: [],
-          image: "assets/certificates/Sertifikat Introduction to Data Science with R.png"
+          image: "assets/certificates/Sertifikat Introduction to Data Science with R.webp"
         },
         {
           title: "Guide to Learn R with AI at DQLab",
-          org: "Sample training provider",
+          org: "DQLab",
           desc: "Certificate in learning R with AI support, combining an introduction to a statistical programming language with a thoughtful approach to assisted learning. The subject connects programming questions, suggested solutions, and the importance of checking whether an explanation or result makes sense. This foundation supports more independent study, clearer problem formulation, and continued development in data science.",
-          date: "Not specified",
-          credential: "DEMO-002",
+          date: "17 April 2024",
+          expires: "17 April 2027",
+          credential: "DQLABAI002FUJDVU",
           verifyUrl: "https://academy.dqlab.id/Certificate_check/result/DQLABAI002FUJDVU",
           skills: ["Web", "Problem Solving", "Development"],
           extraImages: [],
-          image: "assets/certificates/Sertifikat Guide to Learn R with AI at DQLab.png"
+          image: "assets/certificates/Sertifikat Guide to Learn R with AI at DQLab.webp"
         },
         {
           title: "Fundamental SQL Using SELECT Statement",
-          org: "Sample training provider",
+          org: "DQLab",
           desc: "Certificate in foundational SQL querying with the SELECT statement, focused on retrieving relevant information from structured database tables. The subject connects the selection of columns, the use of conditions, and the organization of query results to practical information needs. It provides a starting point for reading database structures, writing understandable queries, and developing further skills in data analysis.",
-          date: "Not specified",
-          credential: "DEMO-003",
+          date: "17 April 2024",
+          expires: "17 April 2027",
+          credential: "DQLABSQLT1FWCFBD",
           verifyUrl: "https://academy.dqlab.id/Certificate_check/result/DQLABSQLT1FWCFBD",
           skills: ["Front-End", "Problem Solving", "Development"],
           extraImages: [],
-          image: "assets/certificates/Sertifikat Fundamental SQL Using SELECT Statement.png"
+          image: "assets/certificates/Sertifikat Fundamental SQL Using SELECT Statement.webp"
         },
         {
           title: "FREECLASS : DATA SCIENCE FUNDAMENTALS",
-          org: "Sample training provider",
+          org: "DQLab",
           desc: "Certificate in data science fundamentals, introducing the relationship between data, analytical questions, and useful insights. The subject places programming and analysis within a broader process of understanding a problem, examining available information, and interpreting results with appropriate context. This foundation supports further learning in analytical tools, data exploration, and the communication of findings for practical problem solving.",
-          date: "Not specified",
-          credential: "DEMO-004",
+          date: "17 April 2024",
+          expires: "17 April 2027",
+          credential: "DQLABFREECLASS01MBWDLH",
           verifyUrl: "https://academy.dqlab.id/Certificate_check/result/DQLABFREECLASS01MBWDLH",
           skills: ["JavaScript", "Problem Solving", "Development"],
           extraImages: [],
-          image: "assets/certificates/Sertifikat FREECLASS  DATA SCIENCE FUNDAMENTALS.png"
+          image: "assets/certificates/Sertifikat FREECLASS  DATA SCIENCE FUNDAMENTALS.webp"
         },
         {
           title: "Python Fundamental for Data Science",
-          org: "Sample training provider",
+          org: "DQLab",
           desc: "Certificate in foundational Python for data science, focused on using programming concepts to work with information in a structured way. The subject connects basic language syntax, data organization, and reusable program logic with the needs of an analytical workflow. It provides a starting point for continued learning in data preparation, exploration, and the development of clear, repeatable analysis routines.",
-          date: "Not specified",
-          credential: "DEMO-005",
+          date: "17 April 2024",
+          expires: "17 April 2027",
+          credential: "DQLABINTP1ODNKKP",
           verifyUrl: "https://academy.dqlab.id/Certificate_check/result/DQLABINTP1ODNKKP",
           skills: ["Back-End", "Problem Solving", "Development"],
           extraImages: [],
-          image: "assets/certificates/Sertifikat Python Fundamental for Data Science.png"
+          image: "assets/certificates/Sertifikat Python Fundamental for Data Science.webp"
         },
         {
           title: "R Fundamental for Data Science",
-          org: "Sample training provider",
+          org: "DQLab",
           desc: "Certificate in foundational R programming for data science, introducing the language as a tool for organizing and exploring data. The subject connects basic programming expressions, data structures, and logical steps with the interpretation of analytical results. This foundation supports continued development in statistical computing, data visualization, and the creation of understandable workflows for working with data.",
-          date: "Not specified",
-          credential: "DEMO-006",
+          date: "17 April 2024",
+          expires: "17 April 2027",
+          credential: "DQLABINTR1HRFGCJ",
           verifyUrl: "https://academy.dqlab.id/Certificate_check/result/DQLABINTR1HRFGCJ",
           skills: ["React.js", "UI/UX Fundamentals", "Responsive Design"],
           extraImages: [],
-          image: "assets/certificates/Sertifikat R Fundamental for Data Science.png"
+          image: "assets/certificates/Sertifikat R Fundamental for Data Science.webp"
         },
 
         // GAMBAR DICODING BISA DIISI NANTI PADA image: ""
@@ -2321,8 +2327,8 @@
           credential: "L4PQWGE04PO1",
           verifyUrl: "https://www.dicoding.com/certificates/L4PQWGE04PO1",
           skills: ["Personal Development", "Learning Strategy", "Self Management"],
-          extraImages: ["assets/certificates/Sertifikat Belajar Strategi Pengembangan Diri-2.png", "assets/certificates/Sertifikat Belajar Strategi Pengembangan Diri-3.png"],
-          image: "assets/certificates/Sertifikat Belajar Strategi Pengembangan Diri.png"
+          extraImages: ["assets/certificates/Sertifikat Belajar Strategi Pengembangan Diri-2.webp", "assets/certificates/Sertifikat Belajar Strategi Pengembangan Diri-3.webp"],
+          image: "assets/certificates/Sertifikat Belajar Strategi Pengembangan Diri.webp"
         },
         {
           title: "Belajar Dasar Pemrograman Web",
@@ -2336,8 +2342,8 @@
           credential: "JMZVLNR7OXN9",
           verifyUrl: "https://www.dicoding.com/certificates/JMZVLNR7OXN9",
           skills: ["HTML", "CSS", "Web Development"],
-          extraImages: ["assets/certificates/Sertifikat Belajar Dasar Pemrograman Web-2.png", "assets/certificates/Sertifikat Belajar Dasar Pemrograman Web-3.png"],
-          image: "assets/certificates/Sertifikat Belajar Dasar Pemrograman Web.png"
+          extraImages: ["assets/certificates/Sertifikat Belajar Dasar Pemrograman Web-2.webp", "assets/certificates/Sertifikat Belajar Dasar Pemrograman Web-3.webp"],
+          image: "assets/certificates/Sertifikat Belajar Dasar Pemrograman Web.webp"
         },
         {
           title: "Belajar Membuat Front-End Web untuk Pemula",
@@ -2351,8 +2357,8 @@
           credential: "EYX4O6GNWXDL",
           verifyUrl: "https://www.dicoding.com/certificates/EYX4O6GNWXDL",
           skills: ["Front-End", "JavaScript", "Web Development"],
-          extraImages: ["assets/certificates/Sertifikat Belajar Membuat Front-End Web untuk Pemula-2.png"],
-          image: "assets/certificates/Sertifikat Belajar Membuat Front-End Web untuk Pemula.png"
+          extraImages: ["assets/certificates/Sertifikat Belajar Membuat Front-End Web untuk Pemula-2.webp"],
+          image: "assets/certificates/Sertifikat Belajar Membuat Front-End Web untuk Pemula.webp"
         },
         {
           title: "Belajar Dasar Pemrograman JavaScript",
@@ -2366,8 +2372,8 @@
           credential: "L4PQW60V7PO1",
           verifyUrl: "https://www.dicoding.com/certificates/L4PQW60V7PO1",
           skills: ["JavaScript", "Programming", "Problem Solving"],
-          extraImages: ["assets/certificates/Sertifikat Belajar Dasar Pemrograman JavaScript-2.png", "assets/certificates/Sertifikat Belajar Dasar Pemrograman JavaScript-3.png"],
-          image: "assets/certificates/Sertifikat Belajar Dasar Pemrograman JavaScript.png"
+          extraImages: ["assets/certificates/Sertifikat Belajar Dasar Pemrograman JavaScript-2.webp", "assets/certificates/Sertifikat Belajar Dasar Pemrograman JavaScript-3.webp"],
+          image: "assets/certificates/Sertifikat Belajar Dasar Pemrograman JavaScript.webp"
         },
         {
           title: "Belajar Fundamental Front-End Web Development",
@@ -2381,8 +2387,8 @@
           credential: "1OP87NQR8ZQK",
           verifyUrl: "https://www.dicoding.com/certificates/1OP87NQR8ZQK",
           skills: ["Front-End", "JavaScript", "Web Development"],
-          extraImages: ["assets/certificates/Sertifikat Belajar Fundamental Front-End Web Development-2.png", "assets/certificates/Sertifikat Belajar Fundamental Front-End Web Development-3.png"],
-          image: "assets/certificates/Sertifikat Belajar Fundamental Front-End Web Development.png"
+          extraImages: ["assets/certificates/Sertifikat Belajar Fundamental Front-End Web Development-2.webp", "assets/certificates/Sertifikat Belajar Fundamental Front-End Web Development-3.webp"],
+          image: "assets/certificates/Sertifikat Belajar Fundamental Front-End Web Development.webp"
         },
         {
           title: "Memulai Pemrograman dengan Python",
@@ -2396,8 +2402,8 @@
           credential: "JLX1KL86GP72",
           verifyUrl: "https://www.dicoding.com/certificates/JLX1KL86GP72",
           skills: ["Python", "Programming", "Problem Solving"],
-          extraImages: ["assets/certificates/Sertifikat Memulai Pemrograman dengan Python-2.png", "assets/certificates/Sertifikat Memulai Pemrograman dengan Python-3.png"],
-          image: "assets/certificates/Sertifikat Memulai Pemrograman dengan Python.png"
+          extraImages: ["assets/certificates/Sertifikat Memulai Pemrograman dengan Python-2.webp", "assets/certificates/Sertifikat Memulai Pemrograman dengan Python-3.webp"],
+          image: "assets/certificates/Sertifikat Memulai Pemrograman dengan Python.webp"
         },
         {
           title: "Memulai Pemrograman Dengan Java",
@@ -2411,8 +2417,8 @@
           credential: "0LZ0J953QX65",
           verifyUrl: "https://www.dicoding.com/certificates/0LZ0J953QX65",
           skills: ["Java", "Programming", "Problem Solving"],
-          extraImages: ["assets/certificates/Sertifikat Memulai Pemrograman Dengan Java-2.png", "assets/certificates/Sertifikat Memulai Pemrograman Dengan Java-3.png"],
-          image: "assets/certificates/Sertifikat Memulai Pemrograman Dengan Java.png"
+          extraImages: ["assets/certificates/Sertifikat Memulai Pemrograman Dengan Java-2.webp", "assets/certificates/Sertifikat Memulai Pemrograman Dengan Java-3.webp"],
+          image: "assets/certificates/Sertifikat Memulai Pemrograman Dengan Java.webp"
         },
         {
           title: "Memulai Pemrograman Dengan C",
@@ -2426,8 +2432,8 @@
           credential: "RVZKMOG4NXD5",
           verifyUrl: "https://www.dicoding.com/certificates/RVZKMOG4NXD5",
           skills: ["C", "Programming", "Problem Solving"],
-          extraImages: ["assets/certificates/Sertifikat Memulai Pemrograman Dengan C-2.png", "assets/certificates/Sertifikat Memulai Pemrograman Dengan C-3.png"],
-          image: "assets/certificates/Sertifikat Memulai Pemrograman Dengan C.png"
+          extraImages: ["assets/certificates/Sertifikat Memulai Pemrograman Dengan C-2.webp", "assets/certificates/Sertifikat Memulai Pemrograman Dengan C-3.webp"],
+          image: "assets/certificates/Sertifikat Memulai Pemrograman Dengan C.webp"
         },
         {
           title: "Memulai Pemrograman dengan Haskell",
@@ -2441,8 +2447,8 @@
           credential: "07Z6QVJLRZQR",
           verifyUrl: "https://www.dicoding.com/certificates/07Z6QVJLRZQR",
           skills: ["Haskell", "Functional Programming", "Programming"],
-          extraImages: ["assets/certificates/Sertifikat Memulai Pemrograman dengan Haskell-2.png"],
-          image: "assets/certificates/Sertifikat Memulai Pemrograman dengan Haskell.png"
+          extraImages: ["assets/certificates/Sertifikat Memulai Pemrograman dengan Haskell-2.webp"],
+          image: "assets/certificates/Sertifikat Memulai Pemrograman dengan Haskell.webp"
         },
         {
           title: "Belajar Dasar Structured Query Language (SQL)",
@@ -2456,8 +2462,8 @@
           credential: "EYX4O93LJXDL",
           verifyUrl: "https://www.dicoding.com/certificates/EYX4O93LJXDL",
           skills: ["SQL", "Database", "Query"],
-          extraImages: ["assets/certificates/Sertifikat Belajar Dasar Structured Query Language (SQL)-2.png", "assets/certificates/Sertifikat Belajar Dasar Structured Query Language (SQL)-3.png"],
-          image: "assets/certificates/Sertifikat Belajar Dasar Structured Query Language (SQL).png"
+          extraImages: ["assets/certificates/Sertifikat Belajar Dasar Structured Query Language (SQL)-2.webp", "assets/certificates/Sertifikat Belajar Dasar Structured Query Language (SQL)-3.webp"],
+          image: "assets/certificates/Sertifikat Belajar Dasar Structured Query Language (SQL).webp"
         },
         {
           title: "Belajar Dasar Git dengan GitHub",
@@ -2471,8 +2477,8 @@
           credential: "4EXGJN3EEXRL",
           verifyUrl: "https://www.dicoding.com/certificates/4EXGJN3EEXRL",
           skills: ["Git", "GitHub", "Version Control"],
-          extraImages: ["assets/certificates/Sertifikat Belajar Dasar Git dengan GitHub-2.png", "assets/certificates/Sertifikat Belajar Dasar Git dengan GitHub-3.png"],
-          image: "assets/certificates/Sertifikat Belajar Dasar Git dengan GitHub.png"
+          extraImages: ["assets/certificates/Sertifikat Belajar Dasar Git dengan GitHub-2.webp", "assets/certificates/Sertifikat Belajar Dasar Git dengan GitHub-3.webp"],
+          image: "assets/certificates/Sertifikat Belajar Dasar Git dengan GitHub.webp"
         },
         {
           title: "Belajar Prinsip Pemrograman SOLID",
@@ -2486,8 +2492,8 @@
           credential: "0LZ0J95DQX65",
           verifyUrl: "https://www.dicoding.com/certificates/0LZ0J95DQX65",
           skills: ["SOLID", "Software Design", "Programming"],
-          extraImages: ["assets/certificates/Sertifikat Belajar Prinsip Pemrograman SOLID-2.png"],
-          image: "assets/certificates/Sertifikat Belajar Prinsip Pemrograman SOLID.png"
+          extraImages: ["assets/certificates/Sertifikat Belajar Prinsip Pemrograman SOLID-2.webp"],
+          image: "assets/certificates/Sertifikat Belajar Prinsip Pemrograman SOLID.webp"
         },
         {
           title: "Spec-Driven Development dengan Kiro",
@@ -2501,8 +2507,8 @@
           credential: "MRZMVQNM3ZYQ",
           verifyUrl: "https://www.dicoding.com/certificates/MRZMVQNM3ZYQ",
           skills: ["Kiro", "Spec-Driven Development", "Software Development"],
-          extraImages: ["assets/certificates/Sertifikat Spec-Driven Development dengan Kiro-2.png", "assets/certificates/Sertifikat Spec-Driven Development dengan Kiro-3.png"],
-          image: "assets/certificates/Sertifikat Spec-Driven Development dengan Kiro.png"
+          extraImages: ["assets/certificates/Sertifikat Spec-Driven Development dengan Kiro-2.webp", "assets/certificates/Sertifikat Spec-Driven Development dengan Kiro-3.webp"],
+          image: "assets/certificates/Sertifikat Spec-Driven Development dengan Kiro.webp"
         },
         {
           title: "Belajar Machine Learning untuk Pemula",
@@ -2516,8 +2522,8 @@
           credential: "JMZVL9E6QXN9",
           verifyUrl: "https://www.dicoding.com/certificates/JMZVL9E6QXN9",
           skills: ["Machine Learning", "Data", "AI"],
-          extraImages: ["assets/certificates/Sertifikat Belajar Machine Learning untuk Pemula-2.png", "assets/certificates/Sertifikat Belajar Machine Learning untuk Pemula-3.png"],
-          image: "assets/certificates/Sertifikat Belajar Machine Learning untuk Pemula.png"
+          extraImages: ["assets/certificates/Sertifikat Belajar Machine Learning untuk Pemula-2.webp", "assets/certificates/Sertifikat Belajar Machine Learning untuk Pemula-3.webp"],
+          image: "assets/certificates/Sertifikat Belajar Machine Learning untuk Pemula.webp"
         },
         {
           title: "Belajar Dasar Visualisasi Data",
@@ -2531,8 +2537,8 @@
           credential: "MRZMV4M1LZYQ",
           verifyUrl: "https://www.dicoding.com/certificates/MRZMV4M1LZYQ",
           skills: ["Data Visualization", "Data", "Analytics"],
-          extraImages: ["assets/certificates/Sertifikat Belajar Dasar Visualisasi Data-2.png"],
-          image: "assets/certificates/Sertifikat Belajar Dasar Visualisasi Data.png"
+          extraImages: ["assets/certificates/Sertifikat Belajar Dasar Visualisasi Data-2.webp"],
+          image: "assets/certificates/Sertifikat Belajar Dasar Visualisasi Data.webp"
         },
         {
           title: "Belajar Dasar Manajemen Proyek",
@@ -2546,8 +2552,8 @@
           credential: "RVZKMOG9NXD5",
           verifyUrl: "https://www.dicoding.com/certificates/RVZKMOG9NXD5",
           skills: ["Project Management", "Planning", "Coordination"],
-          extraImages: ["assets/certificates/Sertifikat Belajar Dasar Manajemen Proyek-2.png", "assets/certificates/Sertifikat Belajar Dasar Manajemen Proyek-3.png"],
-          image: "assets/certificates/Sertifikat Belajar Dasar Manajemen Proyek.png"
+          extraImages: ["assets/certificates/Sertifikat Belajar Dasar Manajemen Proyek-2.webp", "assets/certificates/Sertifikat Belajar Dasar Manajemen Proyek-3.webp"],
+          image: "assets/certificates/Sertifikat Belajar Dasar Manajemen Proyek.webp"
         },
         {
           title: "Introduction to Financial Literacy",
@@ -2561,8 +2567,8 @@
           credential: "JLX1KD96JP72",
           verifyUrl: "https://www.dicoding.com/certificates/JLX1KD96JP72",
           skills: ["Financial Literacy", "Finance", "Financial Planning"],
-          extraImages: ["assets/certificates/Sertifikat Introduction to Financial Literacy-2.png", "assets/certificates/Sertifikat Introduction to Financial Literacy-3.png"],
-          image: "assets/certificates/Sertifikat Introduction to Financial Literacy.png"
+          extraImages: ["assets/certificates/Sertifikat Introduction to Financial Literacy-2.webp", "assets/certificates/Sertifikat Introduction to Financial Literacy-3.webp"],
+          image: "assets/certificates/Sertifikat Introduction to Financial Literacy.webp"
         },
         {
           title: "Belajar Dasar Cloud dan Gen AI di AWS",
@@ -2576,8 +2582,8 @@
           credential: "KEXLM07RYZG2",
           verifyUrl: "https://www.dicoding.com/certificates/KEXLM07RYZG2",
           skills: ["AWS", "Cloud Computing", "Generative AI"],
-          extraImages: ["assets/certificates/Sertifikat Belajar Dasar Cloud dan Gen AI di AWS-2.png", "assets/certificates/Sertifikat Belajar Dasar Cloud dan Gen AI di AWS-3.png"],
-          image: "assets/certificates/Sertifikat Belajar Dasar Cloud dan Gen AI di AWS.png"
+          extraImages: ["assets/certificates/Sertifikat Belajar Dasar Cloud dan Gen AI di AWS-2.webp", "assets/certificates/Sertifikat Belajar Dasar Cloud dan Gen AI di AWS-3.webp"],
+          image: "assets/certificates/Sertifikat Belajar Dasar Cloud dan Gen AI di AWS.webp"
         },
         {
           title: "Belajar Penerapan Data Science dengan Microsoft Fabric",
@@ -2591,8 +2597,8 @@
           credential: "RVZKMOWVNXD5",
           verifyUrl: "https://www.dicoding.com/certificates/RVZKMOWVNXD5",
           skills: ["Microsoft Fabric", "Data Science", "Analytics"],
-          extraImages: ["assets/certificates/Sertifikat Belajar Penerapan Data Science dengan Microsoft Fabric-2.png", "assets/certificates/Sertifikat Belajar Penerapan Data Science dengan Microsoft Fabric-3.png"],
-          image: "assets/certificates/Sertifikat Belajar Penerapan Data Science dengan Microsoft Fabric.png"
+          extraImages: ["assets/certificates/Sertifikat Belajar Penerapan Data Science dengan Microsoft Fabric-2.webp", "assets/certificates/Sertifikat Belajar Penerapan Data Science dengan Microsoft Fabric-3.webp"],
+          image: "assets/certificates/Sertifikat Belajar Penerapan Data Science dengan Microsoft Fabric.webp"
         },
         {
           title: "Membangun Aplikasi Gen AI dengan Microsoft Azure",
@@ -2606,8 +2612,8 @@
           credential: "NVP7WO5M4ZR0",
           verifyUrl: "https://www.dicoding.com/certificates/NVP7WO5M4ZR0",
           skills: ["Microsoft Azure", "Generative AI", "Application Development"],
-          extraImages: ["assets/certificates/Sertifikat Membangun Aplikasi Gen AI dengan Microsoft Azure-2.png", "assets/certificates/Sertifikat Membangun Aplikasi Gen AI dengan Microsoft Azure-3.png"],
-          image: "assets/certificates/Sertifikat Membangun Aplikasi Gen AI dengan Microsoft Azure.png"
+          extraImages: ["assets/certificates/Sertifikat Membangun Aplikasi Gen AI dengan Microsoft Azure-2.webp", "assets/certificates/Sertifikat Membangun Aplikasi Gen AI dengan Microsoft Azure-3.webp"],
+          image: "assets/certificates/Sertifikat Membangun Aplikasi Gen AI dengan Microsoft Azure.webp"
         },
         {
           title: "Memulai Dasar Pemrograman untuk Menjadi Pengembang Software",
@@ -2621,8 +2627,8 @@
           credential: "2VX3VJ52QPYQ",
           verifyUrl: "https://www.dicoding.com/certificates/2VX3VJ52QPYQ",
           skills: ["Programming", "Software Development", "Problem Solving"],
-          extraImages: ["assets/certificates/Sertifikat Memulai Dasar Pemrograman untuk Menjadi Pengembang Software-2.png", "assets/certificates/Sertifikat Memulai Dasar Pemrograman untuk Menjadi Pengembang Software-3.png"],
-          image: "assets/certificates/Sertifikat Memulai Dasar Pemrograman untuk Menjadi Pengembang Software.png"
+          extraImages: ["assets/certificates/Sertifikat Memulai Dasar Pemrograman untuk Menjadi Pengembang Software-2.webp", "assets/certificates/Sertifikat Memulai Dasar Pemrograman untuk Menjadi Pengembang Software-3.webp"],
+          image: "assets/certificates/Sertifikat Memulai Dasar Pemrograman untuk Menjadi Pengembang Software.webp"
         },
         {
           title: "Introduction to Cybersecurity (Cisco)",
@@ -2635,7 +2641,7 @@
           verifyUrl: "https://www.credly.com/earner/earned/badge/bce5bd5b-25dc-4ee7-9238-4f24fa2b72cb",
           skills: ["Cybersecurity", "Security Fundamentals", "Digital Safety"],
           extraImages: [],
-          image: "assets/certificates/Sertifikat Introduction to Cybersecurity.png"
+          image: "assets/certificates/Sertifikat Introduction to Cybersecurity.webp"
         }
       ];
 

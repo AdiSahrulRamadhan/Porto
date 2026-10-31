@@ -1,0 +1,3232 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth scroll-pt-[120px] motion-reduce:scroll-auto">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f4f8ff" />
+  <meta name="description" content="Project Details — Adi Sahrul Ramadhan, Software Engineer" />
+  <title>Project Details — Adi Sahrul Ramadhan</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+  <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.dark, .dark *));
+
+    @theme {
+      --font-sans: "Inter", Arial, sans-serif;
+      --color-page: #f4f8ff;
+      --color-ink: #121b2e;
+      --color-muted: #637188;
+      --color-accent: #00bdb6;
+      --color-line: #d9e5f5;
+    }
+
+    @layer base {
+      html { color-scheme: light; }
+      html.dark { color-scheme: dark; }
+      [hidden] { display: none !important; }
+
+      a, button, [tabindex] {
+        outline-offset: 5px;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--color-accent);
+      }
+
+      svg {
+        display: block;
+        flex-shrink: 0;
+      }
+
+      a[href], button:enabled, summary {
+        cursor: pointer;
+      }
+    }
+  </style>
+
+  <script>
+    try {
+      const saved = localStorage.getItem("asr-theme");
+
+      document.documentElement.classList.toggle(
+        "dark",
+        saved === "dark" ||
+        (
+          saved !== "light" &&
+          matchMedia("(prefers-color-scheme: dark)").matches
+        )
+      );
+    } catch {
+      document.documentElement.classList.toggle(
+        "dark",
+        matchMedia("(prefers-color-scheme: dark)").matches
+      );
+    }
+  </script>
+
+  <style>
+    /* MAIN CONTENT */
+    .awards-main {
+      max-width: 1080px;
+      width: calc(100% - 48px);
+      margin: auto;
+      padding: 140px 0 64px;
+    }
+
+    .awards-main.certificates-main {
+      width: calc(100% - 36px);
+      max-width: 1320px;
+      margin-inline: auto;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      border: 1px solid #d9e5f5;
+      border-radius: 99px;
+      background: #ffffff99;
+      padding: 4px 12px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      color: #556987;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+    }
+
+    .awards-main h1 {
+      margin: 18px 0;
+      font-size: clamp(30px, 3.5vw, 44px);
+      max-width: 650px;
+      font-weight: 600;
+      letter-spacing: -1.2px;
+      line-height: 1.22;
+    }
+
+    .awards-intro {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #637188;
+    }
+
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 28px;
+      align-items: stretch;
+    }
+
+    /* CERTIFICATE CARDS */
+    .award-card {
+      overflow: hidden;
+      border: 1px solid #d9e5f5;
+      border-radius: 24px;
+      background: #ffffffd9;
+      box-shadow: 0 22px 35px -23px #24385566;
+    }
+
+    .award-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .award-image {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      border: 0;
+      padding: 0;
+      background: #eaf0f7;
+    }
+
+    .award-image img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform .25s;
+    }
+
+    .award-image:hover img {
+      transform: scale(1.035);
+    }
+
+    .award-body {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .award-org {
+      color: #00aaa5;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 1.3px;
+      line-height: 1.5;
+      font-weight: 600;
+      margin: 0 0 12px;
+    }
+
+    .certificate-card {
+      display: flex;
+      flex-direction: column;
+      border-radius: 28px;
+      border-color: #d4e1f1;
+      background: #fcfdff;
+      box-shadow: 0 18px 32px -24px #24385555;
+    }
+
+    .certificate-card .award-image {
+      aspect-ratio: 1.42;
+      background: #2d4052;
+    }
+
+    .certificate-card .award-body {
+      padding: 25px 23px 26px;
+      flex: 1;
+    }
+
+    .certificate-card .award-org {
+      color: #50617b;
+      font-size: 12px;
+      letter-spacing: 1.7px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .certificate-card h2 {
+      font-size: 21px;
+      font-weight: 500;
+      line-height: 1.4;
+      letter-spacing: -.45px;
+      margin: 0 0 22px;
+    }
+
+    .certificate-title-button {
+      display: block;
+      text-align: left;
+      font: inherit;
+      letter-spacing: inherit;
+      color: inherit;
+      background: none;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .certificate-title-button:hover {
+      color: #00aaa5;
+    }
+
+    .certificate-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 25px;
+    }
+
+    .skill-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 11px;
+      border: 1px solid #d0dded;
+      border-radius: 99px;
+      color: #5c6d87;
+      font-size: 12px;
+      line-height: 1.3;
+    }
+
+    .certificate-meta {
+      font-size: 13px;
+      line-height: 1.8;
+      margin: 0 0 23px;
+      color: #5c6d87;
+      overflow-wrap: anywhere;
+    }
+
+    .certificate-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 9px;
+      margin-top: auto;
+      width: 100%;
+    }
+
+    .outline-button,
+    .primary-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 99px;
+      font-size: 12px;
+      line-height: 1.4;
+      padding: 10px 18px;
+      border: 1px solid #d9e5f5;
+      text-decoration: none;
+      transition: background .2s, color .2s, border-color .2s;
+    }
+
+    .certificate-actions button {
+      font-size: 12px;
+      padding: 11px 14px;
+      gap: 7px;
+      white-space: nowrap;
+    }
+
+    .outline-button:hover {
+      background: #00bdb615;
+      color: #009e99;
+      border-color: #00bdb6;
+    }
+
+    .primary-button {
+      background: #00bdb6;
+      color: white;
+      border-color: #00bdb6;
+      box-shadow: 0 6px 12px #00bdb633;
+    }
+
+    .primary-button:hover {
+      background: #009e99;
+    }
+
+    .primary-button.verify-card:not(:disabled):hover {
+      background: #008c87;
+      border-color: #008c87;
+      color: white;
+    }
+
+    .verify-card {
+      gap: 8px;
+    }
+
+    .verify-card:disabled {
+      cursor: not-allowed;
+    }
+
+    /* FEATURED CAROUSEL */
+    .featured-certificate {
+      margin-top: 24px;
+      padding: 32px;
+      border: 1px solid #d9e5f5;
+      border-radius: 30px;
+      background: #ffffffdb;
+      box-shadow: 0 15px 30px -22px #24385555;
+      overflow: hidden;
+    }
+
+    .featured-heading {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .featured-heading h2 {
+      font-size: 13px;
+      letter-spacing: 1.7px;
+      font-weight: 600;
+      color: #50617b;
+    }
+
+    .featured-heading p {
+      font-size: 15px;
+      color: #637188;
+      margin-top: 10px;
+      line-height: 1.5;
+    }
+
+    .featured-viewport {
+      overflow: hidden;
+      touch-action: pan-y;
+    }
+
+    .featured-track {
+      display: flex;
+      gap: 20px;
+      align-items: stretch;
+      transition: transform .55s cubic-bezier(.2, .7, .2, 1);
+      will-change: transform;
+    }
+
+    .featured-slide {
+      flex: 0 0 72%;
+      min-width: 0;
+      border: 1px solid #d0dded;
+      border-radius: 26px;
+      padding: 24px;
+      background: #ffffffb3;
+    }
+
+    .featured-grid {
+      display: grid;
+      grid-template-columns: 40% minmax(0, 1fr);
+      gap: 24px;
+      align-items: stretch;
+      height: 100%;
+    }
+
+    .featured-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      min-height: 300px;
+      height: 100%;
+      overflow: hidden;
+      border: 1px solid #d9e5f5;
+      border-radius: 20px;
+      background: #fcfdff;
+      cursor: zoom-in;
+    }
+
+    .featured-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .featured-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      min-width: 0;
+      padding: 0;
+    }
+
+    .featured-copy .award-org {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      margin-bottom: 14px;
+    }
+
+    .featured-copy h2 {
+      font-size: 25px;
+      font-weight: 600;
+      letter-spacing: -.5px;
+      line-height: 1.35;
+      margin-bottom: 24px;
+    }
+
+    .featured-copy .certificate-tags {
+      margin-bottom: 24px;
+      gap: 8px;
+    }
+
+    .featured-copy .featured-meta {
+      font-size: 14px;
+      line-height: 1.8;
+      margin: 0 0 24px;
+      color: #637188;
+      overflow-wrap: anywhere;
+    }
+
+    .featured-copy .certificate-actions {
+      margin-top: auto;
+    }
+
+    .slider-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .slider-control {
+      border: 1px solid #d0dded;
+      border-radius: 99px;
+      padding: 7px 13px;
+      font-size: 12px;
+      color: #50617b;
+      background: transparent;
+      line-height: 1.4;
+    }
+
+    .slider-control:hover {
+      border-color: #00bdb6;
+      color: #00aaa5;
+    }
+
+    .slider-dots {
+      display: flex;
+      gap: 9px;
+    }
+
+    .slider-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 99px;
+      background: #ccdae9;
+      transition: background .2s, transform .2s, box-shadow .2s;
+    }
+
+    .slider-dot[aria-pressed="true"] {
+      background: #00a7d0;
+      transform: scale(1.3);
+    }
+
+    #slider-pause {
+      transition:
+        background-color .25s ease,
+        color .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease;
+    }
+
+    #slider-pause:hover,
+    .dark #slider-pause:hover {
+      background: #00bdb6;
+      color: #ffffff;
+      border-color: #00bdb6;
+      box-shadow: 0 4px 12px rgba(0, 189, 182, .25);
+    }
+
+    /* CARD HOVER */
+    .certificate-card,
+    .featured-certificate,
+    .featured-slide {
+      position: relative;
+      isolation: isolate;
+      transition:
+        transform .25s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+    }
+
+    .certificate-card::before,
+    .featured-certificate::before,
+    .featured-slide::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      border-radius: inherit;
+      background: linear-gradient(
+        115deg,
+        #b3e9e6 0%,
+        #cdf3fc 56%,
+        #d8eff8 100%
+      );
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .3s ease;
+    }
+
+    .certificate-card:hover,
+    .featured-certificate:hover {
+      border-color: #b5dfe5;
+      box-shadow:
+        0 12px 32px -10px rgba(0, 160, 170, .25),
+        0 3px 14px rgba(0, 160, 170, .09);
+    }
+
+    .certificate-card:hover::before,
+    .featured-certificate:hover::before {
+      opacity: 1;
+    }
+
+    .featured-certificate:hover {
+      border: 2px solid #00bdb6;
+    }
+
+    .featured-slide:hover {
+      border-color: #00bdb6;
+    }
+
+    /* DETAILS DIALOG */
+    #award-dialog,
+    #award-zoom {
+      margin: auto;
+      padding: 0;
+      border: 1px solid #d9e5f5;
+      border-radius: 30px;
+      width: min(880px, calc(100% - 32px));
+      max-height: 94dvh;
+      background: #f4f8ff;
+      color: #121b2e;
+      overflow: auto;
+      box-shadow: 0 30px 100px #0005;
+    }
+
+    dialog::backdrop {
+      background: #101827b8;
+      backdrop-filter: blur(5px);
+    }
+
+    .award-dialog-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 24px 28px 16px;
+      border-bottom: 0;
+    }
+
+    .award-dialog-header h2 {
+      font-size: 22px;
+      line-height: 1.35;
+      font-weight: 600;
+      letter-spacing: -.6px;
+    }
+
+    #award-dialog .award-org {
+      font-size: 14px;
+      letter-spacing: 1.6px;
+      margin-bottom: 12px;
+    }
+
+    .close-award {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      flex-shrink: 0;
+      border: 1px solid #d9e5f5;
+      border-radius: 50%;
+      background: #f4f8ff;
+      color: #637188;
+    }
+
+    .award-dialog-body {
+      padding: 0 28px 24px;
+    }
+
+    .award-dialog-body > p {
+      margin-top: 26px;
+      line-height: 1.85;
+    }
+
+    #award-dialog #award-description {
+      font-size: 16px;
+      color: #556176;
+      line-height: 1.7;
+      text-align: justify;
+    }
+
+    #zoom-award {
+      position: relative;
+      display: block;
+      width: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      background: #ffffff;
+      cursor: zoom-in;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+    }
+
+    #award-detail-image {
+      display: block;
+      width: 100%;
+      height: 240px;
+      max-height: 35dvh;
+      object-fit: cover;
+      background: white;
+    }
+
+    .certificate-gallery {
+      position: relative;
+    }
+
+    .award-image-counter {
+      position: absolute;
+      right: 16px;
+      bottom: 16px;
+      padding: 5px 14px;
+      border-radius: 99px;
+      background: #f4f8ffdb;
+      font-size: 14px;
+      line-height: 1.5;
+      color: #556176;
+      backdrop-filter: blur(6px);
+    }
+
+    .gallery-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #d0dded;
+      border-radius: 50%;
+      background: #ffffffeb;
+      color: #172337;
+      font-size: 29px;
+      line-height: 1;
+      box-shadow: 0 3px 12px #17233722;
+      cursor: pointer;
+    }
+
+    .gallery-arrow:hover {
+      background: #00bdb6;
+      color: #fff;
+      border-color: #00bdb6;
+    }
+
+    .gallery-prev { left: 12px; }
+    .gallery-next { right: 12px; }
+
+    .certificate-thumbnails {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      margin-top: 14px;
+      padding: 3px 0 7px;
+    }
+
+    .certificate-thumbnails button {
+      flex: 0 0 94px;
+      padding: 3px;
+      border: 2px solid transparent;
+      border-radius: 10px;
+      background: #e6edf6;
+      overflow: hidden;
+    }
+
+    .certificate-thumbnails img {
+      width: 100%;
+      height: 58px;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .certificate-thumbnails button[aria-pressed="true"] {
+      border-color: #00bdb6;
+      background: #d7f7f3;
+    }
+
+    #award-dialog .certificate-detail-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    #award-dialog .certificate-detail-tags .skill-tag {
+      margin: 0;
+      padding: 6px 14px;
+      font-size: 14px;
+      line-height: 1.3;
+    }
+
+    #award-dialog .certificate-detail-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px 14px;
+      margin-top: 24px;
+    }
+
+    #award-dialog #award-date,
+    #award-dialog .detail-meta-badge {
+      display: inline-flex;
+      align-items: center;
+      margin: 0;
+      padding: 6px 15px;
+      border: 1px solid #d0dfef;
+      border-radius: 99px;
+      font-size: 14px;
+      line-height: 1.3;
+      color: #5c6d87;
+      overflow-wrap: anywhere;
+      max-width: 100%;
+    }
+
+    #award-dialog #verify-certificate {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 0;
+      padding: 12px 22px;
+      font-size: 14px;
+      line-height: 1.4;
+      background: linear-gradient(110deg, #00bdb6, #00afd0);
+      border-color: transparent;
+      box-shadow: 0 8px 16px #00bdb633;
+    }
+
+    #award-dialog #verify-certificate:hover {
+      background: linear-gradient(110deg, #009e99, #009cba);
+    }
+
+    /* ZOOM DIALOG */
+    #award-zoom {
+      width: min(1440px, calc(100% - 32px));
+      background: #fff;
+    }
+
+    #award-zoom .award-dialog-panel {
+      padding: 28px 30px 30px;
+    }
+
+    #award-zoom .award-dialog-header {
+      align-items: center;
+      padding: 0 0 20px;
+      gap: 20px;
+    }
+
+    #award-zoom .award-dialog-header h2 {
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: -.4px;
+    }
+
+    #award-zoom .close-award {
+      width: 44px;
+      height: 44px;
+    }
+
+    #award-zoom .zoom-image-wrap {
+      padding: 0;
+      border: 1px solid #d9e5f5;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #f0f4f8;
+      box-shadow: none;
+      transform: none;
+    }
+
+    #award-zoom #zoom-image {
+      display: block;
+      width: 100%;
+      height: clamp(120px, calc(94dvh - 238px), 680px);
+      object-fit: contain;
+    }
+
+    #award-zoom .gallery-arrow {
+      width: 50px;
+      height: 50px;
+      background: #ffffffeb;
+      box-shadow: none;
+    }
+
+    #award-zoom .gallery-prev { left: 15px; }
+    #award-zoom .gallery-next { right: 15px; }
+
+    #award-zoom .award-image-counter {
+      right: 15px;
+      bottom: 15px;
+      padding: 5px 14px;
+      border: 1px solid #d0dfef;
+      background: #ffffffeb;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    #zoom-certificate-thumbnails {
+      gap: 10px;
+      margin-top: 20px;
+      padding: 0 0 4px;
+    }
+
+    #zoom-certificate-thumbnails button {
+      flex: 0 0 160px;
+      height: 102px;
+      padding: 3px;
+      border: 1px solid #d0dfef;
+      border-radius: 15px;
+      background: #fff;
+      cursor: pointer;
+    }
+
+    #zoom-certificate-thumbnails button[aria-pressed="true"] {
+      border-color: #00bdb6;
+      box-shadow: inset 0 0 0 1px #00bdb6;
+    }
+
+    #zoom-certificate-thumbnails img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 11px;
+      background: #fff;
+    }
+
+    #award-dialog .close-award,
+    #award-zoom .close-award,
+    .dark #award-dialog .close-award,
+    .dark #award-zoom .close-award {
+      background: #f4f8ff;
+      color: #637188;
+      border-color: #d9e5f5;
+      transform: scale(1);
+      box-shadow: none;
+      transition: all .25s ease;
+    }
+
+    #award-dialog .close-award:hover,
+    #award-zoom .close-award:hover,
+    .dark #award-dialog .close-award:hover,
+    .dark #award-zoom .close-award:hover {
+      background: #00bdb6;
+      color: #ffffff;
+      border-color: #00bdb6;
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 189, 182, .25);
+    }
+
+    /* DARK MODE */
+    .dark .award-card,
+    .dark .featured-certificate,
+    .dark .featured-slide,
+    .dark #award-dialog,
+    .dark #award-zoom {
+      background: #172337;
+      color: #eff5ff;
+      border-color: #34455d;
+    }
+
+    .dark .certificate-card .award-image,
+    .dark .featured-image,
+    .dark #award-zoom .zoom-image-wrap {
+      background: #101827;
+      border-color: #34455d;
+    }
+
+    .dark .eyebrow {
+      background: #00bdb6;
+      border-color: #00bdb6;
+      color: #ffffff;
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 189, 182, .35);
+    }
+
+    .dark #zoom-award {
+      background: #00bdb6;
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 189, 182, .35);
+    }
+
+    .dark .awards-intro,
+    .dark .certificate-meta,
+    .dark .certificate-card .award-org,
+    .dark .skill-tag,
+    .dark .slider-control,
+    .dark .featured-heading h2,
+    .dark .featured-heading p,
+    .dark .featured-copy .featured-meta,
+    .dark #award-dialog #award-description,
+    .dark #award-dialog #award-date,
+    .dark #award-dialog .detail-meta-badge {
+      color: #a8b8cc;
+    }
+
+    .dark .skill-tag,
+    .dark .slider-control,
+    .dark .outline-button,
+    .dark #award-dialog #award-date,
+    .dark #award-dialog .detail-meta-badge {
+      border-color: #34455d;
+    }
+
+    .dark .certificate-actions .primary-button:disabled {
+      background: #1e2d42;
+      border-color: #34455d;
+      color: #637188;
+    }
+
+    .dark .certificate-actions .primary-button:not(:disabled):hover {
+      background: #008c87;
+      border-color: #00bdb6;
+      color: white;
+    }
+
+    .dark .certificate-actions .outline-button:not(:disabled):hover {
+      border-color: #00bdb6;
+    }
+
+    .dark .certificate-card:hover {
+      background: #262c3e;
+      border-color: #34455d;
+    }
+
+    .dark .featured-certificate:hover {
+      background: #1e293b;
+      border-color: #34455d;
+    }
+
+    .dark .certificate-card::before,
+    .dark .featured-certificate::before {
+      background: linear-gradient(
+        115deg,
+        #1b343a 0%,
+        #1c2c40 56%,
+        #223247 100%
+      );
+    }
+
+    .dark .certificate-card:hover,
+    .dark .featured-certificate:hover {
+      box-shadow:
+        0 12px 32px -10px rgba(0, 160, 170, .10),
+        0 3px 14px rgba(0, 160, 170, .04);
+    }
+
+    .dark .gallery-arrow,
+    .dark #award-zoom .gallery-arrow,
+    .dark #award-zoom .award-image-counter {
+      background: #1e2d42;
+      color: #eff5ff;
+      border-color: #34455d;
+    }
+
+    .dark .certificate-thumbnails button,
+    .dark #zoom-certificate-thumbnails button {
+      background: #1e2d42;
+      border-color: #34455d;
+    }
+
+    .dark #zoom-certificate-thumbnails button[aria-pressed="true"] {
+      border-color: #00bdb6;
+    }
+
+    #award-zoom .gallery-arrow:hover,
+    .dark .gallery-arrow:hover,
+    .dark #award-zoom .gallery-arrow:hover {
+      background: #00bdb6;
+      color: #ffffff;
+      border-color: #00bdb6;
+    }
+
+    .dark #theme-button:hover {
+      color: #ffffff;
+    }
+
+    .dark #slider-pause:hover,
+    .dark #award-dialog .close-award:hover,
+    .dark #award-zoom .close-award:hover {
+      box-shadow: 0 4px 12px rgba(0, 189, 182, .35);
+    }
+
+    /* FEATURED HOVER */
+    .featured-certificate:hover,
+    .dark .featured-certificate:hover {
+      border: 2px solid #00bdb6;
+    }
+
+    .featured-certificate .slider-footer .slider-control:hover,
+    .dark .featured-certificate .slider-footer .slider-control:hover {
+      border-color: #00bdb6;
+      color: #00aaa5;
+    }
+
+    .dark .featured-slide:hover {
+      border-color: #00bdb6;
+    }
+
+    .featured-certificate .slider-dot:hover,
+    .dark .featured-certificate .slider-dot:hover {
+      background: #00bdb6;
+      transform: scale(1.5);
+      box-shadow: 0 0 0 4px rgba(0, 189, 182, .18);
+    }
+
+    /* RESPONSIVE */
+    @media (min-width: 640px) {
+      .awards-main.certificates-main {
+        width: calc(100% - 64px);
+      }
+    }
+
+    @media (max-width: 1000px) {
+      .featured-slide { flex-basis: 86%; }
+      .featured-grid { gap: 18px; }
+      .featured-copy h2 { font-size: 22px; }
+    }
+
+    @media (max-width: 900px) {
+      .awards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .awards-main {
+        padding-top: 130px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .featured-image {
+        max-width: 460px;
+        margin: auto;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .featured-certificate { padding: 22px; }
+      .featured-slide { flex-basis: 93%; padding: 18px; }
+      .featured-grid { grid-template-columns: 1fr; }
+
+      .featured-image {
+        min-height: 0;
+        aspect-ratio: 3 / 2;
+        max-width: none;
+      }
+
+      .featured-heading h2 { font-size: 11px; }
+      .featured-heading p { font-size: 13px; }
+      .featured-copy h2 { font-size: 23px; margin-top: 0; }
+      .featured-copy .award-org { margin-top: 4px; }
+      .featured-track { gap: 14px; }
+    }
+
+    @media (max-width: 580px) {
+      .awards-main { padding-top: 120px; padding-bottom: 40px; }
+      .awards-grid { grid-template-columns: 1fr; }
+      .certificate-card .award-body { padding: 26px; }
+      .certificate-card h2 { font-size: 24px; }
+      .skill-tag { font-size: 13px; }
+      .certificate-meta { font-size: 14px; }
+      .certificate-actions button { font-size: 13px; }
+      .featured-slide .featured-image { max-width: 100%; }
+
+      #award-dialog .award-dialog-header {
+        padding: 22px 20px 18px;
+        align-items: flex-start;
+      }
+
+      #award-dialog .award-org {
+        font-size: 11px;
+        letter-spacing: 1px;
+      }
+
+      #award-dialog .award-dialog-header h2 {
+        font-size: 20px;
+        letter-spacing: -.3px;
+      }
+
+      #award-dialog .award-dialog-body {
+        padding: 0 20px 24px;
+      }
+
+      #award-detail-image {
+        height: 240px;
+        max-height: 40dvh;
+      }
+
+      #award-dialog #award-description {
+        font-size: 15px;
+        line-height: 1.75;
+      }
+
+      #zoom-award { border-radius: 16px; }
+      .gallery-arrow { width: 36px; height: 36px; }
+      .gallery-prev { left: 7px; }
+      .gallery-next { right: 7px; }
+
+      #award-dialog .certificate-detail-tags {
+        gap: 8px;
+        margin-top: 20px;
+      }
+
+      #award-dialog .certificate-detail-tags .skill-tag {
+        font-size: 12px;
+        padding: 6px 11px;
+      }
+
+      #award-dialog .certificate-detail-meta {
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      #award-dialog #award-date,
+      #award-dialog .detail-meta-badge {
+        font-size: 12px;
+        padding: 6px 12px;
+      }
+
+      #award-dialog #verify-certificate {
+        font-size: 13px;
+        padding: 11px 18px;
+      }
+
+      #award-zoom {
+        width: calc(100% - 20px);
+        border-radius: 22px;
+      }
+
+      #award-zoom .award-dialog-panel {
+        padding: 18px 14px;
+      }
+
+      #award-zoom .award-dialog-header {
+        padding-bottom: 16px;
+        gap: 12px;
+      }
+
+      #award-zoom .award-dialog-header h2 {
+        font-size: 16px;
+        letter-spacing: -.2px;
+      }
+
+      #award-zoom .close-award { width: 36px; height: 36px; }
+      #award-zoom .zoom-image-wrap { border-radius: 14px; }
+
+      #award-zoom #zoom-image {
+        height: clamp(120px, calc(94dvh - 210px), 600px);
+      }
+
+      #award-zoom .gallery-arrow { width: 36px; height: 36px; }
+      #award-zoom .gallery-prev { left: 7px; }
+      #award-zoom .gallery-next { right: 7px; }
+
+      #award-zoom .award-image-counter {
+        right: 10px;
+        bottom: 10px;
+        padding: 4px 10px;
+        font-size: 12px;
+      }
+
+      #zoom-certificate-thumbnails {
+        margin-top: 14px;
+        gap: 8px;
+      }
+
+      #zoom-certificate-thumbnails button {
+        flex-basis: 100px;
+        height: 66px;
+        border-radius: 10px;
+      }
+
+      #zoom-certificate-thumbnails img {
+        border-radius: 7px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .award-card,
+      .award-image img,
+      .featured-track,
+      .slider-dot,
+      .certificate-card,
+      .featured-certificate,
+      .featured-slide,
+      .certificate-card::before,
+      .featured-certificate::before,
+      .featured-slide::before,
+      .achievement-dropdown,
+      #achievement-chevron {
+        transition: none;
+      }
+
+      .award-card,
+      .award-image img {
+        transform: none;
+      }
+    }
+  </style>
+
+  <style>
+    /* Compact skill labels and Verify control in View Details. */
+    #award-dialog .certificate-detail-tags {
+      gap: 8px;
+    }
+
+    #award-dialog .certificate-detail-tags .skill-tag {
+      gap: 5px;
+      padding: 4px 9px;
+      font-size: 11px;
+      line-height: 1.3;
+    }
+
+    #award-dialog #award-date,
+    #award-dialog .detail-meta-badge {
+      font-size: 11px;
+    }
+
+    #award-dialog .certificate-detail-tags .skill-tag svg {
+      width: 13px;
+      height: 13px;
+      flex: 0 0 13px;
+    }
+
+    #award-dialog #verify-certificate {
+      gap: 6px;
+      padding: 8px 14px;
+      font-size: 12px;
+      line-height: 1.4;
+      box-shadow: 0 5px 10px #00bdb626;
+    }
+
+    #award-dialog #verify-certificate svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    @media (max-width: 580px) {
+      #award-dialog .certificate-detail-tags .skill-tag {
+        padding: 4px 8px;
+        font-size: 10px;
+      }
+
+      #award-dialog #award-date,
+      #award-dialog .detail-meta-badge {
+        font-size: 10px;
+      }
+
+      #award-dialog .certificate-detail-tags .skill-tag svg {
+        width: 12px;
+        height: 12px;
+        flex-basis: 12px;
+      }
+
+      #award-dialog #verify-certificate {
+        padding: 8px 12px;
+        font-size: 11px;
+      }
+
+      #award-dialog #verify-certificate svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
+  </style>
+  <link rel="icon" type="image/webp" href="assets/favicon.webp" />
+  <style>
+    /* Navbar synchronized with About. */
+    .dark #achievement-dropdown {
+      border-color: #34455d;
+    }
+
+    #navigation > a:hover,
+    #navigation > a:focus-visible,
+    #achievement-trigger:hover,
+    #achievement-trigger:focus-visible,
+    #achievement-dropdown > a:hover,
+    #achievement-dropdown > a:focus-visible {
+      background-color: #caefed;
+      color: #087f7c;
+    }
+
+    #navigation > a[aria-current="page"]:hover,
+    #navigation > a[aria-current="page"]:focus-visible,
+    #achievement-trigger[data-active-page="true"]:hover,
+    #achievement-trigger[data-active-page="true"]:focus-visible,
+    #achievement-dropdown > a[aria-current="page"]:hover,
+    #achievement-dropdown > a[aria-current="page"]:focus-visible {
+      background-color: #b7e6e3;
+      color: #066c69;
+    }
+
+    .dark #navigation > a:hover,
+    .dark #navigation > a:focus-visible,
+    .dark #achievement-trigger:hover,
+    .dark #achievement-trigger:focus-visible,
+    .dark #achievement-dropdown > a:hover,
+    .dark #achievement-dropdown > a:focus-visible {
+      background-color: #24374d;
+      color: #ffffff;
+    }
+
+    #theme-button:hover {
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+    .dark #theme-button:hover {
+      color: #ffffff;
+      background: color-mix(
+        in oklab,
+        #19273c 80%,
+        transparent
+      );
+    }
+
+    .dark #menu-button:hover {
+      color: #ffffff;
+    }
+
+    @media (hover: hover) {
+      #menu-button:hover {
+        color: #1e293b;
+        border-color: #00bdb6;
+      }
+
+      .dark #menu-button:hover {
+        color: #ffffff;
+      }
+    }
+
+    #achievement-chevron {
+      transition: transform .26s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    #achievement-menu[data-open="true"] #achievement-chevron {
+      transform: rotate(180deg);
+    }
+
+    .achievement-dropdown {
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(-8px) scale(.97);
+      pointer-events: none;
+      transform-origin: top left;
+      transition:
+        opacity .2s ease,
+        transform .2s cubic-bezier(.16, 1, .3, 1),
+        visibility .2s;
+    }
+
+    #achievement-menu[data-open="true"] .achievement-dropdown {
+      visibility: visible;
+      opacity: 1;
+      transform: none;
+      pointer-events: auto;
+    }
+
+
+    @media (prefers-reduced-motion: reduce) {
+      #header *,
+      #header *::before,
+      #header *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+
+      #theme-button,
+      #menu-button {
+        transform: none !important;
+      }
+    }
+  </style>
+
+  <style>
+    .projects-main h1 { max-width: 850px; }
+    .projects-main .eyebrow { background:#fff; padding:6px 16px; font-size:12px; letter-spacing:1.2px; }
+    .dark .projects-main .eyebrow { background:#00bdb6; border-color:#00bdb6; color:white; }
+    .project-filters { display:flex; flex-wrap:wrap; gap:8px; margin-top:26px; }
+    .project-filter { border:1px solid #d9e5f5; border-radius:99px; padding:9px 16px; background:rgba(255,255,255,.8); color:#637188; font-size:12px; transition:background .25s,color .25s,border-color .25s; }
+    .project-filter:hover { border-color:#00bdb6; background:#e0f5f3; color:#007b76; }
+    .project-filter[aria-pressed="true"] { background:#00bdb6; color:white; border-color:#00bdb6; box-shadow:0 4px 12px #00bdb633; }
+    .project-result-count { margin-top:18px; font-size:12px; color:#637188; }
+    .projects-main .awards-grid { margin-top:20px; grid-template-columns:repeat(3,minmax(0,1fr)); }
+    .project-summary { margin:0 0 18px; font-size:14px; line-height:1.7; color:#637188; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; }
+    .project-card .certificate-tags { margin-bottom:18px; }
+    .project-card .certificate-meta { margin-top:auto; }
+    .project-card .certificate-actions { padding-top:18px; margin-top:0; }
+    .project-card .award-image { position:relative; }
+    .project-state { position:absolute; left:16px; bottom:16px; padding:5px 10px; border-radius:99px; background:#ffffffed; border:1px solid #a9e9e2; color:#007b76; font-size:10px; font-weight:600; }
+    .project-tech-icon { width:15px; height:15px; object-fit:contain; flex-shrink:0; }
+    .project-highlights { display:grid; gap:10px; margin:20px 0; padding:0; list-style:none; font-size:14px; line-height:1.7; color:#637188; }
+    .project-highlights li { display:flex; gap:10px; }
+    .project-highlights li::before { content:""; width:6px; height:6px; flex:0 0 6px; margin-top:9px; border-radius:50%; background:#00bdb6; }
+    #award-dialog #award-detail-image { object-fit:contain; background:#eaf0f7; }
+    #award-dialog .certificate-detail-meta { gap:8px; }
+    #award-dialog #verify-certificate { margin-left:0; }
+    .projects-cta { position:relative; margin-top:64px; padding:32px; border:1px solid #d9e5f5; border-radius:28px; background:rgba(255,255,255,.85); box-shadow:0 22px 35px -23px #24385566; transition:border-color .3s,box-shadow .3s,transform .3s; }
+    .projects-cta:hover { transform:translateY(-4px); border-color:#00bdb6; box-shadow:0 22px 40px -15px #00bdb638; }
+    .projects-cta h2 { font-size:28px; font-weight:500; line-height:1.3; }
+    .projects-cta p { margin:20px 0 24px; font-size:15px; line-height:1.8; color:#637188; }
+    .dark .project-filter { border-color:#34455d; background:#1c2b42; color:#a8b8cc; }
+    .dark .project-filter:hover { border-color:#00bdb6; color:#33d1cb; }
+    .dark .project-filter[aria-pressed="true"] { background:#00bdb6; color:white; border-color:#00bdb6; }
+    .dark :is(.project-summary,.project-result-count,.project-highlights,.projects-cta p) { color:#a8b8cc; }
+    .dark .projects-cta { background:rgba(23,35,55,.9); border-color:#2b3c54; }
+    .dark .projects-cta:hover { border-color:#00bdb6; }
+    .project-reveal { animation:project-enter .65s cubic-bezier(.16,1,.3,1) both; }
+    .project-pending { opacity:0; transform:translateY(24px); }
+    @keyframes project-enter { from { opacity:0;transform:translateY(24px); } to { opacity:1;transform:none; } }
+    @media(min-width:640px) { .projects-main { width:calc(100% - 64px) !important; } }
+    @media(max-width:1023px) { .projects-main .awards-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media(max-width:639px) { .projects-main .awards-grid { grid-template-columns:1fr; } .projects-cta { padding:24px; } .projects-cta h2 { font-size:24px; } }
+    @media(prefers-reduced-motion:reduce) { .project-pending { opacity:1;transform:none; } .project-reveal { animation:none; } .project-card,.projects-cta { transition:none; } .project-card:hover,.projects-cta:hover { transform:none; } }
+  </style>
+
+<style>
+:root{--p-bg:#fff;--p-ink:#121b2e;--p-muted:#637188;--p-line:#d9e5f5;--p-paper:rgba(255,255,255,.9);--p-soft:#f1f6fb;--p-accent:#00bdb6;--p-link:#007b76;--p-shadow:0 24px 38px -24px rgba(36,56,85,.42)}
+html.dark{--p-bg:#101827;--p-ink:#eff5ff;--p-muted:#a8b8cc;--p-line:#2b3c54;--p-paper:rgba(23,35,55,.94);--p-soft:#122034;--p-link:#33d1cb;--p-shadow:0 24px 38px -24px rgba(0,0,0,.7)}
+*{box-sizing:border-box}body{margin:0;color:var(--p-ink);font-family:Inter,Arial,sans-serif;background-color:var(--p-bg);background-image:radial-gradient(circle at top left,rgba(0,189,182,.3),transparent 60%),radial-gradient(circle at bottom right,rgba(0,189,182,.3),transparent 60%)}
+[hidden]{display:none!important}:where(#project-content,#project-zoom) :is(button,a,input){font:inherit}:where(#project-content,#project-zoom) button{cursor:pointer}:where(#project-content,#project-zoom) a{text-decoration:none;color:inherit}button,a{-webkit-tap-highlight-color:transparent}button:focus-visible,a:focus-visible{outline:2px solid #00bdb6;outline-offset:5px}:where(#project-content,#project-zoom) button{color:inherit}svg{display:block;flex-shrink:0}img{max-width:100%}
+.projects-main,.detail-main{position:relative;width:calc(100% - 64px);max-width:1320px;margin-inline:auto;padding:150px 0 88px}.detail-main{max-width:1120px}
+.page-eyebrow{display:inline-flex;align-items:center;border:1px solid var(--p-line);border-radius:99px;background:#fff;padding:6px 15px;font-size:11px;font-weight:600;letter-spacing:1.8px;color:#556987;box-shadow:0 1px 2px #00000008}.dark .page-eyebrow{background:#00bdb6;border-color:#00bdb6;color:white;box-shadow:0 4px 12px #00bdb633}
+.page-title{max-width:980px;margin:22px 0 18px;font-size:clamp(30px,3.55vw,46px);line-height:1.24;font-weight:600;letter-spacing:-1.2px}.page-intro{max-width:970px;margin:0;font-size:16px;line-height:1.75;color:var(--p-muted)}
+.project-filters{display:flex;flex-wrap:wrap;gap:9px;margin-top:28px}.filter-button{border:1px solid var(--p-line);border-radius:99px;padding:9px 16px;background:var(--p-paper);color:var(--p-muted);font-size:12px;transition:background .25s,color .25s,border-color .25s}.filter-button:hover{background:#e0f5f3;color:#007b76;border-color:#00bdb6}.filter-button[aria-pressed=true]{background:#00bdb6;color:white;border-color:#00bdb6;box-shadow:0 4px 12px #00bdb633}.result-count{margin:18px 0 20px;color:var(--p-muted);font-size:12px}
+.project-grid,.related-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:stretch}.project-card{position:relative;isolation:isolate;min-width:0;display:flex;flex-direction:column;padding:16px;border:1px solid var(--p-line);border-radius:25px;background:var(--p-paper);box-shadow:var(--p-shadow);transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s,border-color .3s}.project-card::before{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;background:linear-gradient(135deg,#00bdb614,#10bdd708 50%,#e2668310);opacity:0;transition:opacity .35s;pointer-events:none}.project-card:is(:hover,:focus-within){transform:translateY(-6px);border-color:#00bdb6;box-shadow:0 22px 40px -15px #00bdb638,0 12px 20px -10px #2438551a}.project-card:is(:hover,:focus-within)::before{opacity:1}
+.project-cover{position:relative;display:block;overflow:hidden;width:100%;aspect-ratio:16/10;border:1px solid var(--p-line);border-radius:15px;padding:12px;background:var(--p-soft);cursor:zoom-in}.project-cover img{display:block;width:100%;height:100%;object-fit:contain;border-radius:7px;transition:transform .35s}.project-cover:hover img{transform:scale(1.035)}.cover-zoom{position:absolute;right:10px;bottom:10px;display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--p-line);border-radius:50%;background:var(--p-paper);color:var(--p-link)}
+.project-copy{display:flex;flex:1;flex-direction:column;align-items:flex-start;padding:20px 7px 7px}.project-category{margin:0 0 8px;color:var(--p-muted);font-size:11px;font-weight:600;letter-spacing:1.3px;line-height:1.6;text-transform:uppercase}.project-name{margin:0 0 12px;font-size:20px;line-height:1.35;font-weight:500;letter-spacing:-.4px}.project-name a{transition:color .2s}.project-name a:hover{color:var(--p-link)}.project-summary{margin:0 0 13px;font-size:14px;line-height:1.7;color:var(--p-muted)}
+.status-pill{display:inline-flex;align-items:center;gap:6px;border:1px solid #00bdb640;border-radius:99px;background:#00bdb610;padding:4px 10px;color:var(--p-link);font-size:11px;line-height:1.4}.status-pill::before{content:"";width:5px;height:5px;border-radius:50%;background:#00bdb6;flex-shrink:0}.card-highlights,.outcome-list{display:grid;gap:8px;padding:0;list-style:none;margin:16px 0;color:var(--p-muted);font-size:12px;line-height:1.7}.card-highlights li,.outcome-list li{display:flex;gap:8px}.card-highlights li::before,.outcome-list li::before{content:"";width:4px;height:4px;flex:0 0 4px;margin-top:8px;border-radius:50%;background:#00bdb6}
+.technology-tags{display:flex;flex-wrap:wrap;gap:7px}.tech-tag{display:inline-flex;align-items:center;gap:6px;max-width:100%;padding:5px 9px;border:1px solid var(--p-line);border-radius:99px;color:var(--p-muted);font-size:10px;line-height:1.5}.tech-tag img{width:13px;height:13px;object-fit:contain;flex-shrink:0}.project-copy>.technology-tags{margin-bottom:20px}.project-meta{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;width:100%;margin-top:auto;color:var(--p-muted);font-size:10px;line-height:1.6}.card-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:16px}
+.primary-link,.secondary-link,.back-link{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:38px;padding:9px 15px;border:1px solid var(--p-line);border-radius:99px;font-size:11px;font-weight:500;line-height:1.5;transition:background .25s,color .25s,border-color .25s,box-shadow .25s,transform .25s}.primary-link{background:linear-gradient(115deg,#00b9ad,#00b5d0);border-color:transparent;color:white;box-shadow:0 6px 14px #00bdb630}.primary-link:hover{background:#009e99;transform:translateY(-2px);box-shadow:0 10px 18px #00bdb638}.secondary-link,.back-link{background:var(--p-paper);color:var(--p-ink)}.secondary-link:hover,.back-link:hover{border-color:#00bdb6;background:#00bdb610;color:var(--p-link);transform:translateY(-2px)}
+.project-cta{margin-top:100px;padding:32px;border:1px solid var(--p-line);border-radius:26px;background:var(--p-paper);box-shadow:var(--p-shadow);transition:transform .3s,border-color .3s}.project-cta:hover{transform:translateY(-4px);border-color:#00bdb6}.project-cta h2{margin:0 0 16px;font-size:27px;font-weight:500;line-height:1.35;letter-spacing:-.5px}.project-cta p{max-width:800px;margin:0 0 22px;color:var(--p-muted);font-size:15px;line-height:1.75}.site-footer{position:relative;z-index:1}
+.detail-topline{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;margin-bottom:22px}.detail-topline .project-category{margin:0}.detail-labels{display:flex;align-items:center;flex-wrap:wrap;gap:12px}.detail-title{margin:0 0 18px;font-size:clamp(30px,3.5vw,44px);font-weight:600;letter-spacing:-1px;line-height:1.2}.detail-summary{max-width:1000px;margin:0 0 28px;color:var(--p-muted);font-size:16px;line-height:1.8}
+.detail-gallery{position:relative;overflow:hidden;border:1px solid var(--p-line);border-radius:23px;background:var(--p-soft)}.detail-image-button{display:block;border:0;padding:0;width:100%;background:none;cursor:zoom-in}.detail-image-button img{display:block;width:100%;height:clamp(230px,40vw,460px);object-fit:contain}.gallery-count{position:absolute;right:14px;bottom:14px;border:1px solid var(--p-line);border-radius:99px;padding:4px 11px;background:var(--p-paper);font-size:11px;pointer-events:none}.gallery-zoom{position:absolute;right:14px;top:14px;border:1px solid var(--p-line);border-radius:50%;width:38px;height:38px;display:grid;place-items:center;background:var(--p-paper);color:var(--p-link)}
+.gallery-arrow{position:absolute;top:50%;transform:translateY(-50%);display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--p-line);border-radius:50%;background:var(--p-paper);color:var(--p-ink);transition:color .2s,background .2s,border-color .2s}.gallery-arrow:hover,.gallery-zoom:hover{background:#00bdb6;color:white;border-color:#00bdb6}.gallery-prev{left:14px}.gallery-next{right:14px}.gallery-thumbnails{display:flex;gap:10px;overflow-x:auto;padding:3px 2px 7px;margin-top:14px;scrollbar-width:thin}.gallery-thumbnail{flex:0 0 108px;height:72px;border:1px solid var(--p-line);border-radius:12px;padding:3px;background:var(--p-paper)}.gallery-thumbnail[aria-pressed=true]{border-color:#00bdb6;box-shadow:inset 0 0 0 1px #00bdb6}.gallery-thumbnail img{display:block;width:100%;height:100%;object-fit:contain;border-radius:8px;background:var(--p-soft)}
+.case-layout{display:grid;grid-template-columns:minmax(0,2.65fr) minmax(0,1fr);align-items:start;gap:24px;margin-top:30px}.overview-card,.fact-card{min-width:0;border:1px solid var(--p-line);border-radius:23px;background:var(--p-paper);box-shadow:var(--p-shadow)}.overview-card{padding:30px}.overview-card h2{margin:0 0 24px;font-size:23px;font-weight:500;letter-spacing:-.4px}.overview-card section+section{margin-top:24px}.overview-card h3{margin:0 0 8px;font-size:14px;font-weight:600;line-height:1.6}.overview-card p,.overview-card li{margin:0;color:var(--p-muted);font-size:14px;line-height:1.85}.overview-card ul{display:grid;gap:9px;margin:8px 0 0;padding-left:18px;list-style:disc}.case-sidebar{display:grid;gap:16px;position:sticky;top:110px}.fact-card{padding:20px;border-radius:20px}.fact-label{margin:0 0 10px;color:var(--p-muted);font-size:10px;font-weight:500;line-height:1.5;letter-spacing:1.6px;text-transform:uppercase}.fact-value{margin:0;font-size:12px;line-height:1.7}.fact-card .outcome-list{margin:0}.fact-card .technology-tags{gap:7px}.fact-card .primary-link,.fact-card .secondary-link{font-size:11px}.related-section{margin-top:110px}.related-heading{margin:0 0 20px;font-size:11px;font-weight:600;letter-spacing:1.7px;color:var(--p-muted)}.project-card.compact .project-name{font-size:17px}.project-card.compact .project-summary{font-size:12px;margin-bottom:0}.project-card.compact .project-copy{padding-top:16px}
+.image-lightbox{margin:auto;width:min(1220px,calc(100% - 32px));max-height:94dvh;overflow:auto;padding:24px;border:1px solid var(--p-line);border-radius:28px;background:var(--p-bg);color:var(--p-ink);box-shadow:0 30px 100px #0005;overscroll-behavior:contain}.image-lightbox::backdrop{background:#101827b8;backdrop-filter:blur(6px)}.lightbox-header{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px}.lightbox-header h2{font-size:20px;line-height:1.4;font-weight:500;margin:0}.lightbox-close{width:42px;height:42px;flex-shrink:0;display:grid;place-items:center;border:1px solid var(--p-line);border-radius:50%;background:var(--p-paper);color:var(--p-muted);transition:background .25s,color .25s,border-color .25s,transform .25s}.lightbox-close:hover{background:#00bdb6;color:white;border-color:#00bdb6;transform:scale(1.05)}.lightbox-stage{position:relative;overflow:hidden;border:1px solid var(--p-line);border-radius:18px;background:var(--p-soft)}.lightbox-stage>img{display:block;width:100%;height:clamp(180px,calc(94dvh - 230px),670px);object-fit:contain}.image-lightbox .gallery-thumbnail{flex-basis:140px;height:88px}.not-found{padding:40px;border:1px solid var(--p-line);border-radius:24px;background:var(--p-paper)}.not-found h1{font-size:30px;font-weight:600;margin:0 0 16px}.not-found p{color:var(--p-muted);margin-bottom:24px}
+.pending-reveal{opacity:0;transform:translateY(24px)}.enter-once{animation:project-enter .65s cubic-bezier(.16,1,.3,1) both}@keyframes project-enter{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.dark .filter-button:hover{background:#153c42;color:#33d1cb}.dark .filter-button[aria-pressed=true]{background:#00bdb6;color:white}.dark .project-card::before{background:linear-gradient(115deg,#1b343a,#1c2c40 56%,#223247)}
+@media(min-width:1500px){.projects-main{padding-top:160px}}
+@media(max-width:1023px){.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.case-layout{grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:18px}.case-sidebar{position:static}.overview-card{padding:24px}.fact-card{padding:18px}.related-grid{gap:16px}.detail-main{padding-top:130px}}
+@media(max-width:767px){.case-layout{grid-template-columns:1fr}.case-sidebar{grid-template-columns:repeat(2,minmax(0,1fr))}.case-sidebar .wide-fact{grid-column:1/-1}.related-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.detail-title{font-size:34px}.related-section{margin-top:72px}}
+@media(max-width:639px){.projects-main,.detail-main{width:calc(100% - 32px);padding-top:120px;padding-bottom:56px}.project-grid,.related-grid{grid-template-columns:1fr}.page-title{font-size:31px}.page-intro,.detail-summary{font-size:14px}.project-card{padding:14px}.project-copy{padding-inline:5px}.project-name{font-size:20px}.project-cta{padding:24px;margin-top:64px}.project-cta h2{font-size:23px}.overview-card{padding:22px}.overview-card p,.overview-card li{font-size:14px}.case-sidebar{grid-template-columns:1fr}.detail-labels{gap:8px}.gallery-thumbnail{flex-basis:88px;height:60px}.image-lightbox{width:calc(100% - 20px);padding:16px;border-radius:22px}.lightbox-header{margin-bottom:16px}.lightbox-header h2{font-size:17px}.image-lightbox .gallery-thumbnail{flex-basis:100px;height:68px}.lightbox-stage>img{height:clamp(180px,calc(94dvh - 210px),600px)}.gallery-arrow{width:36px;height:36px}.gallery-prev{left:8px}.gallery-next{right:8px}}
+@media(prefers-reduced-motion:reduce){.pending-reveal{opacity:1;transform:none}.enter-once{animation:none}.project-card,.project-card::before,.project-cover img,.primary-link,.secondary-link,.back-link,.project-cta,.lightbox-close{transition:none}.project-card:is(:hover,:focus-within),.project-cover:hover img,.primary-link:hover,.secondary-link:hover,.back-link:hover,.project-cta:hover,.lightbox-close:hover{transform:none}}
+
+/* Complete card copy follows the reference; navbar styles remain in the supplied head. */
+#projects-grid .card-highlights{font-size:14px;line-height:1.7;gap:9px}#projects-grid .project-meta{font-size:12px;gap:10px}#projects-grid .tech-tag{font-size:11px}#projects-grid .card-actions :is(.primary-link,.secondary-link){font-size:12px;min-height:40px}
+
+/* Show every supplied description in full, overriding the earlier clamped summary. */
+#project-content .project-summary{display:block;overflow:visible;-webkit-line-clamp:unset;-webkit-box-orient:initial}
+
+</style>
+</head>
+<body data-page="detail" class="relative m-0 bg-[radial-gradient(circle_at_top_left,_rgba(0,189,182,0.3),_transparent_60%),radial-gradient(circle_at_bottom_right,_rgba(0,189,182,0.3),_transparent_60%)] bg-white font-sans text-[#121b2e] antialiased dark:bg-[#101827] dark:text-[#eff5ff]">
+
+  <!-- BACKGROUND -->
+  <div
+    class="pointer-events-none fixed inset-0 z-0 bg-[repeating-linear-gradient(135deg,rgba(0,189,182,0.08)_0,rgba(0,189,182,0.08)_1px,transparent_1px,transparent_28px)] dark:bg-[repeating-linear-gradient(135deg,rgba(0,189,182,0.12)_0,rgba(0,189,182,0.12)_1px,transparent_1px,transparent_28px)]"
+  ></div>
+
+  <!-- NAVBAR -->
+  <header
+            id="header"
+            class="fixed inset-x-0 top-2.5 z-50 px-2.5 sm:px-4 lg:top-4 lg:px-6"
+          >
+            <nav
+              id="navbar"
+              aria-label="Main navigation"
+              data-scrolled="false"
+              class="
+                relative mx-auto flex min-h-[72px] max-w-[1360px]
+                items-center gap-[15px] rounded-[23px]
+                border border-transparent px-3 py-2.5
+                transition-[background-color,border-color,box-shadow] duration-300
+                lg:min-h-20 lg:px-[18px] xl:gap-7
+
+                hover:border-[#00bdb6]/70
+                hover:bg-gradient-to-r
+                hover:from-[#00bdb6]/25
+                hover:via-[#f2fbfb]/90
+                hover:to-[#00bdb6]/25
+                hover:shadow-[0_10px_35px_rgba(0,189,182,0.22)]
+                hover:backdrop-blur-xl
+
+                data-[scrolled=true]:border-[#00bdb6]/70
+                data-[scrolled=true]:bg-gradient-to-r
+                data-[scrolled=true]:from-[#00bdb6]/25
+                data-[scrolled=true]:via-[#f2fbfb]/90
+                data-[scrolled=true]:to-[#00bdb6]/25
+                data-[scrolled=true]:shadow-[0_10px_35px_rgba(0,189,182,0.22)]
+                data-[scrolled=true]:backdrop-blur-xl
+
+                dark:hover:border-[#00bdb6]/70
+                dark:hover:bg-gradient-to-r
+                dark:hover:from-[#00bdb6]/25
+                dark:hover:via-[#11222b]/95
+                dark:hover:to-[#00bdb6]/25
+                dark:hover:shadow-[0_0_40px_rgba(0,189,182,0.3)]
+                dark:hover:backdrop-blur-xl
+
+                dark:data-[scrolled=true]:border-[#00bdb6]/70
+                dark:data-[scrolled=true]:bg-gradient-to-r
+                dark:data-[scrolled=true]:from-[#00bdb6]/25
+                dark:data-[scrolled=true]:via-[#11222b]/95
+                dark:data-[scrolled=true]:to-[#00bdb6]/25
+                dark:data-[scrolled=true]:shadow-[0_0_40px_rgba(0,189,182,0.3)]
+                dark:data-[scrolled=true]:backdrop-blur-xl
+              "
+            >
+              <!-- BRAND -->
+              <a
+                href="index.html"
+                class="group inline-flex shrink-0 items-center gap-[9px] sm:gap-[13px]"
+              >
+                <span class="grid h-[42px] w-[39px] place-items-center rounded-[14px] border border-[#a7efea] bg-white shadow-[0_8px_15px_rgba(0,191,183,.14)] transition-transform group-hover:-rotate-3 sm:size-12 sm:rounded-[17px] dark:border-[#00bdb6]/50 dark:bg-[#172837]">
+                  <span class="bg-linear-to-r from-[#10bdd7] via-[#e26683] to-[#f2b62b] bg-clip-text text-base font-extrabold tracking-[-1px] text-transparent">
+                    ASR
+                  </span>
+                </span>
+
+                <span class="grid gap-1">
+                  <strong class="whitespace-nowrap text-[11px] font-semibold sm:text-sm lg:text-xs xl:text-sm">
+                    Adi Sahrul Ramadhan
+                  </strong>
+
+                  <small class="text-[10px] text-muted sm:text-xs dark:text-[#a8b8cc]">
+                    Portfolio
+                  </small>
+                </span>
+              </a>
+
+              <!-- NAVIGATION -->
+              <div
+                id="navigation"
+                data-open="false"
+                class="
+                  absolute inset-x-0 top-[calc(100%+10px)]
+                  hidden flex-wrap items-center gap-[5px]
+                  rounded-[20px] border border-line bg-[#f6fbff]/95 p-[15px]
+                  shadow-lg backdrop-blur-xl data-[open=true]:flex
+                  dark:border-[#2b3c54] dark:bg-[#121e30]/95
+
+                  lg:static lg:flex lg:flex-1 lg:flex-nowrap lg:justify-center
+                  lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0
+                  lg:shadow-none lg:backdrop-blur-none dark:lg:bg-transparent
+
+                  [&>a]:inline-flex [&>a]:items-center
+                  [&>a]:whitespace-nowrap [&>a]:rounded-full
+                  [&>a]:px-[14px] [&>a]:py-[11px] [&>a]:text-sm
+                  [&>a]:transition-colors
+                  lg:[&>a]:px-[9px] lg:[&>a]:text-xs
+                  xl:[&>a]:px-[13px] xl:[&>a]:text-sm
+                "
+              >
+                
+          <a
+            href="index.html"
+            
+            class="inline-flex items-center whitespace-nowrap rounded-full px-[14px] py-[11px] text-sm transition-colors lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          >
+            Home
+          </a>
+        
+                
+          <a
+            href="about.html"
+            
+            class="inline-flex items-center whitespace-nowrap rounded-full px-[14px] py-[11px] text-sm transition-colors lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          >
+            About
+          </a>
+        
+                
+          <a
+            href="experience.html"
+            
+            class="inline-flex items-center whitespace-nowrap rounded-full px-[14px] py-[11px] text-sm transition-colors lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          >
+            Experience
+          </a>
+        
+                
+          <a
+            href="projects.html" aria-current="page"
+            
+            class="inline-flex items-center whitespace-nowrap rounded-full px-[14px] py-[11px] text-sm transition-colors lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm bg-[#00bdb6]/20 font-bold text-[#008f8a] shadow-sm dark:bg-[#00bdb6]/30 dark:text-[#33d1cb]"
+          >
+            Projects
+          </a>
+        
+
+                <!-- ACHIEVEMENTS DROPDOWN -->
+                <div
+                  id="achievement-menu"
+                  data-open="false"
+                  class="relative"
+                >
+                  <button
+                    type="button"
+                    id="achievement-trigger"
+                    aria-haspopup="menu"
+                    aria-expanded="false"
+                    aria-controls="achievement-dropdown"
+                    class="inline-flex items-center gap-2 whitespace-nowrap rounded-full px-[14px] py-[11px] text-sm text-muted transition-colors  hover:text-[#1e293b] lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+                  >
+                    Achievements
+
+                    <svg
+                      id="achievement-chevron"
+                      width="14"
+                      height="14"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      aria-hidden="true"
+                    >
+                      <path d="m6 9 6 6 6-6"></path>
+                    </svg>
+                  </button>
+
+                  <div
+                    id="achievement-dropdown"
+                    role="menu"
+                    aria-hidden="true"
+                    inert
+                    class="achievement-dropdown absolute left-0 top-full z-20 mt-2 grid min-w-44 gap-1 rounded-2xl border border-line bg-white p-2 shadow-lg dark:border-[#34455d] dark:bg-[#172337]"
+                  >
+                    <a
+                      href="awards.html"
+                      role="menuitem"
+                      class="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm transition-colors text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+                    >
+                      <span>Awards</span><span class="inline-flex size-[22px] shrink-0 items-center justify-center rounded-full bg-[#dc2626] text-[10px] font-bold leading-none text-white">2</span>
+                    </a>
+
+                    <a
+                      href="certificates.html"
+                      role="menuitem"
+                      class="flex items-center justify-between gap-3 rounded-xl px-4 py-3 text-sm transition-colors text-muted hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+                    >
+                      <span>Certificates</span><span class="inline-flex size-[22px] shrink-0 items-center justify-center rounded-full bg-[#dc2626] text-[10px] font-bold leading-none text-white">28</span>
+                    </a>
+                  </div>
+                </div>
+
+                
+          <a
+            href="blog.html"
+            
+            class="inline-flex items-center whitespace-nowrap rounded-full px-[14px] py-[11px] text-sm transition-colors lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          >
+            Blog
+          </a>
+        
+                
+          <a
+            href="skills.html"
+            
+            class="inline-flex items-center whitespace-nowrap rounded-full px-[14px] py-[11px] text-sm transition-colors lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          >
+            Skills
+          </a>
+        
+                
+          <a
+            href="contact.html"
+            
+            class="inline-flex items-center whitespace-nowrap rounded-full px-[14px] py-[11px] text-sm transition-colors lg:px-[9px] lg:text-xs xl:px-[13px] xl:text-sm text-muted  hover:text-[#1e293b] dark:text-[#a8b8cc] dark:hover:bg-[#1e293b] dark:hover:text-white"
+          >
+            Contact
+          </a>
+        
+              </div>
+
+              <!-- MOBILE MENU AND THEME -->
+              <div class="ml-auto flex items-center gap-1.5 sm:gap-[9px]">
+                <button
+                  id="menu-button"
+                  type="button"
+                  aria-label="Open menu"
+                  aria-controls="navigation"
+                  aria-expanded="false"
+                  class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-colors hover:border-accent hover:scale-105  hover:text-[#1e293b] sm:size-[45px] lg:hidden dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+                >
+                  
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+        
+                </button>
+
+                <button
+                  id="theme-button"
+                  type="button"
+                  aria-label="Switch to dark mode"
+                  class="grid size-[37px] shrink-0 place-items-center rounded-full border border-line bg-white/70 transition-all hover:rotate-12 hover:scale-105  hover:text-[#1e293b] active:scale-95 sm:size-[45px] dark:border-[#2b3c54] dark:bg-[#19273c]/80"
+                >
+                  
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M21 13A9 9 0 0 1 11 3a9 9 0 1 0 10 10Z"/>
+          </svg>
+        
+                </button>
+              </div>
+            </nav>
+          </header>
+<main id="project-content" class="detail-main"></main>
+<dialog id="project-zoom" class="image-lightbox" aria-labelledby="lightbox-title">
+  <header class="lightbox-header"><h2 id="lightbox-title"></h2><button class="lightbox-close" id="lightbox-close" type="button" aria-label="Close image zoom"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></header>
+  <div class="lightbox-stage"><img id="lightbox-image" alt="" width="1200" height="800"><button type="button" class="gallery-arrow gallery-prev" id="lightbox-prev" aria-label="Previous image"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m6-6-6 6 6 6"/></svg></button><button type="button" class="gallery-arrow gallery-next" id="lightbox-next" aria-label="Next image"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button><span class="gallery-count" id="lightbox-count" aria-live="polite"></span></div><div class="gallery-thumbnails" id="lightbox-thumbnails" aria-label="Images in zoom"></div>
+</dialog>
+<footer class="site-footer border-t border-line/70 py-12 sm:py-16 dark:border-[#2b3c54]">
+    <div class="mx-auto w-[calc(100%-36px)] max-w-[1320px] sm:w-[calc(100%-64px)]">
+      <div class="grid gap-10 md:grid-cols-[1.8fr_.75fr_1fr]">
+        <div>
+          <a href="index.html" class="text-xl font-medium tracking-[-.5px]">Adi Sahrul Ramadhan</a>
+          <p class="mt-5 max-w-[530px] text-sm leading-relaxed text-muted dark:text-[#a8b8cc]">
+            Full Stack Web Developer focused on delivering scalable products
+            with clean architecture and measurable impact.
+          </p>
+          <div id="footer-socials" class="mt-5 flex gap-2.5"></div>
+        </div>
+
+        <div>
+          <h3 class="text-[10px] tracking-[2px] text-muted dark:text-[#a8b8cc]">EXPLORE</h3>
+          <div class="mt-4 grid grid-cols-2 gap-x-6 gap-y-3 text-xs text-muted dark:text-[#a8b8cc] [&>a:hover]:text-black dark:[&>a:hover]:text-white">
+            <a href="index.html">Home</a>
+            <a href="certificates.html">Certificates</a>
+            <a href="about.html">About</a>
+            <span aria-disabled="true">Blog</span>
+            <a href="experience.html">Experience</a>
+            <a href="skills.html">Skills</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html">Contact</a>
+            <a href="awards.html">Awards</a>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-[10px] tracking-[2px] text-muted dark:text-[#a8b8cc]">CONTACT</h3>
+          <p class="mt-4 text-xs leading-relaxed text-muted dark:text-[#a8b8cc]">
+            Open to freelance and full-time collaboration.
+          </p>
+          <a id="footer-email" href="contact.html" class="mt-3 inline-block break-all text-xs text-muted hover:text-black dark:text-[#a8b8cc] dark:hover:text-white">
+            Connect through my social profiles
+          </a>
+        </div>
+      </div>
+
+      <p class="mt-16 text-[11px] text-muted dark:text-[#a8b8cc]">
+        © <span id="year"></span> Adi Sahrul Ramadhan. All rights reserved.
+      </p>
+    </div>
+  </footer>
+<noscript>Please enable JavaScript to display the project collection and case studies.</noscript>
+<script>
+    (() => {
+      "use strict";
+
+      const DATA = {
+        linkedin: "https://linkedin.com/in/adi-sahrul-ramadhan-8966a1286",
+        github: "https://github.com/AdiSahrulRamadhan",
+        instagram: "https://www.instagram.com/adishrlramadhannn_?stkn=MXEyeGs4cmoydGd0dA%3D%3D&utm_source=qr",
+        youtube: "https://www.youtube.com/@-AdiSahrulRamadhan",
+        email: "adisahrul383@gmail.com"
+      };
+
+      const SOCIALS = [
+        ["linkedin", "LinkedIn"],
+        ["github", "GitHub"],
+        ["instagram", "Instagram"],
+        ["youtube", "YouTube"],
+        ["email", "Email"]
+      ];
+
+      const ICONS = {
+        linkedin:
+          '<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 10v7m4 0v-7m0 3c0-4 6-4 6 0v4"/><circle cx="7" cy="7" r=".8" fill="currentColor" stroke="none"/>',
+        github:
+          '<path d="M9 19c-4 1-4-2-6-2m12 5v-4c0-1-.4-1.7-1-2 3-.4 6-1.5 6-6a5 5 0 0 0-1.4-3.5A5 5 0 0 0 18.5 3S17 2.5 14.8 4a11 11 0 0 0-5.6 0C7 2.5 5.5 3 5.5 3a5 5 0 0 0-.1 3.5A5 5 0 0 0 4 10c0 4.5 3 5.6 6 6-.6.3-1 1-1 2v4"/>',
+        instagram:
+          '<rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>',
+        youtube:
+          '<rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 6 3-6 3Z"/>',
+        email:
+          '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/>',
+        moon:
+          '<path d="M21 13A9 9 0 0 1 11 3a9 9 0 1 0 10 10Z"/>',
+        sun:
+          '<circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5M17.5 6.5 19 5"/>'
+      };
+
+      function esc(value) {
+        return String(value).replace(/[&<>"']/g, character => ({
+          "&": "&amp;",
+          "<": "&lt;",
+          ">": "&gt;",
+          '"': "&quot;",
+          "'": "&#39;"
+        })[character]);
+      }
+
+      function icon(name, size = 22) {
+        return `
+          <svg
+            width="${size}"
+            height="${size}"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.7"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            ${ICONS[name] || ""}
+          </svg>
+        `;
+      }
+
+      function socialHref(key) {
+        const value = DATA[key]?.trim();
+        if (!value) return "";
+
+        if (key === "email") {
+          return `mailto:${value}`;
+        }
+
+        return /^https?:\/\//i.test(value) ? value : "";
+      }
+
+      function socialAttrs(key) {
+        const href = socialHref(key);
+
+        return href
+          ? `href="${esc(href)}" ${
+              key !== "email"
+                ? 'target="_blank" rel="noopener noreferrer"'
+                : ""
+            }`
+          : 'aria-disabled="true"';
+      }
+
+      document.getElementById("footer-socials").innerHTML =
+        SOCIALS.map(([key, name]) => `
+          <a
+            ${socialAttrs(key)}
+            aria-label="${name}"
+            class="grid size-9 place-items-center rounded-full border border-line bg-white/70 transition-all duration-300 ease-out hover:border-[#00bdb6] hover:scale-110 hover:text-[#008f8a] dark:border-[#34455d] dark:bg-[#1c2b42]"
+          >
+            ${icon(key, 16)}
+          </a>
+        `).join("");
+
+      if (DATA.email.trim()) {
+        const footerEmail = document.getElementById("footer-email");
+        footerEmail.href = socialHref("email");
+        footerEmail.textContent = DATA.email.trim();
+      }
+
+      document.getElementById("year").textContent =
+        new Date().getFullYear();
+
+      const header = document.getElementById("header");
+      const navbar = document.getElementById("navbar");
+      const navigation = document.getElementById("navigation");
+      const menuButton = document.getElementById("menu-button");
+
+      const achievementMenu =
+        document.getElementById("achievement-menu");
+
+      const achievementTrigger =
+        document.getElementById("achievement-trigger");
+
+      const achievementDropdown =
+        document.getElementById("achievement-dropdown");
+
+      function updateNavbarBackground() {
+        navbar.dataset.scrolled = String(window.scrollY > 24);
+      }
+
+      addEventListener("scroll", updateNavbarBackground, {
+        passive: true
+      });
+
+      updateNavbarBackground();
+
+      let achievementOpenedByHover = false;
+
+      function setAchievementMenu(open) {
+        if (!open) {
+          achievementOpenedByHover = false;
+        }
+
+        achievementMenu.dataset.open = String(open);
+
+        achievementTrigger.setAttribute(
+          "aria-expanded",
+          String(open)
+        );
+
+        achievementDropdown.setAttribute(
+          "aria-hidden",
+          String(!open)
+        );
+
+        achievementDropdown.toggleAttribute("inert", !open);
+      }
+
+      setAchievementMenu(false);
+
+      function setMenu(open) {
+        navigation.dataset.open = String(open);
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          String(open)
+        );
+
+        menuButton.setAttribute(
+          "aria-label",
+          open ? "Close menu" : "Open menu"
+        );
+
+        if (!open) {
+          setAchievementMenu(false);
+        }
+      }
+
+      menuButton.addEventListener("click", () => {
+        setMenu(navigation.dataset.open !== "true");
+      });
+
+      navigation.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          setMenu(false);
+        });
+      });
+
+      achievementTrigger.addEventListener("click", event => {
+        const isOpen =
+          achievementMenu.dataset.open === "true";
+
+        if (
+          event.detail > 0 &&
+          achievementOpenedByHover &&
+          isOpen
+        ) {
+          achievementOpenedByHover = false;
+          return;
+        }
+
+        achievementOpenedByHover = false;
+        setAchievementMenu(!isOpen);
+      });
+
+      document.addEventListener("click", event => {
+        if (!header.contains(event.target)) {
+          setMenu(false);
+        }
+
+        if (!achievementMenu.contains(event.target)) {
+          setAchievementMenu(false);
+        }
+      });
+
+      if (matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        let achievementCloseTimer = null;
+
+        achievementMenu.addEventListener("mouseenter", () => {
+          clearTimeout(achievementCloseTimer);
+
+          if (achievementMenu.dataset.open !== "true") {
+            achievementOpenedByHover = true;
+          }
+
+          setAchievementMenu(true);
+        });
+
+        achievementMenu.addEventListener("mouseleave", () => {
+          achievementCloseTimer = setTimeout(() => {
+            if (!achievementMenu.contains(document.activeElement)) {
+              setAchievementMenu(false);
+            }
+          }, 150);
+        });
+      }
+
+      document.addEventListener("keydown", event => {
+        if (event.key !== "Escape") return;
+
+        if (achievementMenu.dataset.open === "true") {
+          setAchievementMenu(false);
+          achievementTrigger.focus();
+        }
+
+        if (navigation.dataset.open === "true") {
+          setMenu(false);
+          menuButton.focus();
+        }
+      });
+
+      matchMedia("(min-width:1024px)").addEventListener(
+        "change",
+        event => {
+          if (event.matches) {
+            setMenu(false);
+          }
+        }
+      );
+
+      achievementTrigger.addEventListener("keydown", event => {
+        if (!["ArrowDown", "ArrowUp"].includes(event.key)) return;
+
+        event.preventDefault();
+        setAchievementMenu(true);
+
+        const links =
+          achievementDropdown.querySelectorAll("a");
+
+        links[
+          event.key === "ArrowUp" ? links.length - 1 : 0
+        ]?.focus();
+      });
+
+      achievementDropdown.addEventListener("keydown", event => {
+        const links = [
+          ...achievementDropdown.querySelectorAll("a")
+        ];
+
+        const index = links.indexOf(document.activeElement);
+
+        let next;
+
+        if (event.key === "ArrowDown") {
+          next = (index + 1) % links.length;
+        }
+
+        if (event.key === "ArrowUp") {
+          next = (index - 1 + links.length) % links.length;
+        }
+
+        if (event.key === "Home") next = 0;
+        if (event.key === "End") next = links.length - 1;
+
+        if (next !== undefined) {
+          event.preventDefault();
+          links[next].focus();
+        }
+      });
+
+      achievementMenu.addEventListener("focusout", event => {
+        if (!achievementMenu.contains(event.relatedTarget)) {
+          setAchievementMenu(false);
+        }
+      });
+
+      // DARK / LIGHT MODE
+      const themeButton =
+        document.getElementById("theme-button");
+
+      const systemTheme =
+        matchMedia("(prefers-color-scheme:dark)");
+
+      let selectedTheme = null;
+
+      try {
+        selectedTheme = localStorage.getItem("asr-theme");
+      } catch {}
+
+      function applyTheme(dark) {
+        document.documentElement.classList.toggle("dark", dark);
+
+        themeButton.innerHTML = icon(dark ? "sun" : "moon");
+        themeButton.setAttribute("aria-pressed", String(dark));
+
+        themeButton.setAttribute(
+          "aria-label",
+          dark ? "Switch to light mode" : "Switch to dark mode"
+        );
+
+        document.querySelector('meta[name="theme-color"]').content =
+          dark ? "#101827" : "#f4f8ff";
+      }
+
+      applyTheme(
+        document.documentElement.classList.contains("dark")
+      );
+
+      themeButton.addEventListener("click", () => {
+        const dark =
+          !document.documentElement.classList.contains("dark");
+
+        selectedTheme = dark ? "dark" : "light";
+        applyTheme(dark);
+
+        try {
+          localStorage.setItem("asr-theme", selectedTheme);
+        } catch {}
+      });
+
+      systemTheme.addEventListener("change", event => {
+        if (
+          selectedTheme !== "dark" &&
+          selectedTheme !== "light"
+        ) {
+          applyTheme(event.matches);
+        }
+      });
+
+    })();
+  </script>
+<script>
+(() => {
+  "use strict";
+  const PROJECTS = [
+  {
+    "id": "hutan-mangrove-2022",
+    "title": "Hutan Mangrove 2022",
+    "category": "FULL-STACK DEVELOPMENT",
+    "image": "",
+    "description": "An information portal for mangrove ecosystems, bringing environmental learning and monitoring-related information into a structured web experience built with PHP and MySQL.",
+    "highlights": [
+      "Organized mangrove information into a dedicated portal focused on environmental learning.",
+      "Presented monitoring-related information alongside educational content about mangrove ecosystems.",
+      "Used PHP and MySQL to support the portal’s web-development and data needs."
+    ],
+    "tags": [
+      [
+        "PHP",
+        "php"
+      ],
+      [
+        "MySQL",
+        "mysql"
+      ]
+    ],
+    "role": "Developer",
+    "period": "2022",
+    "status": "Completed",
+    "liveUrl": "http://localhost/HutanMangrove-2022/",
+    "images": [],
+    "dummyImageCount": 4,
+    "dummyPanels": [
+      "Project overview",
+      "Mangrove information",
+      "Environmental education",
+      "Results and summary"
+    ],
+    "caseStudy": {
+      "background": "Mangrove information needs to connect environmental context, educational material, and monitoring-related content. When these topics are presented without a clear structure, readers may find it difficult to understand how they relate to the ecosystem. This project focuses on bringing those information needs into a dedicated web portal.",
+      "solution": "The proposed application brings mangrove information, environmental education and monitoring context together in one web experience. An information portal for mangrove ecosystems, bringing environmental learning and monitoring-related information into a structured web experience built with PHP and MySQL. Its scope connects the project’s functional purpose with a dedicated application interface.",
+      "contribution": "My role on Hutan Mangrove 2022 was Developer. The development scope focused on mangrove information, environmental education and monitoring context. The technology stack combines PHP, MySQL, connecting the application’s domain features with its technical implementation.",
+      "features": [
+        {
+          "title": "Mangrove information",
+          "description": "A dedicated information space that introduces the mangrove context covered by the project."
+        },
+        {
+          "title": "Environmental education",
+          "description": "Educational content that supports understanding of mangrove ecosystems."
+        },
+        {
+          "title": "Monitoring context",
+          "description": "A place for the monitoring-related information included in the project’s scope."
+        }
+      ],
+      "implementation": [
+        {
+          "title": "PHP application layer",
+          "description": "PHP is the web-development language listed for the project. It provides the application context for the project’s information and workflow features."
+        },
+        {
+          "title": "MySQL data layer",
+          "description": "MySQL is the relational database technology listed in the project stack, alongside the application’s information-management scope."
+        }
+      ],
+      "challenge": "The main design focus is the relationship between informative content and environmental education. The portal needs a readable structure so that monitoring-related information and general ecosystem knowledge can be understood in context.",
+      "outcome": "The completed project provides a focused web portal for mangrove information and environmental learning. Its scope connects informative content and monitoring context within a PHP and MySQL web application."
+    }
+  },
+  {
+    "id": "toserba-2023",
+    "title": "Toserba 2023",
+    "category": "FULL-STACK DEVELOPMENT",
+    "image": "",
+    "description": "A store information system for managing merchandise, inventory-related information, and transaction workflows through a PHP and MySQL web application.",
+    "highlights": [
+      "Supported management of merchandise and inventory information in a store information system.",
+      "Connected inventory-related information with the store’s transaction workflows.",
+      "Built the application using PHP and MySQL for the web and data layers."
+    ],
+    "tags": [
+      [
+        "PHP",
+        "php"
+      ],
+      [
+        "MySQL",
+        "mysql"
+      ]
+    ],
+    "role": "Developer",
+    "period": "2023",
+    "status": "Completed",
+    "liveUrl": "http://localhost/Toserba-2023/user/beranda.php",
+    "images": [],
+    "dummyImageCount": 4,
+    "dummyPanels": [
+      "Project overview",
+      "Merchandise information",
+      "Inventory management",
+      "Results and summary"
+    ],
+    "caseStudy": {
+      "background": "A general store handles merchandise information and transactions as part of its daily activities. These areas need to be considered together because transaction context depends on the items being managed. Toserba 2023 focuses on representing these operational needs through a store information system.",
+      "solution": "The proposed application brings merchandise information, inventory management and store transactions together in one web experience. A store information system for managing merchandise, inventory-related information, and transaction workflows through a PHP and MySQL web application. Its scope connects the project’s functional purpose with a dedicated application interface.",
+      "contribution": "My role on Toserba 2023 was Developer. The development scope focused on merchandise information, inventory management and store transactions. The technology stack combines PHP, MySQL, connecting the application’s domain features with its technical implementation.",
+      "features": [
+        {
+          "title": "Merchandise information",
+          "description": "Management of the product information included in the store application."
+        },
+        {
+          "title": "Inventory management",
+          "description": "Inventory-related functionality as one of the project’s main operational areas."
+        },
+        {
+          "title": "Store transactions",
+          "description": "Transaction workflows connected to the application’s merchandise context."
+        }
+      ],
+      "implementation": [
+        {
+          "title": "PHP application layer",
+          "description": "PHP is the web-development language listed for the project. It provides the application context for the project’s information and workflow features."
+        },
+        {
+          "title": "MySQL data layer",
+          "description": "MySQL is the relational database technology listed in the project stack, alongside the application’s information-management scope."
+        }
+      ],
+      "challenge": "The central development focus is consistency between merchandise information and transaction context. The application structure needs to keep the two areas understandable as parts of the same store-management workflow.",
+      "outcome": "The completed application brings inventory management and transactions into the scope of one store information system. PHP and MySQL form the web-development and data stack recorded for the project."
+    }
+  },
+  {
+    "id": "monumen-kapal-selam",
+    "title": "Monumen Kapal Selam Surabaya 2023",
+    "category": "FULL-STACK DEVELOPMENT",
+    "image": "",
+    "description": "A tourism information and ticket-booking website for Monumen Kapal Selam Surabaya, connecting destination content with visitor booking workflows.",
+    "highlights": [
+      "Presented destination information for Monumen Kapal Selam Surabaya in a dedicated tourism website.",
+      "Included ticket-booking workflows alongside information for prospective visitors.",
+      "Used PHP and MySQL to support the web application and its information-management needs."
+    ],
+    "tags": [
+      [
+        "PHP",
+        "php"
+      ],
+      [
+        "MySQL",
+        "mysql"
+      ]
+    ],
+    "role": "Developer",
+    "period": "2023",
+    "status": "Completed",
+    "liveUrl": "http://localhost/RPLMonumenKapalSelam-2023/",
+    "images": [],
+    "dummyImageCount": 4,
+    "dummyPanels": [
+      "Project overview",
+      "Destination information",
+      "Visitor information flow",
+      "Results and summary"
+    ],
+    "caseStudy": {
+      "background": "Visitors need clear destination information before deciding to visit a tourism attraction. Ticket booking is a related need that connects the information experience with the next step in a visit. This project brings these two areas together for Monumen Kapal Selam Surabaya.",
+      "solution": "The proposed application brings destination information, visitor information flow and ticket booking together in one web experience. A tourism information and ticket-booking website for Monumen Kapal Selam Surabaya, connecting destination content with visitor booking workflows. Its scope connects the project’s functional purpose with a dedicated application interface.",
+      "contribution": "My role on Monumen Kapal Selam Surabaya 2023 was Developer. The development scope focused on destination information, visitor information flow and ticket booking. The technology stack combines PHP, MySQL, connecting the application’s domain features with its technical implementation.",
+      "features": [
+        {
+          "title": "Destination information",
+          "description": "Tourism content about Monumen Kapal Selam Surabaya."
+        },
+        {
+          "title": "Visitor information flow",
+          "description": "Presentation of destination information within the website’s visitor-facing experience."
+        },
+        {
+          "title": "Ticket booking",
+          "description": "A booking workflow included alongside the destination-information features."
+        }
+      ],
+      "implementation": [
+        {
+          "title": "PHP application layer",
+          "description": "PHP is the web-development language listed for the project. It provides the application context for the project’s information and workflow features."
+        },
+        {
+          "title": "MySQL data layer",
+          "description": "MySQL is the relational database technology listed in the project stack, alongside the application’s information-management scope."
+        }
+      ],
+      "challenge": "The design focus is to connect destination information and ticket booking without making them feel like unrelated activities. Content structure and booking context need to support a coherent visitor journey.",
+      "outcome": "The completed website combines tourism information and ticket booking for Monumen Kapal Selam Surabaya. Its implementation stack is PHP and MySQL."
+    }
+  },
+  {
+    "id": "mental-health-prediction",
+    "title": "Prediksi Kesehatan Mental",
+    "category": "ARTIFICIAL INTELLIGENCE",
+    "image": "",
+    "description": "A Python and Streamlit application exploring mental-health prediction through machine learning, with an emphasis on data analysis and understandable prediction output.",
+    "highlights": [
+      "Explored health-related data as the basis for a machine-learning prediction application.",
+      "Presented mental-health prediction functionality through a Streamlit interface.",
+      "Used Python for the application’s analytical and machine-learning workflow."
+    ],
+    "tags": [
+      [
+        "Python",
+        "python"
+      ],
+      [
+        "Streamlit",
+        "streamlit"
+      ]
+    ],
+    "role": "Data Scientist",
+    "period": "2023",
+    "status": "Completed",
+    "liveUrl": "https://prediksi-kondisi-kesehatan-mental-nrubvshr3mphey4zgmjdus.streamlit.app/",
+    "images": [],
+    "dummyImageCount": 4,
+    "dummyPanels": [
+      "Project overview",
+      "Data-analysis context",
+      "Machine-learning prediction",
+      "Results and summary"
+    ],
+    "caseStudy": {
+      "background": "Prediction applications connect analytical work with an interface that makes the output available to users. Mental-health data is the subject area for this project. The work focuses on the relationship between data analysis, machine-learning predictions, and their presentation through an application.",
+      "solution": "The proposed application brings data-analysis context, machine-learning prediction and streamlit application together in one web experience. A Python and Streamlit application exploring mental-health prediction through machine learning, with an emphasis on data analysis and understandable prediction output. Its scope connects the project’s functional purpose with a dedicated application interface.",
+      "contribution": "My role on Prediksi Kesehatan Mental was Data Scientist. The development scope focused on data-analysis context, machine-learning prediction and streamlit application. The technology stack combines Python, Streamlit, connecting the application’s domain features with its technical implementation.",
+      "features": [
+        {
+          "title": "Data-analysis context",
+          "description": "Health-related analysis within the mental-health prediction project."
+        },
+        {
+          "title": "Machine-learning prediction",
+          "description": "Prediction functionality focused on the mental-health subject area."
+        },
+        {
+          "title": "Streamlit application",
+          "description": "An application interface for presenting the analytical workflow and its output."
+        }
+      ],
+      "implementation": [
+        {
+          "title": "Python analytical workflow",
+          "description": "Python is the language listed for the project’s analytical or decision-support application work."
+        },
+        {
+          "title": "Streamlit presentation",
+          "description": "Streamlit provides the Python-based application interface recorded for this project, connecting its subject matter with a web-accessible presentation."
+        }
+      ],
+      "challenge": "The development focus is the connection between analytical processing and a readable application experience. The prediction context needs to remain clear when results are presented through the interface.",
+      "outcome": "The completed project presents mental-health prediction functionality in a Python and Streamlit application. It brings data analysis, a prediction task, and application presentation into one project."
+    }
+  },
+  {
+    "id": "spk-pariwisata-madura",
+    "title": "SPK Pariwisata Madura (SAW)",
+    "category": "FULL-STACK DEVELOPMENT",
+    "image": "",
+    "description": "A decision-support system for selecting tourism destinations in Madura, using Simple Additive Weighting (SAW) within a PHP and MySQL application.",
+    "highlights": [
+      "Applied Simple Additive Weighting (SAW) to support comparison of tourism alternatives in Madura.",
+      "Structured the project around criteria-based decision support for destination selection.",
+      "Developed the information system using PHP and MySQL."
+    ],
+    "tags": [
+      [
+        "PHP",
+        "php"
+      ],
+      [
+        "MySQL",
+        "mysql"
+      ]
+    ],
+    "role": "Developer",
+    "period": "2023",
+    "status": "Completed",
+    "liveUrl": "http://localhost/SPK-PEMILIHAN-PARIWISATA-MADURA/Program/",
+    "images": [],
+    "dummyImageCount": 4,
+    "dummyPanels": [
+      "Project overview",
+      "Tourism alternatives",
+      "SAW method",
+      "Results and summary"
+    ],
+    "caseStudy": {
+      "background": "Choosing a tourism destination involves comparing alternatives according to the criteria used in a decision. A decision-support application makes this comparison the focus of its workflow. This project applies that context to tourism selection in Madura through the SAW method.",
+      "solution": "The proposed application brings tourism alternatives, saw method and selection support together in one web experience. A decision-support system for selecting tourism destinations in Madura, using Simple Additive Weighting (SAW) within a PHP and MySQL application. Its scope connects the project’s functional purpose with a dedicated application interface.",
+      "contribution": "My role on SPK Pariwisata Madura (SAW) was Developer. The development scope focused on tourism alternatives, saw method and selection support. The technology stack combines PHP, MySQL, connecting the application’s domain features with its technical implementation.",
+      "features": [
+        {
+          "title": "Tourism alternatives",
+          "description": "A tourism-selection context centered on destinations in Madura."
+        },
+        {
+          "title": "SAW method",
+          "description": "Use of Simple Additive Weighting as the decision-support method."
+        },
+        {
+          "title": "Selection support",
+          "description": "Presentation of the destination-selection process within a web application."
+        }
+      ],
+      "implementation": [
+        {
+          "title": "PHP application layer",
+          "description": "PHP is the web-development language listed for the project. It provides the application context for the project’s information and workflow features."
+        },
+        {
+          "title": "MySQL data layer",
+          "description": "MySQL is the relational database technology listed in the project stack, alongside the application’s information-management scope."
+        },
+        {
+          "title": "Simple Additive Weighting (SAW)",
+          "description": "SAW is the decision-support method used for comparing tourism alternatives in this project’s destination-selection context."
+        }
+      ],
+      "challenge": "The main focus is keeping the relationship between alternatives, criteria, and the decision-support method understandable. The application needs to present the selection context clearly rather than treating its result as an unexplained output.",
+      "outcome": "The completed project applies SAW to a tourism decision-support context for Madura. PHP and MySQL provide the application and data stack recorded for the system."
+    }
+  },
+  {
+    "id": "klasifikasi-gizi-balita",
+    "title": "Klasifikasi Status Gizi Balita",
+    "category": "ARTIFICIAL INTELLIGENCE",
+    "image": "",
+    "description": "A machine-learning project for classifying nutritional status in young children, presented through a Python and Streamlit application focused on health-data analysis.",
+    "highlights": [
+      "Explored classification of nutritional status in young children through a machine-learning application.",
+      "Presented classification functionality using Python and Streamlit.",
+      "Connected health-data analysis with readable classification output in the application."
+    ],
+    "tags": [
+      [
+        "Python",
+        "python"
+      ],
+      [
+        "Streamlit",
+        "streamlit"
+      ]
+    ],
+    "role": "Data Scientist",
+    "period": "2023",
+    "status": "Completed",
+    "liveUrl": "https://klasifikasigizibayiapp-rhqnu66x2vfjurkq2zbzkr.streamlit.app/",
+    "images": [],
+    "dummyImageCount": 4,
+    "dummyPanels": [
+      "Project overview",
+      "Health-data analysis",
+      "Nutritional-status classification",
+      "Results and summary"
+    ],
+    "caseStudy": {
+      "background": "Classification projects connect a data-analysis problem with a defined category-based output. Nutritional status in young children is the subject area of this application. The project focuses on providing an application context for the analytical and classification workflow.",
+      "solution": "The proposed application brings health-data analysis, nutritional-status classification and application interface together in one web experience. A machine-learning project for classifying nutritional status in young children, presented through a Python and Streamlit application focused on health-data analysis. Its scope connects the project’s functional purpose with a dedicated application interface.",
+      "contribution": "My role on Klasifikasi Status Gizi Balita was Data Scientist. The development scope focused on health-data analysis, nutritional-status classification and application interface. The technology stack combines Python, Streamlit, connecting the application’s domain features with its technical implementation.",
+      "features": [
+        {
+          "title": "Health-data analysis",
+          "description": "The analytical context for the nutritional-status classification project."
+        },
+        {
+          "title": "Nutritional-status classification",
+          "description": "Classification functionality focused on young children’s nutritional status."
+        },
+        {
+          "title": "Application interface",
+          "description": "A Streamlit interface for presenting the project’s classification workflow."
+        }
+      ],
+      "implementation": [
+        {
+          "title": "Python analytical workflow",
+          "description": "Python is the language listed for the project’s analytical or decision-support application work."
+        },
+        {
+          "title": "Streamlit presentation",
+          "description": "Streamlit provides the Python-based application interface recorded for this project, connecting its subject matter with a web-accessible presentation."
+        }
+      ],
+      "challenge": "The main development focus is making the relationship between analysis and classification output understandable in the application. The interface needs to communicate the project’s subject and result context clearly.",
+      "outcome": "The completed project demonstrates nutritional-status classification through Python and Streamlit. Its recorded scope is health-data analysis and classification functionality."
+    }
+  },
+  {
+    "id": "prediksi-penyakit-jantung",
+    "title": "Prediksi Penyakit Jantung",
+    "category": "ARTIFICIAL INTELLIGENCE",
+    "image": "",
+    "description": "An AI application focused on heart-disease risk prediction, combining a Python analytical workflow with a Streamlit interface for presenting project results.",
+    "highlights": [
+      "Developed an AI application focused on predicting heart-disease risk.",
+      "Used Python for analytical processing and Streamlit for the application interface.",
+      "Presented risk-prediction results within a web-based project demonstration."
+    ],
+    "tags": [
+      [
+        "Python",
+        "python"
+      ],
+      [
+        "Streamlit",
+        "streamlit"
+      ]
+    ],
+    "role": "Data Scientist",
+    "period": "2024",
+    "status": "Completed",
+    "liveUrl": "https://programmetopen-pwv5t32mdnazfrdddozvgg.streamlit.app/",
+    "images": [],
+    "dummyImageCount": 4,
+    "dummyPanels": [
+      "Project overview",
+      "Risk-prediction context",
+      "AI workflow",
+      "Results and summary"
+    ],
+    "caseStudy": {
+      "background": "A prediction project needs both an analytical workflow and a way to present its output. This application uses heart-disease risk as its subject area. The work focuses on bringing that prediction context into a web-accessible application built with Python and Streamlit.",
+      "solution": "The proposed application brings risk-prediction context, ai workflow and web application together in one web experience. An AI application focused on heart-disease risk prediction, combining a Python analytical workflow with a Streamlit interface for presenting project results. Its scope connects the project’s functional purpose with a dedicated application interface.",
+      "contribution": "My role on Prediksi Penyakit Jantung was Data Scientist. The development scope focused on risk-prediction context, ai workflow and web application. The technology stack combines Python, Streamlit, connecting the application’s domain features with its technical implementation.",
+      "features": [
+        {
+          "title": "Risk-prediction context",
+          "description": "An application scope centered on heart-disease risk prediction."
+        },
+        {
+          "title": "AI workflow",
+          "description": "Analytical and AI functionality within the project’s prediction task."
+        },
+        {
+          "title": "Web application",
+          "description": "A Streamlit interface for presenting the project and its output."
+        }
+      ],
+      "implementation": [
+        {
+          "title": "Python analytical workflow",
+          "description": "Python is the language listed for the project’s analytical or decision-support application work."
+        },
+        {
+          "title": "Streamlit presentation",
+          "description": "Streamlit provides the Python-based application interface recorded for this project, connecting its subject matter with a web-accessible presentation."
+        }
+      ],
+      "challenge": "The development focus is readable communication of prediction output within the application. The subject, workflow, and result context need to remain understandable when analytical work is presented through the interface.",
+      "outcome": "The completed application presents a heart-disease risk-prediction project using Python and Streamlit. Its focus connects an AI prediction task with a readable application interface."
+    }
+  },
+  {
+    "id": "sistem-terintegrasi-sekolah",
+    "title": "Sistem Terintegrasi Sekolah",
+    "category": "FULL-STACK DEVELOPMENT",
+    "image": "",
+    "description": "An integrated school information system focused on connected academic data and school-management workflows, developed using Laravel and MySQL.",
+    "highlights": [
+      "Organized academic information within an integrated school-management application.",
+      "Focused on connected school data and academic-administration workflows.",
+      "Used Laravel and MySQL as the project’s application and database technologies."
+    ],
+    "tags": [
+      [
+        "Laravel",
+        "laravel"
+      ],
+      [
+        "MySQL",
+        "mysql"
+      ]
+    ],
+    "role": "Developer",
+    "period": "2024",
+    "status": "Completed",
+    "liveUrl": "https://github.com/AdiSahrulRamadhan/Sistem-Terintegrasi-Sekolah",
+    "images": [],
+    "dummyImageCount": 4,
+    "dummyPanels": [
+      "Project overview",
+      "Academic management",
+      "Connected school information",
+      "Results and summary"
+    ],
+    "caseStudy": {
+      "background": "School information spans multiple academic and administrative contexts. An integrated system treats those contexts as connected information rather than isolated records. This project focuses on school-data management, academic administration, and the integration of related information.",
+      "solution": "The proposed application brings academic management, connected school information and school-management application together in one web experience. An integrated school information system focused on connected academic data and school-management workflows, developed using Laravel and MySQL. Its scope connects the project’s functional purpose with a dedicated application interface.",
+      "contribution": "My role on Sistem Terintegrasi Sekolah was Developer. The development scope focused on academic management, connected school information and school-management application. The technology stack combines Laravel, MySQL, connecting the application’s domain features with its technical implementation.",
+      "features": [
+        {
+          "title": "Academic management",
+          "description": "Functionality focused on the academic-management area recorded for the project."
+        },
+        {
+          "title": "Connected school information",
+          "description": "Integration of the school data covered by the application."
+        },
+        {
+          "title": "School-management application",
+          "description": "A web application context for managing school information."
+        }
+      ],
+      "implementation": [
+        {
+          "title": "Laravel framework",
+          "description": "Laravel is the PHP framework used for Sistem Terintegrasi Sekolah. It forms the application-framework layer of this web-development project."
+        },
+        {
+          "title": "MySQL data layer",
+          "description": "MySQL is the relational database technology listed in the project stack, alongside the application’s information-management scope."
+        }
+      ],
+      "challenge": "The main development focus is the relationship between academic information and integrated data management. The application structure needs to keep connected school information coherent and understandable.",
+      "outcome": "The completed application focuses on academic management and school-data integration. Laravel and MySQL form the framework and database stack recorded for the project."
+    }
+  },
+  {
+    "id": "distribusi-e-toko-beras",
+    "title": "Distribusi E-Toko Beras",
+    "category": "FULL-STACK DEVELOPMENT",
+    "image": "",
+    "description": "A rice-store management project with a distributed-system focus, covering inventory information and store operations using PHP and MySQL.",
+    "highlights": [
+      "Developed a store-management project with a distributed-system focus.",
+      "Included inventory information as part of the rice store’s operational scope.",
+      "Used PHP and MySQL to support application functionality and data handling."
+    ],
+    "tags": [
+      [
+        "PHP",
+        "php"
+      ],
+      [
+        "MySQL",
+        "mysql"
+      ]
+    ],
+    "role": "Developer",
+    "period": "2024",
+    "status": "Completed",
+    "liveUrl": "https://github.com/AdiSahrulRamadhan/E-TokoBeras",
+    "images": [],
+    "dummyImageCount": 4,
+    "dummyPanels": [
+      "Project overview",
+      "Rice-store management",
+      "Inventory information",
+      "Results and summary"
+    ],
+    "caseStudy": {
+      "background": "Store management connects information about inventory with the operational context of a business. This project considers those needs for a rice store within a distributed-system context. The focus is on representing inventory and related management information through an application.",
+      "solution": "The proposed application brings rice-store management, inventory information and distributed-system context together in one web experience. A rice-store management project with a distributed-system focus, covering inventory information and store operations using PHP and MySQL. Its scope connects the project’s functional purpose with a dedicated application interface.",
+      "contribution": "My role on Distribusi E-Toko Beras was Developer. The development scope focused on rice-store management, inventory information and distributed-system context. The technology stack combines PHP, MySQL, connecting the application’s domain features with its technical implementation.",
+      "features": [
+        {
+          "title": "Rice-store management",
+          "description": "A management-system context tailored to the rice-store project."
+        },
+        {
+          "title": "Inventory information",
+          "description": "Inventory-related functionality included in the project’s recorded scope."
+        },
+        {
+          "title": "Distributed-system context",
+          "description": "A development focus on distribution within the store-management system."
+        }
+      ],
+      "implementation": [
+        {
+          "title": "PHP application layer",
+          "description": "PHP is the web-development language listed for the project. It provides the application context for the project’s information and workflow features."
+        },
+        {
+          "title": "MySQL data layer",
+          "description": "MySQL is the relational database technology listed in the project stack, alongside the application’s information-management scope."
+        }
+      ],
+      "challenge": "The development focus is keeping inventory information connected to the wider system context. The project needs an understandable structure for the management information represented within its distributed-system scope.",
+      "outcome": "The completed project covers rice-store management, inventory information, and a distributed-system focus. Its recorded technology stack is PHP and MySQL."
+    }
+  },
+  {
+    "id": "asr-printing",
+    "title": "ASR Printing",
+    "category": "FULL-STACK DEVELOPMENT",
+    "image": "",
+    "description": "A printing-service order-management application developed with Laravel and MySQL, focusing on order information and the workflow of a printing business.",
+    "highlights": [
+      "Supported management of printing-service orders through a dedicated web application.",
+      "Organized the project around order information and printing-service workflows.",
+      "Used Laravel and MySQL for the application’s framework and data layer."
+    ],
+    "tags": [
+      [
+        "Laravel",
+        "laravel"
+      ],
+      [
+        "MySQL",
+        "mysql"
+      ]
+    ],
+    "role": "Developer",
+    "period": "2024",
+    "status": "Completed",
+    "liveUrl": "https://github.com/AdiSahrulRamadhan/ASRPrinting",
+    "images": [],
+    "dummyImageCount": 4,
+    "dummyPanels": [
+      "Project overview",
+      "Printing orders",
+      "Service context",
+      "Results and summary"
+    ],
+    "caseStudy": {
+      "background": "Printing services handle orders that need to be represented clearly within the business workflow. An order-management application provides a specific information context for those activities. ASR Printing focuses on the management of printing-service orders through a dedicated web system.",
+      "solution": "The proposed application brings printing orders, service context and order-management application together in one web experience. A printing-service order-management application developed with Laravel and MySQL, focusing on order information and the workflow of a printing business. Its scope connects the project’s functional purpose with a dedicated application interface.",
+      "contribution": "My role on ASR Printing was Developer. The development scope focused on printing orders, service context and order-management application. The technology stack combines Laravel, MySQL, connecting the application’s domain features with its technical implementation.",
+      "features": [
+        {
+          "title": "Printing orders",
+          "description": "Management of the order information included in the printing-service project."
+        },
+        {
+          "title": "Service context",
+          "description": "An application scope tailored to printing-service activities."
+        },
+        {
+          "title": "Order-management application",
+          "description": "A web-based system for representing the project’s order-management workflow."
+        }
+      ],
+      "implementation": [
+        {
+          "title": "Laravel framework",
+          "description": "Laravel is the PHP framework used for ASR Printing. It forms the application-framework layer of this web-development project."
+        },
+        {
+          "title": "MySQL data layer",
+          "description": "MySQL is the relational database technology listed in the project stack, alongside the application’s information-management scope."
+        }
+      ],
+      "challenge": "The main design focus is aligning order information with the context of printing services. The application needs to represent that work coherently without losing the connection between an order and the service being managed.",
+      "outcome": "The completed project provides an order-management application focused on printing services. Laravel and MySQL form the framework and database stack recorded for ASR Printing."
+    }
+  },
+  {
+    "id": "magang-quantum-hrm",
+    "title": "Project Magang Quantum HRM",
+    "category": "FULL-STACK DEVELOPMENT",
+    "image": "",
+    "description": "A corporate website project for PT Quantum HRM Internasional, developed in an internship role and focused on company information and human-resources services.",
+    "highlights": [
+      "Contributed to a corporate website for PT Quantum HRM Internasional as an intern developer.",
+      "Focused on company information and its human-resources service context.",
+      "Used PHP and MySQL in the project’s web-development stack."
+    ],
+    "tags": [
+      [
+        "PHP",
+        "php"
+      ],
+      [
+        "MySQL",
+        "mysql"
+      ]
+    ],
+    "role": "Intern Developer",
+    "period": "2025",
+    "status": "Completed",
+    "liveUrl": "https://web.quantum-hrmi.id/ina/beranda",
+    "images": [],
+    "dummyImageCount": 4,
+    "dummyPanels": [
+      "Project overview",
+      "Company information",
+      "Human-resources services",
+      "Results and summary"
+    ],
+    "caseStudy": {
+      "background": "A company website brings its identity and service information into a public-facing web experience. PT Quantum HRM Internasional operates in a human-resources service context. This internship project focuses on representing company information through a corporate website.",
+      "solution": "The proposed application brings company information, human-resources services and public-facing website together in one web experience. A corporate website project for PT Quantum HRM Internasional, developed in an internship role and focused on company information and human-resources services. Its scope connects the project’s functional purpose with a dedicated application interface.",
+      "contribution": "My role on Project Magang Quantum HRM was Intern Developer. The development scope focused on company information, human-resources services and public-facing website. The technology stack combines PHP, MySQL, connecting the application’s domain features with its technical implementation.",
+      "features": [
+        {
+          "title": "Company information",
+          "description": "A corporate website context for PT Quantum HRM Internasional."
+        },
+        {
+          "title": "Human-resources services",
+          "description": "Presentation of information within the company’s human-resources service context."
+        },
+        {
+          "title": "Public-facing website",
+          "description": "A web presence focused on the company and its information needs."
+        }
+      ],
+      "implementation": [
+        {
+          "title": "PHP application layer",
+          "description": "PHP is the web-development language listed for the project. It provides the application context for the project’s information and workflow features."
+        },
+        {
+          "title": "MySQL data layer",
+          "description": "MySQL is the relational database technology listed in the project stack, alongside the application’s information-management scope."
+        }
+      ],
+      "challenge": "The development focus is the relationship between a company’s identity, its services, and the structure of its website. Information needs to remain coherent within the corporate and human-resources context.",
+      "outcome": "The completed project is recorded as a corporate website for PT Quantum HRM Internasional. The role is Intern Developer, with PHP and MySQL listed as the technology stack."
+    }
+  },
+  {
+    "id": "web-hippmi",
+    "title": "Web HIPPMI",
+    "category": "FULL-STACK DEVELOPMENT",
+    "image": "",
+    "description": "An organization-profile website for Himpunan Pendidik & Pengajar Muda Indonesia, bringing identity and organizational information into a dedicated PHP and MySQL web presence.",
+    "highlights": [
+      "Presented the profile of Himpunan Pendidik & Pengajar Muda Indonesia through a dedicated website.",
+      "Organized information around the organization’s identity and activities.",
+      "Used PHP and MySQL to support the organization’s information website."
+    ],
+    "tags": [
+      [
+        "PHP",
+        "php"
+      ],
+      [
+        "MySQL",
+        "mysql"
+      ]
+    ],
+    "role": "Developer",
+    "period": "2025",
+    "status": "Completed",
+    "liveUrl": "http://localhost/WEBHIPPMI/beranda",
+    "images": [],
+    "dummyImageCount": 4,
+    "dummyPanels": [
+      "Project overview",
+      "Organization profile",
+      "Information content",
+      "Results and summary"
+    ],
+    "caseStudy": {
+      "background": "An organization needs a clear way to introduce its identity and present information to its audience. A dedicated website provides a home for that material. Web HIPPMI focuses on the profile and information needs of Himpunan Pendidik & Pengajar Muda Indonesia.",
+      "solution": "The proposed application brings organization profile, information content and dedicated web presence together in one web experience. An organization-profile website for Himpunan Pendidik & Pengajar Muda Indonesia, bringing identity and organizational information into a dedicated PHP and MySQL web presence. Its scope connects the project’s functional purpose with a dedicated application interface.",
+      "contribution": "My role on Web HIPPMI was Developer. The development scope focused on organization profile, information content and dedicated web presence. The technology stack combines PHP, MySQL, connecting the application’s domain features with its technical implementation.",
+      "features": [
+        {
+          "title": "Organization profile",
+          "description": "Profile information introducing HIPPMI and its organizational identity."
+        },
+        {
+          "title": "Information content",
+          "description": "Presentation of the organizational information included in the project."
+        },
+        {
+          "title": "Dedicated web presence",
+          "description": "A website centered on the organization rather than a general-purpose information page."
+        }
+      ],
+      "implementation": [
+        {
+          "title": "PHP application layer",
+          "description": "PHP is the web-development language listed for the project. It provides the application context for the project’s information and workflow features."
+        },
+        {
+          "title": "MySQL data layer",
+          "description": "MySQL is the relational database technology listed in the project stack, alongside the application’s information-management scope."
+        }
+      ],
+      "challenge": "The development focus is organizing content so that identity and informational material feel connected. Readers need a clear context for understanding the organization through its website.",
+      "outcome": "The completed website focuses on HIPPMI’s profile and organizational information. PHP and MySQL are the technologies recorded for the project."
+    }
+  },
+  {
+    "id": "spk-benih-padi",
+    "title": "SPK Varietas Benih Padi",
+    "category": "ARTIFICIAL INTELLIGENCE",
+    "image": "",
+    "description": "A decision-support application for selecting superior rice-seed varieties, using Python and Streamlit to present an agriculture-focused selection workflow.",
+    "highlights": [
+      "Built a decision-support project focused on selecting superior rice-seed varieties.",
+      "Presented the agricultural selection context through a Streamlit interface.",
+      "Used Python to support the project’s decision-support application workflow."
+    ],
+    "tags": [
+      [
+        "Python",
+        "python"
+      ],
+      [
+        "Streamlit",
+        "streamlit"
+      ]
+    ],
+    "role": "Data Scientist",
+    "period": "2025",
+    "status": "Completed",
+    "liveUrl": "https://penentuanvarietasbenihpadiunggul-mz8hakjzcpoczs5x2zigdf.streamlit.app/",
+    "images": [],
+    "dummyImageCount": 4,
+    "dummyPanels": [
+      "Project overview",
+      "Seed-variety selection",
+      "Agricultural information",
+      "Results and summary"
+    ],
+    "caseStudy": {
+      "background": "Selecting seed varieties is a decision context in agricultural work. A decision-support application brings that context into a structured information workflow. This project focuses on the selection of superior rice-seed varieties through a Python and Streamlit application.",
+      "solution": "The proposed application brings seed-variety selection, agricultural information and streamlit interface together in one web experience. A decision-support application for selecting superior rice-seed varieties, using Python and Streamlit to present an agriculture-focused selection workflow. Its scope connects the project’s functional purpose with a dedicated application interface.",
+      "contribution": "My role on SPK Varietas Benih Padi was Data Scientist. The development scope focused on seed-variety selection, agricultural information and streamlit interface. The technology stack combines Python, Streamlit, connecting the application’s domain features with its technical implementation.",
+      "features": [
+        {
+          "title": "Seed-variety selection",
+          "description": "A decision-support context focused on superior rice-seed varieties."
+        },
+        {
+          "title": "Agricultural information",
+          "description": "Presentation of the agricultural selection topic within the application."
+        },
+        {
+          "title": "Streamlit interface",
+          "description": "An application interface for the project’s decision-support workflow."
+        }
+      ],
+      "implementation": [
+        {
+          "title": "Python analytical workflow",
+          "description": "Python is the language listed for the project’s analytical or decision-support application work."
+        },
+        {
+          "title": "Streamlit presentation",
+          "description": "Streamlit provides the Python-based application interface recorded for this project, connecting its subject matter with a web-accessible presentation."
+        }
+      ],
+      "challenge": "The development focus is making the selection context understandable in an application. The connection between the agricultural subject and decision-support workflow needs to remain clear to the reader.",
+      "outcome": "The completed application focuses on decision support for rice-seed variety selection. Python and Streamlit are the technologies recorded for this agriculture-focused project."
+    }
+  },
+  {
+    "id": "web-subang",
+    "title": "Web Subang 2026",
+    "category": "FULL-STACK DEVELOPMENT",
+    "image": "",
+    "description": "A regional information and services website focused on public content, using HTML and CSS to structure and present the project’s web pages.",
+    "highlights": [
+      "Presented regional information and services through a dedicated public-information website.",
+      "Organized the project around public content and service-related information.",
+      "Used HTML and CSS to structure and style the website’s pages."
+    ],
+    "tags": [
+      [
+        "HTML",
+        "html"
+      ],
+      [
+        "CSS",
+        "css"
+      ]
+    ],
+    "role": "Developer",
+    "period": "2026",
+    "status": "Completed",
+    "liveUrl": "https://surabaya-bawang.netlify.app",
+    "images": [],
+    "dummyImageCount": 4,
+    "dummyPanels": [
+      "Project overview",
+      "Regional information",
+      "Service-related content",
+      "Results and summary"
+    ],
+    "caseStudy": {
+      "background": "Regional information and service content need a readable home on the web. A public-information website helps organize these topics into a structured presentation. Web Subang 2026 focuses on the regional information and service context provided for the project.",
+      "solution": "The proposed application brings regional information, service-related content and web-page presentation together in one web experience. A regional information and services website focused on public content, using HTML and CSS to structure and present the project’s web pages. Its scope connects the project’s functional purpose with a dedicated application interface.",
+      "contribution": "My role on Web Subang 2026 was Developer. The development scope focused on regional information, service-related content and web-page presentation. The technology stack combines HTML, CSS, connecting the application’s domain features with its technical implementation.",
+      "features": [
+        {
+          "title": "Regional information",
+          "description": "Public-facing regional information within the project’s stated scope."
+        },
+        {
+          "title": "Service-related content",
+          "description": "Presentation of information connected to the region’s service context."
+        },
+        {
+          "title": "Web-page presentation",
+          "description": "Page structure and visual styling developed with HTML and CSS."
+        }
+      ],
+      "implementation": [
+        {
+          "title": "HTML structure",
+          "description": "HTML provides the page structure for the website and its public-information content."
+        },
+        {
+          "title": "CSS presentation",
+          "description": "CSS provides the styling layer for the website’s layout and visual presentation."
+        }
+      ],
+      "challenge": "The development focus is content organization and readable page presentation. Information needs to be structured so that public content and service-related topics can be understood through the website.",
+      "outcome": "The completed website focuses on regional information and public-service content. HTML and CSS form the recorded structure and presentation stack."
+    }
+  }
+];
+  const $ = id => document.getElementById(id);
+  const esc = value => String(value ?? "").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"})[c]);
+  const paths = {right:'<path d="M5 12h14m-6-6 6 6-6 6"/>',left:'<path d="M19 12H5m6-6-6 6 6 6"/>',up:'<path d="M7 17 17 7M7 7h10v10"/>',zoom:'<circle cx="10" cy="10" r="6"/><path d="m15 15 6 6M10 7v6m-3-3h6"/>'};
+  const icon=(name,size=16)=>`<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[name]||paths.up}</svg>`;
+  const byId = id => PROJECTS.find(project=>project.id===id);
+  const detailURL = project => `project-details.html?id=${encodeURIComponent(project.id)}`;
+  const sortedProjects = [...PROJECTS].sort((a,b)=>Number(String(b.period).match(/\d{4}/)?.[0]||0)-Number(String(a.period).match(/\d{4}/)?.[0]||0));
+  const validURL=value=>{try{return ["https:","http:"].includes(new URL(value).protocol);}catch{return false;}};
+  function linkLabel(project){
+    if(!validURL(project.liveUrl))return "";
+    const host=new URL(project.liveUrl).hostname;
+    return host==='github.com'?'Repository':['localhost','127.0.0.1','[::1]'].includes(host)?'Local Demo':'Live Site';
+  }
+  function externalLinks(project){
+    const links=[];
+    if(validURL(project.liveUrl))links.push(`<a class="secondary-link" href="${esc(project.liveUrl)}" target="_blank" rel="noopener noreferrer">${esc(linkLabel(project))} ${icon('up',13)}</a>`);
+    if(validURL(project.repositoryUrl)&&project.repositoryUrl!==project.liveUrl)links.push(`<a class="secondary-link" href="${esc(project.repositoryUrl)}" target="_blank" rel="noopener noreferrer">Repository ${icon('up',13)}</a>`);
+    return links.join('');
+  }
+  function preview(project,index=0){
+  const panels=project.dummyPanels||['Project overview','Information management','Process workflow','Results and summary'];
+  const tones=['#00aaa4','#289ccd','#8173d8','#db8b59'];
+  const accent=tones[index%tones.length],label=panels[index%panels.length];
+  const words=project.title.split(' '),lines=[''];
+  for(const word of words){if((lines.at(-1)+' '+word).trim().length>40)lines.push(word);else lines[lines.length-1]=(lines.at(-1)+' '+word).trim();}
+  const title=lines.slice(0,2).map((line,i)=>`<text x="66" y="${661+i*42}" fill="#14283d" font-family="Arial,sans-serif" font-size="32" font-weight="600">${esc(line)}</text>`).join('');
+  const top=`<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#dff7f3"/><stop offset="1" stop-color="#eef4ff"/></linearGradient></defs><rect width="1200" height="800" fill="url(#bg)"/><circle cx="1160" cy="40" r="220" fill="${accent}" opacity=".07"/><rect x="66" y="52" width="1068" height="530" rx="22" fill="#fff" stroke="#cfdfeb" stroke-width="2"/><path d="M66 107h1068" stroke="#e0e9f2" stroke-width="2"/><circle cx="98" cy="80" r="6" fill="#00bdb6"/><circle cx="122" cy="80" r="6" fill="#72dcd6"/><circle cx="146" cy="80" r="6" fill="#c2eeea"/><text x="180" y="87" font-size="18" font-family="Arial,sans-serif" fill="#637188">${esc(label)}</text><rect x="944" y="65" width="166" height="30" rx="15" fill="#edf8f6"/><text x="1027" y="85" text-anchor="middle" font-size="12" font-family="Arial,sans-serif" letter-spacing="1" fill="#007b76">DUMMY ${index+1} / 4</text>`;
+  const sidebar=`<rect x="88" y="128" width="174" height="430" rx="14" fill="#172b40"/><rect x="108" y="153" width="90" height="11" rx="5" fill="${accent}"/><path d="M108 204h128m-128 42h90m-90 42h110m-110 42h80m-80 42h104" stroke="#64798c" stroke-width="8" stroke-linecap="round"/>`;
+  let content='';
+  if(index===0){
+    content=sidebar+`<text x="290" y="159" font-size="22" font-family="Arial,sans-serif" fill="#263e52">Overview dashboard</text>`;
+    for(let i=0;i<3;i++)content+=`<rect x="${290+i*277}" y="185" width="254" height="92" rx="13" fill="${['#e2f7f3','#e6f1fc','#efedfc'][i]}"/><path d="M${311+i*277} 212h115m-115 33h75" stroke="${accent}" stroke-width="8" stroke-linecap="round" opacity=".7"/>`;
+    content+=`<rect x="290" y="301" width="810" height="235" rx="14" fill="#f4f8fc"/><path d="M323 493 425 441 523 467 622 375 726 398 824 346 930 372 1068 327" stroke="${accent}" stroke-width="9" fill="none" stroke-linejoin="round" stroke-linecap="round"/><path d="M322 513h748" stroke="#d5e2ec" stroke-width="2"/>`;
+  }else if(index===1){
+    content=sidebar+`<text x="290" y="160" font-size="22" font-family="Arial,sans-serif" fill="#263e52">${esc(label)}</text><rect x="935" y="135" width="166" height="36" rx="18" fill="${accent}"/><text x="1018" y="159" text-anchor="middle" font-size="14" font-family="Arial,sans-serif" fill="#fff">Sample records</text><rect x="290" y="195" width="810" height="42" rx="10" fill="#eaf2f8"/>`;
+    for(let i=0;i<4;i++)content+=`<rect x="290" y="${250+i*70}" width="810" height="58" rx="10" fill="${i%2?'#f4f8fc':'#fbfdff'}" stroke="#e1eaf2"/><rect x="310" y="${268+i*70}" width="23" height="23" rx="5" fill="${accent}" opacity=".2"/><text x="352" y="${286+i*70}" font-size="16" font-family="Arial,sans-serif" fill="#476176">Sample item 0${i+1}</text><path d="M635 ${278+i*70}h125m50 0h80" stroke="#c0d3e2" stroke-width="8" stroke-linecap="round"/><rect x="977" y="${267+i*70}" width="95" height="25" rx="12" fill="#dbf6f0"/>`;
+  }else if(index===2){
+    content=sidebar+`<rect x="380" y="144" width="630" height="395" rx="17" fill="#fbfdff" stroke="#d8e4ee"/><text x="411" y="184" font-size="22" font-family="Arial,sans-serif" fill="#263e52">${esc(label)}</text><text x="411" y="213" font-size="14" font-family="Arial,sans-serif" fill="#74899a">Illustrative form — sample content</text>`;
+    for(let i=0;i<3;i++)content+=`<text x="411" y="${253+i*75}" font-size="14" font-family="Arial,sans-serif" fill="#526b80">${['Input information','Select an option','Review the context'][i]}</text><rect x="411" y="${265+i*75}" width="566" height="40" rx="9" fill="#fff" stroke="#cbdce9"/><path d="M428 ${286+i*75}h${[190,140,235][i]}" stroke="#d1deea" stroke-width="6" stroke-linecap="round"/>`;
+    content+=`<rect x="748" y="495" width="229" height="30" rx="15" fill="${accent}"/><text x="862" y="515" text-anchor="middle" fill="white" font-family="Arial,sans-serif" font-size="13">Preview workflow</text>`;
+  }else{
+    content=sidebar+`<text x="290" y="160" font-size="22" font-family="Arial,sans-serif" fill="#263e52">Results and summary</text><rect x="290" y="190" width="500" height="345" rx="15" fill="#f3f8fc"/><rect x="815" y="190" width="285" height="160" rx="15" fill="#e8f7f1"/><rect x="815" y="372" width="285" height="163" rx="15" fill="#eef1fb"/><text x="840" y="225" font-size="16" font-family="Arial,sans-serif" fill="#526b80">Sample summary</text><path d="M840 260h160m-160 33h120m-120 125h175m-175 35h145m-145 34h100" stroke="#a9c7d2" stroke-width="8" stroke-linecap="round"/>`;
+    for(let i=0;i<5;i++){const h=[90,170,128,230,190][i];content+=`<rect x="${325+i*85}" y="${500-h}" width="52" height="${h}" rx="8" fill="${accent}" opacity="${.45+i*.1}"/>`;}
+    content+=`<text x="315" y="225" font-size="14" font-family="Arial,sans-serif" fill="#6e8597">Illustrative visualization</text><path d="M316 505h445" stroke="#c4d8e5" stroke-width="2"/>`;
+  }
+  const footer=`<text x="66" y="617" font-family="Arial,sans-serif" font-size="14" letter-spacing="2.4" fill="${accent}">DUMMY PROJECT PREVIEW · ${index+1} / 4</text>${title}<text x="66" y="754" fill="#637188" font-family="Arial,sans-serif" font-size="17">${esc(project.category)}</text><text x="1134" y="754" text-anchor="end" fill="#637188" font-family="Arial,sans-serif" font-size="17">${esc(project.period)}</text>`;
+  return 'data:image/svg+xml;charset=UTF-8,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">${top}${content}${footer}</svg>`);
+}
+  const previewCache=new Map();
+  function fallback(project,index=0){const key=project.id+':'+index;if(!previewCache.has(key))previewCache.set(key,preview(project,index));return previewCache.get(key);}
+  function imagesFor(project){const images=(project.images||[]).filter(src=>typeof src==='string'&&src.trim());if(images.length)return images;if(project.image)return [project.image];return Array.from({length:project.dummyImageCount||4},(_,index)=>fallback(project,index));}
+  const tags=project=>`<div class="technology-tags">${(project.tags||[]).map(([name,slug])=>`<span class="tech-tag">${slug?`<img class="tech-icon" src="https://cdn.simpleicons.org/${encodeURIComponent(slug)}/00aaa5" alt="" loading="lazy">`:''}${esc(name)}</span>`).join('')}</div>`;
+  const bullets=(values,cls='card-highlights')=>`<ul class="${cls}">${values.map(value=>`<li><span>${esc(value)}</span></li>`).join('')}</ul>`;
+  function card(project,compact=false){return `<article class="project-card${compact?' compact':''} reveal-item" data-project-id="${esc(project.id)}" data-category="${esc(project.category)}">
+    <button type="button" class="project-cover" data-zoom-id="${esc(project.id)}" aria-label="Enlarge ${esc(project.title)} image">
+      <img src="${esc(imagesFor(project)[0])}" data-image-project="${esc(project.id)}" alt="${esc(project.title)} project preview" width="1200" height="800" loading="lazy"><span class="cover-zoom" aria-hidden="true">${icon('zoom',15)}</span>
+    </button>
+    <div class="project-copy"><p class="project-category">${esc(project.category)}</p><h2 class="project-name"><a href="${detailURL(project)}">${esc(project.title)}</a></h2>
+      <p class="project-summary">${esc(project.description)}</p>
+      ${compact?'':`<span class="status-pill">${esc(project.status)}</span>${bullets(project.highlights||[])}${tags(project)}
+      <div class="project-meta"><span>${esc(project.role)}</span><span>${esc(project.period)}</span></div>
+      <div class="card-actions"><a class="primary-link" href="${detailURL(project)}" aria-label="View ${esc(project.title)} details">View Details</a>${externalLinks(project)}</div>`}
+    </div></article>`;}
+  const main=$('project-content');
+  let pageProject=null,pageImages=[],pageImageIndex=0;
+  if(document.body.dataset.page==='projects'){
+    const categories=['all',...new Set(PROJECTS.map(p=>p.category))];
+    const categoryLabel=value=>value==='all'?'All Projects':value==='FULL-STACK DEVELOPMENT'?'Full-Stack':value==='ARTIFICIAL INTELLIGENCE'?'AI / ML':value;
+    main.innerHTML=`<section aria-labelledby="projects-heading"><span class="page-eyebrow">PROJECTS</span><h1 class="page-title" id="projects-heading">Case studies and experiments across<br class="hidden sm:block">web development and applied AI.</h1><p class="page-intro">A selection of projects across information systems, business applications, and data-driven tools. Explore the background, technologies, and outcomes behind each project.</p><div class="project-filters" id="project-filters" role="group" aria-label="Filter projects by category">${categories.map(value=>`<button type="button" class="filter-button" data-filter="${esc(value)}" aria-pressed="${value==='all'}">${esc(categoryLabel(value))}</button>`).join('')}</div><p class="result-count" id="project-count" role="status"></p><div class="project-grid" id="projects-grid">${sortedProjects.map(project=>card(project)).join('')}</div></section><section class="project-cta reveal-item" aria-labelledby="project-cta-title"><h2 id="project-cta-title">Want to see a tailored project breakdown?</h2><p>Let’s discuss the scope, technologies, and development approach for your next project.</p><a class="primary-link" href="contact.html">Ask for a Detailed Walkthrough ${icon('up',14)}</a></section>`;
+    const cards=[...$('projects-grid').querySelectorAll('[data-project-id]')];
+    function filter(category){let count=0;cards.forEach(item=>{item.hidden=category!=='all'&&item.dataset.category!==category;if(!item.hidden)count++;});$('project-filters').querySelectorAll('[data-filter]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.filter===category)));$('project-count').textContent=`${count} ${count===1?'project':'projects'}${category==='all'?'':` · ${categoryLabel(category)}`}`;}
+    filter('all');$('project-filters').addEventListener('click',event=>{const button=event.target.closest('[data-filter]');if(button)filter(button.dataset.filter);});
+  }else{
+    const id=new URLSearchParams(window.location.search).get('id');
+    pageProject=id?byId(id):sortedProjects[0];
+    if(!pageProject){
+      document.title='Project not found — Adi Sahrul Ramadhan';
+      main.innerHTML='<section class="not-found"><h1>Project not found.</h1><p>The requested project is not available. You can explore the full project collection below.</p><a class="primary-link" href="projects.html">Back to Projects</a></section>';
+    }else{
+      const project=pageProject,c=project.caseStudy;
+      pageImages=imagesFor(project);
+      document.title=`${project.title} — Adi Sahrul Ramadhan`;
+      document.querySelector('meta[name="description"]').setAttribute('content',project.description);
+      const technical=c.implementation.map(item=>`<li><strong>${esc(item.title)}:</strong> ${esc(item.description)}</li>`).join('');
+      const related=[...sortedProjects.filter(p=>p.id!==project.id&&p.category===project.category),...sortedProjects.filter(p=>p.id!==project.id&&p.category!==project.category)].slice(0,3);
+      main.innerHTML=`<section aria-labelledby="detail-title"><div class="detail-topline"><a class="back-link" href="projects.html">${icon('left',14)} Back to Projects</a><div class="detail-labels"><span class="project-category">${esc(project.category)}</span><span class="status-pill">${esc(project.status)}</span></div></div><h1 class="detail-title" id="detail-title">${esc(project.title)}</h1><p class="detail-summary">${esc(project.description)}</p>
+      <div class="detail-gallery"><button class="detail-image-button" type="button" data-zoom-id="${esc(project.id)}" data-main-zoom aria-label="Enlarge ${esc(project.title)} image"><img id="detail-hero-image" data-image-project="${esc(project.id)}" src="${esc(pageImages[0])}" alt="${esc(project.title)} project preview" width="1200" height="800"></button><button class="gallery-zoom" type="button" data-zoom-id="${esc(project.id)}" data-main-zoom aria-label="Zoom project image">${icon('zoom',18)}</button><button class="gallery-arrow gallery-prev" type="button" data-main-step="-1" aria-label="Previous project image" ${pageImages.length<2?'hidden':''}>${icon('left',20)}</button><button class="gallery-arrow gallery-next" type="button" data-main-step="1" aria-label="Next project image" ${pageImages.length<2?'hidden':''}>${icon('right',20)}</button><span class="gallery-count" id="detail-gallery-count" aria-live="polite">1 / ${pageImages.length}</span></div><div class="gallery-thumbnails" id="detail-thumbnails" aria-label="Project images" ${pageImages.length<2?'hidden':''}>${pageImages.map((src,i)=>thumbnail(src,i,project,'data-main-index')).join('')}</div>
+      <div class="case-layout"><article class="overview-card reveal-item"><h2>Project Overview</h2><section><h3>The Project’s Background &amp; Problem</h3><p>${esc(c.background)}</p></section><section><h3>The Proposed Solution</h3><p>${esc(c.solution)}</p></section><section><h3>My Responsibilities &amp; Contributions</h3><p>${esc(c.contribution)}</p></section><section><h3>The Main Features</h3><ul>${c.features.map(item=>`<li><strong>${esc(item.title)}:</strong> ${esc(item.description)}</li>`).join('')}</ul></section><section><h3>The Technical Implementation</h3><ul>${technical}</ul></section><section><h3>Development Focus &amp; Challenges</h3><p>${esc(c.challenge)}</p></section><section><h3>The Final Outcome</h3><p>${esc(c.outcome)}</p></section></article>
+      <aside class="case-sidebar" aria-label="Project facts"><section class="fact-card"><h2 class="fact-label">Role</h2><p class="fact-value">${esc(project.role)}</p></section><section class="fact-card"><h2 class="fact-label">Timeline</h2><p class="fact-value">${esc(project.period)}</p></section><section class="fact-card"><h2 class="fact-label">Status</h2><p class="fact-value">${esc(project.status)}</p></section><section class="fact-card"><h2 class="fact-label">Skills</h2>${tags(project)}</section><section class="fact-card wide-fact"><h2 class="fact-label">Key Outcomes</h2>${bullets(project.highlights||[],'outcome-list')}</section>${externalLinks(project)?`<section class="fact-card wide-fact"><h2 class="fact-label">Project Links</h2><div class="card-actions">${externalLinks(project)}</div></section>`:''}</aside></div></section><section class="related-section" aria-labelledby="related-heading"><h2 class="related-heading" id="related-heading">RELATED PROJECTS</h2><div class="related-grid">${related.map(p=>card(p,true)).join('')}</div></section>`;
+    }
+  }
+  function thumbnail(src,index,project,attribute){return `<button type="button" class="gallery-thumbnail" ${attribute}="${index}" aria-label="Show image ${index+1}" aria-pressed="${index===0}"><img src="${esc(src)}" data-image-project="${esc(project.id)}" alt="" width="160" height="100" loading="lazy"></button>`;}
+  function setPageImage(index){
+    if(!pageImages.length)return;
+    pageImageIndex=(index+pageImages.length)%pageImages.length;
+    $('detail-hero-image').src=pageImages[pageImageIndex];$('detail-hero-image').alt=`${pageProject.title} — image ${pageImageIndex+1}`;
+    $('detail-gallery-count').textContent=`${pageImageIndex+1} / ${pageImages.length}`;
+    $('detail-thumbnails').querySelectorAll('[data-main-index]').forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.mainIndex)===pageImageIndex)));
+  }
+
+  // The only dialog on either page is the image gallery.
+  const lightbox=$('project-zoom');
+  let zoomProject=null,zoomImages=[],zoomIndex=0,lastZoomTrigger=null,savedOverflow='';
+  function renderZoom(index){
+    if(!zoomImages.length)return;
+    zoomIndex=(index+zoomImages.length)%zoomImages.length;
+    $('lightbox-image').dataset.imageProject=zoomProject.id;$('lightbox-image').src=zoomImages[zoomIndex];$('lightbox-image').alt=`${zoomProject.title} — image ${zoomIndex+1}`;
+    $('lightbox-count').textContent=`${zoomIndex+1} / ${zoomImages.length}`;
+    $('lightbox-prev').hidden=$('lightbox-next').hidden=zoomImages.length<2;
+    const thumbnails=$('lightbox-thumbnails');thumbnails.hidden=zoomImages.length<2;
+    thumbnails.innerHTML=zoomImages.length>1?zoomImages.map((src,i)=>thumbnail(src,i,zoomProject,'data-zoom-index')).join(''):'';
+    thumbnails.querySelectorAll('[data-zoom-index]').forEach(button=>button.setAttribute('aria-pressed',String(Number(button.dataset.zoomIndex)===zoomIndex)));
+    if(pageProject?.id===zoomProject.id)setPageImage(zoomIndex);
+  }
+  function openZoom(id,index,trigger){
+    const project=byId(id);if(!project)return;
+    zoomProject=project;zoomImages=imagesFor(project);lastZoomTrigger=trigger;
+    $('lightbox-title').textContent=project.title;renderZoom(index);
+    if(!lightbox.open){savedOverflow=document.documentElement.style.overflow;document.documentElement.style.overflow='hidden';lightbox.showModal();}
+  }
+  document.addEventListener('click',event=>{
+    const zoom=event.target.closest('[data-zoom-id]');
+    if(zoom){openZoom(zoom.dataset.zoomId,zoom.hasAttribute('data-main-zoom')?pageImageIndex:0,zoom);return;}
+    const mainStep=event.target.closest('[data-main-step]');if(mainStep){setPageImage(pageImageIndex+Number(mainStep.dataset.mainStep));return;}
+    const mainIndex=event.target.closest('[data-main-index]');if(mainIndex){setPageImage(Number(mainIndex.dataset.mainIndex));return;}
+    const zoomThumb=event.target.closest('[data-zoom-index]');if(zoomThumb)renderZoom(Number(zoomThumb.dataset.zoomIndex));
+  });
+  $('lightbox-close').addEventListener('click',()=>lightbox.close());
+  $('lightbox-prev').addEventListener('click',()=>renderZoom(zoomIndex-1));$('lightbox-next').addEventListener('click',()=>renderZoom(zoomIndex+1));
+  lightbox.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();renderZoom(zoomIndex+(event.key==='ArrowRight'?1:-1));}});
+  lightbox.addEventListener('click',event=>{if(event.target!==lightbox)return;const r=lightbox.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)lightbox.close();});
+  lightbox.addEventListener('close',()=>{document.documentElement.style.overflow=savedOverflow;if(lastZoomTrigger?.isConnected)lastZoomTrigger.focus();});
+  document.addEventListener('error',event=>{
+    const img=event.target;if(!(img instanceof HTMLImageElement))return;
+    if(img.classList.contains('tech-icon')){img.hidden=true;return;}
+    const project=byId(img.dataset.imageProject);if(project&&!img.src.startsWith('data:'))img.src=fallback(project);
+  },true);
+  const motion=matchMedia('(prefers-reduced-motion: reduce)');
+  const revealItems=[...main.querySelectorAll('.reveal-item')];
+  if(!motion.matches&&'IntersectionObserver' in window){
+    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(!entry.isIntersecting)return;const item=entry.target;observer.unobserve(item);item.classList.remove('pending-reveal');item.classList.add('enter-once');item.addEventListener('animationend',()=>item.classList.remove('enter-once'),{once:true});}),{threshold:.06});
+    revealItems.forEach(item=>{item.classList.add('pending-reveal');observer.observe(item);});
+    motion.addEventListener('change',event=>{if(event.matches){observer.disconnect();revealItems.forEach(item=>item.classList.remove('pending-reveal','enter-once'));}});
+  }
+})();
+
+</script>
+</body>
+</html>
